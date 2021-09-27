@@ -74,6 +74,7 @@
                     <span class="nav-link-text ms-1">User Profile</span>
                 </a>
             </li>
+            @if (Auth::user()->role == "admin")
             <li class="nav-item pb-2">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
                     href="{{ route('user-management') }}">
@@ -85,7 +86,9 @@
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>
             </li>
-
+            @else
+            @endif
+            
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Example pages</h6>
             </li>
@@ -269,9 +272,9 @@
                 </a>
             </li>
             <li class="nav-link mb-0">
-                <a href="https://www.creative-tim.com/product/soft-ui-dashboard-pro-laravel"
+                <a href="javascript:;"
                     class="btn btn-primary btn-md active px-5 text-white" target="_blank" role="button" aria-pressed="true">
-                    Upgrade to PRO</a>
+                    <livewire:auth.logout /></a>
             </li>
         </ul>
     </div>

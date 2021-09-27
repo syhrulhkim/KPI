@@ -27,9 +27,9 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         ID
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Photo
-                                    </th>
+                                    </th> --}}
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Name
                                     </th>
@@ -50,7 +50,10 @@
                             <tbody>
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                        @foreach ($users as $key => $user)
+                                        {{-- questions.push('Q{{$key + 1}}'); --}}
+                                        <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
+                                        @endforeach
                                     </td>
                                     <td>
                                         <div>
