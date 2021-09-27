@@ -103,6 +103,70 @@
                                   @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                               </div>
                               <div class="mb-3">
+                                <div class="@error('nostaff') border border-danger rounded-3 @enderror">
+                                    <input wire:model="nostaff" type="text" class="form-control" placeholder="No Staff"
+                                        aria-label="NoStaff" aria-describedby="email-addon">
+                                </div>
+                                @error('nostaff') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="mb-3">
+                                <div class="@error('unit') border border-danger rounded-3 @enderror">
+                                    <input wire:model="unit" type="text" class="form-control" placeholder="Unit"
+                                        aria-label="Unit" aria-describedby="email-addon">
+                                </div>
+                                @error('unit') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="mb-3">
+                                <div class="@error('position') border border-danger rounded-3 @enderror">
+                                        <select wire:model="position" name="position" id="position" class="form-control custom-select" data-placeholder="Choose Position" tabindex="1">
+                                            <option value="">-- Choose Position --</option>
+                                            <option value="volvo">Manager</option>
+                                            <option value="saab">Assistant Manager</option>
+                                            <option value="mercedes">Executives</option>
+                                            <option value="audi">NA</option>
+                                        </select>
+                                </div>
+                                @error('position') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="mb-3">
+                                <div class="@error('department') border border-danger rounded-3 @enderror">
+                                        <select wire:model="department" name="department" id="department" class="form-control custom-select" data-placeholder="Choose Department" tabindex="1">
+                                            <option value="">-- Choose Department --</option>
+                                            <option value="Sales">Sales</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="Corporate of Division">Corporate of Division (COD)</option>
+                                            <option value="Research & Development">Research & Development (R&D)</option>
+                                        </select>
+                                </div>
+                                @error('department') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                           
+                            <div class="mb-3">
+                                <div class="@error('grade') border border-danger rounded-3 @enderror">
+                                        <select wire:model="grade" name="grade" id="grade" class="form-control custom-select" data-placeholder="Choose Grade" tabindex="1">
+                                            <option value="">-- Choose Grade --</option>
+                                            <option value="sales">A01</option>
+                                            <option value="marketing">A02</option>
+                                            <option value="cod">A03</option>
+                                            <option value="r&d">A04</option>
+                                        </select>
+                                </div>
+                                @error('grade') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                            {{-- @if (Auth::user()->role == "Admin") --}}
+                            {{-- <div class="mb-3">
+                                <div class="@error('role') border border-danger rounded-3 @enderror">
+                                        <select wire:model="role" name="role" id="role" class="form-control custom-select" data-placeholder="Choose Role" tabindex="1">
+                                            <option value="">-- Choose Role --</option>
+                                            <option value="manager">Manager/Assistant Manager</option>
+                                            <option value="hr">Human Resource</option>
+                                        </select>
+                                </div>
+                                @error('role') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div> --}}
+                            {{-- @else
+                            @endif --}}
+                              <div class="mb-3">
                                   <div class="@error('password') border border-danger rounded-3 @enderror">
                                       <input wire:model="password" type="password" class="form-control"
                                           placeholder="Password" aria-label="Password"

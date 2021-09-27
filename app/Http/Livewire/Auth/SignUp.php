@@ -10,6 +10,12 @@ class SignUp extends Component
 {
     public $name = '';
     public $email = '';
+    public $nostaff = '';
+    public $position = '';
+    public $department = '';
+    public $unit = '';
+    public $grade = '';
+    public $role = '';
     public $password = '';
 
     protected $rules = [
@@ -29,6 +35,12 @@ class SignUp extends Component
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
+            'nostaff' => $this->nostaff,
+            'position' => $this->position,
+            'department' => $this->department,
+            'unit' => $this->unit,
+            'grade' => $this->grade,
+            'role' => 'employee',
             'password' => Hash::make($this->password)
         ]);
 

@@ -1,5 +1,5 @@
  <main>  
-    <div class="container-fluid py-4">
+    {{-- <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
@@ -267,17 +267,17 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <div class="row my-4">
         <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
           <div class="card">
             <div class="card-header pb-0">
               <div class="row">
                 <div class="col-lg-6 col-7">
-                  <h6>Projects</h6>
+                  <h6>Staff Details</h6>
                   <p class="text-sm mb-0">
                     <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">30 done</span> this month
+                    <span class="font-weight-bold ms-1">{{$userscount}} staffs</span> in this company
                   </p>
                 </div>
                 <div class="col-lg-6 col-5 my-auto text-end">
@@ -299,10 +299,14 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Companies</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Members</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Budget</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Completion</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Age</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                      {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Role</th> --}}
                     </tr>
                   </thead>
                   <tbody>
@@ -310,16 +314,22 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3">
+                            {{-- <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3"> --}}
+                            {{-- @foreach ($users as $user)
+                            <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->profile_picture}}</h6>
+                            @endforeach --}}
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Soft UI XD Version</h6>
+                            @foreach ($users as $user)
+                            <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->name}}</h6>
+                            @endforeach
+                            {{-- <h6 class="mb-0 text-sm">Soft UI XD Version</h6> --}}
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
+                        <div class="d-flex flex-column justify-content-center">
+                          {{-- <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
                             <img alt="Image placeholder" src="../assets/img/team-1.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
@@ -330,26 +340,57 @@
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
                             <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                          </a>
+                          </a> --}}
+                          @foreach ($users as $user)
+                            <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->position}}</h6>
+                            @endforeach
                         </div>
                       </td>
+                      <div class="d-flex flex-column justify-content-center">
                       <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> $14,000 </span>
+                        @foreach ($users as $user)
+                        <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->age}}</h6>
+                        @endforeach
                       </td>
-                      <td class="align-middle">
-                        <div class="progress-wrapper w-75 mx-auto">
-                          <div class="progress-info">
-                            <div class="progress-percentage">
-                              <span class="text-xs font-weight-bold">60%</span>
-                            </div>
-                          </div>
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td class="align-middle text-center text-sm">
+                        @foreach ($users as $user)
+                        <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->nostaff}}</h6>
+                        @endforeach
                       </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td class="align-middle text-center text-sm">
+                        @foreach ($users as $user)
+                        <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->department}}</h6>
+                        @endforeach
+                      </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td class="align-middle text-center text-sm">
+                        @foreach ($users as $user)
+                        <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->unit}}</h6>
+                        @endforeach
+                      </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td class="align-middle text-center text-sm">
+                        @foreach ($users as $user)
+                        <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->grade}}</h6>
+                        @endforeach
+                      </td>
+                    </div>
+                    {{-- <div class="d-flex flex-column justify-content-center">
+                      <td class="align-middle text-center text-sm">
+                        @foreach ($users as $user)
+                        <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->role}}</h6>
+                        @endforeach
+                      </td>
+                    </div> --}}
                     </tr>
-                    <tr>
+                  
+                    {{-- <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -385,8 +426,8 @@
                           </div>
                         </div>
                       </td>
-                    </tr>
-                    <tr>
+                    </tr> --}}
+                    {{-- <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -536,14 +577,14 @@
                           </div>
                         </div>
                       </td>
-                    </tr>
+                    </tr> --}}
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        {{-- <div class="col-lg-4 col-md-6">
           <div class="card h-100">
             <div class="card-header pb-0">
               <h6>Orders overview</h6>
@@ -611,7 +652,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </main>
