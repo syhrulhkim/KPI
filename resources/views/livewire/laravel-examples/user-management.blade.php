@@ -45,44 +45,62 @@
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
                                     </th>
+                                    {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Action
+                                    </th> --}}
                                 </tr>
                             </thead>
+                            @foreach ($users as $key => $user)
                             <tbody>
                                 <tr>
                                     <td class="ps-4">
-                                        @foreach ($users as $key => $user)
+                                       
                                         {{-- questions.push('Q{{$key + 1}}'); --}}
                                         <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                        @endforeach
+                                       
                                     </td>
                                     <td>
-                                        <div>
+                                        {{-- <div>
                                             <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
-                                        </div>
+                                        </div> --}}
+                                    
+                                         <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->name}}</p>
+                                  
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                      
+                                        <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->email}}</p>
+                                  
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
+                                      
+                                        <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->role}}</p>
+                             
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                   
+                                        <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->created_at}}</p>
+                                   
                                     </td>
-                                    <td class="text-center">
+                                    {{-- <td class="text-center">
                                         <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
-                                    </td>
+                                    </td> --}}
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
-                                        </a>
-                                        <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                        </span>
+                                 
+                                        <table style="border:none">
+                                            <tr>
+                                                <td style="border:none">
+                                                    <button type="button" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                </td>
+                                                <td style="border:none">
+                                                    <button type="button" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$user->id}}"><i class="cursor-pointer fas fa-trash text-secondary"></i></button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                   
                                     </td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0">2</p>
                                     </td>
@@ -205,7 +223,8 @@
                                             <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                         </span>
                                     </td>
-                                </tr>
+                                </tr> --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
