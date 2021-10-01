@@ -9,11 +9,11 @@ use App\Models\User;
 class Profile extends Component
 {   
     
-    public function index()
-    {
-        $user = \User::name();
-        return view('livewire.profile', ['user' => $name]);
-    }
+    // public function index()
+    // {
+    //     $user = \User::name();
+    //     return view('livewire.profile', ['user' => $name]);
+    // }
     public function render()
     {
         return view('livewire.profile');
