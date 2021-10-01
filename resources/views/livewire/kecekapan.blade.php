@@ -117,7 +117,7 @@
                                         <tr>
                                             <th rowspan="2">Peratus (%)</th>
                                             <th rowspan="2">Ukuran</th>
-                                            <th colspan="3">KPI Targets</th>
+                                            {{-- <th colspan="3">KPI Targets</th> --}}
                                             <th rowspan="2">Skor Pekerja</th>
                                             <th rowspan="2">Skor Penyelia</th>
                                             <th rowspan="2">Skor Sebenar</th>
@@ -149,7 +149,7 @@
                                             </select>
                                           </td>
 
-                                          <td class="font-weight-bold border-dark">
+                                          {{-- <td class="font-weight-bold border-dark">
                                             <input type="text" maxlength="4" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" min="0" >
                                           </td>
                                     
@@ -159,14 +159,14 @@
                                     
                                           <td class="font-weight-bold border-dark">
                                             <input type="text" maxlength="4" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" min="0" >
-                                          </td>
+                                          </td> --}}
                                     
                                           <td class="font-weight-bold border-dark">
                                             <input type="text" maxlength="4"  class="input_skor_pekerja w-75" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                                           </td>
-                                    
+                                          
                                           <td class="font-weight-bold border-dark">
-                                            <input type="text" class="form-control " id="skor_penyelia" name="skor_penyelia" value="0" readonly>
+                                            <input type="text" maxlength="4"  class="input_skor_penyelia w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
                                           </td>
                                     
                                           <td class="font-weight-bold border-dark">
