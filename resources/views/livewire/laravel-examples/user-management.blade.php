@@ -1,12 +1,14 @@
 <div>
-    <div class="alert alert-secondary mx-4" role="alert">
+@livewire('laravel-examples.user-management-form-wire')
+<div>
+    {{-- <div class="alert alert-secondary mx-4" role="alert">
         <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
             <strong>PRO</strong> feature!
             Click <strong><a href="https://demos.creative-tim.com/soft-ui-dashboard-laravel-pro/dashboard-default" target="_blank"
                     class="text-white">here</a></strong>
             to see the PRO
             product!</span>
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="col-12">
@@ -16,7 +18,7 @@
                         <div>
                             <h5 class="mb-0">All Users</h5>
                         </div>
-                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
+                        {{-- <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a> --}}
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -90,10 +92,10 @@
                                         <table style="border:none">
                                             <tr>
                                                 <td style="border:none">
-                                                    <button type="button" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                    <button type="button" wire:click="selectItem({{$user->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
                                                 </td>
                                                 <td style="border:none">
-                                                    <button type="button" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$user->id}}"><i class="cursor-pointer fas fa-trash text-secondary"></i></button>
+                                                    <button type="button" wire:click="selectItem({{$user->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$user->id}}"><i class="fas fa-trash-alt"></i></button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -233,4 +235,35 @@
         </div>
     </div>
 
+</div>
+@push('scripts')
+
+{{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
+<script>
+  document.addEventListener('livewire:load', function () {
+
+
+    $(document).on("click", ".data-delete", function (e) 
+        {
+            e.preventDefault();
+            swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                e.preventDefault();
+                Livewire.emit('delete')
+            } 
+            });
+        });
+
+  })
+</script>
+{{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
+
+@endpush
 </div>

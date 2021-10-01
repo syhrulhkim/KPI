@@ -68,20 +68,20 @@
 
                               <div class="row">
 
-                                  <div class="col-sm-4 pt-3 " >
-                                    <div class="mb-4">
-                                        <label class="font-weight-bold" >Fungsi</label>
-                                        <select  class="form-control form-control-sm" id="fungsi" name="fungsi">
-                                          <option selected value="">N/A</option>
-                                          <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
-                                          <option value="Kewangan" >Kewangan</option>
-                                          <option value="Pelanggan" >Pelanggan</option>
-                                          <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
-                                          <option value="Manusia & Proses" >Manusia & Proses</option> 
-                                          <option value="Kolaborasi" >Kolaborasi</option>
-                                      </select>
-                                    </div>
+                                <div class="col-sm-4 pt-3 " >
+                                  <div class="mb-4">
+                                      <label class="font-weight-bold" >Fungsi</label>
+                                      <select  class="form-control form-control-sm" id="fungsi" name="fungsi">
+                                        <option selected value="">N/A</option>
+                                        <option value="Kad Skor Korporat" >Kepimpinan </option>
+                                        <option value="Kewangan" >Perkembangan</option>
+                                        <option value="Pelanggan" >Keputusan</option>
+                                        <option value="Kecemerlangan Operasi" >Sumbangan</option> 
+                                        <option value="Manusia & Proses" >Rohani</option> 
+                                        <option value="Kolaborasi" >Keluarga</option>
+                                    </select>
                                   </div>
+                                </div>
 
                                   <div class="col-sm-4 pt-3 " >
                                     <div class="mb-4">
@@ -121,41 +121,45 @@
                                 <div class="table-responsive">
                                   <table class="table table-bordered text-center">
                                       <thead class="thead-dark">
-                                          <tr>
-                                              <th rowspan="2">Ukuran</th>
-                                              <th rowspan="2">Peratus (%)</th>
-                                              <th colspan="3">KPI Targets</th>
-                                              <th rowspan="2">Pencapaian</th>
-                                              <th rowspan="2">Skor KPI</th>
-                                              <th rowspan="2">Skor Sebenar</th>
-                                          </tr>
-                                          <tr>
-                                              <th scope="col" >Threshold</th>
-                                              <th scope="col" >Base</th>
-                                              <th scope="col" >Stretch</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
+                                        <tr>
+                                          <th rowspan="2">Peratus (%)</th>
+                                          <th rowspan="2">Ukuran</th>
+                                          <th colspan="3">KPI Targets</th>
+                                          <th rowspan="2">Pencapaian</th>
+                                          <th rowspan="2">Skor KPI</th>
+                                          <th rowspan="2">Skor Sebenar</th>
+                                      </tr>
+                                      <tr>
+                                          <th scope="col" >Threshold</th>
+                                          <th scope="col" >Base</th>
+                                          <th scope="col" >Stretch</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
 
-                                            <td style="word-break: break-all;" class="border-dark">
-                                              <select class="form-select form-select-sm" id="ukuran" name="ukuran">
-                                                <option selected disabled value=""></option>
-                                                <option value="N/A">N/A</option>
-                                                <option value="Quantity" >Quantity</option>
-                                                <option value="Ratio" >Ratio</option>
-                                                <option value="Rating" >Rating</option>
-                                                <option value="Percentage (%)" >Percentage(%)</option>  
-                                                <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
-                                                <option value="Month/Year"  >Month/Year</option> 
-                                                <option value="Quarter"  >Quarter</option>
-                                                <option value="Hours" >Hours</option> 
-                                                <option value="RM (billion)" >RM (billion)</option>
-                                                <option value="RM (million)" >RM (million)</option> 
-                                                <option value="RM (*000)" >RM (*000)</option>
-                                                <option value="KM/Miles" >KM/Miles</option>
-                                              </select>
-                                            </td>
+                                        <td class="font-weight-bold border-dark">
+                                          <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >
+                                        </td>
+
+                                        <td style="word-break: break-all;" class="border-dark">
+                                          <select class="form-select form-select-sm" id="ukuran" name="ukuran">
+                                            <option selected disabled value=""></option>
+                                            <option value="N/A">N/A</option>
+                                            <option value="Quantity" >Quantity</option>
+                                            <option value="Ratio" >Ratio</option>
+                                            <option value="Rating" >Rating</option>
+                                            <option value="Percentage (%)" >Percentage(%)</option>  
+                                            <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
+                                            <option value="Month/Year"  >Month/Year</option> 
+                                            <option value="Quarter"  >Quarter</option>
+                                            <option value="Hours" >Hours</option> 
+                                            <option value="RM (billion)" >RM (billion)</option>
+                                            <option value="RM (million)" >RM (million)</option> 
+                                            <option value="RM (*000)" >RM (*000)</option>
+                                            <option value="KM/Miles" >KM/Miles</option>
+                                          </select>
+                                        </td>
 
                                             <td class="font-weight-bold border-dark">
                                               <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >

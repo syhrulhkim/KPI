@@ -1,5 +1,5 @@
 {{-- @extends('staff/layout/staff_template') --}}
-@section('title','Staff | Master')
+{{-- @section('title','Staff | Master') --}}
 
 {{-- @section('content') --}}
 
@@ -58,7 +58,7 @@
                       <div class="card">
                           <div class="m-3">
 
-                          <form action="{{ route('pencapaian_save') }}" method="post">  
+                          <form action="{{ route('kpi_save') }}" method="post">  
                                   @csrf
 
                               <?php
@@ -73,8 +73,8 @@
                                         <label class="font-weight-bold" >Fungsi</label>
                                         <select  class="form-control form-control-sm" id="fungsi" name="fungsi">
                                           <option selected value="">N/A</option>
-                                          <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
-                                          <option value="Kewangan" >Kewangan</option>
+                                          {{-- <option value="Kad Skor Korporat" >Kad Skor Korporat</option> --}}
+                                          {{-- <option value="Kewangan" >Kewangan</option> --}}
                                           <option value="Pelanggan" >Pelanggan</option>
                                           <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
                                           <option value="Manusia & Proses" >Manusia & Proses</option> 
@@ -93,7 +93,7 @@
                                   <div class="col-sm-4 pt-3 " >
                                     <div class="mb-4">
                                         <label class="font-weight-bold " >Metrik / Bukti</label>
-                                        <br><textarea name="metrik" id="metrik" cols="30" rows="10"></textarea>
+                                        <br><textarea name="bukti" id="bukti" cols="30" rows="10"></textarea>
                                     </div>
                                   </div>
                                   
@@ -108,10 +108,10 @@
                                   <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                     <tr>
                                         <th class="w-25" >Gred : 
-                                            <input class="font-weight-bold w-50 btn-sm btn btn-outline-secondary ml-2" id="status" name="status" value="NO GRADE" readonly>
+                                            <input class="font-weight-bold w-50 btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="NO GRADE" readonly>
                                         </th>
-                                        <th class="w-25" >Overall Score : 
-                                            <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="overall" value="0" readonly>
+                                        <th class="w-25" >Total Score : 
+                                            <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="total_score" value="0" readonly>
                                         </th>
                                         <th class="w-25" >Total Weightage : 
                                             <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" readonly>
@@ -122,8 +122,8 @@
                                   <table class="table table-bordered text-center">
                                       <thead class="thead-dark">
                                           <tr>
-                                              <th rowspan="2">Ukuran</th>
                                               <th rowspan="2">Peratus (%)</th>
+                                              <th rowspan="2">Ukuran</th>
                                               <th colspan="3">KPI Targets</th>
                                               <th rowspan="2">Pencapaian</th>
                                               <th rowspan="2">Skor KPI</th>
@@ -137,6 +137,10 @@
                                       </thead>
                                       <tbody>
                                           <tr>
+
+                                            <td class="font-weight-bold border-dark">
+                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >
+                                            </td>
 
                                             <td style="word-break: break-all;" class="border-dark">
                                               <select class="form-select form-select-sm" id="ukuran" name="ukuran">
@@ -158,10 +162,6 @@
                                             </td>
 
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >
-                                            </td>
-
-                                            <td class="font-weight-bold border-dark">
                                               <input type="text" maxlength="4" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" min="0" >
                                             </td>
                                       
@@ -178,11 +178,11 @@
                                             </td>
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="total" name="total" value="0" readonly>
+                                              <input type="text" class="form-control " id="skor_KPI" name="skor_KPI" value="0" readonly>
                                             </td>
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text"  class="form-control"  id="score" name="score" value="0" readonly>
+                                              <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="0" readonly>
                                             </td>
 
 
