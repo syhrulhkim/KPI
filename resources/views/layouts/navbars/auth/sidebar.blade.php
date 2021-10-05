@@ -44,10 +44,9 @@
             @else
             @endif
 
+            @if (Auth::user()->role != "admin")
             <li class="nav-item mt-2">
-
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Profile</h6>
-
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-profile' ? 'active' : '' }}"
@@ -80,17 +79,13 @@
                     <span class="nav-link-text ms-1">User Profile</span>
                 </a>
             </li>
-            
-            
-            <li class="nav-item mt-2">
-
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Tables</h6>
-
-            </li>
             @else
             @endif
-
-            {{-- @if (Auth::user()->role != "admin")
+            
+            @if (Auth::user()->role != "admin")
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Tables</h6>
+            </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'kpi' ? 'active' : '' }}"
                     href="{{ route('kpi') }}">
@@ -119,16 +114,14 @@
                             </g>
                         </svg>
                     </div>
-
                     <span class="nav-link-text ms-1">KPI</span>
                 </a>
             </li>
             @else
-            @endif --}}
+            @endif
 
-            {{-- @if (Auth::user()->role != "admin")
+            @if (Auth::user()->role != "admin")
             <li class="nav-item">
-
                 <a class="nav-link {{ Route::currentRouteName() == 'kecekapan' ? 'active' : '' }}"
                     href="{{ route('kecekapan') }}">
                     <div
@@ -150,18 +143,19 @@
                                             <path class="color-foreground"
                                                 d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z"
                                                 id="Path"></path>
-
                                         </g>
                                     </g>
                                 </g>
                             </g>
                         </svg>
                     </div>
-
                     <span class="nav-link-text ms-1">Kecekapan</span>
                 </a>
             </li>
+            @else
+            @endif
 
+            @if (Auth::user()->role != "admin")
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'nilai' ? 'active' : '' }}"
                     href="{{ route('nilai') }}">
@@ -190,10 +184,11 @@
                             </g>
                         </svg>
                     </div>
-
                     <span class="nav-link-text ms-1">Nilai</span>
                 </a>
             </li>
+            @else
+            @endif
 
             @if (Auth::user()->role == "admin")
             <li class="nav-item mt-2 ">
@@ -202,7 +197,6 @@
             <li class="nav-item pb-2">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
                     href="{{ route('user-management') }}">
-
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
@@ -212,9 +206,7 @@
                 </a>
             </li>
             @else
-
             @endif
         </ul>
     </div>
-
 </aside>

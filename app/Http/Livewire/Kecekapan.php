@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Pencapaian;
+use App\Models\KPI;
 use App\Models\Bukti;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,9 +14,9 @@ class Kecekapan extends Component
 {
     public function master() {
 
-        $pencapaian = Pencapaian::latest()->get();
+        $kpi = KPI::latest()->get();
 
-        return view('staff.master', compact('pencapaian'));
+        return view('employee.master', compact('kpi'));
     }
 
     public function pencapaian_save(Request $request){
@@ -49,7 +49,7 @@ class Kecekapan extends Component
         ]);
 
 
-        Pencapaian::insert([
+        kpi::insert([
         
         'user_id'=> Auth::user()->id,
         'created_at'=> Carbon::now(),
@@ -137,7 +137,7 @@ class Kecekapan extends Component
             
         ]);
 
-        $update = Pencapaian::find($id)->update([
+        $update = KPI::find($id)->update([
 
             'user_id'=> Auth::user()->id,
             'created_at'=> Carbon::now(),
@@ -175,17 +175,17 @@ class Kecekapan extends Component
 
     public function pencapaian_delete($id) {
 
-        $delete = Pencapaian::find($id)->forceDelete();
+        $delete = KPI::find($id)->forceDelete();
 
         return redirect()->back()->with('message', 'Pencapaian Deleted Successfully');
     }
 
     public function bukti_main($id) {
 
-        $pencapaian = Pencapaian::find($id);
+        $kpi = KPI::find($id);
         $bukti = Bukti::find($id);
         
-        return view('staff.main_bukti' , compact('pencapaian', 'bukti') );
+        return view('staff.main_bukti' , compact('kpi', 'bukti') );
     }
 
 
