@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bukti extends Model
+class Pencapaian extends Model
 {
-    protected $table = 'buktis';
+    use HasFactory;
+
+    protected $table = 'pencapaians';
 
     protected $fillable = [
 
@@ -31,5 +33,4 @@ class Bukti extends Model
         'tahun',
         'bulan',
     ];
-
 }

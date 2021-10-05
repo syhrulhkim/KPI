@@ -44,9 +44,16 @@ Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-passwo
  
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
-Route::post('/staff/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
-Route::post('/staff/save/kecekapan',[Kecekapan::class, 'kecekapan_save'])->name('kecekapan_save');
-Route::post('/staff/save/nilai',[Nilai::class, 'nilai_save'])->name('nilai_save');
+Route::get('/employee/master',[MasterController::class, 'master'])->name('employee_master');
+
+Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
+Route::post('/employee/save/kecekapan',[Kecekapan::class, 'kecekapan_save'])->name('kecekapan_save');
+Route::post('/employee/save/nilai',[Nilai::class, 'nilai_save'])->name('nilai_save');
+
+Route::get('/employee/edit/{id}', [KPI::class, 'kpi_edit']);
+Route::post('/employee/update/{id}', [KPI::class, 'kpi_update']);
+Route::get('/employee/delete/{id}', [KPI::class, 'kpi_delete']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
@@ -65,4 +72,3 @@ Route::middleware('auth')->group(function () {
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 });
-

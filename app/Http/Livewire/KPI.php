@@ -1,11 +1,25 @@
 <?php
 
 namespace App\Http\Livewire;
+// namespace App\Models\KPI_;
 
+use App\Models\KPI_;
+use App\Models\Bukti;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Auth;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class KPI extends Component
 {
+    // public function master() {
+
+    //     $kpi = KPI_::latest()->get();
+
+    //     return view('employee.master', compact('kpi'));
+    // }
+
     public function kpi_save(Request $request){
 
         $validatedData = $request->validate([
@@ -28,7 +42,7 @@ class KPI extends Component
             
         ]);
 
-        KPI::insert([
+        KPI_::insert([
         
         'user_id'=> Auth::user()->id,
         'created_at'=> Carbon::now(),
@@ -59,27 +73,27 @@ class KPI extends Component
         
         ]);
 
-        Bukti::insert([
+        // Bukti::insert([
         
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
+        //     'user_id'=> Auth::user()->id,
+        //     'created_at'=> Carbon::now(),
+        //     'updated_at'=> Carbon::now(),
 
-            // TajuK Objektif - Bukti Form
-            'bukti'=> $request->bukti,
+        //     // TajuK Objektif - Bukti Form
+        //     'bukti'=> $request->bukti,
 
-        ]);
+        // ]);
 
         return redirect()->back()->with('message', 'Bukti berjaya ditambah!');
     } 
        
-    // public function kpi_edit($id) {
+    public function kpi_edit($id) {
 
-    //     $kpi = KPI::find($id);
+        $kpi = KPI_::find($id);
 
-    //     return view('employee.form_kpi' , compact('kpi'));
+        return view('livewire.form_kpi' , compact('kpi'));
 
-    // }
+    }
 
     public function kpi_update(Request $request, $id) {
 
@@ -103,7 +117,7 @@ class KPI extends Component
             
         ]);
 
-        $update = KPI::find($id)->update([
+        $update = KPI_::find($id)->update([
 
             'user_id'=> Auth::user()->id,
             'created_at'=> Carbon::now(),
@@ -141,51 +155,54 @@ class KPI extends Component
 
     public function kpi_delete($id) {
 
-        $delete = KPI::find($id)->forceDelete();
+        $delete = KPI_::find($id)->forceDelete();
 
         return redirect()->back()->with('message', 'KPI Deleted Successfully');
     }
 
-    public function bukti_main($id) {
+    // public function bukti_main($id) {
 
-        $kpi = KPI::find($id);
-        $bukti = Bukti::find($id);
+    //     $kpi = KPI_::find($id);
+    //     $bukti = Bukti::find($id);
         
-        return view('staff.main_bukti' , compact('kpi', 'bukti') );
-    }
+    //     return view('employee.main_bukti' , compact('kpi', 'bukti') );
+    // }
 
 
-    public function bukti_update(Request $request, $id) { 
+    // public function bukti_update(Request $request, $id) { 
 
-        $bukti = Bukti::find($id)->update([
+    //     $bukti = Bukti::find($id)->update([
 
-            'user_id'=> Auth::user()->id,
+    //         'user_id'=> Auth::user()->id,
 
-            'link'=> $request->link,
+    //         'link'=> $request->link,
 
-        ]);
+    //     ]);
 
-        return redirect()->back()->with('message', 'bukti Updated Successfully');
+    //     return redirect()->back()->with('message', 'bukti Updated Successfully');
 
-    }
+    // }
 
-    public function bukti_save(Request $request){
+    // public function bukti_save(Request $request){
      
-    Bukti::insert([
+    // Bukti::insert([
         
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
     
-            'bukti'=> $request->bukti,
+    //         'bukti'=> $request->bukti,
 
-            'link'=> $request->link,
+    //         'link'=> $request->link,
     
-        ]);
+    //     ]);
 
-    }
+    // }
         public function render()
     {
-        return view('livewire.kpi');
+        $kpi = KPI_::latest()->get();
+
+        return view('livewire.kpi', compact('kpi'));
+        // return view('livewire.kpi');
     }
 }
