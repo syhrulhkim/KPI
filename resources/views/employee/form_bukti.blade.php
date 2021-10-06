@@ -1,7 +1,7 @@
-@extends('staff/layout/staff_template')
+{{-- @extends('staff/layout/staff_template') --}}
 @section('title','Staff | Bukti')
 
-@section('content')
+{{-- @section('content') --}}
 
 <body>
 
@@ -50,10 +50,10 @@
   
 
                                 <label class="col-form-label font-weight-bold " style="font-size: 1rem;">Tahun :</label>
-                                <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="tahun" name="tahun" value="{{ $pencapaian->tahun }}" readonly> 
+                                <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="tahun" name="tahun" value="{{ $kpi->tahun }}" readonly> 
                                 
                                 <label class="col-form-label font-weight-bold ml-3" style="font-size: 1rem;">Bulan :</label>
-                                <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="bulan" name="bulan" value="{{ $pencapaian->bulan }}" readonly>     
+                                <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="bulan" name="bulan" value="{{ $kpi->bulan }}" readonly>     
                                 
                                 <form action="{{ route('bukti_main') }}" method="post">
                                   @csrf
@@ -65,7 +65,7 @@
                                         <div class="col-sm-3 pt-3 " >
                                             <div class="mb-4">
                                                 <label class="font-weight-bold " >Tajuk Bukti / Metrik</label>
-                                                <input class="font-weight-bold bg-light form-control" id="bukti" name="bukti" value="{{ $pencapaian->bukti }}" readonly> 
+                                                <input class="font-weight-bold bg-light form-control" id="bukti" name="bukti" value="{{ $kpi->bukti }}" readonly> 
                                             </div>
                                           </div>
                                       
@@ -173,4 +173,4 @@
     <script src="{{asset('js/form_bukti.js')}}"></script>
 
   </body>
-  @endsection
+  {{-- @endsection --}}
