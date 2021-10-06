@@ -163,7 +163,9 @@ class KPI extends Component
     public function bukti_main($id) {
 
         $kpi = KPI_::find($id);
+        // dd($id);
         $bukti = Bukti::find($id);
+        // dd($bukti);
         
         return view('employee.main_bukti' , compact('kpi', 'bukti') );
     }

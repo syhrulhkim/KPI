@@ -54,7 +54,7 @@
                                 <label class="col-form-label font-weight-bold ml-3" style="font-size: 1rem;">Bulan :</label>
                                 <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="bulan" name="bulan" value="{{ $kpi->bulan }}" readonly>     
                                 
-                                <form action="{{ url('staff/bukti/update/'.Auth::user()->id) }} / " method="post">   
+                                <form action="{{ url('employee/bukti/update/'.Auth::user()->id) }} / " method="post">   
                                   @csrf
                                 
                                     <div class="row">
@@ -114,7 +114,7 @@
                                   </table>
 
                                   <div class="pb-2">
-                                    <button type="button" class="btn btn-cancel" ><a href="{{ route('staff_master') }}"><i class="fas fa-arrow-alt-circle-left"></i> Kembali</a></button>
+                                    <button type="button" class="btn btn-cancel" ><a href="{{ route('employee_master') }}"><i class="fas fa-arrow-alt-circle-left"></i> Kembali</a></button>
                                     {{-- <a href="{{ url('staff/bukti/edit/'.$markah->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Tambah Bukti</a> --}}
                                     <button type="button" class="btn btn-add" data-toggle="modal" data-target="#tambah"><i class="fas fa-plus-square"></i> Tambah Bukti</button>
                                     <button type="submit" class="btn btn-hantar"><i class="fas fa-save"></i> Simpan Bukti</button>
