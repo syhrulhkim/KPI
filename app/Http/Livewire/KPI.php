@@ -13,12 +13,12 @@ use Livewire\Component;
 
 class KPI extends Component
 {
-    // public function master() {
+    public function kpi() {
 
-    //     $kpi = KPI_::latest()->get();
+        $kpi = KPI_::latest()->get();
 
-    //     return view('employee.master', compact('kpi'));
-    // }
+        return view('livewire.kpi', compact('kpi'));
+    }
 
     public function kpi_save(Request $request){
 
@@ -73,16 +73,16 @@ class KPI extends Component
         
         ]);
 
-        // Bukti::insert([
+        Bukti::insert([
         
-        //     'user_id'=> Auth::user()->id,
-        //     'created_at'=> Carbon::now(),
-        //     'updated_at'=> Carbon::now(),
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
 
-        //     // TajuK Objektif - Bukti Form
-        //     'bukti'=> $request->bukti,
+            // TajuK Objektif - Bukti Form
+            'bukti'=> $request->bukti,
 
-        // ]);
+        ]);
 
         return redirect()->back()->with('message', 'Bukti berjaya ditambah!');
     } 
@@ -149,7 +149,7 @@ class KPI extends Component
 
         ]);
 
-        return redirect()->route('employee_master')->with('message', 'KPI Updated Successfully');
+        return redirect()->route('kpi')->with('message', 'KPI Updated Successfully');
 
     }
 
@@ -160,44 +160,44 @@ class KPI extends Component
         return redirect()->back()->with('message', 'KPI Deleted Successfully');
     }
 
-    // public function bukti_main($id) {
+    public function bukti_main($id) {
 
-    //     $kpi = KPI_::find($id);
-    //     $bukti = Bukti::find($id);
+        $kpi = KPI_::find($id);
+        $bukti = Bukti::find($id);
         
-    //     return view('employee.main_bukti' , compact('kpi', 'bukti') );
-    // }
+        return view('employee.main_bukti' , compact('kpi', 'bukti') );
+    }
 
 
-    // public function bukti_update(Request $request, $id) { 
+    public function bukti_update(Request $request, $id) { 
 
-    //     $bukti = Bukti::find($id)->update([
+        $bukti = Bukti::find($id)->update([
 
-    //         'user_id'=> Auth::user()->id,
+            'user_id'=> Auth::user()->id,
 
-    //         'link'=> $request->link,
+            'link'=> $request->link,
 
-    //     ]);
+        ]);
 
-    //     return redirect()->back()->with('message', 'bukti Updated Successfully');
+        return redirect()->back()->with('message', 'bukti Updated Successfully');
 
-    // }
+    }
 
-    // public function bukti_save(Request $request){
+    public function bukti_save(Request $request){
      
-    // Bukti::insert([
+    Bukti::insert([
         
-    //         'user_id'=> Auth::user()->id,
-    //         'created_at'=> Carbon::now(),
-    //         'updated_at'=> Carbon::now(),
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
     
-    //         'bukti'=> $request->bukti,
+            'bukti'=> $request->bukti,
 
-    //         'link'=> $request->link,
+            'link'=> $request->link,
     
-    //     ]);
+        ]);
 
-    // }
+    }
         public function render()
     {
         $kpi = KPI_::latest()->get();

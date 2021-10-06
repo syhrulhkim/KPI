@@ -1,6 +1,6 @@
 // UI variables
 const perTotalUI = document.getElementById('percentage-total');
-const perColorUI = document.getElementById('status');
+const perColorUI = document.getElementById('grade');
 const perValidUI = document.getElementById('percentage-weightage');
 const appendAreaUI = document.querySelector('.append-area');
 const addButtonUI = document.getElementById('add');
@@ -64,11 +64,11 @@ addButtonUI.addEventListener('click', () => {
         </td>
   
         <td class="font-weight-bold border-dark">
-          <input type="text"  id="total-${counter}" class="form-control-sm w-100" name="total" value="0" readonly>
+          <input type="text"  id="total-${counter}" class="form-control-sm w-100" name="skor_KPI" value="0" readonly>
         </td>
   
         <td class="font-weight-bold border-dark">
-          <input type="text"  id="score-${counter}" class="form-control-sm w-100" name="score" value="0" readonly>
+          <input type="text"  id="score-${counter}" class="form-control-sm w-100" name="skor_sebenar" value="0" readonly>
         </td>
         
         <td class="font-weight-bold border-dark">
@@ -100,8 +100,8 @@ document.addEventListener('click', (e) => {
         document.querySelectorAll('.append-area tr#row-' + i + ' td input')[4].id = 'base-' + i;
         document.querySelectorAll('.append-area tr#row-' + i + ' td input')[5].id = 'stretch-' + i;
         document.querySelectorAll('.append-area tr#row-' + i + ' td input')[6].id = 'pencapaian-' + i;
-        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[7].id = 'total-' + i;
-        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[8].id = 'score-' + i;
+        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[7].id = 'skor_KPI-' + i;
+        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[8].id = 'skor_sebenar-' + i;
   
         document.querySelectorAll('.append-area tr td button')[i].id = i;
         document.querySelectorAll('.append-area tr td button i')[i].id = i;
@@ -138,23 +138,23 @@ document.addEventListener('click', (e) => {
       
       {
   
-        document.getElementById("total-" + i).value = 0;
-        document.getElementById("score-" + i).value = 0;
+        document.getElementById("skor_KPI-" + i).value = 0;
+        document.getElementById("skor_sebenar-" + i).value = 0;
   
       } else {
   
         // CONDITION ONE
         if (pencapaian <= threshold) {
   
-          rowTotal = document.getElementById("total-" + i).value = 0 ;
-          scoreTotal = document.getElementById("score-" + i).value = 0;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 0 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = 0;
   
           
   
         } else if (pencapaian >= stretch) {
   
-          rowTotal = document.getElementById("total-" + i).value = 100 ;
-          scoreTotal = document.getElementById("score-" + i).value = peratus ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 100 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = peratus ;
   
           
   
@@ -166,8 +166,8 @@ document.addEventListener('click', (e) => {
           KPIScore = ((( value1 / value2 ) * 35) + 30);
           ScoreSebenar = ((peratus / 100) * KPIScore);
   
-          rowTotal = document.getElementById("total-" + i).value = KPIScore ;
-          scoreTotal = document.getElementById("score-" + i).value = ScoreSebenar ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = KPIScore ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = ScoreSebenar ;
   
           
   
@@ -179,8 +179,8 @@ document.addEventListener('click', (e) => {
           KPIScore = ((( value1 / value2 ) * 35) + 65);
           ScoreSebenar = ((peratus / 100) * KPIScore);
   
-          rowTotal = document.getElementById("total-" + i).value = KPIScore ;
-          scoreTotal = document.getElementById("score-" + i).value = ScoreSebenar ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = KPIScore ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = ScoreSebenar ;
   
           
         } 
@@ -190,16 +190,16 @@ document.addEventListener('click', (e) => {
   
           ScoreSebenar = ((peratus / 100) * 30);
   
-          rowTotal = document.getElementById("total-" + i).value = 30 ;
-          scoreTotal = document.getElementById("score-" + i).value = ScoreSebenar ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 30 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = ScoreSebenar ;
   
         }
   
         // CONDITION THREE
         if (threshold >= base) {
   
-          rowTotal = document.getElementById("total-" + i).value = 0 ;
-          scoreTotal = document.getElementById("score-" + i).value = 0;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 0 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = 0;
    
         }
   
