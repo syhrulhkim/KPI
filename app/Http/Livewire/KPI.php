@@ -172,7 +172,7 @@ class KPI extends Component
 
 
     public function bukti_update(Request $request, $id) { 
-
+        // dd($request);
         $bukti = Bukti::find($id)->update([
 
             'user_id'=> Auth::user()->id,

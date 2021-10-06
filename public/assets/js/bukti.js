@@ -22,7 +22,7 @@ addButtonUI.addEventListener('click', () => {
     appendAreaUI.insertAdjacentHTML('beforeend', `
       <tr id="row-${counter}">
         <td style="word-break: keep-all;" class="border-dark">
-            <textarea rows="10  id="metrik-${counter}" name="metrik[]" ></textarea>
+            <textarea rows="10  id="bukti-${counter}" name="bukti[]" ></textarea>
         </td>
 
         <td class="border-dark">
@@ -64,11 +64,11 @@ addButtonUI.addEventListener('click', () => {
         </td>
   
         <td class="font-weight-bold border-dark">
-          <input type="text"  id="total-${counter}" class="form-control-sm w-100" name="skor_KPI" value="0" readonly>
+          <input type="text"  id="skor_KPI-${counter}" class="form-control-sm w-100" name="skor_KPI" value="0" readonly>
         </td>
   
         <td class="font-weight-bold border-dark">
-          <input type="text"  id="score-${counter}" class="form-control-sm w-100" name="skor_sebenar" value="0" readonly>
+          <input type="text"  id="skor_sebenar-${counter}" class="form-control-sm w-100" name="skor_sebenar" value="0" readonly>
         </td>
         
         <td class="font-weight-bold border-dark">
@@ -227,42 +227,42 @@ document.addEventListener('click', (e) => {
         if ( percentageTotal >= 80 ) {
   
           perColorUI.style.backgroundColor = "#9BC2E6" ;        
-          document.getElementsByName("status")[0].value = "PLATINUM";
+          document.getElementsByName("grade")[0].value = "PLATINUM";
   
         } else if ( percentageTotal >= 75 && percentageTotal <= 79 ) {
   
           perColorUI.style.backgroundColor = "#C6E0B4";
-          document.getElementsByName("status")[0].value = "HIGH GOLD";
+          document.getElementsByName("grade")[0].value = "HIGH GOLD";
   
         } else if ( percentageTotal >= 70 && percentageTotal <= 74.9 ) {
   
           perColorUI.style.backgroundColor = "#548235";
-          document.getElementsByName("status")[0].value = "MID GOLD";
+          document.getElementsByName("grade")[0].value = "MID GOLD";
   
         } else if ( percentageTotal >= 65 && percentageTotal <= 69.9 ) {
   
           perColorUI.style.backgroundColor = "#806000";
-          document.getElementsByName("status")[0].value = "LOW GOLD";
+          document.getElementsByName("grade")[0].value = "LOW GOLD";
   
         } else if ( percentageTotal >= 60 && percentageTotal <= 64.9 ) {
   
           perColorUI.style.backgroundColor = "#FFFF99";
-          document.getElementsByName("status")[0].value = "HIGH SILVER";
+          document.getElementsByName("grade")[0].value = "HIGH SILVER";
   
         } else if ( percentageTotal >= 50 && percentageTotal <= 59.9 ) {
   
           perColorUI.style.backgroundColor = "#FFFF00";
-          document.getElementsByName("status")[0].value = "LOW SILVER";
+          document.getElementsByName("grade")[0].value = "LOW SILVER";
   
         } else if ( percentageTotal >= 1 && percentageTotal <= 49.9 ) {
   
           perColorUI.style.backgroundColor = "#F4B084";
-          document.getElementsByName("status")[0].value = "BRONZE";
+          document.getElementsByName("grade")[0].value = "BRONZE";
   
         } else {
 
           perColorUI.style.backgroundColor = "#FFFFFF";  
-          document.getElementsByName("status")[0].value = "NO GRED";
+          document.getElementsByName("grade")[0].value = "NO GRED";
   
         }
   

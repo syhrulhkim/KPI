@@ -8,7 +8,7 @@ $(document).ready(function(){
           html += '<tr id="row'+i+'" class="dynamic-added">';
   
           html += '<td style="word-break: keep-all;" class="border-dark">';
-          html += '<textarea rows="10  id="metrik" name="metrik[]" ></textarea>';
+          html += '<textarea rows="10  id="bukti" name="bukti[]" ></textarea>';
           html += '</td>';
   
           html += '<td class="border-dark">';

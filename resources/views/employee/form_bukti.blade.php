@@ -65,7 +65,7 @@
                                         <div class="col-sm-3 pt-3 " >
                                             <div class="mb-4">
                                                 <label class="font-weight-bold " >Tajuk Bukti / Metrik</label>
-                                                <input class="font-weight-bold bg-light form-control" id="metrik" name="metrik" value="{{ $pencapaian->metrik }}" readonly> 
+                                                <input class="font-weight-bold bg-light form-control" id="bukti" name="bukti" value="{{ $pencapaian->bukti }}" readonly> 
                                             </div>
                                           </div>
                                       
@@ -112,10 +112,10 @@
                                     <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                       <tr>
                                           <th class="w-25" >Gred : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="status" name="status" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" readonly>
                                           </th>
                                           <th class="w-25" >Overall Score : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="overall" value="0" disabled>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="total_score" value="0" disabled>
                                           </th>
                                           <th class="w-25" >Total Weightage : 
                                               <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" readonly>

@@ -62,7 +62,7 @@
                                         <div class="col-sm-3 pt-3 " >
                                             <div class="mb-4">
                                                 <label class="font-weight-bold " >Tajuk Objektif</label>
-                                                <input class="font-weight-bold bg-light form-control form-control-sm" id="metrik" name="metrik" value="{{ $kpi->objektif }}" readonly> 
+                                                <input class="font-weight-bold bg-light form-control form-control-sm" id="bukti" name="bukti" value="{{ $kpi->objektif }}" readonly> 
                                             </div>
                                           </div>
 
@@ -102,10 +102,10 @@
                                     <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                       <tr>
                                           <th class="w-25" >Gred : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="status" name="status" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" readonly>
                                           </th>
                                           <th class="w-25" >Overall Score : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="overall" value="0" disabled>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="total_score" value="0" disabled>
                                           </th>
                                           <th class="w-25" >Total Weightage : 
                                               <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" readonly>
@@ -135,7 +135,7 @@
                                         <div class="modal-body">
                                           {{ $kpi->tahun }}
                                           {{ $bukti->id }}
-                                          <input type="text" class="form-control form-control-sm " id="basic-url" name="metrik" placeholder="Google Drive Link" value="{{ $bukti->metrik }}">
+                                          <input type="text" class="form-control form-control-sm " id="basic-url" name="bukti" placeholder="Google Drive Link" value="{{ $bukti->bukti }}">
                                           <input type="text" class="form-control form-control-sm " id="basic-url" name="link" placeholder="Google Drive Link" value="{{ $bukti->link }}">
                                         </div>
                                         <div class="modal-footer">
