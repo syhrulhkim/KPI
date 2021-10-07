@@ -149,6 +149,17 @@ class KPI extends Component
 
         ]);
 
+        // $bukti = Bukti::find($id)->update([
+        
+        //     'user_id'=> Auth::user()->id,
+        //     'created_at'=> Carbon::now(),
+        //     'updated_at'=> Carbon::now(),
+
+        //     // TajuK Objektif - Bukti Form
+        //     'metrik'=> $request->metrik,
+
+        // ]);
+
         return redirect()->route('kpi')->with('message', 'KPI Updated Successfully');
 
     }
@@ -172,34 +183,40 @@ class KPI extends Component
 
 
     public function bukti_update(Request $request, $id) { 
-        // dd($request);
+        // dd($id);
         Bukti::find($id)->update([
 
             'user_id'=> Auth::user()->id,
 
             'link'=> $request->link,
+            'bukti'=> $request->bukti,
 
         ]);
+        // $post->body = $request->input('body');
+        // $update = Bukti::find($id);
+        //     $update->user_id = Auth::user()->id;
+        //     $update->link = $request->input('link');
+        //     $update->bukti = $request->input('bukti');
 
         return redirect()->back()->with('message', 'bukti Updated Successfully');
 
     }
 
-    public function bukti_save(Request $request){
-     
-    Bukti::insert([
+    // public function bukti_save(Request $request){
+    //     // dd($request->bukti);
+    // Bukti::insert([
         
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
     
-            'bukti'=> $request->bukti,
-
-            'link'=> $request->link,
+    //         'bukti'=> $request->bukti,
+            
+    //         'link'=> $request->link,
     
-        ]);
+    //     ]);
 
-    }
+    // }
         public function render()
     {
         $kpi = KPI_::latest()->get();

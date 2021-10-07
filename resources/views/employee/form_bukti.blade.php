@@ -170,7 +170,8 @@
             </div>
         </form>
    <!-- Calculation JS -->
-    <script src="{{asset('js/form_bukti.js')}}"></script>
+    {{-- <script src="{{asset('js/form_bukti.js')}}"></script> --}}
+    <script src="{{asset('assets/js/form_bukti.js')}}"></script>
 
   </body>
   {{-- @endsection --}}

@@ -30,6 +30,7 @@ class Bukti extends Model
         'user_id',
         'tahun',
         'bulan',
+        'link',
     ];
 
 }

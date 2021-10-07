@@ -48,7 +48,7 @@ Route::get('/employee/master',[KPI::class, 'kpi'])->name('employee_master');
 // Route::get('/employee/master',[KPI::class, 'kpi'])->name('kpi');
 
 Route::get('/employee/bukti/edit/{id}',[KPI::class, 'bukti_main']);
-Route::post('/employee/save/bukti',[KPI::class, 'bukti_save'])->name('bukti_save');
+Route::post('/employee/bukti/save',[KPI::class, 'bukti_save'])->name('bukti_save');
 Route::post('/employee/bukti/update/{id}',[KPI::class, 'bukti_update']);
 
 Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
