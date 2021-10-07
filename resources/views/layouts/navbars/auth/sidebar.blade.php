@@ -44,7 +44,7 @@
             @else
             @endif
 
-            @if (Auth::user()->role != "admin")
+            @if (Auth::user()->role != "moderator")
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Profile</h6>
             </li>
@@ -82,7 +82,7 @@
             @else
             @endif
             
-            @if (Auth::user()->role != "admin")
+            @if (Auth::user()->role != "moderator")
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Tables</h6>
             </li>
@@ -120,7 +120,7 @@
             @else
             @endif
 
-            @if (Auth::user()->role != "admin")
+            @if (Auth::user()->role != "moderator")
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'kecekapan' ? 'active' : '' }}"
                     href="{{ route('kecekapan') }}">
@@ -155,7 +155,7 @@
             @else
             @endif
 
-            @if (Auth::user()->role != "admin")
+            @if (Auth::user()->role != "moderator")
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'nilai' ? 'active' : '' }}"
                     href="{{ route('nilai') }}">
@@ -190,7 +190,7 @@
             @else
             @endif
 
-            @if (Auth::user()->role == "admin")
+            @if ((Auth::user()->role == "moderator") && (Auth::user()->role == "admin"))
             <li class="nav-item mt-2 ">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Management</h6>
             </li>
