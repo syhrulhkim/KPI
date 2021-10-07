@@ -272,8 +272,8 @@
                         <td class="border-dark">{{ $markah -> created_at -> toDayDateTimeString() }}</td>
                         <td class="border-dark">{{ $markah -> updated_at -> toDayDateTimeString() }}</td>
                         <td class="border-dark">
-                          <a href="{{ url('employee/edit/'.$markah->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          <a href="{{ url('employee/bukti/edit/'.$markah->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a>
+                          <a href="{{ url('employee/edit/'.$markah->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/bukti/edit/'.$markah->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a>
                           <a href="{{ url('employee/delete/'.$markah->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
                         

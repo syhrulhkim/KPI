@@ -1,6 +1,6 @@
 // UI variables
 const perTotalUI = document.getElementById('percentage-total');
-const perColorUI = document.getElementById('status');
+const perColorUI = document.getElementById('grade');
 const perValidUI = document.getElementById('percentage-weightage');
 const appendAreaUI = document.querySelector('.append-area');
 const addButtonUI = document.getElementById('add');
@@ -22,7 +22,7 @@ addButtonUI.addEventListener('click', () => {
     appendAreaUI.insertAdjacentHTML('beforeend', `
       <tr id="row-${counter}">
         <td style="word-break: keep-all;" class="border-dark">
-            <textarea rows="10  id="metrik-${counter}" name="metrik[]" ></textarea>
+            <textarea rows="10  id="bukti-${counter}" name="bukti[]" ></textarea>
         </td>
 
         <td class="border-dark">
@@ -64,11 +64,11 @@ addButtonUI.addEventListener('click', () => {
         </td>
   
         <td class="font-weight-bold border-dark">
-          <input type="text"  id="total-${counter}" class="form-control-sm w-100" name="total" value="0" readonly>
+          <input type="text"  id="skor_KPI-${counter}" class="form-control-sm w-100" name="skor_KPI" value="0" readonly>
         </td>
   
         <td class="font-weight-bold border-dark">
-          <input type="text"  id="score-${counter}" class="form-control-sm w-100" name="score" value="0" readonly>
+          <input type="text"  id="skor_sebenar-${counter}" class="form-control-sm w-100" name="skor_sebenar" value="0" readonly>
         </td>
         
         <td class="font-weight-bold border-dark">
@@ -100,8 +100,8 @@ document.addEventListener('click', (e) => {
         document.querySelectorAll('.append-area tr#row-' + i + ' td input')[4].id = 'base-' + i;
         document.querySelectorAll('.append-area tr#row-' + i + ' td input')[5].id = 'stretch-' + i;
         document.querySelectorAll('.append-area tr#row-' + i + ' td input')[6].id = 'pencapaian-' + i;
-        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[7].id = 'total-' + i;
-        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[8].id = 'score-' + i;
+        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[7].id = 'skor_KPI-' + i;
+        document.querySelectorAll('.append-area tr#row-' + i + ' td input')[8].id = 'skor_sebenar-' + i;
   
         document.querySelectorAll('.append-area tr td button')[i].id = i;
         document.querySelectorAll('.append-area tr td button i')[i].id = i;
@@ -138,23 +138,23 @@ document.addEventListener('click', (e) => {
       
       {
   
-        document.getElementById("total-" + i).value = 0;
-        document.getElementById("score-" + i).value = 0;
+        document.getElementById("skor_KPI-" + i).value = 0;
+        document.getElementById("skor_sebenar-" + i).value = 0;
   
       } else {
   
         // CONDITION ONE
         if (pencapaian <= threshold) {
   
-          rowTotal = document.getElementById("total-" + i).value = 0 ;
-          scoreTotal = document.getElementById("score-" + i).value = 0;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 0 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = 0;
   
           
   
         } else if (pencapaian >= stretch) {
   
-          rowTotal = document.getElementById("total-" + i).value = 100 ;
-          scoreTotal = document.getElementById("score-" + i).value = peratus ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 100 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = peratus ;
   
           
   
@@ -166,8 +166,8 @@ document.addEventListener('click', (e) => {
           KPIScore = ((( value1 / value2 ) * 35) + 30);
           ScoreSebenar = ((peratus / 100) * KPIScore);
   
-          rowTotal = document.getElementById("total-" + i).value = KPIScore ;
-          scoreTotal = document.getElementById("score-" + i).value = ScoreSebenar ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = KPIScore ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = ScoreSebenar ;
   
           
   
@@ -179,8 +179,8 @@ document.addEventListener('click', (e) => {
           KPIScore = ((( value1 / value2 ) * 35) + 65);
           ScoreSebenar = ((peratus / 100) * KPIScore);
   
-          rowTotal = document.getElementById("total-" + i).value = KPIScore ;
-          scoreTotal = document.getElementById("score-" + i).value = ScoreSebenar ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = KPIScore ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = ScoreSebenar ;
   
           
         } 
@@ -190,16 +190,16 @@ document.addEventListener('click', (e) => {
   
           ScoreSebenar = ((peratus / 100) * 30);
   
-          rowTotal = document.getElementById("total-" + i).value = 30 ;
-          scoreTotal = document.getElementById("score-" + i).value = ScoreSebenar ;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 30 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = ScoreSebenar ;
   
         }
   
         // CONDITION THREE
         if (threshold >= base) {
   
-          rowTotal = document.getElementById("total-" + i).value = 0 ;
-          scoreTotal = document.getElementById("score-" + i).value = 0;
+          rowTotal = document.getElementById("skor_KPI-" + i).value = 0 ;
+          scoreTotal = document.getElementById("skor_sebenar-" + i).value = 0;
    
         }
   
@@ -227,42 +227,42 @@ document.addEventListener('click', (e) => {
         if ( percentageTotal >= 80 ) {
   
           perColorUI.style.backgroundColor = "#9BC2E6" ;        
-          document.getElementsByName("status")[0].value = "PLATINUM";
+          document.getElementsByName("grade")[0].value = "PLATINUM";
   
         } else if ( percentageTotal >= 75 && percentageTotal <= 79 ) {
   
           perColorUI.style.backgroundColor = "#C6E0B4";
-          document.getElementsByName("status")[0].value = "HIGH GOLD";
+          document.getElementsByName("grade")[0].value = "HIGH GOLD";
   
         } else if ( percentageTotal >= 70 && percentageTotal <= 74.9 ) {
   
           perColorUI.style.backgroundColor = "#548235";
-          document.getElementsByName("status")[0].value = "MID GOLD";
+          document.getElementsByName("grade")[0].value = "MID GOLD";
   
         } else if ( percentageTotal >= 65 && percentageTotal <= 69.9 ) {
   
           perColorUI.style.backgroundColor = "#806000";
-          document.getElementsByName("status")[0].value = "LOW GOLD";
+          document.getElementsByName("grade")[0].value = "LOW GOLD";
   
         } else if ( percentageTotal >= 60 && percentageTotal <= 64.9 ) {
   
           perColorUI.style.backgroundColor = "#FFFF99";
-          document.getElementsByName("status")[0].value = "HIGH SILVER";
+          document.getElementsByName("grade")[0].value = "HIGH SILVER";
   
         } else if ( percentageTotal >= 50 && percentageTotal <= 59.9 ) {
   
           perColorUI.style.backgroundColor = "#FFFF00";
-          document.getElementsByName("status")[0].value = "LOW SILVER";
+          document.getElementsByName("grade")[0].value = "LOW SILVER";
   
         } else if ( percentageTotal >= 1 && percentageTotal <= 49.9 ) {
   
           perColorUI.style.backgroundColor = "#F4B084";
-          document.getElementsByName("status")[0].value = "BRONZE";
+          document.getElementsByName("grade")[0].value = "BRONZE";
   
         } else {
 
           perColorUI.style.backgroundColor = "#FFFFFF";  
-          document.getElementsByName("status")[0].value = "NO GRED";
+          document.getElementsByName("grade")[0].value = "NO GRED";
   
         }
   

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bukti extends Model
 {
-    protected $table = 'buktis';
+    protected $table = 'bukti';
 
     protected $fillable = [
 
@@ -30,6 +30,7 @@ class Bukti extends Model
         'user_id',
         'tahun',
         'bulan',
+        'link',
     ];
 
 }
