@@ -2,7 +2,7 @@
 @section('title','Staff | Bukti')
 
 {{-- @section('content') --}}
-
+{{dd('john')}}
 <body>
 
     <div class="wrapper">
