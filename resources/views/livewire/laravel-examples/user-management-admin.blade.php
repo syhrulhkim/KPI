@@ -1,5 +1,5 @@
 <div>
-    @livewire('laravel-examples.user-management-form-wire')
+    @livewire('laravel-examples.user-management-admin-form-wire')
     <div>
         {{-- <div class="alert alert-secondary mx-4" role="alert">
             <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a

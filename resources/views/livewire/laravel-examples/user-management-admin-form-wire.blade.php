@@ -43,7 +43,7 @@
                                 <label class="control-label" style="font-weight:500">Role</label>
                                 <select wire:model="role" name="role" id="role" class="form-control custom-select" data-placeholder="Choose a Role" tabindex="1">
                                     <option value="">-- Choose a Role --</option>
-                                    {{-- <option value="admin">Admin</option> --}}
+                                    <option value="admin">Admin</option>
                                     <option value="manager">Moderator</option>
                                     <option value="hr">HR</option>
                                     <option value="manager">Manager</option>

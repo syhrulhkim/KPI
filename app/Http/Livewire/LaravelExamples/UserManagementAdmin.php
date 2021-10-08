@@ -4,7 +4,7 @@ namespace App\Http\Livewire\LaravelExamples;
 use App\Models\User;
 use Livewire\Component;
 
-class UserManagement extends Component
+class UserManagementAdmin extends Component
 {
     
     public $id_user;
@@ -41,12 +41,12 @@ class UserManagement extends Component
     public function render()
     {
         // $users = User::orderBy('created_at','desc')->get();
-        $users = User::where('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderaor')->get();
+        $users = User::where('role', 'admin')->orWhere('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderaor')->get();
         $employees = User::where('role', 'employee')->get();
         // dd( $users);
         // $attemptQuizzes = AttemptQuiz::where( [[ 'id_createquizzes', '=', $this->id_createquizzes ], ['id_question', '=', $question->id], ['status_answer', '=', '1']] )->get();
         $userscount = $users->count();
 
-        return view('livewire.laravel-examples.user-management')->with(compact('userscount', 'users', 'employees'));
+        return view('livewire.laravel-examples.user-management-admin')->with(compact('userscount', 'users', 'employees'));
     }
 }
