@@ -123,7 +123,7 @@
             @else
             @endif
 
-            @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
+            {{-- @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'kad-skor-korporat' ? 'active' : '' }}"
                     href="{{ route('kad-skor-korporat') }}">
@@ -156,7 +156,7 @@
                 </a>
             </li>
             @else
-            @endif
+            @endif --}}
 
             @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
             <li class="nav-item">
