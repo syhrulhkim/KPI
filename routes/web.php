@@ -17,6 +17,8 @@ use App\Http\Livewire\TahapKepuasanPelanggan;
 use App\Http\Livewire\OfiNcr;
 
 use App\Http\Livewire\KPI;
+use App\Http\Livewire\KadSkorKorporat;
+
 use App\Http\Livewire\Kecekapan;
 use App\Http\Livewire\Nilai;
 
@@ -69,6 +71,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
 
     Route::get('/kpi', KPI::class)->name('kpi');
+    Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
+
     Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
     Route::get('/nilai', Nilai::class)->name('nilai');
 

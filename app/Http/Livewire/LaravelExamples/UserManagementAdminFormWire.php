@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\LaravelExamples;
-
+use App\Models\User;
 use Livewire\Component;
 
 class UserManagementAdminFormWire extends Component
