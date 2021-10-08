@@ -3,7 +3,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
+        <a class="navbar-brand m-0" href="{{ route('firstpage') }}">
             <img src="../assets/img/logo.png" class="navbar-brand-img h-100" alt="...">
             <span class="ms-1 font-weight-bold">Momentum Internet</span>
         </a>
@@ -125,8 +125,8 @@
 
             @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'kpi' ? 'active' : '' }}"
-                    href="{{ route('kpi') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'kad-skor-korporat' ? 'active' : '' }}"
+                    href="{{ route('kad-skor-korporat') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -403,7 +403,7 @@
             @else
             @endif
 
-            @if ((Auth::user()->role == "moderator") || (Auth::user()->role == "admin"))
+            @if (Auth::user()->role == "moderator")
             <li class="nav-item mt-2 ">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Management</h6>
             </li>
@@ -414,6 +414,24 @@
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">User Management</span>
+                </a>
+            </li>
+            @else
+            @endif
+
+            @if (Auth::user()->role == "admin")
+            <li class="nav-item mt-2 ">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Management</h6>
+            </li>
+            <li class="nav-item pb-2">
+                <a class="nav-link {{ Route::currentRouteName() == 'user-management-admin' ? 'active' : '' }}"
+                    href="{{ route('user-management-admin') }}">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
+                        {{ in_array(request()->route()->getName(),['user-management-admin']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>

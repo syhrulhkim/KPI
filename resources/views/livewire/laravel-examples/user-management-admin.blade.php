@@ -1,5 +1,5 @@
 <div>
-    @livewire('laravel-examples.user-management-form-wire')
+    @livewire('laravel-examples.user-management-admin-form-wire')
     <div>
         {{-- <div class="alert alert-secondary mx-4" role="alert">
             <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
@@ -308,7 +308,9 @@
                                                     </td>
                                                     <td style="border:none">
                                                         <button type="button" wire:click="selectItem({{$employee->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$employee->id}}"><i class="fas fa-trash-alt"></i></button>
+                                                        {{-- {{dd($employee->id)}}; --}}
                                                     </td>
+                                                    
                                                 </tr>
                                             </table>
                                        
@@ -328,6 +330,7 @@
     
     {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
     <script>
+        // console.log('john');
       document.addEventListener('livewire:load', function () {
     
     

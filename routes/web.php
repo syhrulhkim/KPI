@@ -7,6 +7,7 @@ use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Firstpage;
 use App\Http\Livewire\Billing;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\StaticSignIn;
@@ -16,11 +17,14 @@ use App\Http\Livewire\TahapKepuasanPelanggan;
 use App\Http\Livewire\OfiNcr;
 
 use App\Http\Livewire\KPI;
+use App\Http\Livewire\KadSkorKorporat;
+
 use App\Http\Livewire\Kecekapan;
 use App\Http\Livewire\Nilai;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
+use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
 
 use Illuminate\Http\Request;
 
@@ -62,10 +66,13 @@ Route::get('/employee/delete/{id}', [KPI::class, 'kpi_delete']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/firstpage', Firstpage::class)->name('firstpage');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
 
     Route::get('/kpi', KPI::class)->name('kpi');
+    Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
+
     Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
     Route::get('/nilai', Nilai::class)->name('nilai');
 
@@ -76,4 +83,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/ofi-ncr', OfiNcr::class)->name('ofi-ncr');
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+    Route::get('/laravel-user-management-admin', UserManagementAdmin::class)->name('user-management-admin');
 });
