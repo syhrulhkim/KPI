@@ -258,7 +258,9 @@
                   </tr>
                 </thead>
                 <tbody >
-                    <!-- Display Body --> 
+                    <!-- Display Body -->
+                    {{-- {{dd($kpi)}}; --}}
+                    {{-- @if (auth()->user()->id == $kpi->user_id)  --}}
                     @php($i = 1)
                     @foreach ($kpi as $markah)
                       
@@ -280,6 +282,8 @@
                     </tr>
 
                     @endforeach
+                    {{-- @else
+                    @endif --}}
                 </tbody> 
             </table>
           </div>

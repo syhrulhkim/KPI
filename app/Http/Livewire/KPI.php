@@ -219,7 +219,9 @@ class KPI extends Component
     // }
         public function render()
     {
-        $kpi = KPI_::latest()->get();
+        $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // dd($kpi);
+        // $courses = Course::orderBy('created_at','desc')->get();
 
         return view('livewire.kpi', compact('kpi'));
         // return view('livewire.kpi');
