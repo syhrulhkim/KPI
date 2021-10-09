@@ -17,6 +17,8 @@ use App\Http\Livewire\TahapKepuasanPelanggan;
 use App\Http\Livewire\OfiNcr;
 
 use App\Http\Livewire\KPI;
+use App\Http\Livewire\Displaykpi;
+// use App\Http\Livewire\Createkpi;
 // use App\Http\Livewire\KadSkorKorporat;
 
 use App\Http\Livewire\Kecekapan;
@@ -70,7 +72,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
 
-    Route::get('/kpi', KPI::class)->name('kpi');
+    Route::get('/create-kpi', KPI::class)->name('create-kpi');
+    Route::get('/display-kpi', Displaykpi::class)->name('display-kpi');
     // Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
 
     Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');

@@ -17,7 +17,7 @@ class KPI extends Component
 
         $kpi = KPI_::latest()->get();
 
-        return view('livewire.kpi', compact('kpi'));
+        return view('livewire.create-kpi', compact('kpi'));
     }
 
     public function kpi_save(Request $request){
