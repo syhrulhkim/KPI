@@ -1,3 +1,4 @@
+
 <x-layouts.base>
     {{-- If the user is authenticated --}}
     @auth()
