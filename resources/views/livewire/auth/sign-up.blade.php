@@ -120,10 +120,10 @@
                                 <div class="@error('position') border border-danger rounded-3 @enderror">
                                         <select wire:model="position" name="position" id="position" class="form-control custom-select" data-placeholder="Choose Position" tabindex="1">
                                             <option value="">-- Choose Position --</option>
-                                            <option value="volvo">Manager</option>
-                                            <option value="saab">Assistant Manager</option>
-                                            <option value="mercedes">Executives</option>
-                                            <option value="audi">NA</option>
+                                            <option value="manager">Manager</option>
+                                            <option value="asstmanager">Assistant Manager</option>
+                                            <option value="executives">Executives(E)</option>
+                                            <option value="non-executives">Non-Executives(NE)</option>
                                         </select>
                                 </div>
                                 @error('position') <div class="text-danger">{{ $message }}</div> @enderror
@@ -134,8 +134,9 @@
                                             <option value="">-- Choose Department --</option>
                                             <option value="Sales">Sales</option>
                                             <option value="Marketing">Marketing</option>
-                                            <option value="Corporate of Division">Corporate of Division (COD)</option>
-                                            <option value="Research & Development">Research & Development (R&D)</option>
+                                            <option value="COD">Corporate of Division (COD)</option>
+                                            <option value="Operation">Operation</option>
+                                            <option value="R&D">Research & Development (R&D)</option>
                                         </select>
                                 </div>
                                 @error('department') <div class="text-danger">{{ $message }}</div> @enderror
