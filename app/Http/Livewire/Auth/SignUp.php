@@ -26,7 +26,7 @@ class SignUp extends Component
 
     public function mount() {
         if(auth()->user()){
-            redirect('/dashboard');
+            redirect('/firstpage');
         }
     }
 
@@ -46,7 +46,7 @@ class SignUp extends Component
 
         auth()->login($user);
 
-        return redirect('/dashboard');
+        return redirect('/firstpage');
     }
 
     public function render()

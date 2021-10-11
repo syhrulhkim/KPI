@@ -1,3 +1,4 @@
+
 <x-layouts.base>
     {{-- If the user is authenticated --}}
     @auth()
@@ -48,5 +49,26 @@
             </div>
         @endif
     @endguest
+
+    @livewireScripts
+    <!--JQuery -->
+    <script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="{{ url('assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ url('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!--Wave Effects -->
+    <script src="{{ url('assets/plugins/waves.js') }}"></script>
+    <!--Menu sidebar -->
+    <script src="{{ url('assets/plugins/sidebarmenu.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ url('assets/plugins/custom.min.js') }}"></script>
+    <!-- Sweet alert -->
+    <script src="{{asset('js/plugins/sweetalert/sweetalert2.min.js')}}"></script>
+    <script src="{{asset('js/plugins/sweetalert/sweetalert.min.js')}}"></script>
+    
+    <!-- Magnific popup JavaScript -->
+    <script src="{{url('assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{url('assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js')}}"></script>
+    @stack('scripts')
 
 </x-layouts.base>

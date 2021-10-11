@@ -7,6 +7,7 @@ use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\DashboardManager;
 use App\Http\Livewire\Firstpage;
 use App\Http\Livewire\Billing;
 use App\Http\Livewire\Profile;
@@ -68,6 +69,7 @@ Route::get('/employee/delete/{id}', [KPI::class, 'kpi_delete']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/dashboard-manager', DashboardManager::class)->name('dashboard-manager');
     Route::get('/firstpage', Firstpage::class)->name('firstpage');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
