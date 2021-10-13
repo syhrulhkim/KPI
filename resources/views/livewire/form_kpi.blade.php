@@ -1,5 +1,5 @@
 {{-- @extends('staff/layout/staff_template') --}}
-@section('title','Staff | Pencapaian')
+{{-- @section('title','Staff | Pencapaian') --}}
 
 {{-- @section('content') --}}
 
@@ -40,7 +40,7 @@
               <span class="text-danger">Sila semak semula butiran pencapaian</span>
             </div>
             @enderror
-z
+
 
              <!-- Pencapaian Content  -->
 
@@ -52,7 +52,7 @@ z
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('staff/update/'.$kpi->id) }}" method="post">  
+                            <form action="{{ url('employee/update/'.$kpi->id) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -195,7 +195,7 @@ z
   
                                 <div class="p-3" style="text-align: right">
                                   <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
-                                  {{-- <button type="button" class="btn btn-cancel" ><a href="{{ route('staff_master') }}"><i class="fas fa-window-close"></i> Batal</a></button>                         --}}
+                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kpi') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
   
                               </div>

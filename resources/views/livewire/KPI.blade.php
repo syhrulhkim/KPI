@@ -1,4 +1,4 @@
-{{-- @extends('staff/layout/staff_template') --}}
+@extends('layouts/employee_template')
 {{-- @section('title','Staff | Master') --}}
 
 {{-- @section('content') --}}
