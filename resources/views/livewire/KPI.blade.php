@@ -3,6 +3,13 @@
 
 {{-- @section('content') --}}
 
+{{-- @foreach ($users as $object)
+    {{ $object->role }}
+    {{dd($object->role)}}
+@endforeach --}}
+{{-- {{dd($users)}} --}}
+{{-- {{dd($employees)}} --}}
+{{-- {{dd(auth()->user())}} --}}
 <body>
 
   <div class="wrapper">
@@ -104,10 +111,24 @@
                                         <option selected value="">N/A</option>
                                         {{-- <option value="Kad Skor Korporat" >Kad Skor Korporat</option> --}}
                                         {{-- <option value="Kewangan" >Kewangan</option> --}}
+                                        
+                                        {{-- @if ($users2->position != 'Junior Non-Executive (NE1)' || $users2->position != 'Senior Non-Executive (NE2)')
+                                        <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
+                                        @else
+                                            
+                                        @endif --}}
+                                        {{-- @foreach ($Question->answer as $answer) --}}
+                                        @foreach ($users as $user)
+                                        @if ($user->id == Auth::user()->id)
+                                        @else
+                                        <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
+                                        @endif
+                                        <option value="Kewangan" >Kewangan</option>
                                         <option value="Pelanggan" >Pelanggan</option>
                                         <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
                                         <option value="Manusia & Proses" >Manusia & Proses</option> 
                                         <option value="Kolaborasi" >Kolaborasi</option>
+                                        @endforeach
                                     </select>
                                   </div>
                                 </div>
