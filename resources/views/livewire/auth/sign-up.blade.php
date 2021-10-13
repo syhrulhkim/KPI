@@ -151,6 +151,17 @@
                                 </div>
                                 @error('department') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
+
+                            <div class="mb-3">
+                                <div class="@error('hr') border border-danger rounded-3 @enderror">
+                                        <select wire:model="hr" name="hr" id="hr" class="form-control custom-select" data-placeholder="Are you HR ?" tabindex="1">
+                                            <option value="">-- Are you HR ? --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                </div>
+                                @error('hr') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
                            
                             {{-- <div class="mb-3">
                                 <div class="@error('grade') border border-danger rounded-3 @enderror">

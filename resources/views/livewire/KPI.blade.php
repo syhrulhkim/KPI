@@ -124,9 +124,16 @@
                                         <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
                                         @endif
                                         <option value="Kewangan" >Kewangan</option>
-                                        <option value="Pelanggan" >Pelanggan</option>
+                                        @foreach ($hrs as $hr)
+                                        @if ($hr->id == Auth::user()->id)
+                                        <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
+                                        @else
+                                        @endif
+                                        @endforeach
+                                        <option value="Pelanggan (Outer)" >Pelanggan (Outer)</option>
                                         <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
-                                        <option value="Manusia & Proses" >Manusia & Proses</option> 
+                                        <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
+                                        <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
                                         <option value="Kolaborasi" >Kolaborasi</option>
                                         @endforeach
                                     </select>

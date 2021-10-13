@@ -267,6 +267,7 @@ class KPI extends Component
         $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
         // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id);
         $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
+        $hrs = User::Where('hr' , 'yes')->get();
         // $users2 = User::where('id', '=', auth()->user()->id)->get();
         // $employees = User::where('role', 'employee')->get();
         // $users->(where(function ($query) {
@@ -280,7 +281,7 @@ class KPI extends Component
         // dd($kpi);
         // $courses = Course::orderBy('created_at','desc')->get();
 
-        return view('livewire.kpi', compact('kpi', 'users'));
+        return view('livewire.kpi', compact('kpi', 'users', 'hrs'));
         // return view('livewire.kpi');
     }
 }

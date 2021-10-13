@@ -566,7 +566,7 @@ class ComposerStaticInit5c0e788950820424afe6c376e1abeeee
         'App\\Models\\Bukti' => __DIR__ . '/../..' . '/app/Models/Bukti.php',
         'App\\Models\\Displaykpi_' => __DIR__ . '/../..' . '/app/Models/Displaykpi_.php',
         'App\\Models\\KPI_' => __DIR__ . '/../..' . '/app/Models/KPI_.php',
-        'App\\Models\\Kecekapan' => __DIR__ . '/../..' . '/app/Models/Kecekapan.php',
+        'App\\Models\\Kecekapan_' => __DIR__ . '/../..' . '/app/Models/Kecekapan_.php',
         'App\\Models\\Nilai' => __DIR__ . '/../..' . '/app/Models/Nilai.php',
         'App\\Models\\Pencapaian' => __DIR__ . '/../..' . '/app/Models/Pencapaian.php',
         'App\\Models\\Penilaian' => __DIR__ . '/../..' . '/app/Models/Penilaian.php',

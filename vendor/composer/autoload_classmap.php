@@ -45,7 +45,7 @@ return array(
     'App\\Models\\Bukti' => $baseDir . '/app/Models/Bukti.php',
     'App\\Models\\Displaykpi_' => $baseDir . '/app/Models/Displaykpi_.php',
     'App\\Models\\KPI_' => $baseDir . '/app/Models/KPI_.php',
-    'App\\Models\\Kecekapan' => $baseDir . '/app/Models/Kecekapan.php',
+    'App\\Models\\Kecekapan_' => $baseDir . '/app/Models/Kecekapan_.php',
     'App\\Models\\Nilai' => $baseDir . '/app/Models/Nilai.php',
     'App\\Models\\Pencapaian' => $baseDir . '/app/Models/Pencapaian.php',
     'App\\Models\\Penilaian' => $baseDir . '/app/Models/Penilaian.php',
