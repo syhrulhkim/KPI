@@ -14,7 +14,8 @@ class SignUp extends Component
     public $position = '';
     public $department = '';
     public $unit = '';
-    public $grade = '';
+    // public $grade = '';
+    public $hr = '';
     public $role = '';
     public $password = '';
 
@@ -39,7 +40,8 @@ class SignUp extends Component
             'position' => $this->position,
             'department' => $this->department,
             'unit' => $this->unit,
-            'grade' => $this->grade,
+            'hr' => $this->hr,
+            // 'grade' => $this->grade,
             'role' => 'employee',
             'password' => Hash::make($this->password)
         ]);

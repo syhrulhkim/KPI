@@ -86,11 +86,28 @@
                                       <div class="col-sm-6 pt-3" >
                                           <label class="font-weight-bold" >Bukti terperinci dalam satu fail.</label>
                                               <div class="input-group mb-4">
-                                                  <div class="input-group-prepend">
+                                                  {{-- <div class="input-group-prepend">
                                                       <span class="input-group-text" id="basic-addon3"><i class="fas fa-link"></i></span>
-                                                  </div>
+                                                  </div> --}}
                                                   {{-- <input type="url" class="form-control form-control-sm " id="basic-url" name="link" placeholder="Google Drive Link" value="{{ $bukti->link }}"> --}}
-                                                  
+                                                  <div class="col-md-4" id="fileupload">
+                                                    <div class="form-group">
+                                                        <label class="control-label" style="font-weight:500">file Upload</label>
+                                                        <div
+                                                            x-data="{ isUploading: false, progress: 0 }"
+                                                            x-on:livewire-upload-start="isUploading = true"
+                                                            x-on:livewire-upload-finish="isUploading = false"
+                                                            x-on:livewire-upload-error="isUploading = false"
+                                                            x-on:livewire-upload-progress="progress = $event.detail.progress">
+                                                        <div wire:loading wire:target="file_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
+                                                            <input type="file" wire:model="file_path" id="file_path" name="file_path" class="dropify" />
+                                                            @error('file_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
+                                                            <div x-show="isUploading">
+                                                                <progress max="100" x-bind:value="progress"></progress>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                               </div>
                                       </div>
 

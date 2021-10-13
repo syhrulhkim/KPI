@@ -19,7 +19,7 @@ class Nilai extends Component
         return view('staff.master', compact('pencapaian'));
     }
 
-    public function pencapaian_save(Request $request){
+    public function nilai_save(Request $request){
 
         $validatedData = $request->validate([
 

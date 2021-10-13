@@ -41,7 +41,7 @@ class UserManagement extends Component
     public function render()
     {
         // $users = User::orderBy('created_at','desc')->get();
-        $users = User::where('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderaor')->get();
+        $users = User::where('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderator')->get();
         $employees = User::where('role', 'employee')->get();
         // dd( $users);
         // $attemptQuizzes = AttemptQuiz::where( [[ 'id_createquizzes', '=', $this->id_createquizzes ], ['id_question', '=', $question->id], ['status_answer', '=', '1']] )->get();

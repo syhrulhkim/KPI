@@ -120,10 +120,20 @@
                                 <div class="@error('position') border border-danger rounded-3 @enderror">
                                         <select wire:model="position" name="position" id="position" class="form-control custom-select" data-placeholder="Choose Position" tabindex="1">
                                             <option value="">-- Choose Position --</option>
-                                            <option value="manager">Manager</option>
-                                            <option value="asstmanager">Assistant Manager</option>
-                                            <option value="executives">Executives(E)</option>
-                                            <option value="non-executives">Non-Executives(NE)</option>
+                                            <option value="CEO (TM2)">CEO (TM2)</option>
+                                            <option value="Director (TM1)">Director (TM1)</option>
+                                            <option value="COO (UM4)">COO (UM4)</option>
+                                            <option value="Senior General Manager (UM3)">Senior General Manager (UM3)</option>
+                                            <option value="General Manager (UM2)">General Manager (UM2)</option>
+                                            <option value="Deputy General Manager (UM1)">Deputy General Manager (UM1)</option>
+                                            <option value="Senior Manager (M3)">Senior Manager (M3)</option>
+                                            <option value="Manager (M2)">Manager (M2)</option>
+                                            <option value="Assistant Manager (M1)">Assistant Manager (M1)</option>
+                                            <option value="Senior Executive (E3)">Senior Executive (E3)</option>
+                                            <option value="Executive (E2)">Executive (E2)</option>
+                                            <option value="Junior Executive (E1)">Junior Executive (E1)</option>
+                                            <option value="Senior Non-Executive (NE2)">Senior Non-Executive (NE2)</option>
+                                            <option value="Junior Non-Executive (NE1)">Junior Non-Executive (NE1)</option>
                                         </select>
                                 </div>
                                 @error('position') <div class="text-danger">{{ $message }}</div> @enderror
@@ -141,8 +151,19 @@
                                 </div>
                                 @error('department') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
-                           
+
                             <div class="mb-3">
+                                <div class="@error('hr') border border-danger rounded-3 @enderror">
+                                        <select wire:model="hr" name="hr" id="hr" class="form-control custom-select" data-placeholder="Are you HR ?" tabindex="1">
+                                            <option value="">-- Are you HR ? --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                </div>
+                                @error('hr') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                           
+                            {{-- <div class="mb-3">
                                 <div class="@error('grade') border border-danger rounded-3 @enderror">
                                         <select wire:model="grade" name="grade" id="grade" class="form-control custom-select" data-placeholder="Choose Grade" tabindex="1">
                                             <option value="">-- Choose Grade --</option>
@@ -153,7 +174,7 @@
                                         </select>
                                 </div>
                                 @error('grade') <div class="text-danger">{{ $message }}</div> @enderror
-                            </div>
+                            </div> --}}
                             {{-- @if (Auth::user()->role == "Admin") --}}
                             {{-- <div class="mb-3">
                                 <div class="@error('role') border border-danger rounded-3 @enderror">

@@ -10,14 +10,20 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class KPI extends Component
 {
+    use WithFileUploads;
+    public $file_path;
+    
     public function kpi() {
 
         $kpi = KPI_::latest()->get();
+        // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
-        return view('livewire.create-kpi', compact('kpi'));
+        // return view('livewire.create-kpi', compact('kpi', 'kpi2') );
+        return view('livewire.create-kpi', compact('kpi') );
     }
 
     public function kpi_save(Request $request){
@@ -80,7 +86,9 @@ class KPI extends Component
             'updated_at'=> Carbon::now(),
 
             // TajuK Objektif - Bukti Form
-            'bukti'=> $request->bukti,
+            'file_name'=> $request->file_name,
+            'file_path'=> $request->file_path,
+            'file_link'=> $request->file_link,
 
         ]);
 
@@ -183,14 +191,51 @@ class KPI extends Component
 
 
     public function bukti_update(Request $request, $id) { 
-        // dd($id);
+        //  dd($this->file_path);
+        if ($this->file_path) {
+            // dd($this->file_path);
+            // Get thumbnailname with the extension
+            $filenameWithExt = $this->file_path->getClientOriginalName();
+            $extension = $this->file_path->getClientOriginalExtension();
+            // $target_path = $filenameWithExt;
+            // Get just thumbnailname
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // thumbnailname to store
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            // Upload Image
+            $this->file_path->storeAs('public' . DIRECTORY_SEPARATOR . 'file_bukti', $fileNameToStore);
+        }
+
+        // if($this->model_id)
+        // {
+        //     // $this->validate([
+        //     //     'topic_name' => 'required|string|max:255',
+        //     //     'id_lecturer' => 'required',
+        //     // ]);
+            
+        //     $update = Bukti::find($this->model_id);
+        //     $update->user_id = $this->user_id;
+        //     $update->file_name = $this->file_name;
+        //     $update->file_path = $this->file_path;
+        //     $update->file_type = $this->file_type;
+        //     $update->save();
+    
+        //     session()->flash('message', 'Topic successfully updated');
+        // }
+        // else
+        // {
+        //     $this->validate([
+        //         'file_path' => 'required',
+        //     ]);
+        
+        $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'file_bukti' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
+
         Bukti::find($id)->update([
 
             'user_id'=> Auth::user()->id,
-
-            'link'=> $request->link,
-            'bukti'=> $request->bukti,
-
+            'file_name'=> $request->file_name,
+            'file_path'=> $request->file_path,
+            'file_type'=> $request->file_type,
         ]);
         // $post->body = $request->input('body');
         // $update = Bukti::find($id);
@@ -199,8 +244,8 @@ class KPI extends Component
         //     $update->bukti = $request->input('bukti');
 
         return redirect()->back()->with('message', 'bukti Updated Successfully');
-
-    }
+        }
+    
 
     // public function bukti_save(Request $request){
     //     // dd($request->bukti);
@@ -220,10 +265,23 @@ class KPI extends Component
         public function render()
     {
         $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id);
+        $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
+        $hrs = User::Where('hr' , 'yes')->get();
+        // $users2 = User::where('id', '=', auth()->user()->id)->get();
+        // $employees = User::where('role', 'employee')->get();
+        // $users->(where(function ($query) {
+        //     $query->where('position', 'Junior Non-Executive (NE1)')
+        //         ->where('role', '>=', 'employee');
+        // })->orWhere(function($query) {
+        //     $query->where('position', 'Senior Non-Executive (NE2)')
+        //         ->where('role', '>=', 'employee');	
+        // }))
+
         // dd($kpi);
         // $courses = Course::orderBy('created_at','desc')->get();
 
-        return view('livewire.kpi', compact('kpi'));
+        return view('livewire.kpi', compact('kpi', 'users', 'hrs'));
         // return view('livewire.kpi');
     }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\KPI;
+use App\Models\KPI_;
+use App\Models\Kecekapan_;
 use App\Models\Bukti;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,28 +13,30 @@ use Illuminate\Support\Carbon;
 
 class Kecekapan extends Component
 {
-    public function master() {
+    public function kpi() {
 
-        $kpi = KPI::latest()->get();
+        $kecekapan = Kecekapan_::latest()->get();
+        // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
-        return view('employee.master', compact('kpi'));
+        // return view('livewire.create-kpi', compact('kpi', 'kpi2') );
+        return view('livewire.create-kpi', compact('kecekapan') );
     }
 
-    public function pencapaian_save(Request $request){
+    public function kecekapan_save(Request $request){
 
         $validatedData = $request->validate([
 
-            'status' => ['required'],
+            'grade' => ['required'],
             'weightage' => ['required', 'numeric'],
 
-            'overall' => ['required', 'numeric'],
+            'total_score' => ['required', 'numeric'],
             'tahun' => ['required'],
             'bulan' => ['required'],
 
             'objektif' => ['required'],
             'fungsi' => ['required'],
 
-            'metrik' => ['required'],
+            'bukti' => ['required'],
             'ukuran' => ['required'],
 
             'peratus' => ['required'],
@@ -43,29 +46,29 @@ class Kecekapan extends Component
             'stretch' => ['required'],
 
             'pencapaian' => ['required'],
-            'total' => ['required'],
-            'score' => ['required'],
+            'skor_KPI' => ['required'],
+            'skor_sebenar' => ['required'],
             
         ]);
 
 
-        kpi::insert([
+        kecekapan_::insert([
         
         'user_id'=> Auth::user()->id,
         'created_at'=> Carbon::now(),
         'updated_at'=> Carbon::now(),
 
-        'status'=> $request->status,
+        'grade'=> $request->grade,
         'weightage'=> $request->weightage,
 
-        'overall'=> $request->overall,
+        'total_score'=> $request->total_score,
         'tahun'=> $request->tahun,
         'bulan'=> $request->bulan,
 
         'fungsi'=> $request->fungsi,
         'objektif'=> $request->objektif,
         
-        'metrik'=> $request->metrik,
+        'bukti'=> $request->bukti,
         'ukuran'=> $request->ukuran,
 
         'peratus'=> $request->peratus,
@@ -75,8 +78,8 @@ class Kecekapan extends Component
         'stretch'=> $request->stretch,
  
         'pencapaian'=> $request->pencapaian,
-        'total'=> $request->total,
-        'score'=> $request->score,
+        'skor_KPI'=> $request->skor_KPI,
+        'skor_sebenar'=> $request->skor_sebenar,
         
 
         ]);
@@ -89,7 +92,7 @@ class Kecekapan extends Component
             'updated_at'=> Carbon::now(),
 
             // TajuK Objektif - Bukti Form
-            'metrik'=> $request->metrik,
+            'bukti'=> $request->bukti,
 
         ]);
 
@@ -112,17 +115,17 @@ class Kecekapan extends Component
 
         $validatedData = $request->validate([
 
-            'status' => ['required'],
+            'grade' => ['required'],
             'weightage' => ['required', 'numeric'],
 
-            'overall' => ['required', 'numeric'],
+            'total_score' => ['required', 'numeric'],
             'tahun' => ['required'],
             'bulan' => ['required'],
 
             'objektif' => ['required'],
             'fungsi' => ['required'],
 
-            'metrik' => ['required'],
+            'bukti' => ['required'],
             'ukuran' => ['required'],
 
             'peratus' => ['required'],
@@ -132,8 +135,8 @@ class Kecekapan extends Component
             'stretch' => ['required'],
 
             'pencapaian' => ['required'],
-            'total' => ['required'],
-            'score' => ['required'],
+            'skor_KPI' => ['required'],
+            'skor_sebenar' => ['required'],
             
         ]);
 
@@ -144,17 +147,17 @@ class Kecekapan extends Component
             'updated_at'=> Carbon::now(),
 
 
-            'status'=> $request->status,
+            'grade'=> $request->grade,
             'weightage'=> $request->weightage,
 
-            'overall'=> $request->overall,
+            'total_score'=> $request->total_score,
             'tahun'=> $request->tahun,
             'bulan'=> $request->bulan,
 
             'objektif'=> $request->objektif,
             'fungsi'=> $request->fungsi,
 
-            'metrik'=> $request->metrik,
+            'bukti'=> $request->bukti,
             'ukuran'=> $request->ukuran,
 
             'peratus'=> $request->peratus,
@@ -164,8 +167,8 @@ class Kecekapan extends Component
             'stretch'=> $request->stretch,
     
             'pencapaian'=> $request->pencapaian,
-            'total'=> $request->total,
-            'score'=> $request->score,
+            'skor_KPI'=> $request->skor_KPI,
+            'skor_sebenar'=> $request->skor_sebenar,
 
         ]);
 
@@ -211,7 +214,7 @@ class Kecekapan extends Component
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
     
-            'metrik'=> $request->metrik,
+            'bukti'=> $request->bukti,
 
             'link'=> $request->link,
     

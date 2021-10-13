@@ -3,6 +3,13 @@
 
 {{-- @section('content') --}}
 
+{{-- @foreach ($users as $object)
+    {{ $object->role }}
+    {{dd($object->role)}}
+@endforeach --}}
+{{-- {{dd($users)}} --}}
+{{-- {{dd($employees)}} --}}
+{{-- {{dd(auth()->user())}} --}}
 <body>
 
   <div class="wrapper">
@@ -104,10 +111,31 @@
                                         <option selected value="">N/A</option>
                                         {{-- <option value="Kad Skor Korporat" >Kad Skor Korporat</option> --}}
                                         {{-- <option value="Kewangan" >Kewangan</option> --}}
-                                        <option value="Pelanggan" >Pelanggan</option>
+                                        
+                                        {{-- @if ($users2->position != 'Junior Non-Executive (NE1)' || $users2->position != 'Senior Non-Executive (NE2)')
+                                        <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
+                                        @else
+                                            
+                                        @endif --}}
+                                        {{-- @foreach ($Question->answer as $answer) --}}
+                                        @foreach ($users as $user)
+                                        @if ($user->id == Auth::user()->id)
+                                        @else
+                                        <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
+                                        @endif
+                                        <option value="Kewangan" >Kewangan</option>
+                                        @foreach ($hrs as $hr)
+                                        @if ($hr->id == Auth::user()->id)
+                                        <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
+                                        @else
+                                        @endif
+                                        @endforeach
+                                        <option value="Pelanggan (Outer)" >Pelanggan (Outer)</option>
                                         <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
-                                        <option value="Manusia & Proses" >Manusia & Proses</option> 
+                                        <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
+                                        <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
                                         <option value="Kolaborasi" >Kolaborasi</option>
+                                        @endforeach
                                     </select>
                                   </div>
                                 </div>
