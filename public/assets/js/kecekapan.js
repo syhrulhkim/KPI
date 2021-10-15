@@ -1,0 +1,148 @@
+
+
+const perColorUI = document.getElementById('grade');
+const perValidUI = document.getElementById('percentage-weightage');
+
+function masterClac() {
+
+  let peratus = Number(document.getElementById('peratus').value); 
+  let pencapaian = Number(document.getElementById('pencapaian').value); 
+
+    let skor_pekerja = 0;
+    let total_score = 0;
+
+    if ( document.getElementById('peratus').value == "" || document.getElementById('threshold').value == "" || document.getElementById('base').value == "" || document.getElementById('stretch').value == "" || document.getElementById('pencapaian').value == "" ) {
+      
+      document.getElementById("skor_pekerja").value = 0;
+      
+    } else {
+      
+      // CONDITION ONE
+        if (pencapaian <= threshold) {
+
+        skor_pekerja = document.getElementById("skor_pekerja").value = 0;
+        total_score = document.getElementById("percentage-total").value = skor_pekerja;
+
+        } else if (pencapaian >= stretch) {
+
+        skor_pekerja = document.getElementById("skor_pekerja").value = 100;
+        total_score = document.getElementById("percentage-total").value = skor_pekerja;
+
+        } else if (pencapaian >= threshold && pencapaian <= base) {
+
+        value1 = parseFloat(pencapaian) - parseFloat(threshold); 
+        value2 = parseFloat(base) - parseFloat(threshold); 
+
+        KPIScore = ((( value1 / value2 ) * 35) + 30);
+        ScoreSebenar = ((peratus / 100) * KPIScore);
+
+        total = document.getElementById("skor_pekerja").value = KPIScore.toFixed(2) ;
+        total_score = document.getElementById("percentage-total").value = skor_pekerja;
+
+      } else if (pencapaian >= base && pencapaian < stretch) {
+
+        value1 = parseFloat(pencapaian) - parseFloat(base);
+        value2 = parseFloat(stretch) - parseFloat(base);
+
+        KPIScore = ((( value1 / value2 ) * 35) + 65);
+        ScoreSebenar = ((peratus / 100) * KPIScore);
+
+        skor_pekerja = document.getElementById("skor_pekerja").value = KPIScore.toFixed(2) ;
+        total_score = document.getElementById("percentage-total").value = skor_pekerja;
+        
+
+      } 
+
+    }
+
+      // CONDITION TWO
+      if (base >= stretch && stretch <= base) {
+
+        ScoreSebenar = ((peratus / 100) * 30);
+
+        skor_pekerja = document.getElementById("skor_pekerja").value = 30 ;
+        total_score = document.getElementById("percentage-total").value = skor_pekerja;
+
+      }
+
+      // CONDITION THREE
+      if (threshold >= base) {
+
+        skor_pekerja = document.getElementById("skor_pekerja").value = 0 ;
+        total_score = document.getElementById("percentage-total").value = skor_pekerja;
+
+      }
+
+      
+      gradeClass();
+      percentageValid();
+
+}
+
+// GRADE CLASS
+function gradeClass(){
+
+  let skor_pekerja = document.getElementById("skor_pekerja").value;
+
+  if ( skor_pekerja >= 80 ) {
+
+    perColorUI.style.backgroundColor = "#9BC2E6" ;        
+    document.getElementsByName("grade")[0].value = "PLATINUM";
+
+  } else if ( skor_pekerja >= 75 && skor_pekerja <= 79.99 ) {
+
+    perColorUI.style.backgroundColor = "#C6E0B4";
+    document.getElementsByName("grade")[0].value = "HIGH GOLD";
+
+  }  else if ( skor_pekerja >= 70 && skor_pekerja <= 74.99 ) {
+
+    perColorUI.style.backgroundColor = "#9ba95b";
+    document.getElementsByName("grade")[0].value = "MID GOLD";
+
+  } else if ( skor_pekerja >= 65 && skor_pekerja <= 69.99 ) {
+
+    perColorUI.style.backgroundColor = "#bfaf7f";
+    document.getElementsByName("grade")[0].value = "LOW GOLD";
+    
+  } else if ( skor_pekerja >= 60 && skor_pekerja <= 64.99 ) {
+
+    perColorUI.style.backgroundColor = "#FFFF99";
+    document.getElementsByName("grade")[0].value = "HIGH SILVER";
+
+  } else if ( skor_pekerja >= 50 && skor_pekerja <= 59.99 ) {
+
+    perColorUI.style.backgroundColor = "#FFFF00";
+    document.getElementsByName("grade")[0].value = "LOW SILVER";
+
+  } else if ( skor_pekerja >= 1 && skor_pekerja <= 49.99 ) {
+
+    perColorUI.style.backgroundColor = "#F4B084";
+    document.getElementsByName("grade")[0].value = "BRONZE";
+
+  } else {
+
+    perColorUI.style.backgroundColor = "#FFFFFF";  
+    document.getElementsByName("grade")[0].value = "NO GRED";
+
+  }
+
+}
+
+function percentageValid() {
+
+    let weightageTotal = document.getElementById("peratus").value;
+
+    if (weightageTotal > 100) {
+
+      document.getElementsByName("weightage")[0].value = "NOT MORE THAN 100";
+      perValidUI.style.color = "#FF0000";
+      perValidUI.style.fontWeight = "bold";
+
+    } else {
+
+      document.getElementsByName("weightage")[0].value = weightageTotal;
+      perValidUI.style.color = "#000000";
+      perValidUI.style.fontWeight = "bold";
+
+    }
+}

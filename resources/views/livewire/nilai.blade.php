@@ -75,10 +75,11 @@
                                         <option selected value="">N/A</option>
                                         {{-- <option value="Kad Skor Korporat" >Kad Skor Korporat</option> --}}
                                         {{-- <option value="Kewangan" >Kewangan</option> --}}
-                                        <option value="Pelanggan" >Pelanggan</option>
-                                        <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
-                                        <option value="Manusia & Proses" >Manusia & Proses</option> 
-                                        <option value="Kolaborasi" >Kolaborasi</option>
+                                        <option value="Pelanggan" >Kepimpinan</option>
+                                        <option value="Kecemerlangan Operasi" >Perkembangan</option> 
+                                        <option value="Manusia & Proses" >Keputusan</option> 
+                                        <option value="Kolaborasi" >Sumbangan</option>
+                                        <option value="Kolaborasi" >Rohani</option>
                                     </select>
                                   </div>
                                 </div>

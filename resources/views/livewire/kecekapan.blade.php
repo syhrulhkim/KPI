@@ -73,12 +73,11 @@
                                       <label class="font-weight-bold" >Kecekapan Teras</label>
                                       <select  class="form-control form-control-sm" id="kecekapan" name="kecekapan">
                                         <option selected value="">N/A</option>
-                                        {{-- <option value="Kad Skor Korporat" >Kad Skor Korporat</option> --}}
-                                        {{-- <option value="Kewangan" >Kewangan</option> --}}
-                                        <option value="Pelanggan" >Pelanggan</option>
-                                        <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
-                                        <option value="Manusia & Proses" >Manusia & Proses</option> 
-                                        <option value="Kolaborasi" >Kolaborasi</option>
+                                        <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
+                                        <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
+                                        <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option> 
+                                        <option value="Pengurusan Pemegang Berkepentingan" >Pengurusan Pemegang Berkepentingan</option>
+                                        <option value="Ketangkasan Dalam Organisasi" >Ketangkasan Dalam Organisasi</option>
                                     </select>
                                   </div>
                                 </div>
@@ -118,8 +117,16 @@
                                             <th rowspan="2">Peratus (%)</th>
                                             <th rowspan="2">Ukuran</th>
                                             {{-- <th colspan="3">KPI Targets</th> --}}
+                                            @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                                             <th rowspan="2">Skor Pekerja</th>
+                                            @else
+                                            @endif
+
+                                            @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
                                             <th rowspan="2">Skor Penyelia</th>
+                                            @else
+                                            @endif
+
                                             <th rowspan="2">Skor Sebenar</th>
                                         </tr>
                                     </thead>
@@ -127,10 +134,15 @@
                                         <tr>
 
                                           <td class="font-weight-bold border-dark">
-                                            <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >
+                                            {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
+                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20%" selected readonly>
                                           </td>
 
-                                          <td style="word-break: break-all;" class="border-dark">
+                                          <td class="font-weight-bold border-dark">
+                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="ukuran" name="ukuran" value="Percentage" selected readonly>
+                                          </td>
+
+                                          {{-- <td style="word-break: break-all;" class="border-dark">
                                             <select class="form-select form-select-sm" id="ukuran" name="ukuran">
                                               <option selected disabled value=""></option>
                                               <option value="N/A">N/A</option>
@@ -146,8 +158,9 @@
                                               <option value="RM (million)" >RM (million)</option> 
                                               <option value="RM (*000)" >RM (*000)</option>
                                               <option value="KM/Miles" >KM/Miles</option>
+                                              <option value="Percentage" selected>Percentage </option>
                                             </select>
-                                          </td>
+                                          </td> --}}
 
                                           {{-- <td class="font-weight-bold border-dark">
                                             <input type="text" maxlength="4" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" min="0" >
@@ -160,17 +173,23 @@
                                           <td class="font-weight-bold border-dark">
                                             <input type="text" maxlength="4" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" min="0" >
                                           </td> --}}
-                                    
+                                          
+                                          @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                                           <td class="font-weight-bold border-dark">
                                             <input type="text" maxlength="4"  class="input_skor_pekerja w-75" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                                           </td>
-                                          
+                                          @else
+                                          @endif
+
+                                          @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
                                           <td class="font-weight-bold border-dark">
                                             <input type="text" maxlength="4"  class="input_skor_penyelia w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
                                           </td>
-                                    
+                                          @else
+                                          @endif
+
                                           <td class="font-weight-bold border-dark">
-                                            <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="0" readonly>
+                                            <input type="text"  class="form-control"  id="skor_" name="skor_sebenar" value="0" readonly>
                                           </td>
 
 

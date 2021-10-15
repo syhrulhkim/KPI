@@ -86,9 +86,10 @@ class KPI extends Component
             'updated_at'=> Carbon::now(),
 
             // TajuK Objektif - Bukti Form
-            'file_name'=> $request->file_name,
-            'file_path'=> $request->file_path,
-            'file_link'=> $request->file_link,
+            'bukti'=> 'john',
+            'file_name'=> 'john',
+            'file_path'=> 'john',
+            'file_type'=> 'john',
 
         ]);
 
@@ -157,16 +158,6 @@ class KPI extends Component
 
         ]);
 
-        // $bukti = Bukti::find($id)->update([
-        
-        //     'user_id'=> Auth::user()->id,
-        //     'created_at'=> Carbon::now(),
-        //     'updated_at'=> Carbon::now(),
-
-        //     // TajuK Objektif - Bukti Form
-        //     'metrik'=> $request->metrik,
-
-        // ]);
 
         return redirect()->route('kpi')->with('message', 'KPI Updated Successfully');
 
