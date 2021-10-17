@@ -5,85 +5,125 @@ const perValidUI = document.getElementById('percentage-weightage');
 
 function masterClac() {
 
-  let peratus = Number(document.getElementById('peratus').value); 
-  let pencapaian = Number(document.getElementById('pencapaian').value); 
+  let peratus = 20; 
+  // console.log(peratus);
+  let skor_pekerja = Number(document.getElementById('skor_pekerja').value); 
+  let skor_penyelia = Number(document.getElementById('skor_penyelia').value); 
+  // console.log(skor_pekerja);
 
-    let skor_pekerja = 0;
-    let total_score = 0;
+  // let skor_KPI = 0;
+  let skor_sebenar = 0;
+  let total_score = 0;
 
-    if ( document.getElementById('peratus').value == "" || document.getElementById('threshold').value == "" || document.getElementById('base').value == "" || document.getElementById('stretch').value == "" || document.getElementById('pencapaian').value == "" ) {
-      
-      document.getElementById("skor_pekerja").value = 0;
+    if ( document.getElementById('skor_pekerja').value == "" ) {
+      // console.log('john');
+      document.getElementById("skor_sebenar").value = 0;
       
     } else {
       
       // CONDITION ONE
-        if (pencapaian <= threshold) {
-
-        skor_pekerja = document.getElementById("skor_pekerja").value = 0;
-        total_score = document.getElementById("percentage-total").value = skor_pekerja;
-
-        } else if (pencapaian >= stretch) {
-
-        skor_pekerja = document.getElementById("skor_pekerja").value = 100;
-        total_score = document.getElementById("percentage-total").value = skor_pekerja;
-
-        } else if (pencapaian >= threshold && pencapaian <= base) {
-
-        value1 = parseFloat(pencapaian) - parseFloat(threshold); 
-        value2 = parseFloat(base) - parseFloat(threshold); 
-
-        KPIScore = ((( value1 / value2 ) * 35) + 30);
-        ScoreSebenar = ((peratus / 100) * KPIScore);
-
-        total = document.getElementById("skor_pekerja").value = KPIScore.toFixed(2) ;
-        total_score = document.getElementById("percentage-total").value = skor_pekerja;
-
-      } else if (pencapaian >= base && pencapaian < stretch) {
-
-        value1 = parseFloat(pencapaian) - parseFloat(base);
-        value2 = parseFloat(stretch) - parseFloat(base);
-
-        KPIScore = ((( value1 / value2 ) * 35) + 65);
-        ScoreSebenar = ((peratus / 100) * KPIScore);
-
-        skor_pekerja = document.getElementById("skor_pekerja").value = KPIScore.toFixed(2) ;
-        total_score = document.getElementById("percentage-total").value = skor_pekerja;
+        if (skor_pekerja == "0") {
+        console.log("john0");
+        console.log(skor_sebenar);
+        console.log(skor_pekerja);
+        skor_sebenar = document.getElementById("skor_sebenar").value = 0;
+        // skor_sebenar = document.getElementById("skor_sebenar").value = 0;
+        // total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        // console.log (document.getElementById("percentage-total").value = skor_sebenar);
+        console.log('john00');
         
 
-      } 
+        } else if (skor_pekerja == "1") {
+        console.log('john1');
+        skor_sebenar = document.getElementById("skor_sebenar").value = 25;
+        total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        console.log('john10');
+        
 
-    }
+        } else if (skor_pekerja == "2") {
+        console.log('john2');
+        skor_sebenar = document.getElementById("skor_sebenar").value = 50;
+        total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        console.log('john20');
+       
 
-      // CONDITION TWO
-      if (base >= stretch && stretch <= base) {
-
-        ScoreSebenar = ((peratus / 100) * 30);
-
-        skor_pekerja = document.getElementById("skor_pekerja").value = 30 ;
-        total_score = document.getElementById("percentage-total").value = skor_pekerja;
-
-      }
-
-      // CONDITION THREE
-      if (threshold >= base) {
-
-        skor_pekerja = document.getElementById("skor_pekerja").value = 0 ;
-        total_score = document.getElementById("percentage-total").value = skor_pekerja;
-
-      }
-
+      } else if (skor_pekerja  == "3") {
+        console.log('john3');
+        skor_sebenar = document.getElementById("skor_sebenar").value = 75;
+        total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        console.log('john30');
       
+        
+      } else if (skor_pekerja  == "4") {
+        console.log('john4');     
+        skor_sebenar = document.getElementById("skor_sebenar").value = 100;
+        total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        console.log('john40');
+       
+    }
+  } 
+
       gradeClass();
       percentageValid();
-
 }
 
-// GRADE CLASS
+// if ( document.getElementById('skor_penyelia').value == "" ) {
+//       // console.log('john');
+//       document.getElementById("skor_penyelia").value = 0;
+      
+//     } else {
+      
+//       // CONDITION ONE
+//         if (skor_penyelia == "0") {
+//         console.log("john0");
+//         console.log(skor_sebenar);
+//         console.log(skor_penyelia);
+//         skor_sebenar = document.getElementById("skor_sebenar").value = 0;
+//         // skor_sebenar = document.getElementById("skor_sebenar").value = 0;
+//         // total_score = document.getElementById("percentage-total").value = skor_sebenar;
+//         // console.log (document.getElementById("percentage-total").value = skor_sebenar);
+//         console.log('john00');
+        
+
+//         } else if (skor_penyelia == "1") {
+//         console.log('john1');
+//         skor_sebenar = document.getElementById("skor_sebenar").value = 25;
+//         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+//         console.log('john10');
+        
+
+//         } else if (skor_penyelia == "2") {
+//         console.log('john2');
+//         skor_sebenar = document.getElementById("skor_sebenar").value = 50;
+//         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+//         console.log('john20');
+       
+
+//       } else if (skor_penyelia  == "3") {
+//         console.log('john3');
+//         skor_sebenar = document.getElementById("skor_sebenar").value = 75;
+//         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+//         console.log('john30');
+      
+        
+//       } else if (skor_penyelia  == "4") {
+//         console.log('john4');     
+//         skor_sebenar = document.getElementById("skor_sebenar").value = 100;
+//         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+//         console.log('john40');
+       
+//     }
+//   } 
+
+//       gradeClass2();
+//       percentageValid2();
+// }
+// // GRADE CLASS
 function gradeClass(){
-
+  console.log('john');
   let skor_pekerja = document.getElementById("skor_pekerja").value;
-
+  console.log(skor_pekerja);
+  
   if ( skor_pekerja >= 80 ) {
 
     perColorUI.style.backgroundColor = "#9BC2E6" ;        
@@ -146,3 +186,71 @@ function percentageValid() {
 
     }
 }
+
+// function gradeClass2(){
+//   console.log('john');
+//   let skor_penyelia = document.getElementById("skor_penyelia").value;
+//   console.log(skor_penyelia);
+  
+//   if ( skor_penyelia >= 80 ) {
+
+//     perColorUI.style.backgroundColor = "#9BC2E6" ;        
+//     document.getElementsByName("grade")[0].value = "PLATINUM";
+
+//   } else if ( skor_penyelia >= 75 && skor_penyelia <= 79.99 ) {
+
+//     perColorUI.style.backgroundColor = "#C6E0B4";
+//     document.getElementsByName("grade")[0].value = "HIGH GOLD";
+
+//   }  else if ( skor_penyelia >= 70 && skor_penyelia <= 74.99 ) {
+
+//     perColorUI.style.backgroundColor = "#9ba95b";
+//     document.getElementsByName("grade")[0].value = "MID GOLD";
+
+//   } else if ( skor_penyelia >= 65 && skor_penyelia <= 69.99 ) {
+
+//     perColorUI.style.backgroundColor = "#bfaf7f";
+//     document.getElementsByName("grade")[0].value = "LOW GOLD";
+    
+//   } else if ( skor_penyelia >= 60 && skor_penyelia <= 64.99 ) {
+
+//     perColorUI.style.backgroundColor = "#FFFF99";
+//     document.getElementsByName("grade")[0].value = "HIGH SILVER";
+
+//   } else if ( skor_penyelia >= 50 && skor_penyelia <= 59.99 ) {
+
+//     perColorUI.style.backgroundColor = "#FFFF00";
+//     document.getElementsByName("grade")[0].value = "LOW SILVER";
+
+//   } else if ( skor_penyelia >= 1 && skor_penyelia <= 49.99 ) {
+
+//     perColorUI.style.backgroundColor = "#F4B084";
+//     document.getElementsByName("grade")[0].value = "BRONZE";
+
+//   } else {
+
+//     perColorUI.style.backgroundColor = "#FFFFFF";  
+//     document.getElementsByName("grade")[0].value = "NO GRED";
+
+//   }
+
+// }
+
+// function percentageValid2() {
+
+//     let weightageTotal = document.getElementById("peratus").value;
+
+//     if (weightageTotal > 100) {
+
+//       document.getElementsByName("weightage")[0].value = "NOT MORE THAN 100";
+//       perValidUI.style.color = "#FF0000";
+//       perValidUI.style.fontWeight = "bold";
+
+//     } else {
+
+//       document.getElementsByName("weightage")[0].value = weightageTotal;
+//       perValidUI.style.color = "#000000";
+//       perValidUI.style.fontWeight = "bold";
+
+//     }
+// }

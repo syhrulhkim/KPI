@@ -33,4 +33,8 @@ class KPI_ extends Model
         'tahun',
         'bulan',
     ];
+
+    public function bukti() {
+        return $this->hasMany('App\Models\bukti', 'kpi_id', 'id');
+    }
 }

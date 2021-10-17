@@ -275,12 +275,25 @@
                 <thead class="thead-dark">
                   <tr>
                     <th>No.</th>
-                    <th >Pencapaian</th>
-                    <th >Skor Sebenar</th>
-                    <th >Grade</th>
-                    <th >Tahun / Bulan</th>
-                    <th >Created At</th>
-                    <th >Updated At</th>
+                    {{-- <th >Pencapaian</th> --}}
+                    <th rowspan="2">Fungsi</th>
+                    <th rowspan="2">Objektif KPI</th>
+                    <th rowspan="2">Metrik/Bukti</th>
+                    <th rowspan="2">Link Bukti</th>
+                    <th rowspan="2">(%)</th>
+                    <th rowspan="2">Ukuran</th>
+                    {{-- <th rowspan="1" colspan="3">KPI Targets</th>
+                    <th rowspan="1" colspan="1">Threshold</th>
+                    <th rowspan="1" colspan="1">Base Target</th>
+                    <th rowspan="1" colspan="1">Stretch</th> --}}
+                    <th rowspan="2">Pencapaian</th>
+                    <th rowspan="2">Skor KPI</th>
+                    <th rowspan="2">Skor Sebenar</th>
+                    {{-- <th >Grade</th> --}}
+                    {{-- <th >Tahun / Bulan</th> --}}
+                    {{-- <th >Created At</th> --}}
+                    {{-- <th >Updated At</th> --}}
+                   
                     {{-- <th >Penilaian </th> --}}
                     <th class="w-25" ><i class="fas fa-cogs"></i></th>
                   </tr>
@@ -290,21 +303,32 @@
                     {{-- {{dd($kpi)}}; --}}
                     {{-- @if (auth()->user()->id == $kpi->user_id)  --}}
                     @php($i = 1)
-                    @foreach ($kpi as $markah)
+                    @foreach ($kpi as $kpis)
                       
                     <tr class="font-weight-bold">
                       
                         <td class="border-dark">{{ $i++  }}</td>
-                        <td class="border-dark">{{ $markah -> objektif }}</td>
-                        <td class="border-dark">{{ round($markah -> skor_sebenar,2) }} %</td>
-                        <td class="border-dark">{{ $markah -> grade }}</td>
-                        <td class="border-dark">{{ $markah -> tahun }} / {{ $markah -> bulan }}</td>
-                        <td class="border-dark">{{ $markah -> created_at -> toDayDateTimeString() }}</td>
-                        <td class="border-dark">{{ $markah -> updated_at -> toDayDateTimeString() }}</td>
+                        <td class="border-dark">{{ $kpis -> fungsi }}</td>
+                        <td class="border-dark">{{ $kpis -> objektif }}</td>
+                        <td class="border-dark">{{ $kpis -> bukti }}</td>
+                        {{-- {{dd( $markah->bukti->link )}} --}}
+                        @foreach ($bukti as $buktis)
+                        <td class="border-dark">{{ $buktis->link }}</td>
+                        @endforeach
+                        {{-- <td class="text-center">{{$attemptquiz->answer->answer}}</td> --}}
+                        <td class="border-dark">{{ $kpis -> peratus }}</td>
+                        <td class="border-dark">{{ $kpis -> ukuran }}</td>
+                        
+                        <td class="border-dark">{{ $kpis -> pencapaian }}</td>
+                        <td class="border-dark">{{ $kpis -> skor_KPI }}</td>
+                        <td class="border-dark">{{ round($kpis -> skor_sebenar,2) }} %</td>
+                        {{-- <td class="border-dark">{{ $markah -> created_at -> toDayDateTimeString() }}</td> --}}
+                        {{-- <td class="border-dark">{{ $markah -> updated_at -> toDayDateTimeString() }}</td> --}}
+                       
                         <td class="border-dark">
-                          <a href="{{ url('employee/edit/'.$markah->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
-                          <a href="{{ url('employee/bukti/edit/'.$markah->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a>
-                          <a href="{{ url('employee/delete/'.$markah->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/edit/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/bukti/edit/'.$kpis->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a>
+                          <a href="{{ url('employee/delete/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
                         
                     </tr>

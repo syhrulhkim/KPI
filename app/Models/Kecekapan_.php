@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Kecekapan_ extends Model
 {
     use HasFactory;
+
+    protected $table = 'kecekapan';
+
+    protected $fillable = [
+
+        'kecekapan_teras',
+        'jangkaan_hasil',
+        'peratus',
+        'ukuran',
+        'skor_pekerja',
+        'skor_penyelia',
+        'skor_sebenar',
+
+        'grade',
+        'total_score',
+        'weightage',
+         
+        'user_id',
+        // 'tahun',
+        // 'bulan',
+    ];
 }

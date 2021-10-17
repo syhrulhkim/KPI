@@ -12,13 +12,20 @@ use Illuminate\Support\Carbon;
 
 class Kecekapan extends Component
 {
+    // public function kecekapan() {
+
+    //     $kecekapan = Kecekapan_::latest()->get();
+    //     // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+
+    //     // return view('livewire.create-kpi', compact('kpi', 'kpi2') );
+    //     return view('livewire.create-kpi', compact('kecekapan') );
+    // }
+
     public function kecekapan() {
 
         $kecekapan = Kecekapan_::latest()->get();
-        // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
-        // return view('livewire.create-kpi', compact('kpi', 'kpi2') );
-        return view('livewire.create-kpi', compact('kecekapan') );
+        return view('livewire.create-kecekapan', compact('kecekapan') );
     }
 
     public function kecekapan_save(Request $request){
@@ -26,22 +33,25 @@ class Kecekapan extends Component
         $validatedData = $request->validate([
 
             'kecekapan_teras' => ['required'],
+            // dd(Auth::user()->id),
             'jangkaan_hasil' => ['required'],
             // 'peratus' => ['required'],
             // 'ukuran' => ['required'],
             'skor_pekerja' => ['required'],
-            'skor_penyelia' => ['required'],
+            // 'skor_penyelia' => ['required'],
             'user_id' => ['required'],
 
             'grade' => ['required'],
             'total_score' => ['required', 'numeric'],
             'weightage' => ['required', 'numeric'],
+            // dd(Auth::user()->id),
         ]);
 
-
-        kecekapan_::insert([
+        dd(Auth::user()->id);
+        Kecekapan_::insert([
         
         'user_id'=> Auth::user()->id,
+        dd(Auth::user()->id),
         'created_at'=> Carbon::now(),
         'updated_at'=> Carbon::now(),
 
@@ -49,8 +59,8 @@ class Kecekapan extends Component
         'weightage'=> $request->weightage,
 
         'total_score'=> $request->total_score,
-        'tahun'=> $request->tahun,
-        'bulan'=> $request->bulan,
+        // 'tahun'=> $request->tahun,
+        // 'bulan'=> $request->bulan,
 
         'kecekapan_teras'=> $request->kecekapan_teras,
         'jangkaan_hasil'=> $request->jangkaan_hasil,
@@ -63,7 +73,7 @@ class Kecekapan extends Component
 
         ]);
 
-        return redirect()->back()->with('message', 'Pencapaian berjaya ditambah!');
+        return redirect()->back()->with('message', 'Kecekapan berjaya ditambah!');
     } 
        
 
@@ -96,6 +106,7 @@ class Kecekapan extends Component
         $update = Kecekapan_::find($id)->update([
 
             'user_id'=> Auth::user()->id,
+            dd(Auth::user()->id),
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
 
@@ -103,8 +114,8 @@ class Kecekapan extends Component
             'weightage'=> $request->weightage,
 
             'total_score'=> $request->total_score,
-            'tahun'=> $request->tahun,
-            'bulan'=> $request->bulan,
+            // 'tahun'=> $request->tahun,
+            // 'bulan'=> $request->bulan,
 
             'kecekapan_teras'=> $request->kecekapan_teras,
             'jangkaan_hasil'=> $request->jangkaan_hasil,

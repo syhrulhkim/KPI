@@ -75,10 +75,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
 
     Route::get('/create-kpi', KPI::class)->name('create-kpi');
+    Route::get('/create-kecekapan', Kecekapan::class)->name('create-kecekapan');
     Route::get('/display-kpi', Displaykpi::class)->name('display-kpi');
     // Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
 
-    Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
+    // Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
     Route::get('/nilai', Nilai::class)->name('nilai');
 
     Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');

@@ -5,11 +5,14 @@ const perValidUI = document.getElementById('percentage-weightage');
 
 function masterClac() {
 
-  let peratus = Number(document.getElementById('peratus').value); 
+  let peratus = Number(document.getElementById('peratus').value);
+  // console.log(peratus);
   let threshold = Number(document.getElementById('threshold').value); 
   let base = Number( document.getElementById('base').value);
   let stretch = Number(document.getElementById('stretch').value); 
+  // console.log(stretch);
   let pencapaian = Number(document.getElementById('pencapaian').value); 
+  // console.log(pencapaian);
 
     let skor_KPI = 0;
     let skor_sebenar = 0;
@@ -27,6 +30,7 @@ function masterClac() {
 
         skor_KPI = document.getElementById("skor_KPI").value = 0;
         skor_sebenar = document.getElementById("skor_sebenar").value = 0;
+        // console.log(skor_sebenar);
         total_score = document.getElementById("percentage-total").value = skor_sebenar;
 
         } else if (pencapaian >= stretch) {

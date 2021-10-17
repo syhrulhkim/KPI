@@ -86,11 +86,11 @@
                                       <div class="col-sm-6 pt-3" >
                                           <label class="font-weight-bold" >Bukti terperinci dalam satu fail.</label>
                                               <div class="input-group mb-4">
-                                                  {{-- <div class="input-group-prepend">
+                                                  <div class="input-group-prepend">
                                                       <span class="input-group-text" id="basic-addon3"><i class="fas fa-link"></i></span>
-                                                  </div> --}}
-                                                  {{-- <input type="url" class="form-control form-control-sm " id="basic-url" name="link" placeholder="Google Drive Link" value="{{ $bukti->link }}"> --}}
-                                                  <div class="col-md-4" id="fileupload">
+                                                  </div>
+                                                  <input type="url" class="form-control form-control-sm " id="basic-url" name="link" placeholder="Google Drive Link" value="{{ $bukti->link }}">
+                                                  {{-- <div class="col-md-4" id="fileupload">
                                                     <div class="form-group">
                                                         <label class="control-label" style="font-weight:500">file Upload</label>
                                                         <div
@@ -107,7 +107,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                               </div>
                                       </div>
 

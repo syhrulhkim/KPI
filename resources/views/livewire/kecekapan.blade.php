@@ -87,7 +87,14 @@
                                       <label class="font-weight-bold " >Jangkaan Hasil</label>
                                       <input type="text" class="form-control form-control-sm" id="jangkaan" name="jangkaan">
                                   </div>
-                                </div>                           
+                                </div>
+                                
+                                {{-- <div class="col-sm-4 pt-3 " >
+                                  <div class="mb-4">
+                                      <label class="font-weight-bold " >Objektif KPI</label>
+                                      <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                                  </div>
+                                </div>   --}}
                                 
                             </div>
 
@@ -135,7 +142,7 @@
 
                                           <td class="font-weight-bold border-dark">
                                             {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
-                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20%" selected readonly>
+                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20%" onkeyup="masterClac();" min="0" selected readonly>
                                           </td>
 
                                           <td class="font-weight-bold border-dark">
@@ -176,20 +183,20 @@
                                           
                                           @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                                           <td class="font-weight-bold border-dark">
-                                            <input type="text" maxlength="4"  class="input_skor_pekerja w-75" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                                            <input type="text" maxlength="1"  class="input_skor_pekerja w-75" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                                           </td>
                                           @else
                                           @endif
 
                                           @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
                                           <td class="font-weight-bold border-dark">
-                                            <input type="text" maxlength="4"  class="input_skor_penyelia w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                                            <input type="text" maxlength="1"  class="input_skor_penyelia w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
                                           </td>
                                           @else
                                           @endif
 
                                           <td class="font-weight-bold border-dark">
-                                            <input type="text"  class="form-control"  id="skor_" name="skor_sebenar" value="0" readonly>
+                                            <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="0" readonly>
                                           </td>
 
 
@@ -267,7 +274,8 @@
   </div>
 
  <!-- Master Pencapaian JS -->
-<script src="{{asset('js/master.js')}}"></script>
+<script src="{{asset('assets/js/kecekapan.js')}}"></script>
+{{-- <script src="{{asset('assets/js/master.js')}}"></script> --}}
 
 </body>
 {{-- @endsection --}}
