@@ -71,7 +71,7 @@
                                 <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
                                       <label class="font-weight-bold" >Kecekapan Teras</label>
-                                      <select  class="form-control form-control-sm" id="kecekapan" name="kecekapan">
+                                      <select  class="form-control form-control-sm" id="kecekapan_teras" name="kecekapan_teras">
                                         <option selected value="">N/A</option>
                                         <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
                                         <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
@@ -85,7 +85,7 @@
                                 <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
                                       <label class="font-weight-bold " >Jangkaan Hasil</label>
-                                      <input type="text" class="form-control form-control-sm" id="jangkaan" name="jangkaan">
+                                      <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil">
                                   </div>
                                 </div>
                                 
@@ -232,12 +232,13 @@
                 <thead class="thead-dark">
                   <tr>
                     <th>No.</th>
-                    <th >Pencapaian</th>
+                    <th >Kecekapan Teras</th>
+                    <th >Jangkaan Hasil</th>
+                    <th >%</th>
+                    <th >Ukuran</th>
+                    <th >Skor Pekerja</th>
+                    <th >Skor Penyelia</th>
                     <th >Skor Sebenar</th>
-                    <th >Grade</th>
-                    <th >Tahun / Bulan</th>
-                    <th >Created At</th>
-                    <th >Updated At</th>
                     {{-- <th >Penilaian </th> --}}
                     <th class="w-25" ><i class="fas fa-cogs"></i></th>
                   </tr>
@@ -245,26 +246,28 @@
                 <tbody >
                     <!-- Display Body --> 
                     @php($i = 1)
-                    {{-- @foreach ($pencapaian as $markah)
+                    @foreach ($kecekapan as $kecekapans)
                       
                     <tr class="font-weight-bold">
                       
                         <td class="border-dark">{{ $i++  }}</td>
-                        <td class="border-dark">{{ $markah -> objektif }}</td>
-                        <td class="border-dark">{{ round($markah -> score,2) }} %</td>
-                        <td class="border-dark">{{ $markah -> status }}</td>
-                        <td class="border-dark">{{ $markah -> tahun }} / {{ $markah -> bulan }}</td>
-                        <td class="border-dark">{{ $markah -> created_at -> toDayDateTimeString() }}</td>
-                        <td class="border-dark">{{ $markah -> updated_at -> toDayDateTimeString() }}</td>
+                        <td class="border-dark">{{ $kecekapans -> kecekapan_teras }}</td>
+                        <td class="border-dark">{{ $kecekapans -> jangkaan_hasil }}</td>
+                        <td class="border-dark">{{ $kecekapans -> peratus }}</td>
+                        <td class="border-dark">{{ $kecekapans -> ukuran }}</td>
+                        <td class="border-dark">{{ $kecekapans -> skor_pekerja }}</td>
+                        <td class="border-dark">{{ $kecekapans -> skor_penyelia }}</td>
+                        <td class="border-dark">{{ $kecekapans -> skor_sebenar }}</td>
+
                         <td class="border-dark">
-                          <a href="{{ url('staff/edit/'.$markah->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          <a href="{{ url('staff/bukti/edit/'.$markah->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a>
-                          <a href="{{ url('staff/delete/'.$markah->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/edit/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                          <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a>
+                          <a href="{{ url('employee/delete/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
                         
                     </tr>
 
-                    @endforeach --}}
+                    @endforeach
                 </tbody> 
             </table>
           </div>

@@ -282,6 +282,9 @@
                     <th rowspan="2">Link Bukti</th>
                     <th rowspan="2">(%)</th>
                     <th rowspan="2">Ukuran</th>
+                    <th rowspan="2">Threshold</th>
+                    <th rowspan="2">Base</th>
+                    <th rowspan="2">Stretch</th>
                     {{-- <th rowspan="1" colspan="3">KPI Targets</th>
                     <th rowspan="1" colspan="1">Threshold</th>
                     <th rowspan="1" colspan="1">Base Target</th>
@@ -302,23 +305,51 @@
                     <!-- Display Body -->
                     {{-- {{dd($kpi)}}; --}}
                     {{-- @if (auth()->user()->id == $kpi->user_id)  --}}
-                    @php($i = 1)
-                    @foreach ($kpi as $kpis)
+                   
+                    {{-- @foreach ($kpi as $kpis) --}}
+                    @foreach ($kpi as $key => $kpis)
+                   
                       
                     <tr class="font-weight-bold">
                       
-                        <td class="border-dark">{{ $i++  }}</td>
-                        <td class="border-dark">{{ $kpis -> fungsi }}</td>
-                        <td class="border-dark">{{ $kpis -> objektif }}</td>
-                        <td class="border-dark">{{ $kpis -> bukti }}</td>
+                      @php
+                          $isAnswered = false;
+                      @endphp
+                      
                         {{-- {{dd( $markah->bukti->link )}} --}}
+                        {{-- {{dd($kpi->kpia)}} --}}
+                        {{-- @foreach ($kpi->kpia as $buktis) --}}
                         @foreach ($bukti as $buktis)
-                        <td class="border-dark">{{ $buktis->link }}</td>
-                        @endforeach
+                        {{-- @foreach ($Question->answer as $answer) --}}
+                        @if(auth()->user()->id == auth()->user()->id)
+                          @php
+                          $isAnswered = true;
+                          @endphp
+                          @break
+                        @else
+                          @php
+                            $isAnswered = false;
+                          @endphp
+                        @endif
+                      @endforeach
+                      @if ($isAnswered)
+                      {{-- @php($i = 1) --}}
+                      <td class="border-dark">{{$key + 1}}</td>
+                      <td class="border-dark">{{ $kpis -> fungsi }}</td>
+                      <td class="border-dark">{{ $kpis -> objektif }}</td>
+                      <td class="border-dark">{{ $kpis -> bukti }}</td>
+                        <td class="border-dark">
+                          <a href=" {{ $buktis->link }}"></i>Link Bukti</a>
+                          {{-- {{dd($buktis->link)}} --}}
+                          {{-- <a href="{{ $kpis->kpi }}">Link Bukti</a></p> --}}
+                          {{-- {{ $buktis->link }} --}}
+                        </td>
                         {{-- <td class="text-center">{{$attemptquiz->answer->answer}}</td> --}}
                         <td class="border-dark">{{ $kpis -> peratus }}</td>
                         <td class="border-dark">{{ $kpis -> ukuran }}</td>
-                        
+                        <td class="border-dark">{{ $kpis -> threshold }}</td>
+                        <td class="border-dark">{{ $kpis -> base }}</td>
+                        <td class="border-dark">{{ $kpis -> stretch }}</td>
                         <td class="border-dark">{{ $kpis -> pencapaian }}</td>
                         <td class="border-dark">{{ $kpis -> skor_KPI }}</td>
                         <td class="border-dark">{{ round($kpis -> skor_sebenar,2) }} %</td>
@@ -330,7 +361,9 @@
                           <a href="{{ url('employee/bukti/edit/'.$kpis->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a>
                           <a href="{{ url('employee/delete/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
-                        
+                        @else
+                        You have no yet answer the quiz...
+                    @endif
                     </tr>
 
                     @endforeach

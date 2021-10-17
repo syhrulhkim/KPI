@@ -141,6 +141,9 @@ class Kecekapan extends Component
 
         public function render()
     {
-        return view('livewire.kecekapan');
+        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+
+        return view('livewire.kecekapan', compact('kecekapan'));
+        // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
     }
 }
