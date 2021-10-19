@@ -3,8 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Pencapaian;
-use App\Models\Bukti;
+use App\Models\KPI_;
+use App\Models\Nilai_;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -12,214 +12,137 @@ use Illuminate\Support\Carbon;
 
 class Nilai extends Component
 {
-    public function master() {
+    // public function kecekapan() {
 
-        $pencapaian = Pencapaian::latest()->get();
+    //     $kecekapan = Kecekapan_::latest()->get();
+    //     // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
-        return view('staff.master', compact('pencapaian'));
+    //     // return view('livewire.create-kpi', compact('kpi', 'kpi2') );
+    //     return view('livewire.create-kpi', compact('kecekapan') );
+    // }
+
+    public function nilai() {
+
+        $nilai = Nilai_::latest()->get();
+
+        return view('livewire.create-nilai', compact('nilai') );
     }
 
     public function nilai_save(Request $request){
 
         $validatedData = $request->validate([
 
-            'status' => ['required'],
-            'weightage' => ['required', 'numeric'],
+            'nilai_teras' => ['required'],
+            // dd(Auth::user()->id),
+            'jangkaan_hasil' => ['required'],
+            // 'peratus' => ['required'],
+            // 'ukuran' => ['required'],
+            'skor_pekerja' => ['required'],
+            // 'skor_penyelia' => ['required'],
+            // 'user_id' => ['required'],
 
-            'overall' => ['required', 'numeric'],
-            'tahun' => ['required'],
-            'bulan' => ['required'],
-
-            'objektif' => ['required'],
-            'fungsi' => ['required'],
-
-            'metrik' => ['required'],
-            'ukuran' => ['required'],
-
-            'peratus' => ['required'],
-            'threshold' => ['required'],
-
-            'base' => ['required'],
-            'stretch' => ['required'],
-
-            'pencapaian' => ['required'],
-            'total' => ['required'],
-            'score' => ['required'],
-            
+            // 'grade' => ['required'],
+            // 'total_score' => ['required', 'numeric'],
+            // 'weightage' => ['required', 'numeric'],
+            // dd(Auth::user()->id),
         ]);
 
-
-        Pencapaian::insert([
+        // dd(Auth::user()->id);
+        Nilai_::insert([
         
         'user_id'=> Auth::user()->id,
+        // dd(Auth::user()->id),
         'created_at'=> Carbon::now(),
         'updated_at'=> Carbon::now(),
 
-        'status'=> $request->status,
+        'grade'=> $request->grade,
         'weightage'=> $request->weightage,
 
-        'overall'=> $request->overall,
-        'tahun'=> $request->tahun,
-        'bulan'=> $request->bulan,
+        'total_score'=> $request->total_score,
+        // 'tahun'=> $request->tahun,
+        // 'bulan'=> $request->bulan,
 
-        'fungsi'=> $request->fungsi,
-        'objektif'=> $request->objektif,
-        
-        'metrik'=> $request->metrik,
-        'ukuran'=> $request->ukuran,
+        'nilai_teras'=> $request->nilai_teras,
+        'jangkaan_hasil'=> $request->jangkaan_hasil,
 
-        'peratus'=> $request->peratus,
-        'threshold'=> $request->threshold,
+        // 'ukuran'=> $request->ukuran,
 
-        'base'=> $request->base,
-        'stretch'=> $request->stretch,
- 
-        'pencapaian'=> $request->pencapaian,
-        'total'=> $request->total,
-        'score'=> $request->score,
-        
+        // 'peratus'=> $request->peratus,
+        'skor_pekerja'=> $request->skor_pekerja,
+        // 'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
 
-
-        Bukti::insert([
-        
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-
-            // TajuK Objektif - Bukti Form
-            'metrik'=> $request->metrik,
-
-        ]);
-
-        
-
-        return redirect()->back()->with('message', 'Pencapaian berjaya ditambah!');
+        return redirect()->back()->with('message', 'Nilai berjaya ditambah!');
     } 
        
 
-    public function pencapaian_edit($id) {
+    public function nilai_edit($id) {
 
-        $pencapaian = Pencapaian::find($id);
+        $nilai = Nilai_::find($id);
 
-        return view('staff.form_pencapaian' , compact('pencapaian'));
+        return view('livewire.form_nilai' , compact('nilai'));
 
     }
 
-
-    public function pencapaian_update(Request $request, $id) {
+    public function nilai_update(Request $request, $id) {
 
         $validatedData = $request->validate([
 
-            'status' => ['required'],
+            'nilai_teras' => ['required'],
+            'jangkaan_hasil' => ['required'],
+            // 'peratus' => ['required'],
+            // 'ukuran' => ['required'],
+            'skor_pekerja' => ['required'],
+            'skor_penyelia' => ['required'],
+            'user_id' => ['required'],
+
+            'grade' => ['required'],
+            'total_score' => ['required', 'numeric'],
             'weightage' => ['required', 'numeric'],
-
-            'overall' => ['required', 'numeric'],
-            'tahun' => ['required'],
-            'bulan' => ['required'],
-
-            'objektif' => ['required'],
-            'fungsi' => ['required'],
-
-            'metrik' => ['required'],
-            'ukuran' => ['required'],
-
-            'peratus' => ['required'],
-            'threshold' => ['required'],
-
-            'base' => ['required'],
-            'stretch' => ['required'],
-
-            'pencapaian' => ['required'],
-            'total' => ['required'],
-            'score' => ['required'],
             
         ]);
 
-        $update = Pencapaian::find($id)->update([
+        $update = Nilai_::find($id)->update([
 
             'user_id'=> Auth::user()->id,
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
 
-
-            'status'=> $request->status,
+            'grade'=> $request->grade,
             'weightage'=> $request->weightage,
 
-            'overall'=> $request->overall,
-            'tahun'=> $request->tahun,
-            'bulan'=> $request->bulan,
+            'total_score'=> $request->total_score,
+            // 'tahun'=> $request->tahun,
+            // 'bulan'=> $request->bulan,
 
-            'objektif'=> $request->objektif,
-            'fungsi'=> $request->fungsi,
+            'nilai_teras'=> $request->nilai_teras,
+            'jangkaan_hasil'=> $request->jangkaan_hasil,
 
-            'metrik'=> $request->metrik,
-            'ukuran'=> $request->ukuran,
+            // 'ukuran'=> $request->ukuran,
 
-            'peratus'=> $request->peratus,
-            'threshold'=> $request->threshold,
-
-            'base'=> $request->base,
-            'stretch'=> $request->stretch,
-    
-            'pencapaian'=> $request->pencapaian,
-            'total'=> $request->total,
-            'score'=> $request->score,
+            // 'peratus'=> $request->peratus,
+            'skor_pekerja'=> $request->skor_pekerja,
+            'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
 
-        return redirect()->route('staff_master')->with('message', 'Pencapaian Updated Successfully');
+        return redirect()->route('nilai')->with('message', 'Nilai Updated Successfully');
 
     }
 
-    public function pencapaian_delete($id) {
+    public function nilai_delete($id) {
 
-        $delete = Pencapaian::find($id)->forceDelete();
+        $delete = Nilai_::find($id)->forceDelete();
 
-        return redirect()->back()->with('message', 'Pencapaian Deleted Successfully');
+        return redirect()->back()->with('message', 'Nilai Deleted Successfully');
     }
 
-    public function bukti_main($id) {
-
-        $pencapaian = Pencapaian::find($id);
-        $bukti = Bukti::find($id);
-        
-        return view('staff.main_bukti' , compact('pencapaian', 'bukti') );
-    }
-
-
-    public function bukti_update(Request $request, $id) { 
-
-        $bukti = Bukti::find($id)->update([
-
-            'user_id'=> Auth::user()->id,
-
-            'link'=> $request->link,
-
-        ]);
-
-        return redirect()->back()->with('message', 'Profile Updated Successfully');
-
-    }
-
-    public function bukti_save(Request $request){
-     
-    Bukti::insert([
-        
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-    
-            'metrik'=> $request->metrik,
-
-            'link'=> $request->link,
-    
-        ]);
-
-}
         public function render()
     {
-        return view('livewire.nilai');
+        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+
+        return view('livewire.nilai', compact('nilai'));
+        // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
     }
 }

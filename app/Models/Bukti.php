@@ -33,4 +33,8 @@ class Bukti extends Model
         'link',
     ];
 
+    public function kpia() {
+        return $this->hasOne('App\Models\KPI_', 'id', 'kpi_id');
+    }
+
 }

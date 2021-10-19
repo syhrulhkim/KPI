@@ -233,8 +233,9 @@
 
             @if ((Auth::user()->role != "moderator") && (Auth::user()->role != "hr"))
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'kecekapan' ? 'active' : '' }}"
-                    href="{{ route('kecekapan') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'create-kecekapan' ? 'active' : '' }}"
+                    href="{{ route('create-kecekapan') }}">
+                    {{-- create-kpi --}}
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
