@@ -24,10 +24,13 @@ use App\Http\Livewire\Displaykpi;
 
 use App\Http\Livewire\Kecekapan;
 use App\Http\Livewire\Nilai;
+use App\Http\Livewire\LaravelExamples\ManagerKPI;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
+
+// use App\Http\Controllers\ManagerKPI;
 
 use Illuminate\Http\Request;
 
@@ -62,10 +65,20 @@ Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
 Route::post('/employee/save/kecekapan',[Kecekapan::class, 'kecekapan_save'])->name('kecekapan_save');
 Route::post('/employee/save/nilai',[Nilai::class, 'nilai_save'])->name('nilai_save');
 
-Route::get('/employee/edit/{id}', [KPI::class, 'kpi_edit']);
-Route::post('/employee/update/{id}', [KPI::class, 'kpi_update']);
-Route::get('/employee/delete/{id}', [KPI::class, 'kpi_delete']);
+Route::get('/employee/edit/kpi/{id}', [KPI::class, 'kpi_edit']);
+Route::post('/employee/update/kpi/{id}', [KPI::class, 'kpi_update']);
+Route::get('/employee/delete/kpi/{id}', [KPI::class, 'kpi_delete']);
 
+Route::get('/employee/edit/kecekapan/{id}', [Kecekapan::class, 'kecekapan_edit']);
+Route::post('/employee/update/kecekapan/{id}', [Kecekapan::class, 'kecekapan_update']);
+Route::get('/employee/delete/kecekapan/{id}', [Kecekapan::class, 'kecekapan_delete']);
+
+Route::get('/employee/edit/nilai/{id}', [Nilai::class, 'nilai_edit']);
+Route::post('/employee/update/nilai/{id}', [Nilai::class, 'nilai_update']);
+Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
+
+Route::get('/manager/view/kpi/{id}', ManagerKPI::class);
+// Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

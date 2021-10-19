@@ -306,6 +306,7 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                       {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Role</th> --}}
                     </tr>
                   </thead>
@@ -378,6 +379,21 @@
                       <td class="align-middle text-center text-sm">
                         @foreach ($users as $user)
                         <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->grade}}</h6>
+                        @endforeach
+                      </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td class="align-middle text-center text-sm">
+                        @foreach ($users as $user)
+                        {{-- <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->role}}</h6> --}}
+                        {{-- <button class="btn btn-success" value="{{$user->id}}" href="{{URL::to('http://kpi.test/'.'laravel-user-profile'.'')}}" target="_blank">{{$user->role}}</button> --}}
+                        {{-- <a class="btn btn-success" value="{{$user->id}}" href="{{URL::to('http://kpi.test/'.'$user->id'.'')}}">View KPI</a> --}}
+                        <a href="{{ url('manager/view/kpi/'.$user->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                        {{-- <a href="{{URL::to('http://161.139.23.150:8080/ipfs/'.$resourcesfile->link_thumbnail.'')}}" target="_blank" class="btn btn-success">Preview Thumbnail</a> --}}
+                        {{-- <a href="{{URL::to(''.$createquiz->file_path.'')}}" target="_blank" class="btn btn-success">Attempt Quiz</a> --}}
+                        {{-- <button onclick="window.location.href='https://w3docs.com';"> --}}
+                        {{-- <a href="" class="table table-hover" style="cursor: pointer;text-decoration: underline;" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">{{ __('Register Here') }}</a> --}}
+                        {{-- <button class="btn btn-success" id="myBtn">Easy</button> --}}
                         @endforeach
                       </td>
                     </div>

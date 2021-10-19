@@ -253,16 +253,16 @@
                         <td class="border-dark">{{ $i++  }}</td>
                         <td class="border-dark">{{ $kecekapans -> kecekapan_teras }}</td>
                         <td class="border-dark">{{ $kecekapans -> jangkaan_hasil }}</td>
-                        <td class="border-dark">{{ $kecekapans -> peratus }}</td>
-                        <td class="border-dark">{{ $kecekapans -> ukuran }}</td>
+                        <td class="border-dark">{{  '20%' }}</td>
+                        <td class="border-dark">{{ 'Percentage (%)' }}</td>
                         <td class="border-dark">{{ $kecekapans -> skor_pekerja }}</td>
                         <td class="border-dark">{{ $kecekapans -> skor_penyelia }}</td>
                         <td class="border-dark">{{ $kecekapans -> skor_sebenar }}</td>
 
                         <td class="border-dark">
-                          <a href="{{ url('employee/edit/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a>
-                          <a href="{{ url('employee/delete/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                          {{-- <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
+                          <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
                         
                     </tr>

@@ -39,19 +39,19 @@ class Kecekapan extends Component
             // 'ukuran' => ['required'],
             'skor_pekerja' => ['required'],
             // 'skor_penyelia' => ['required'],
-            'user_id' => ['required'],
+            // 'user_id' => ['required'],
 
-            'grade' => ['required'],
-            'total_score' => ['required', 'numeric'],
-            'weightage' => ['required', 'numeric'],
+            // 'grade' => ['required'],
+            // 'total_score' => ['required', 'numeric'],
+            // 'weightage' => ['required', 'numeric'],
             // dd(Auth::user()->id),
         ]);
 
-        dd(Auth::user()->id);
+        // dd(Auth::user()->id);
         Kecekapan_::insert([
         
         'user_id'=> Auth::user()->id,
-        dd(Auth::user()->id),
+        // dd(Auth::user()->id),
         'created_at'=> Carbon::now(),
         'updated_at'=> Carbon::now(),
 
@@ -69,7 +69,7 @@ class Kecekapan extends Component
 
         // 'peratus'=> $request->peratus,
         'skor_pekerja'=> $request->skor_pekerja,
-        'skor_penyelia'=> $request->skor_penyelia,
+        // 'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
 
@@ -106,7 +106,6 @@ class Kecekapan extends Component
         $update = Kecekapan_::find($id)->update([
 
             'user_id'=> Auth::user()->id,
-            dd(Auth::user()->id),
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
 
@@ -128,7 +127,7 @@ class Kecekapan extends Component
 
         ]);
 
-        return redirect()->route('kecekapan')->with('message', 'Pencapaian Updated Successfully');
+        return redirect()->route('kecekapan')->with('message', 'Kecekapan Updated Successfully');
 
     }
 
@@ -136,12 +135,15 @@ class Kecekapan extends Component
 
         $delete = Kecekapan_::find($id)->forceDelete();
 
-        return redirect()->back()->with('message', 'Pencapaian Deleted Successfully');
+        return redirect()->back()->with('message', 'Kecekapan Deleted Successfully');
     }
 
         public function render()
     {
         $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+
+        $userdepartment = auth()->user()->department;
+        $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
 
         return view('livewire.kecekapan', compact('kecekapan'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
