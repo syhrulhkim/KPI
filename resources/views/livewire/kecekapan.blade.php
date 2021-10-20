@@ -225,6 +225,7 @@
         <br>
           
         <div class="card m-3">
+          @if (Auth::user()->role == "employee")
 
           <div class="card-header font-weight-bold" style="text-transform:uppercase" >Maklumat Pencapaian</div>
           <div class="table-responsive">
@@ -271,6 +272,62 @@
                 </tbody> 
             </table>
           </div>
+          @else
+          @endif
+        </div>
+       
+        <div class="card m-3">
+          @if (Auth::user()->role == "manager")
+
+          <div class="card-header font-weight-bold" style="text-transform:uppercase" >Maklumat Pencapaian</div>
+          <div class="table-responsive">
+            <table  class="table table-bordered text-center">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>No.</th>
+                    <th >Kecekapan Teras</th>
+                    <th >Jangkaan Hasil</th>
+                    <th >%</th>
+                    <th >Ukuran</th>
+                    <th >Skor Pekerja</th>
+                    <th >Skor Penyelia</th>
+                    <th >Skor Sebenar</th>
+                    {{-- <th >Penilaian </th> --}}
+                    <th class="w-25" ><i class="fas fa-cogs"></i></th>
+                  </tr>
+                </thead>
+                <tbody >
+                    <!-- Display Body --> 
+                   
+                    @php($i = 1)
+                    @foreach ($users as $userss)
+                      
+                    <tr class="font-weight-bold">
+                        <td class="border-dark">{{ $i++  }}</td>
+                        <td class="border-dark">{{ $userss -> kecekapan_teras }}</td>
+                        {{-- {{dd($userss -> kecekapan_teras)}} --}}
+                        <td class="border-dark">{{ $userss -> jangkaan_hasil }}</td>
+                        <td class="border-dark">{{  '20%' }}</td>
+                        <td class="border-dark">{{ 'Percentage (%)' }}</td>
+                        <td class="border-dark">{{ $userss -> skor_pekerja }}</td>
+                        <td class="border-dark">{{ $userss -> skor_penyelia }}</td>
+                        <td class="border-dark">{{ $userss -> skor_sebenar }}</td>
+
+                        <td class="border-dark">
+                          <a href="{{ url('employee/edit/kecekapan/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                          {{-- <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
+                          <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                        </td>
+                        
+                    </tr>
+
+                    @endforeach
+                    
+                </tbody> 
+            </table>
+          </div>
+          @else
+          @endif
         </div>
 
       </div>

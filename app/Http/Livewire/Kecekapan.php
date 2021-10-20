@@ -144,8 +144,13 @@ class Kecekapan extends Component
 
         $userdepartment = auth()->user()->department;
         $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
+        // dd($users);
+        
+        // $kecekapanemployee = Kecekapan_::where('user_id', '=', $users->id)->orderBy('created_at','desc')->get();
 
-        return view('livewire.kecekapan', compact('kecekapan'));
+
+
+        return view('livewire.kecekapan', compact('kecekapan', 'users'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
     }
 }

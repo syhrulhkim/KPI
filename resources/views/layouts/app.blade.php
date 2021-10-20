@@ -63,8 +63,8 @@
     <!--Custom JavaScript -->
     <script src="{{ url('assets/plugins/custom.min.js') }}"></script>
     <!-- Sweet alert -->
-    <script src="{{asset('js/plugins/sweetalert/sweetalert2.min.js')}}"></script>
-    <script src="{{asset('js/plugins/sweetalert/sweetalert.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert2.min.js')}}"></script> --}}
+    <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
     
     <!-- Magnific popup JavaScript -->
     <script src="{{url('assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')}}"></script>
