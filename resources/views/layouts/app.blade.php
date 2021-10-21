@@ -52,6 +52,7 @@
 
     @livewireScripts
     <!--JQuery -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
     <script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap popper Core JavaScript -->
     <script src="{{ url('assets/plugins/bootstrap/js/popper.min.js') }}"></script>
@@ -64,7 +65,9 @@
     <script src="{{ url('assets/plugins/custom.min.js') }}"></script>
     <!-- Sweet alert -->
     {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert2.min.js')}}"></script> --}}
-    <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script> --}}
+    <script src="{{asset('assets/plugins/sweetalert/sweetalert2.min.js')}}"></script>
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     
     <!-- Magnific popup JavaScript -->
     <script src="{{url('assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')}}"></script>

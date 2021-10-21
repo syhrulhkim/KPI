@@ -140,7 +140,7 @@ class Nilai extends Component
 
         public function render()
     {
-        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('nilai_teras')->get();
 
         return view('livewire.nilai', compact('nilai'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));

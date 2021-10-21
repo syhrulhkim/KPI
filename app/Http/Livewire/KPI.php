@@ -260,7 +260,7 @@ class KPI extends Component
         // $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
         $bukti = Bukti::where([[ 'kpi_id', '=', '19' ]])->get();
         // $bukti = KPI_::where('user_id', '=', auth()->user()->id)->Where('role' , 'employee')->orderBy('created_at','desc')->get();
-        $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('fungsi')->get();
         // $questions = Question::where([[ 'kpi_id', '=', '19' ]])->get();
         // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id);
         $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();

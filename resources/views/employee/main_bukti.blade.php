@@ -53,7 +53,7 @@
                               
                               <label class="col-form-label font-weight-bold ml-3" style="font-size: 1rem;">Bulan :</label>
                               <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="bulan" name="bulan" value="{{ $kpi->bulan }}" readonly>     
-                              
+                              z
                               {{-- <form action="{{ url('employee/bukti/update') }}/{{ Auth::user()->id }} " method="post">  --}}
                                 <form action="{{ url('employee/bukti/update') }}/{{ $bukti->id }} " method="post">   
                                 @csrf
