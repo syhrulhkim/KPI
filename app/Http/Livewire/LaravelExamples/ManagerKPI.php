@@ -4,7 +4,6 @@ namespace App\Http\Livewire\LaravelExamples;
 
 use Livewire\Component;
 use App\Models\KPI_;
-use App\Models\Bukti;
 use App\Models\Kecekapan_;
 use App\Models\Nilai_;
 use App\Models\User;
@@ -16,7 +15,7 @@ class ManagerKPI extends Component
 {
     public function render()
     {
-        $bukti = Bukti::where([[ 'kpi_id', '=', '19' ]])->get();
+        // $bukti = Bukti::where([[ 'kpi_id', '=', '19' ]])->get();
         $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
         $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
         $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
@@ -25,6 +24,6 @@ class ManagerKPI extends Component
 
         $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
-        return view('livewire.laravel-examples.manager-kpi', compact('kpi', 'users', 'hrs', 'bukti', 'kecekapan', 'nilai'));
+        return view('livewire.laravel-examples.manager-kpi', compact('kpi', 'users', 'hrs', 'kecekapan', 'nilai'));
     }
 }

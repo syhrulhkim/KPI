@@ -145,7 +145,13 @@
                                       <label class="font-weight-bold " >Objektif KPI</label>
                                       <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
                                   </div>
-                                </div>                            
+                                </div>      
+                                <div class="col-sm-4 pt-3 " >
+                                  <div class="mb-4">
+                                      <label class="font-weight-bold " >Link Bukti</label>
+                                      <input type="text" class="form-control form-control-sm" id="link" name="link">
+                                  </div>
+                                </div>                       
 
                                 <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
@@ -312,37 +318,12 @@
                       
                     <tr class="font-weight-bold">
                       
-                      @php
-                          $isAnswered = false;
-                      @endphp
-                      
-                        {{-- {{dd( $markah->bukti->link )}} --}}
-                        {{-- {{dd($kpi->kpia)}} --}}
-                        {{-- @foreach ($kpi->kpia as $buktis) --}}
-                        @foreach ($bukti as $buktis)
-                        {{-- @foreach ($Question->answer as $answer) --}}
-                        @if(auth()->user()->id == auth()->user()->id)
-                          @php
-                          $isAnswered = true;
-                          @endphp
-                          @break
-                        @else
-                          @php
-                            $isAnswered = false;
-                          @endphp
-                        @endif
-                      @endforeach
-                      @if ($isAnswered)
-                      {{-- @php($i = 1) --}}
                       <td class="border-dark">{{$key + 1}}</td>
                       <td class="border-dark">{{ $kpis -> fungsi }}</td>
                       <td class="border-dark">{{ $kpis -> objektif }}</td>
                       <td class="border-dark">{{ $kpis -> bukti }}</td>
                         <td class="border-dark">
-                          <a href=" {{ $buktis->link }}"></i>Link Bukti</a>
-                          {{-- {{dd($buktis->link)}} --}}
-                          {{-- <a href="{{ $kpis->kpi }}">Link Bukti</a></p> --}}
-                          {{-- {{ $buktis->link }} --}}
+                          <a href=" {{ $kpis->link }}"></i>Link Bukti</a>
                         </td>
                         {{-- <td class="text-center">{{$attemptquiz->answer->answer}}</td> --}}
                         <td class="border-dark">{{ $kpis -> peratus }}</td>
@@ -358,12 +339,9 @@
                        
                         <td class="border-dark">
                           <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
-                          <a href="{{ url('employee/bukti/edit/kpi/'.$kpis->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a>
+                          {{-- <a href="{{ url('employee/bukti/edit/kpi/'.$kpis->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a> --}}
                           <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
-                        @else
-                        You have no yet submitted any KPI
-                    @endif
                     </tr>
 
                     @endforeach

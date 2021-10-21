@@ -54,12 +54,12 @@ Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-passwo
  
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
-Route::get('/employee/master',[KPI::class, 'kpi'])->name('employee_master');
+// Route::get('/employee/master',[KPI::class, 'kpi'])->name('employee_master');
 // Route::get('/employee/master',[KPI::class, 'kpi'])->name('kpi');
 
-Route::get('/employee/bukti/edit/{id}',[KPI::class, 'bukti_main']);
-Route::post('/employee/bukti/save',[KPI::class, 'bukti_save'])->name('bukti_save');
-Route::post('/employee/bukti/update/{id}',[KPI::class, 'bukti_update']);
+// Route::get('/employee/bukti/edit/kpi/{id}',[KPI::class, 'bukti_main']);
+// Route::post('/employee/bukti/save/kpi',[KPI::class, 'bukti_save'])->name('bukti_save');
+// Route::post('/employee/bukti/update/kpi/{id}',[KPI::class, 'bukti_update']);
 
 Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
 Route::post('/employee/save/kecekapan',[Kecekapan::class, 'kecekapan_save'])->name('kecekapan_save');

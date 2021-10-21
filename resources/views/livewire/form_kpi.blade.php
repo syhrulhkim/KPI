@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('employee/update/'.$kpi->id) }}" method="post">  
+                            <form action="{{ url('employee/update/kpi/'.$kpi->id) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -97,6 +97,13 @@
                                       <div class="mb-4">
                                           <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
                                           <textarea name="bukti" id="bukti" cols="30" rows="10">{{ $kpi->bukti }}</textarea>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-sm-4 pt-3 " >
+                                      <div class="mb-4">
+                                          <label class="font-weight-bold " >Link Bukti</label>
+                                          <input type="text" class="form-control form-control-sm" id="link" name="link" value="{{ $kpi->link }}" >
                                       </div>
                                     </div>
   

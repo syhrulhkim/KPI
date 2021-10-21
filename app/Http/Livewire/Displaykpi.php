@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 // namespace App\Models\KPI_;
 
 use App\Models\Displaykpi_;
-use App\Models\Bukti;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
