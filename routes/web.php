@@ -77,7 +77,9 @@ Route::get('/employee/edit/nilai/{id}', [Nilai::class, 'nilai_edit']);
 Route::post('/employee/update/nilai/{id}', [Nilai::class, 'nilai_update']);
 Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
 
-Route::get('/manager/view/kpi/{id}', ManagerKPI::class);
+// Route::get('/manager/view/kpi/{id}', ManagerKPI::class);
+// Route::get('/manager/view/kpi/{id}', ManagerKPI::class)->name('view-kpi');
+// Route::get('/manager/view/kpi/{id}', ManagerKPI::class)->name('view-kpi');
 // Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
 
 Route::middleware('auth')->group(function () {
@@ -93,7 +95,7 @@ Route::middleware('auth')->group(function () {
     // Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
 
     // Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
-    Route::get('/nilai', Nilai::class)->name('nilai');
+    Route::get('/create-nilai', Nilai::class)->name('create-nilai');
 
     Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
     Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');

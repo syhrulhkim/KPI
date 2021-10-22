@@ -127,7 +127,7 @@ class Nilai extends Component
 
         ]);
 
-        return redirect()->route('nilai')->with('message', 'Nilai Updated Successfully');
+        return redirect()->route('create-nilai')->with('message', 'Nilai Updated Successfully');
 
     }
 
