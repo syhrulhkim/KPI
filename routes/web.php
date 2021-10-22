@@ -24,13 +24,13 @@ use App\Http\Livewire\Displaykpi;
 
 use App\Http\Livewire\Kecekapan;
 use App\Http\Livewire\Nilai;
-use App\Http\Livewire\LaravelExamples\ManagerKPI;
+// use App\Http\Livewire\LaravelExamples\ManagerKPI;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
 
-// use App\Http\Controllers\ManagerKPI;
+use App\Http\Controllers\ManagerKPI;
 
 use Illuminate\Http\Request;
 
@@ -79,8 +79,11 @@ Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
 
 // Route::get('/manager/view/kpi/{id}', ManagerKPI::class);
 // Route::get('/manager/view/kpi/{id}', ManagerKPI::class)->name('view-kpi');
-// Route::get('/manager/view/kpi/{id}', ManagerKPI::class)->name('view-kpi');
-// Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
+// Route::get('/manager/view/kpi', ManagerKPI::class);
+// Route::get('/manager/view/kpi', function() {
+//     echo 'john';
+// });
+Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

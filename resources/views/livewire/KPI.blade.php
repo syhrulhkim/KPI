@@ -108,7 +108,7 @@
                                   <div class="mb-4">
                                       <label class="font-weight-bold" >Fungsi</label>
                                       <select  class="form-control form-control-sm" id="fungsi" name="fungsi">
-                                        <option selected value="">N/A</option>
+                                        <option selected value="">-- Sila Pilih --</option>
                                         {{-- <option value="Kad Skor Korporat" >Kad Skor Korporat</option> --}}
                                         {{-- <option value="Kewangan" >Kewangan</option> --}}
                                         

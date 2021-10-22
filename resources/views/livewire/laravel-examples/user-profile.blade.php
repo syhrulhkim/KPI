@@ -132,6 +132,7 @@
                         </div>
                     </div>
                 </div>
+                @if (Auth::user()->role != "hr" && Auth::user()->role != "manager")
                 <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
                     <div class="col-12">
                         <div class="card mb-4 ">
@@ -271,7 +272,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                  
+                @else 
+                @endif
             </div>
         </div>
     </div>

@@ -4,6 +4,9 @@ namespace App\Http\Livewire;
 // namespace App\Models\KPI_;
 
 use App\Models\Displaykpi_;
+use App\Models\KPI_;
+use App\Models\Kecekapan_;
+use App\Models\Nilai_;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -44,7 +47,17 @@ class Displaykpi extends Component
         // 'skor_KPI'=> $request->skor_KPI,
         // 'skor_sebenar'=> $request->skor_sebenar,
 
+        $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
+        $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
 
-        return view('livewire.display-kpi', compact('displaykpi'));
+        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+
+        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+
+        return view('livewire.display-kpi', compact('kpi', 'users', 'hrs', 'kecekapan', 'nilai', 'displaykpi'));
+
+
+        // return view('livewire.display-kpi', compact('displaykpi'));
     }
 }

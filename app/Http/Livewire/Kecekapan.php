@@ -69,6 +69,8 @@ class Kecekapan extends Component
 
         // 'peratus'=> $request->peratus,
         'skor_pekerja'=> $request->skor_pekerja,
+        'peratus'=> '20%',
+        'ukuran'=> 'Percentage (%)',
         // 'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
