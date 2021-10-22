@@ -116,7 +116,7 @@
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Department:</strong> &nbsp; {{ Auth::user()->department }}</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Unit:</strong> &nbsp; {{ Auth::user()->unit }}</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Gred Staff:</strong> &nbsp; {{ Auth::user()->grade}}</li>
-                                <li class="list-group-item border-0 ps-0 pb-0">
+                                {{-- <li class="list-group-item border-0 ps-0 pb-0">
                                     <strong class="text-dark text-sm">Social:</strong> &nbsp;
                                     <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
                                         <i class="fab fa-facebook fa-lg"></i>
@@ -127,26 +127,27 @@
                                     <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
                                         <i class="fab fa-instagram fa-lg"></i>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
                 </div>
+                @if (Auth::user()->role != "hr" && Auth::user()->role != "manager")
                 <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
                     <div class="col-12">
                         <div class="card mb-4 ">
                             <div class="card-header pb-0">
-                                <h6>Authors table</h6>
+                                <h6>KPI table</h6>
                             </div>
                             <div class="card-body px-0 pt-0 pb-2">
                                 <div class="table-responsive p-0">
                                     <table class="table align-items-center mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th> --}}
                                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                                     <th class="text-secondary opacity-7"></th>
                                                 </tr>
                                             </thead>
@@ -158,23 +159,23 @@
                                                                 <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
                                                             </div>
                                                                 <div class="d-flex flex-column justify-content-center">
-                                                                    <h6 class="mb-0 text-sm">John Michael</h6>
-                                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                                                                    <h6 class="mb-0 text-sm">KPI Master</h6>
+                                                                    {{-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> --}}
                                                                 </div>
                                                             </div>
                                                     </td>
-                                                    <td>
+                                                    {{-- <td>
                                                         <p class="text-xs font-weight-bold mb-0">Manager</p>
                                                         <p class="text-xs text-secondary mb-0">Organization</p>
-                                                    </td>
+                                                    </td> --}}
                                                     <td class="align-middle text-center text-sm">
                                                         <span class="badge badge-sm bg-gradient-success">Online</span>
                                                     </td>
-                                                    <td class="align-middle text-center">
+                                                    {{-- <td class="align-middle text-center">
                                                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                                    </td>
+                                                    </td> --}}
                                                     <td class="align-middle">
-                                                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                        <a href="http://kpi.test/create-kpi" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                             Edit
                                                         </a>
                                                     </td>
@@ -186,23 +187,23 @@
                                                             <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                            <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
+                                                            <h6 class="mb-0 text-sm">Kecekapan Teras</h6>
+                                                            {{-- <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p> --}}
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                {{-- <td>
                                                     <p class="text-xs font-weight-bold mb-0">Programator</p>
                                                     <p class="text-xs text-secondary mb-0">Developer</p>
-                                                </td>
+                                                </td> --}}
                                                 <td class="align-middle text-center text-sm">
                                                     <span class="badge badge-sm bg-gradient-secondary">Offline</span>
                                                 </td>
-                                                <td class="align-middle text-center">
+                                                {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                                                </td>
+                                                </td> --}}
                                                 <td class="align-middle">
-                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                    <a href="http://kpi.test/create-kecekapan" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                     Edit
                                                     </a>
                                                 </td>
@@ -214,23 +215,23 @@
                                                             <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Laurent Perrier</h6>
-                                                            <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p>
+                                                            <h6 class="mb-0 text-sm">Nilai Teras</h6>
+                                                            {{-- <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p> --}}
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                {{-- <td>
                                                     <p class="text-xs font-weight-bold mb-0">Executive</p>
                                                     <p class="text-xs text-secondary mb-0">Projects</p>
-                                                </td>
+                                                </td> --}}
                                                 <td class="align-middle text-center text-sm">
                                                     <span class="badge badge-sm bg-gradient-success">Online</span>
                                                 </td>
-                                                <td class="align-middle text-center">
+                                                {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
-                                                </td>
+                                                </td> --}}
                                                 <td class="align-middle">
-                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                    <a href="http://kpi.test/nilai" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                         Edit
                                                     </a>
                                                 </td>
@@ -271,7 +272,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                  
+                @else 
+                @endif
             </div>
         </div>
     </div>

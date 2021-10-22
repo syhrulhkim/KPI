@@ -33,20 +33,22 @@ class UserManagement extends Component
 
     public function delete()
     {
+    
         $user = User::find($this->id_user);
-        dd($user);
+        // dd($user);
         $user->delete();
     }
 
     public function render()
     {
-        // $users = User::orderBy('created_at','desc')->get();
+        // $users = User::orderBy('created_at','desc')->get();no
         $users = User::where('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderator')->get();
         $employees = User::where('role', 'employee')->get();
+        $allusers = User::orderBy('created_at','desc')->get();
         // dd( $users);
         // $attemptQuizzes = AttemptQuiz::where( [[ 'id_createquizzes', '=', $this->id_createquizzes ], ['id_question', '=', $question->id], ['status_answer', '=', '1']] )->get();
         $userscount = $users->count();
 
-        return view('livewire.laravel-examples.user-management')->with(compact('userscount', 'users', 'employees'));
+        return view('livewire.laravel-examples.user-management')->with(compact('userscount', 'users', 'employees', 'allusers'));
     }
 }

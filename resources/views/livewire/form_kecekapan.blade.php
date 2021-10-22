@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('employee/update/'.$kecekapan->id) }}" method="post">  
+                            <form action="{{ url('employee/update/kecekapan/'.$kecekapan->id) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -74,7 +74,8 @@
                                         <div class="mb-4">
                                             <label class="font-weight-bold" >Kecekapan Teras</label>
                                             <select  class="form-control form-control-sm" id="kecekapan_teras" name="kecekapan_teras">
-                                              <option selected value="">N/A</option>
+                                              <option selected readonly value="{{ $kecekapan->kecekapan_teras }}">{{ $kecekapan->kecekapan_teras }}</option>
+                                              {{-- <option value="">N/A</option> --}}
                                               <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
                                               <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
                                               <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option> 
@@ -87,7 +88,8 @@
                                       <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4">
                                             <label class="font-weight-bold " >Jangkaan Hasil</label>
-                                            <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil">
+                                            {{-- <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil"> --}}
+                                            <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil" value="{{ $kecekapan->jangkaan_hasil }}" >
                                         </div>
                                       </div>
   

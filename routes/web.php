@@ -24,13 +24,13 @@ use App\Http\Livewire\Displaykpi;
 
 use App\Http\Livewire\Kecekapan;
 use App\Http\Livewire\Nilai;
-use App\Http\Livewire\LaravelExamples\ManagerKPI;
+// use App\Http\Livewire\LaravelExamples\ManagerKPI;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
 
-// use App\Http\Controllers\ManagerKPI;
+use App\Http\Controllers\ManagerKPI;
 
 use Illuminate\Http\Request;
 
@@ -54,12 +54,12 @@ Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-passwo
  
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
-Route::get('/employee/master',[KPI::class, 'kpi'])->name('employee_master');
+// Route::get('/employee/master',[KPI::class, 'kpi'])->name('employee_master');
 // Route::get('/employee/master',[KPI::class, 'kpi'])->name('kpi');
 
-Route::get('/employee/bukti/edit/{id}',[KPI::class, 'bukti_main']);
-Route::post('/employee/bukti/save',[KPI::class, 'bukti_save'])->name('bukti_save');
-Route::post('/employee/bukti/update/{id}',[KPI::class, 'bukti_update']);
+// Route::get('/employee/bukti/edit/kpi/{id}',[KPI::class, 'bukti_main']);
+// Route::post('/employee/bukti/save/kpi',[KPI::class, 'bukti_save'])->name('bukti_save');
+// Route::post('/employee/bukti/update/kpi/{id}',[KPI::class, 'bukti_update']);
 
 Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
 Route::post('/employee/save/kecekapan',[Kecekapan::class, 'kecekapan_save'])->name('kecekapan_save');
@@ -77,8 +77,13 @@ Route::get('/employee/edit/nilai/{id}', [Nilai::class, 'nilai_edit']);
 Route::post('/employee/update/nilai/{id}', [Nilai::class, 'nilai_update']);
 Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
 
-Route::get('/manager/view/kpi/{id}', ManagerKPI::class);
-// Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
+// Route::get('/manager/view/kpi/{id}', ManagerKPI::class);
+// Route::get('/manager/view/kpi/{id}', ManagerKPI::class)->name('view-kpi');
+// Route::get('/manager/view/kpi', ManagerKPI::class);
+// Route::get('/manager/view/kpi', function() {
+//     echo 'john';
+// });
+Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
@@ -93,7 +98,7 @@ Route::middleware('auth')->group(function () {
     // Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
 
     // Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
-    Route::get('/nilai', Nilai::class)->name('nilai');
+    Route::get('/create-nilai', Nilai::class)->name('create-nilai');
 
     Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
     Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');

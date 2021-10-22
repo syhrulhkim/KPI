@@ -69,6 +69,8 @@ class Kecekapan extends Component
 
         // 'peratus'=> $request->peratus,
         'skor_pekerja'=> $request->skor_pekerja,
+        'peratus'=> '20%',
+        'ukuran'=> 'Percentage (%)',
         // 'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
@@ -140,12 +142,17 @@ class Kecekapan extends Component
 
         public function render()
     {
-        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('kecekapan_teras')->get();
 
         $userdepartment = auth()->user()->department;
         $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
+        // dd($users);
+        
+        // $kecekapanemployee = Kecekapan_::where('user_id', '=', $users->id)->orderBy('created_at','desc')->get();
 
-        return view('livewire.kecekapan', compact('kecekapan'));
+
+
+        return view('livewire.kecekapan', compact('kecekapan', 'users'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
     }
 }

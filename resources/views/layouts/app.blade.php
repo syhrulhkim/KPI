@@ -1,5 +1,8 @@
 
 <x-layouts.base>
+
+ 
+
     {{-- If the user is authenticated --}}
     @auth()
         {{-- If the user is authenticated on the static sign up or the sign up page --}}
@@ -32,6 +35,7 @@
 
     {{-- If the user is not authenticated (if the user is a guest) --}}
     @guest
+  
         {{-- If the user is on the login page --}}
         @if (!auth()->check() && in_array(request()->route()->getName(),['login'],))
             @include('layouts.navbars.guest.login')
@@ -50,8 +54,9 @@
         @endif
     @endguest
 
-    @livewireScripts
+    {{-- @livewireScripts --}}
     <!--JQuery -->
+   
     <script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap popper Core JavaScript -->
     <script src="{{ url('assets/plugins/bootstrap/js/popper.min.js') }}"></script>
@@ -63,8 +68,10 @@
     <!--Custom JavaScript -->
     <script src="{{ url('assets/plugins/custom.min.js') }}"></script>
     <!-- Sweet alert -->
-    <script src="{{asset('js/plugins/sweetalert/sweetalert2.min.js')}}"></script>
-    <script src="{{asset('js/plugins/sweetalert/sweetalert.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert2.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script> --}}
+    <script src="{{asset('assets/plugins/sweetalert/sweetalert2.min.js')}}"></script>
+    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     
     <!-- Magnific popup JavaScript -->
     <script src="{{url('assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')}}"></script>

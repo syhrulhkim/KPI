@@ -13,7 +13,7 @@
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
-                      <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-left"></i>
                         <span>Menu</span>
                     </button>
 
@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('employee/update/kpi/'.$kpi->id) }}" method="post">  
+                            <form action="{{ url('employee/update/nilai/'.$nilai->id) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -60,52 +60,38 @@
                                     $yearArray = range(2021, 2050);
                                 ?>
                                     <!-- List Dropdown -->
-                                  <label for="tahun" class="col-form-label font-weight-bold" style="font-size: 1rem;">Tahun :</label>
-                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="tahun" name="tahun" value="{{ $kpi->tahun }}" readonly>
+                                  {{-- <label for="tahun" class="col-form-label font-weight-bold" style="font-size: 1rem;">Tahun :</label>
+                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="tahun" name="tahun" value="{{ $kecekapan->tahun }}" readonly>
 
                                   &nbsp;
                                   <label for="bulan" class="col-form-label font-weight-bold" style="font-size: 1rem;">Bulan :</label>
-                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="bulan" name="bulan" value="{{ $kpi->bulan }}" readonly>
+                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="bulan" name="bulan" value="{{ $kecekapan->bulan }}" readonly> --}}
     
   
                                 <div class="row">
   
                                     <div class="col-sm-4 pt-3 " >
-                                      <div class="mb-4">
-                                          <label class="font-weight-bold " >Objektif</label>
-                                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif" value="{{ $kpi->objektif }}" >
+                                        <div class="mb-4">
+                                            <label class="font-weight-bold" >Nilai Teras</label>
+                                            <select  class="form-control form-control-sm" id="nilai_teras" name="nilai_teras">
+                                              <option selected readonly value="{{ $nilai->nilai_teras }}">{{ $nilai->nilai_teras }}</option>
+                                              {{-- <option value="">N/A</option> --}}
+                                              <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
+                                              <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
+                                              <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option> 
+                                              <option value="Pengurusan Pemegang Berkepentingan" >Pengurusan Pemegang Berkepentingan</option>
+                                              <option value="Ketangkasan Dalam Organisasi" >Ketangkasan Dalam Organisasi</option>
+                                          </select>
+                                        </div>
                                       </div>
-                                    </div>
-  
-                                    <div class="col-sm-4 pt-3 " >
-                                      <div class="mb-4">
-                                          <label class="font-weight-bold" >Fungsi</label>
-                                          <select  class="form-control form-control-sm" id="fungsi" name="fungsi">
-                                            <option selected readonly value="{{ $kpi->fungsi }}">{{ $kpi->fungsi }}</option>
-                                            {{-- <option value="N/A">N/A</option> --}}
-                                            <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
-                                            <option value="Kewangan" >Kewangan</option>
-                                            <option value="Pelanggan" >Pelanggan</option>
-                                            <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
-                                            <option value="Manusia & Proses" >Manusia & Proses</option> 
-                                            <option value="Kolaborasi" >Kolaborasi</option>
-                                        </select>
-                                      </div>
-                                    </div>
-  
-                                    <div class="col-sm-4 pt-3 " >
-                                      <div class="mb-4">
-                                          <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
-                                          <textarea name="bukti" id="bukti" cols="30" rows="10">{{ $kpi->bukti }}</textarea>
-                                      </div>
-                                    </div>
 
-                                    <div class="col-sm-4 pt-3 " >
-                                      <div class="mb-4">
-                                          <label class="font-weight-bold " >Link Bukti</label>
-                                          <input type="text" class="form-control form-control-sm" id="link" name="link" value="{{ $kpi->link }}" >
+                                      <div class="col-sm-4 pt-3 " >
+                                        <div class="mb-4">
+                                            <label class="font-weight-bold " >Jangkaan Hasil</label>
+                                            {{-- <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil"> --}}
+                                            <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil" value="{{ $nilai->jangkaan_hasil }}" >
+                                        </div>
                                       </div>
-                                    </div>
   
                                 </div>
                               
@@ -116,13 +102,13 @@
                                     <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                       <tr>
                                           <th class="w-25" >Gred : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="{{ $kpi->grade }}" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="{{ $nilai->grade }}" readonly>
                                           </th>
                                           <th class="w-25" >Overall Score : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="total_score" value="{{ $kpi->total_score }}" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="total_score" value="{{ $nilai->total_score }}" readonly>
                                           </th>
                                           <th class="w-25" >Total Weightage : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" value="{{ $kpi->weightage }}" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" value="{{ $nilai->weightage }}" readonly>
                                           </th>
                                       </tr>
                                   </table>
@@ -130,17 +116,12 @@
                                     <table class="table table-bordered text-center">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th rowspan="2">Ukuran</th>
                                                 <th rowspan="2">Peratus (%)</th>
-                                                <th colspan="3">KPI Targets</th>
-                                                <th rowspan="2">Pencapaian</th>
-                                                <th rowspan="2">Skor KPI</th>
+                                                <th rowspan="2">Ukuran</th>
+                                                <th rowspan="2">Skor Pekerja</th>
+                                                <th rowspan="2">Skor Penyelia</th>
                                                 <th rowspan="2">Skor Sebenar</th>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col" >Threshold</th>
-                                                <th scope="col" >Base</th>
-                                                <th scope="col" >Stretch</th>
+                                                {{-- <th rowspan="2">Skor Sebenar</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,7 +129,7 @@
 
                                             <td style="word-break: break-all;" class="border-dark">
                                               <select class="form-select form-select-sm" id="ukuran" name="ukuran">
-                                                <option selected readonly value="{{ $kpi->ukuran }}">{{ $kpi->ukuran }}</option>
+                                                <option selected readonly value="{{ $nilai->ukuran }}">{{ $nilai->ukuran }}</option>
                                                 <option value="N/A">N/A</option>
                                                 <option value="Quantity" >Quantity</option>
                                                 <option value="Ratio" >Ratio</option>
@@ -166,31 +147,19 @@
                                             </td>
 
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $kpi->peratus }}" min="0"  >
-                                            </td>
-
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" value="{{ $kpi->threshold }}" min="0" >
+                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $nilai->peratus }}" min="0"  >
                                             </td>
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" value="{{ $kpi->base }}" min="0" >
+                                              <input type="text" maxlength="4"  class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" value="{{ $nilai->pencapaian }}" min="0" >
                                             </td>
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" value="{{ $kpi->stretch }}" min="0" >
+                                              <input type="text" class="form-control " id="skor_KPI" name="skor_KPI" value="{{ $nilai->skor_KPI }}" readonly>
                                             </td>
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4"  class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" value="{{ $kpi->pencapaian }}" min="0" >
-                                            </td>
-                                      
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_KPI" name="skor_KPI" value="{{ $kpi->skor_KPI }}" readonly>
-                                            </td>
-                                      
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $kpi->skor_sebenar }}" readonly>
+                                              <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $nilai->skor_sebenar }}" readonly>
                                             </td>
 
 
@@ -202,7 +171,7 @@
   
                                 <div class="p-3" style="text-align: right">
                                   <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
-                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kpi') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
+                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('create-nilai') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
   
                               </div>

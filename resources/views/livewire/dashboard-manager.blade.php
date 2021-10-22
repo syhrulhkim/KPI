@@ -274,10 +274,10 @@
             <div class="card-header pb-0">
               <div class="row">
                 <div class="col-lg-6 col-7">
-                  <h6>Staff Details</h6>
+                  <h6>Employee Details</h6>
                   <p class="text-sm mb-0">
                     <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">{{$userscount}} staffs</span> in this company
+                    <span class="font-weight-bold ms-1">{{$userscount}} employees</span> in this department
                   </p>
                 </div>
                 <div class="col-lg-6 col-5 my-auto text-end">
@@ -306,6 +306,7 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                       {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Role</th> --}}
                     </tr>
@@ -381,6 +382,13 @@
                         <h6 class="mb-0 text-sm" value="{{$user->id}}">{{$user->grade}}</h6>
                         @endforeach
                       </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                    <td class="align-middle text-center text-sm">
+                      @foreach ($users as $user)
+                      <span class="badge badge-sm bg-gradient-success">Online</span>
+                      @endforeach
+                  </td>
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <td class="align-middle text-center text-sm">

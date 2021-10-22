@@ -69,6 +69,8 @@ class Nilai extends Component
 
         // 'peratus'=> $request->peratus,
         'skor_pekerja'=> $request->skor_pekerja,
+        'peratus'=> '20%',
+        'ukuran'=> 'Percentage (%)',
         // 'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
@@ -127,7 +129,7 @@ class Nilai extends Component
 
         ]);
 
-        return redirect()->route('nilai')->with('message', 'Nilai Updated Successfully');
+        return redirect()->route('create-nilai')->with('message', 'Nilai Updated Successfully');
 
     }
 
@@ -140,7 +142,7 @@ class Nilai extends Component
 
         public function render()
     {
-        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('nilai_teras')->get();
 
         return view('livewire.nilai', compact('nilai'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));

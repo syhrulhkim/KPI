@@ -16,6 +16,7 @@ class KPI_ extends Model
         'fungsi',
         'objektif',
         'bukti',
+        'link',
         'peratus',
         'ukuran',
         'threshold',
@@ -34,7 +35,7 @@ class KPI_ extends Model
         'bulan',
     ];
 
-    public function buktia() {
-        return $this->hasMany('App\Models\bukti', 'kpi_id', 'id');
-    }
+    // public function buktia() {
+    //     return $this->hasOne('App\Models\bukti', 'kpi_id', 'id');
+    // }
 }
