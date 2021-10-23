@@ -193,7 +193,7 @@
 
 </form>
    <!-- Calculation JS -->
-    <script src="{{asset('js/master.js')}}"></script>
+    <script src="{{asset('js/kecekapan.js')}}"></script>
 
   </body>
   {{-- @endsection --}}
