@@ -42,20 +42,10 @@ CREATE TABLE IF NOT EXISTS `bukti` (
   `kpi_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table kpimaster.bukti: ~9 rows (approximately)
+-- Dumping data for table kpimaster.bukti: ~0 rows (approximately)
 /*!40000 ALTER TABLE `bukti` DISABLE KEYS */;
-INSERT INTO `bukti` (`id`, `objektif`, `fungsi`, `bukti`, `grade`, `weightage`, `total_score`, `ukuran`, `peratus`, `threshold`, `base`, `stretch`, `pencapaian`, `skor_sebenar`, `skor_KPI`, `user_id`, `created_at`, `updated_at`, `file_path`, `file_name`, `file_type`, `kpi_id`, `link`) VALUES
-	(1, NULL, NULL, 'qwewqe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '2021-10-06 06:52:02', '2021-10-15 07:02:39', NULL, NULL, NULL, '19', 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
-	(4, NULL, NULL, '4eetrgddrg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '2021-10-07 06:06:58', '2021-10-15 07:03:05', NULL, NULL, NULL, '19', 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
-	(6, NULL, NULL, 'wqeqwe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '2021-10-07 09:03:54', '2021-10-15 07:03:31', NULL, NULL, NULL, '19', 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
-	(13, NULL, NULL, 'waedw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '1', '2021-10-15 01:34:54', '2021-10-15 07:05:35', 'john', 'john', 'john', '19', 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
-	(14, NULL, NULL, 'john cena wick', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '2021-10-15 06:44:21', '2021-10-15 07:04:20', 'john', 'john', 'john', '19', 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
-	(15, NULL, NULL, 'john', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '2021-10-17 00:10:53', '2021-10-17 00:10:53', 'john', 'john', 'john', NULL, NULL),
-	(16, NULL, NULL, 'john', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', '2021-10-17 03:33:51', '2021-10-17 03:33:51', 'john', 'john', 'john', NULL, NULL),
-	(17, NULL, NULL, 'john', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', '2021-10-17 03:34:06', '2021-10-17 03:34:06', 'john', 'john', 'john', NULL, 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
-	(18, NULL, NULL, 'john', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '8', '2021-10-17 07:00:50', '2021-10-17 07:00:50', 'john', 'john', 'john', NULL, NULL);
 /*!40000 ALTER TABLE `bukti` ENABLE KEYS */;
 
 -- Dumping structure for table kpimaster.failed_jobs
@@ -94,15 +84,12 @@ CREATE TABLE IF NOT EXISTS `kecekapan` (
   `tahun` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bulan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table kpimaster.kecekapan: ~4 rows (approximately)
+-- Dumping data for table kpimaster.kecekapan: ~0 rows (approximately)
 /*!40000 ALTER TABLE `kecekapan` DISABLE KEYS */;
 INSERT INTO `kecekapan` (`id`, `kecekapan_teras`, `jangkaan_hasil`, `peratus`, `ukuran`, `skor_pekerja`, `skor_penyelia`, `skor_sebenar`, `grade`, `total_score`, `weightage`, `user_id`, `created_at`, `updated_at`, `tahun`, `bulan`) VALUES
-	(3, 'Ketangkasan Dalam Organisasi', 'wwqewqewqe', NULL, NULL, '2', NULL, NULL, 'BRONZE', '50', '20%', '8', '2021-10-18 02:15:42', '2021-10-18 02:15:42', NULL, NULL),
-	(4, 'Pengurusan Pelanggan', 'wwqewqewqe', NULL, NULL, '1', NULL, NULL, 'BRONZE', '25', '20%', '8', '2021-10-18 02:24:19', '2021-10-18 02:24:19', NULL, NULL),
-	(5, 'Pengurusan Pelanggan', 'wwqewqewqe', NULL, NULL, '1', NULL, NULL, 'BRONZE', '25', '20%', '8', '2021-10-18 03:24:01', '2021-10-18 03:24:01', NULL, NULL),
-	(6, 'Keupayaan Inovatif', 'wwqewqewqe', NULL, NULL, '1', NULL, NULL, 'BRONZE', '25', '20%', '8', '2021-10-18 04:44:08', '2021-10-18 04:44:08', NULL, NULL);
+	(9, 'Pengurusan Pelanggan', 'wwqewqewqe', '20%', 'Percentage (%)', '1', NULL, NULL, 'BRONZE', '25', '20%', '8', '2021-10-22 03:35:31', '2021-10-22 03:35:31', NULL, NULL);
 /*!40000 ALTER TABLE `kecekapan` ENABLE KEYS */;
 
 -- Dumping structure for table kpimaster.kpi
@@ -128,21 +115,17 @@ CREATE TABLE IF NOT EXISTS `kpi` (
   `tahun` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bulan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bukti_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table kpimaster.kpi: ~9 rows (approximately)
+-- Dumping data for table kpimaster.kpi: ~4 rows (approximately)
 /*!40000 ALTER TABLE `kpi` DISABLE KEYS */;
-INSERT INTO `kpi` (`id`, `fungsi`, `objektif`, `bukti`, `peratus`, `ukuran`, `threshold`, `base`, `stretch`, `pencapaian`, `skor_KPI`, `skor_sebenar`, `grade`, `total_score`, `weightage`, `user_id`, `created_at`, `updated_at`, `tahun`, `bulan`, `bukti_id`) VALUES
-	(2, 'Manusia & Proses', 'Memastikan persekitaran bersih', '23e2q', '20', 'Ratio', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '3', '2021-10-07 01:22:44', '2021-10-07 01:29:13', '2024', 'April', NULL),
-	(8, 'Manusia & Proses', 'Memastikan persekitaran bersih', 'ewfwefwefe', '100', 'Month/Year', '1', '2', '3', '3', '100', '100', 'PLATINUM', '100', '100', '3', '2021-10-09 02:17:08', '2021-10-09 02:17:08', '2026', 'Februari', NULL),
-	(21, 'Kewangan', 'Memastikan persekitaran bersih', 'adwad', '20', 'Rating', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '1', '2021-10-16 00:17:16', '2021-10-16 00:17:16', '2023', 'Februari', NULL),
-	(22, 'Kad Skor Korporat', 'Memastikan persekitaran bersih', 'ewfewfdewf', '20', 'Quarter', '1', '2', '3', '60', '100', '20', 'BRONZE', '20', '20', '1', '2021-10-16 01:10:11', '2021-10-16 01:10:11', '2025', 'April', NULL),
-	(23, 'Kewangan', 'aerdfa', 'dsfsdf', '20', 'Ratio', '1', '2', '3', '20', '100', '20', 'BRONZE', '20', '20', '1', '2021-10-16 01:20:44', '2021-10-16 01:20:44', '2024', 'April', NULL),
-	(24, 'Kewangan', 'Memastikan persekitaran bersih', 'asdfdsf', '20', 'Ratio', '1', '2', '3', '3', '100', '20', 'BRONZE', '20', '20', '1', '2021-10-17 00:10:53', '2021-10-17 00:10:53', '2023', 'April', NULL),
-	(25, 'Kewangan', 'Memastikan persekitaran bersih', 'sedfcsfdse', '20', 'Quarter', '1', '2', '3', '20', '100', '20', 'BRONZE', '20', '20', '8', '2021-10-17 03:33:51', '2021-10-17 03:33:51', '2024', 'April', NULL),
-	(26, 'Manusia & Proses (Training)', 'Memastikan persekitaran bersih', 'adawd', '20', 'Ratio', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '8', '2021-10-17 03:34:06', '2021-10-17 03:34:06', '2024', 'Mei', NULL),
-	(27, 'Kecemerlangan Operasi', 'Memastikan persekitaran bersih', 'sadaw', '20', 'Rating', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '8', '2021-10-17 07:00:50', '2021-10-17 07:00:50', '2025', 'April', NULL);
+INSERT INTO `kpi` (`id`, `fungsi`, `objektif`, `bukti`, `peratus`, `ukuran`, `threshold`, `base`, `stretch`, `pencapaian`, `skor_KPI`, `skor_sebenar`, `grade`, `total_score`, `weightage`, `user_id`, `created_at`, `updated_at`, `tahun`, `bulan`, `bukti_id`, `link`) VALUES
+	(39, 'Pelanggan (Outer)', 'Memastikan persekitaran bersih', 'sedfeffes', '20', 'Date (dd/mm/yyyy)', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '8', '2021-10-21 05:59:59', '2021-10-21 05:59:59', '2024', 'Mei', NULL, 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
+	(40, 'Pelanggan (Outer)', 'Memastikan persekitaran bersih', 'sefawfd', '20', 'Quantity', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '8', '2021-10-21 06:21:52', '2021-10-21 06:21:52', '2023', 'Februari', NULL, 'https://www.youtube.com/watch?v=bqF09gVdIDE'),
+	(41, 'Kecemerlangan Operasi', 'Memastikan persekitaran bersih', 'john', '20', 'Month/Year', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '8', '2021-10-21 06:24:08', '2021-10-21 06:28:22', '2022', 'Mac', NULL, 'https://www.youtube.com/watch?v=neSHAWdE44c'),
+	(42, 'Manusia & Proses (NCR/OFI)', 'Memastikan persekitaran bersih', 'awedaddawdw', '20', 'Quarter', '1', '2', '3', '18', '100', '20', 'BRONZE', '20', '20', '8', '2021-10-21 07:03:08', '2021-10-21 07:03:59', '2024', 'Julai', NULL, 'https://www.youtube.com/watch?v=hJqYc62NCKo');
 /*!40000 ALTER TABLE `kpi` ENABLE KEYS */;
 
 -- Dumping structure for table kpimaster.migrations
@@ -151,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table kpimaster.migrations: ~9 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
@@ -168,7 +151,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(11, '2021_10_13_044922_bukti2', 2),
 	(12, '2021_10_13_084726_user2', 2),
 	(13, '2021_10_15_064925_bukti3', 3),
-	(14, '2021_10_16_075347_kpi2', 4);
+	(14, '2021_10_16_075347_kpi2', 4),
+	(15, '2021_10_21_055438_kpi3', 5);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table kpimaster.nilai
@@ -190,13 +174,12 @@ CREATE TABLE IF NOT EXISTS `nilai` (
   `tahun` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `bulan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table kpimaster.nilai: ~2 rows (approximately)
+-- Dumping data for table kpimaster.nilai: ~1 rows (approximately)
 /*!40000 ALTER TABLE `nilai` DISABLE KEYS */;
 INSERT INTO `nilai` (`id`, `nilai_teras`, `jangkaan_hasil`, `peratus`, `ukuran`, `skor_pekerja`, `skor_penyelia`, `skor_sebenar`, `grade`, `total_score`, `weightage`, `user_id`, `created_at`, `updated_at`, `tahun`, `bulan`) VALUES
-	(1, 'Keupayaan Inovatif', 'wwqewqewqe', NULL, NULL, '1', NULL, NULL, 'BRONZE', '25', '20%', '8', '2021-10-18 04:38:44', '2021-10-18 04:38:44', NULL, NULL),
-	(2, 'Keupayaan Inovatif', 'wwqewqewqe', NULL, NULL, '1', NULL, NULL, 'BRONZE', '25', '20%', '8', '2021-10-18 04:43:52', '2021-10-18 04:43:52', NULL, NULL);
+	(4, 'Pengurusan Pemegang Berkepentingan', 'wwqewqewqe', '20%', 'Percentage (%)', '1', NULL, NULL, 'BRONZE', '25', '20%', '8', '2021-10-22 03:37:40', '2021-10-22 03:37:40', NULL, NULL);
 /*!40000 ALTER TABLE `nilai` ENABLE KEYS */;
 
 -- Dumping structure for table kpimaster.password_resets
@@ -235,19 +218,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `hr` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table kpimaster.users: ~8 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `location`, `about`, `remember_token`, `created_at`, `updated_at`, `nostaff`, `position`, `department`, `unit`, `grade`, `role`, `profile_picture`, `age`, `hr`) VALUES
-	(1, 'Admin User', 'admin@softui.com', '2021-10-06 06:50:45', '$2y$10$ycbsOuRpyvGAnsS17Doq8eWwUYjLuOxriN8XK2ymrfEHycpbH..uG', NULL, NULL, NULL, 'SdhpBEbPdx41OzMMe5fsX7f6erQmgeyJzRjChNDT9yJGWx1XrqXVNutOvt7g', '2021-10-06 06:50:45', '2021-10-06 06:50:45', NULL, 'Junior Non-Executive (NE1)', 'R&D', NULL, 'NE2', 'admin', NULL, '23', NULL),
-	(2, 'Moderator User', 'moderator@gmail.com', '2021-10-06 06:50:57', '$2y$10$X79woze/Fu42cNJdVqJb8OiF2Io3JO0MVd27EJPIrQK9wwbbK3QN2', NULL, NULL, NULL, 'LiQOckg4XS4DASl4iEQBNE9rjtzbD3lKSsjPsfbScPxyXXkM19nHXeGf1bgF', '2021-10-06 06:50:57', '2021-10-06 06:50:57', 'A999', 'Junior Non-Executive (NE1)', 'COD', 'Alpha', 'NE2', 'moderator', NULL, '23', NULL),
+	(1, 'Admin User', 'admin@softui.com', '2021-10-06 06:50:45', '$2y$10$ycbsOuRpyvGAnsS17Doq8eWwUYjLuOxriN8XK2ymrfEHycpbH..uG', NULL, NULL, NULL, 'G3ZdPlLYp6MkSqRLR7FPx3r7WsDr6NSaZn35fFANl1uHXaPKI3mds6LvLNSW', '2021-10-06 06:50:45', '2021-10-06 06:50:45', NULL, 'Junior Non-Executive (NE1)', 'R&D', NULL, 'NE2', 'admin', NULL, '23', NULL),
+	(2, 'Moderator User', 'moderator@gmail.com', '2021-10-06 06:50:57', '$2y$10$X79woze/Fu42cNJdVqJb8OiF2Io3JO0MVd27EJPIrQK9wwbbK3QN2', NULL, NULL, NULL, 'DQLSmjbFmmGr2YvNiPt6DsQ8tYFSA90GGjR683if7VoyVE1HtDM98tRptcKJ', '2021-10-06 06:50:57', '2021-10-06 06:50:57', 'A999', 'Junior Non-Executive (NE1)', 'COD', 'Alpha', 'NE2', 'moderator', NULL, '23', NULL),
 	(3, 'Employee User', 'employee@gmail.com', NULL, '$2y$10$bBJo4BIBlhqsWGU/AEHpfu/vhOXJR4pm0XRWJVdu5EVzSCj1/HHsq', NULL, NULL, NULL, NULL, '2021-10-07 01:21:44', '2021-10-07 01:21:44', 'A002', 'Junior Non-Executive (NE1)', 'R&D', 'Web developer', 'NE2', 'employee', NULL, '23', NULL),
 	(5, 'HR User', 'hr@gmail.com', NULL, '$2y$10$AjiY7RhfUc1rC.4L2JRiL.6V18VdSwvu.oM/zkvOhmo0k8/i3Jfii', NULL, NULL, NULL, NULL, '2021-10-07 09:19:46', '2021-10-07 09:19:46', NULL, 'Junior Non-Executive (NE1)', 'R&D', NULL, 'NE2', 'hr', NULL, '23', NULL),
 	(6, 'Manager User', 'manager@gmail.com', NULL, '$2y$10$6UOL3ShPuorFXMtlnBtAMOIyXR/lyt0Vdl10x1DSohOJcurESIEH2', NULL, NULL, NULL, NULL, '2021-10-07 09:20:25', '2021-10-07 09:20:25', NULL, 'Deputy General Manager (UM1)', 'R&D', NULL, 'NE2', 'manager', NULL, '23', NULL),
 	(7, 'Employee2 user', 'employee2@gmail.com', NULL, '$2y$10$EAsWLWd5ccaOVCiSR6.bYO0u890UoZUTbprz1/3Uq97JXTAqJ2EQy', NULL, NULL, NULL, NULL, '2021-10-09 02:40:36', '2021-10-09 02:40:36', 'A006', 'Deputy General Manager (UM1)', 'Marketing', 'Eagle', 'NE2', 'employee', NULL, NULL, NULL),
 	(8, 'Employee3 user', 'employee3@gmail.com', NULL, '$2y$10$Ng7ikmKSNv2KJz0hDBlvKONkaVLoBPEAq0oPjQZGkjX2nh4MXylYe', NULL, NULL, NULL, NULL, '2021-10-09 02:44:56', '2021-10-09 02:44:56', 'A007', 'Deputy General Manager (UM1)', 'R&D', 'Tiger', 'NE2', 'employee', NULL, NULL, NULL),
-	(9, 'Employee HR', 'employeehr@gmail.com', NULL, '$2y$10$9mXb2in7mtrsSqfLd.4yquS8dIiqK/xsfKvIDCEUSSt7pPxXc.KF6', NULL, NULL, NULL, NULL, '2021-10-13 09:07:21', '2021-10-13 09:07:21', 'A007', 'Senior Executive (E3)', 'COD', 'Tiger', 'NE2', 'employee', NULL, NULL, 'Yes');
+	(10, 'Employee4 user', 'employee4@gmail.com', NULL, '$2y$10$cjD06VU48KnlOIktNOOt1OGxNoAAuIxiQFKFBboBIWaM67PqxaY9y', NULL, NULL, NULL, NULL, '2021-10-20 13:15:37', '2021-10-20 13:15:37', NULL, NULL, NULL, NULL, NULL, 'employee', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
