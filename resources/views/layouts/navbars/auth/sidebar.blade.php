@@ -269,7 +269,7 @@
             @else
             @endif --}}
 
-            @if ((Auth::user()->role != "moderator") && (Auth::user()->role != "hr"))
+            @if ((Auth::user()->role != "moderator") && (Auth::user()->role != "hr") && (Auth::user()->role != "manager"))
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'create-kecekapan' ? 'active' : '' }}"
                     href="{{ route('create-kecekapan') }}">
@@ -305,7 +305,7 @@
             @else
             @endif
 
-            @if ((Auth::user()->role != "moderator") && (Auth::user()->role != "hr"))
+            @if ((Auth::user()->role != "moderator") && (Auth::user()->role != "hr") && (Auth::user()->role != "manager"))
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'create-nilai' ? 'active' : '' }}"
                     href="{{ route('create-nilai') }}">

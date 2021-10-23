@@ -157,12 +157,12 @@
                                             </td> --}}
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $kecekapan->skor_pekerja }}">
-                                            </td>
-
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}" readonly>
-                                            </td>
+                                                <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $kecekapan->skor_pekerja }}" readonly>
+                                              </td>
+  
+                                              <td class="font-weight-bold border-dark">
+                                                <input type="text" class="form-control " id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}"  >
+                                              </td>
                                       
                                             <td class="font-weight-bold border-dark">
                                               <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $kecekapan->skor_sebenar }}" readonly>

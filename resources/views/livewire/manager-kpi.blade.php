@@ -35,7 +35,7 @@
 {{-- <body> --}}
 
 
-
+  {{-- {{dd($kpi)}} --}}
   <div class="wrapper">
       <!-- Page Content  -->
       <div id="content">
@@ -72,7 +72,7 @@
                     {{-- <th >Updated At</th> --}}
                    
                     {{-- <th >Penilaian </th> --}}
-                    <th class="w-25" ><i class="fas fa-cogs"></i></th>
+                    {{-- <th class="w-25" ><i class="fas fa-cogs"></i></th> --}}
                   </tr>
                 </thead>
                 <tbody >
@@ -81,9 +81,10 @@
                     {{-- @if (auth()->user()->id == $kpi->user_id)  --}}
                    
                     {{-- @foreach ($kpi as $kpis) --}}
+                    {{-- {{dd('john')}} --}}
                     @foreach ($kpi as $key => $kpis)
                    
-                      
+                    {{-- {{dd('john')}} --}}
                     <tr class="font-weight-bold">
                       
                       <td class="border-dark">{{$key + 1}}</td>
@@ -105,11 +106,10 @@
                         {{-- <td class="border-dark">{{ $markah -> created_at -> toDayDateTimeString() }}</td> --}}
                         {{-- <td class="border-dark">{{ $markah -> updated_at -> toDayDateTimeString() }}</td> --}}
                        
-                        <td class="border-dark">
+                        {{-- <td class="border-dark">
                           <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
-                          {{-- <a href="{{ url('employee/bukti/edit/kpi/'.$kpis->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a> --}}
                           <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
-                        </td>
+                        </td> --}}
                     </tr>
 
                     @endforeach
@@ -156,9 +156,8 @@
                         <td class="border-dark">{{ $kecekapans -> skor_sebenar }}</td>
 
                         <td class="border-dark">
-                          <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          {{-- <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
-                          <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('manager/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                          {{-- <a href="{{ url('manager/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a> --}}
                         </td>
                         
                     </tr>
@@ -185,7 +184,7 @@
                     <th >Skor Penyelia</th>
                     <th >Skor Sebenar</th>
                     {{-- <th >Penilaian </th> --}}
-                    <th class="w-25" ><i class="fas fa-cogs"></i></th>
+                    {{-- <th class="w-25" ><i class="fas fa-cogs"></i></th> --}}
                   </tr>
                 </thead>
                 <tbody >
@@ -204,11 +203,10 @@
                         <td class="border-dark">{{ $nilais -> skor_penyelia }}</td>
                         <td class="border-dark">{{ $nilais -> skor_sebenar }}</td>
 
-                        <td class="border-dark">
+                        {{-- <td class="border-dark">
                           <a href="{{ url('employee/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          {{-- <a href="{{ url('employee/bukti/edit/'.$nilai->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
                           <a href="{{ url('employee/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
-                        </td>
+                        </td> --}}
                         
                     </tr>
 
