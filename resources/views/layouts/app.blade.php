@@ -10,7 +10,11 @@
             @include('layouts.navbars.auth.sidebar')
             @include('layouts.navbars.auth.nav')
             @include('components.plugins.fixed-plugin')
-            {{ $slot }}
+            @if (isset($slot))
+                {{ $slot }} 
+            @endif
+           
+            @yield('content')
             <main>
                 <div class="container-fluid">
                 <div class="row">
@@ -22,7 +26,10 @@
             @include('layouts.navbars.auth.sidebar')
             @include('layouts.navbars.auth.nav')
             @include('components.plugins.fixed-plugin')
-            {{ $slot }}
+            @if (isset($slot))
+                {{ $slot }} 
+            @endif
+            @yield('content')
             <main>
                 <div class="container-fluid">
                     <div class="row">
@@ -39,7 +46,10 @@
         {{-- If the user is on the login page --}}
         @if (!auth()->check() && in_array(request()->route()->getName(),['login'],))
             @include('layouts.navbars.guest.login')
-            {{ $slot }}
+            @if (isset($slot))
+                {{ $slot }} 
+            @endif
+            @yield('content')
             <div class="mt-5">
                 @include('layouts.footers.guest.with-socials')
             </div>
@@ -48,7 +58,10 @@
         @elseif (!auth()->check() && in_array(request()->route()->getName(),['sign-up'],))
             <div>
                 @include('layouts.navbars.guest.sign-up')
-                {{ $slot }}
+                @if (isset($slot))
+                {{ $slot }} 
+            @endif
+                @yield('content')
                 @include('layouts.footers.guest.with-socials')
             </div>
         @endif

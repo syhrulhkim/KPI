@@ -4,7 +4,7 @@
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="{{ route('firstpage') }}">
-            <img src="../assets/img/logo.png" class="navbar-brand-img h-100" alt="...">
+            <img src="{{ url('assets/img/logo.png')}}" class="navbar-brand-img h-100" alt="...">
             <span class="ms-1 font-weight-bold">Momentum Internet</span>
         </a>
     </div>
