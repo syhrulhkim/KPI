@@ -1,189 +1,234 @@
-<body>
+<style>
+.table-responsive {
+  // Other values...
+  overflow-x: hidden;
+  overflow-y: hidden;
+  // Other values...
+}
+</style>
 
-    <div class="wrapper">
-        <!-- Page Content  -->
-        <div id="content">
-          <br>
-            
-          <div class="card m-3">
-  
-            <div class="card-header font-weight-bold" style="text-transform:uppercase" >KAD SKOR 2021 - KPI</div>
-            <div class="table-responsive">
-              <table  class="table table-bordered text-center">
-                  <thead class="thead-dark">
+
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h6>KAD SKOR 2021 - KPI</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
                     <tr>
-                      <th>No.</th>
-                      {{-- <th >Pencapaian</th> --}}
-                      <th rowspan="2">Fungsi</th>
-                      <th rowspan="2">Objektif KPI</th>
-                      <th rowspan="2">Metrik/Bukti</th>
-                      <th rowspan="2">Link Bukti</th>
-                      <th rowspan="2">(%)</th>
-                      <th rowspan="2">Ukuran</th>
-                      <th rowspan="2">Threshold</th>
-                      <th rowspan="2">Base</th>
-                      <th rowspan="2">Stretch</th>
-                      {{-- <th rowspan="1" colspan="3">KPI Targets</th>
-                      <th rowspan="1" colspan="1">Threshold</th>
-                      <th rowspan="1" colspan="1">Base Target</th>
-                      <th rowspan="1" colspan="1">Stretch</th> --}}
-                      <th rowspan="2">Pencapaian</th>
-                      <th rowspan="2">Skor KPI</th>
-                      <th rowspan="2">Skor Sebenar</th>
-                      {{-- <th >Grade</th> --}}
-                      {{-- <th >Tahun / Bulan</th> --}}
-                      {{-- <th >Created At</th> --}}
-                      {{-- <th >Updated At</th> --}}
-                     
-                      {{-- <th >Penilaian </th> --}}
-                      <th class="w-25" ><i class="fas fa-cogs"></i></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Base</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stretch</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pencapaian</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor KPI</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
                     </tr>
                   </thead>
-                  <tbody >
-                      <!-- Display Body -->
-                      {{-- {{dd($kpi)}}; --}}
-                      {{-- @if (auth()->user()->id == $kpi->user_id)  --}}
-                     
-                      {{-- @foreach ($kpi as $kpis) --}}
-                      @foreach ($kpi as $key => $kpis)
-                     
-                        
-                      <tr class="font-weight-bold">
-                        
-                        <td class="border-dark">{{$key + 1}}</td>
-                        <td class="border-dark">{{ $kpis -> fungsi }}</td>
-                        <td class="border-dark">{{ $kpis -> objektif }}</td>
-                        <td class="border-dark">{{ $kpis -> bukti }}</td>
-                          <td class="border-dark">
-                            <a href=" {{ $kpis->link }}"></i>Link Bukti</a>
-                          </td>
-                          {{-- <td class="text-center">{{$attemptquiz->answer->answer}}</td> --}}
-                          <td class="border-dark">{{ $kpis -> peratus }}</td>
-                          <td class="border-dark">{{ $kpis -> ukuran }}</td>
-                          <td class="border-dark">{{ $kpis -> threshold }}</td>
-                          <td class="border-dark">{{ $kpis -> base }}</td>
-                          <td class="border-dark">{{ $kpis -> stretch }}</td>
-                          <td class="border-dark">{{ $kpis -> pencapaian }}</td>
-                          <td class="border-dark">{{ $kpis -> skor_KPI }}</td>
-                          <td class="border-dark">{{ round($kpis -> skor_sebenar,2) }} %</td>
-                          {{-- <td class="border-dark">{{ $markah -> created_at -> toDayDateTimeString() }}</td> --}}
-                          {{-- <td class="border-dark">{{ $markah -> updated_at -> toDayDateTimeString() }}</td> --}}
-                         
-                          <td class="border-dark">
-                            <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
-                            {{-- <a href="{{ url('employee/bukti/edit/kpi/'.$kpis->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Bukti/Metrik</a> --}}
-                            <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
-                          </td>
+                  <tbody>
+                    @foreach ($kpi as $key => $kpis)
+                      <tr>
+                        <td>    
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="badge badge-sm bg-gradient-success" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span href=" {{ $kpis->link }}" class="text-secondary text-xs font-weight-bold" >Link Bukti</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> peratus }}">{{ $kpis -> peratus }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> ukuran }}">{{ $kpis -> ukuran }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> threshold }}">{{ $kpis -> threshold }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> base }}">{{ $kpis -> base }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> stretch }}">{{ $kpis -> stretch }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                        </td>
+                        <td class="align-middle text-center">
+                          <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                        </td>
                       </tr>
-  
-                      @endforeach
-                      {{-- @else
-                      @endif --}}
-                  </tbody> 
-              </table>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-  
-          <div class="card m-3">
-  
-            <div class="card-header font-weight-bold" style="text-transform:uppercase" >KAD SKOR 2021 - Kecekapan Teras</div>
-            <div class="table-responsive">
-              <table  class="table table-bordered text-center">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th>No.</th>
-                      <th >Kecekapan Teras</th>
-                      <th >Jangkaan Hasil</th>
-                      <th >%</th>
-                      <th >Ukuran</th>
-                      <th >Skor Pekerja</th>
-                      <th >Skor Penyelia</th>
-                      <th >Skor Sebenar</th>
-                      {{-- <th >Penilaian </th> --}}
-                      <th class="w-25" ><i class="fas fa-cogs"></i></th>
-                    </tr>
-                  </thead>
-                  <tbody >
-                      <!-- Display Body --> 
+        </div>
+          <div class="col-12">
+            <div class="card mb-4">
+              <div class="card-header pb-0">
+                <h6>KAD SKOR 2021 - Kecekapan Teras</h6>
+              </div>
+              <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
                       @php($i = 1)
                       @foreach ($kecekapan as $kecekapans)
-                        
-                      <tr class="font-weight-bold">
-                        
-                          <td class="border-dark">{{ $i++  }}</td>
-                          <td class="border-dark">{{ $kecekapans -> kecekapan_teras }}</td>
-                          <td class="border-dark">{{ $kecekapans -> jangkaan_hasil }}</td>
-                          <td class="border-dark">{{  '20%' }}</td>
-                          <td class="border-dark">{{ 'Percentage (%)' }}</td>
-                          <td class="border-dark">{{ $kecekapans -> skor_pekerja }}</td>
-                          <td class="border-dark">{{ $kecekapans -> skor_penyelia }}</td>
-                          <td class="border-dark">{{ $kecekapans -> skor_sebenar }}</td>
-  
-                          <td class="border-dark">
+                        <tr>
+                          <td>    
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm" value="{{ $i++  }}">{{ $i++  }}</h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="badge badge-sm bg-gradient-success" value="{{ $kecekapans -> jangkaan_hasil }}">{{ $kecekapans -> jangkaan_hasil }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{  '20%' }}">{{  '20%' }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ 'Percentage (%)' }}">{{ 'Percentage (%)' }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_pekerja }}">{{ $kecekapans -> skor_pekerja }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_penyelia }}">{{ $kecekapans -> skor_penyelia }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
+                          </td>
+                          <td class="align-middle text-center">
                             <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                            {{-- <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
+                          </td>
+                          <td class="align-middle text-center">
                             <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                           </td>
-                          
-                      </tr>
-  
+                        </tr>
                       @endforeach
-                  </tbody> 
-              </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-  
-          <div class="card m-3">
-  
-            <div class="card-header font-weight-bold" style="text-transform:uppercase" >KAD SKOR 2021 - Nilai Teras</div>
-            <div class="table-responsive">
-              <table  class="table table-bordered text-center">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th>No.</th>
-                      <th >Nilai Teras</th>
-                      <th >Jangkaan Hasil</th>
-                      <th >%</th>
-                      <th >Ukuran</th>
-                      <th >Skor Pekerja</th>
-                      <th >Skor Penyelia</th>
-                      <th >Skor Sebenar</th>
-                      {{-- <th >Penilaian </th> --}}
-                      <th class="w-25" ><i class="fas fa-cogs"></i></th>
-                    </tr>
-                  </thead>
-                  <tbody >
-                      <!-- Display Body --> 
+          <div class="col-12">
+            <div class="card mb-4">
+              <div class="card-header pb-0">
+                <h6>KAD SKOR 2021 - Nilai Teras</h6>
+              </div>
+              <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nilai Teras</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
                       @php($i = 1)
                       @foreach ($nilai as $nilais)
-                        
-                      <tr class="font-weight-bold">
-                        
-                          <td class="border-dark">{{ $i++  }}</td>
-                          <td class="border-dark">{{ $nilais -> nilai_teras }}</td>
-                          <td class="border-dark">{{ $nilais -> jangkaan_hasil }}</td>
-                          <td class="border-dark">{{  '20%' }}</td>
-                          <td class="border-dark">{{ 'Percentage (%)' }}</td>
-                          <td class="border-dark">{{ $nilais -> skor_pekerja }}</td>
-                          <td class="border-dark">{{ $nilais -> skor_penyelia }}</td>
-                          <td class="border-dark">{{ $nilais -> skor_sebenar }}</td>
-  
-                          <td class="border-dark">
+                        <tr>
+                          <td>    
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm" value="{{ $i++  }}">{{ $i++  }}</h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0" value="{{ $nilais -> nilai_teras }}">{{ $nilais -> nilai_teras }}</p>
+                          </td>
+                          <td class="align-middle text-center text-sm">
+                            <span class="badge badge-sm bg-gradient-success" value="{{ $nilais -> jangkaan_hasil }}">{{ $nilais -> jangkaan_hasil }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{  '20%' }}">{{  '20%' }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ 'Percentage (%)' }}">{{ 'Percentage (%)' }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_pekerja }}">{{ $nilais -> skor_pekerja }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_penyelia }}">{{ $nilais -> skor_penyelia }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_sebenar }}">{{ $nilais -> skor_sebenar }}</span>
+                          </td>
+                          <td class="align-middle text-center">
                             <a href="{{ url('employee/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                            {{-- <a href="{{ url('employee/bukti/edit/'.$nilai->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
+                          </td>
+                          <td class="align-middle text-center">
                             <a href="{{ url('employee/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                           </td>
-                          
-                      </tr>
-  
+                        </tr>
                       @endforeach
-                  </tbody> 
-              </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-  
-        </div>
-    </div>
+      </div>
   
    <!-- Master Pencapaian JS -->
   <script src="{{asset('assets/js/master.js')}}"></script>
