@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('employee/update/kecekapan/'.$kecekapan->id) }}" method="post">  
+                            <form action="{{ url('/manager/update/nilai/'.$nilai->id) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -72,9 +72,9 @@
   
                                     <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4">
-                                            <label class="font-weight-bold" >Kecekapan Teras</label>
-                                            <select  class="form-control form-control-sm" id="kecekapan_teras" name="kecekapan_teras">
-                                              <option selected readonly value="{{ $kecekapan->kecekapan_teras }}">{{ $kecekapan->kecekapan_teras }}</option>
+                                            <label class="font-weight-bold" >Nilai Teras</label>
+                                            <select  class="form-control form-control-sm" id="nilai_teras" name="nilai_teras">
+                                              <option selected readonly value="{{ $nilai->nilai_teras }}">{{ $nilai->nilai_teras }}</option>
                                               {{-- <option value="">N/A</option> --}}
                                               <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
                                               <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
@@ -89,7 +89,7 @@
                                         <div class="mb-4">
                                             <label class="font-weight-bold " >Jangkaan Hasil</label>
                                             {{-- <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil"> --}}
-                                            <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil" value="{{ $kecekapan->jangkaan_hasil }}" >
+                                            <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil" value="{{ $nilai->jangkaan_hasil }}" >
                                         </div>
                                       </div>
   
@@ -102,13 +102,13 @@
                                     <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                       <tr>
                                           <th class="w-25" >Gred : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="{{ $kecekapan->grade }}" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="{{ $nilai->grade }}" readonly>
                                           </th>
                                           <th class="w-25" >Overall Score : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="total_score" value="{{ $kecekapan->total_score }}" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-total" name="total_score" value="{{ $nilai->total_score }}" readonly>
                                           </th>
                                           <th class="w-25" >Total Weightage : 
-                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" value="{{ $kecekapan->weightage }}" readonly>
+                                              <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" value="{{ $nilai->weightage }}" readonly>
                                           </th>
                                       </tr>
                                   </table>
@@ -128,12 +128,12 @@
                                           <tr>
 
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" value="{{ $kecekapan->peratus }}" min="0"  >
+                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $nilai->peratus }}" min="0"  >
                                             </td>
 
                                             <td style="word-break: break-all;" class="border-dark">
                                               <select class="form-select form-select-sm" id="ukuran" name="ukuran">
-                                                <option selected readonly value="{{ $kecekapan->ukuran }}">{{ $kecekapan->ukuran }}</option>
+                                                <option selected readonly value="{{ $nilai->ukuran }}">{{ $nilai->ukuran }}</option>
                                                 <option value="N/A">N/A</option>
                                                 <option value="Quantity" >Quantity</option>
                                                 <option value="Ratio" >Ratio</option>
@@ -157,19 +157,15 @@
                                             </td> --}}
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $kecekapan->skor_pekerja }}">
-                                            </td>
-
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}" readonly>
-                                            </td>
-
-                                            {{-- <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4" class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $kecekapan->skor_penyelia }}" min="0" >
-                                            </td> --}}
+                                                <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $nilai->skor_pekerja }}" readonly>
+                                              </td>
+  
+                                              <td class="font-weight-bold border-dark">
+                                                <input type="text" maxlength="4" class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $nilai->skor_penyelia }}" min="0" >
+                                              </td>>
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $kecekapan->skor_sebenar }}" readonly>
+                                              <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $nilai->skor_sebenar }}" readonly>
                                             </td>
 
 
@@ -181,7 +177,7 @@
   
                                 <div class="p-3" style="text-align: right">
                                   <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
-                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kecekapan') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
+                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('dashboard-manager') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
   
                               </div>
@@ -197,7 +193,7 @@
 
 </form>
    <!-- Calculation JS -->
-   <script src="{{asset('assets/js/kecekapan.js')}}"></script>
+<script src="{{asset('assets/js/nilai.js')}}"></script>
 
   </body>
   {{-- @endsection --}}

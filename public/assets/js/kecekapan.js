@@ -1,13 +1,14 @@
 
-
+    // console.log('johnn');
 const perColorUI = document.getElementById('grade');
 const perValidUI = document.getElementById('percentage-weightage');
 
 function masterClac() {
 
-  let peratus = 20; 
+  // let peratus = 20; 
   // console.log(peratus);
   let skor_penyelia = Number(document.getElementById('skor_penyelia').value); 
+    // console.log(skor_penyelia);
   // let skor_penyelia = Number(document.getElementById('skor_penyelia').value); 
   // console.log(skor_pekerja);
 
@@ -124,6 +125,7 @@ function gradeClass(){
   let skor_penyelia = document.getElementById("skor_penyelia").value;
   // console.log(skor_pekerja);
   
+
   if ( skor_penyelia >= 80 ) {
 
     perColorUI.style.backgroundColor = "#9BC2E6" ;        
@@ -165,7 +167,7 @@ function gradeClass(){
     document.getElementsByName("grade")[0].value = "NO GRED";
 
   }
-  console.log(skor_penyelia);
+  // console.log(skor_penyelia);
 }
 
 function percentageValid() {
@@ -185,7 +187,7 @@ function percentageValid() {
       perValidUI.style.fontWeight = "bold";
 
     }
-    console.log(weightageTotal);
+    // console.log(weightageTotal);
 }
 
 // function gradeClass2(){

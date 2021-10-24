@@ -5,12 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\KPI_;
 use App\Models\Kecekapan_;
+use App\Models\Nilai_;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
 
-class KecekapanManager extends Component
+class NilaiManager extends Component
 {
     // public function kecekapan() {
 
@@ -19,13 +20,13 @@ class KecekapanManager extends Component
     //     return view('livewire.create-kecekapan', compact('kecekapan') );
     // }
 
-    public function kecekapan_save(Request $request){
+    public function nilai_save(Request $request){
 
         $validatedData = $request->validate([
             'skor_penyelia' => ['required'],
         ]);
 
-        Kecekapan_::insert([
+        Nilai_::insert([
         'skor_penyelia'=> $request->skor_penyelia,
         'skor_sebenar' => $request->skor_sebenar,
         ]);
@@ -33,17 +34,17 @@ class KecekapanManager extends Component
         return redirect()->back()->with('message', 'Skor penyelia berjaya ditambah!');
     } 
        
-    public function kecekapan_edit($id) {
-        $kecekapan = Kecekapan_::find($id);
-        return view('livewire.form_kecekapan_manager' , compact('kecekapan'));
+    public function nilai_edit($id) {
+        $nilai = Nilai_::find($id);
+        return view('livewire.form_nilai_manager' , compact('nilai'));
     }
 
-    public function kecekapan_update(Request $request, $id) {
+    public function nilai_update(Request $request, $id) {
         $validatedData = $request->validate([
             'skor_penyelia' => ['required'],
         ]);
 
-        $update = Kecekapan_::find($id)->update([
+        $update = Nilai_::find($id)->update([
             'skor_penyelia'=> $request->skor_penyelia,
             'skor_sebenar' => $request->skor_sebenar,
         ]);
@@ -53,9 +54,9 @@ class KecekapanManager extends Component
 
         public function render()
     {
-        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('kecekapan_teras')->get();
+        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('nilai_teras')->get();
         $userdepartment = auth()->user()->department;
-        $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
-        return view('livewire.kecekapan', compact('kecekapan', 'users'));
+        $users = Nilai::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
+        return view('livewire.nilai', compact('nilai', 'users'));
     }
 }

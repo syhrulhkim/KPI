@@ -52,7 +52,7 @@
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('employee/update/kecekapan/'.$kecekapan->id) }}" method="post">  
+                            <form action="{{ url('/manager/update/kecekapan/'.$kecekapan->id) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -161,8 +161,8 @@
                                               </td>
   
                                               <td class="font-weight-bold border-dark">
-                                                <input type="text" class="form-control " id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}"  >
-                                              </td>
+                                                <input type="text" maxlength="4" class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $kecekapan->skor_penyelia }}" min="0" >
+                                              </td>>
                                       
                                             <td class="font-weight-bold border-dark">
                                               <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $kecekapan->skor_sebenar }}" readonly>
@@ -177,7 +177,7 @@
   
                                 <div class="p-3" style="text-align: right">
                                   <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
-                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kecekapan') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
+                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('dashboard-manager') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
   
                               </div>
@@ -193,7 +193,7 @@
 
 </form>
    <!-- Calculation JS -->
-    <script src="{{asset('js/kecekapan.js')}}"></script>
+<script src="{{asset('assets/js/kecekapan.js')}}"></script>
 
   </body>
   {{-- @endsection --}}

@@ -218,7 +218,7 @@
 
 </form>
    <!-- Calculation JS -->
-    <script src="{{asset('js/master.js')}}"></script>
+   <script src="{{asset('assets/js/master.js')}}"></script>
 
   </body>
   {{-- @endsection --}}

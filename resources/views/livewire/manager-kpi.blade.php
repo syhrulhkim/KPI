@@ -194,21 +194,21 @@
                       
                     <tr class="font-weight-bold">
                       
-                        <td class="border-dark">{{ $i++  }}</td>
-                        <td class="border-dark">{{ $nilais -> nilai_teras }}</td>
-                        <td class="border-dark">{{ $nilais -> jangkaan_hasil }}</td>
-                        <td class="border-dark">{{  '20%' }}</td>
-                        <td class="border-dark">{{ 'Percentage (%)' }}</td>
-                        <td class="border-dark">{{ $nilais -> skor_pekerja }}</td>
-                        <td class="border-dark">{{ $nilais -> skor_penyelia }}</td>
-                        <td class="border-dark">{{ $nilais -> skor_sebenar }}</td>
+                      <td class="border-dark">{{ $i++  }}</td>
+                      <td class="border-dark">{{ $nilais -> kecekapan_teras }}</td>
+                      <td class="border-dark">{{ $nilais -> jangkaan_hasil }}</td>
+                      <td class="border-dark">{{  '20%' }}</td>
+                      <td class="border-dark">{{ 'Percentage (%)' }}</td>
+                      <td class="border-dark">{{ $nilais -> skor_pekerja }}</td>
+                      <td class="border-dark">{{ $nilais -> skor_penyelia }}</td>
+                      <td class="border-dark">{{ $nilais -> skor_sebenar }}</td>
 
-                        {{-- <td class="border-dark">
-                          <a href="{{ url('employee/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          <a href="{{ url('employee/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
-                        </td> --}}
-                        
-                    </tr>
+                      <td class="border-dark">
+                        <a href="{{ url('manager/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                        {{-- <a href="{{ url('manager/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a> --}}
+                      </td>
+                      
+                  </tr>
 
                     @endforeach
                 </tbody> 

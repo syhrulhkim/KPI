@@ -77,6 +77,9 @@ Route::get('/employee/delete/kecekapan/{id}', [Kecekapan::class, 'kecekapan_dele
 
 Route::get('/manager/edit/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_edit']);
 Route::post('/manager/update/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_update']);
+
+Route::get('/manager/edit/nilai/{id}', [NilaiManager::class, 'nilai_edit']);
+Route::post('/manager/update/nilai/{id}', [NilaiManager::class, 'nilai_update']);
 // Route::get('/manager/delete/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_delete']);
 
 Route::get('/employee/edit/nilai/{id}', [Nilai::class, 'nilai_edit']);
@@ -90,6 +93,7 @@ Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
 //     echo 'john';
 // });
 Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
+// Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index'])->name('kecekapan-manager');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
