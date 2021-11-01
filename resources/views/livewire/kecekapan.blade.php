@@ -39,9 +39,9 @@
               </div>	
             @endif
 
-            @if (session('weightage'))
+            @if (session('fail'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Sila semak semula butiran pencapaian!</strong>{{ session('weightage') }}.
+              <strong></strong>{{ session('fail') }}
             </div>	
             @endif
 
@@ -142,7 +142,7 @@
 
                                           <td class="font-weight-bold border-dark">
                                             {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
-                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20%" onkeyup="masterClac();" min="0" selected readonly>
+                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
                                           </td>
 
                                           <td class="font-weight-bold border-dark">
@@ -224,7 +224,7 @@
 
         <br>
           
-        <div class="card m-3">
+        {{-- <div class="card m-3">
           @if (Auth::user()->role == "employee")
 
           <div class="card-header font-weight-bold" style="text-transform:uppercase" >Maklumat Pencapaian</div>
@@ -240,7 +240,6 @@
                     <th >Skor Pekerja</th>
                     <th >Skor Penyelia</th>
                     <th >Skor Sebenar</th>
-                    {{-- <th >Penilaian </th> --}}
                     <th class="w-25" ><i class="fas fa-cogs"></i></th>
                   </tr>
                 </thead>
@@ -262,7 +261,7 @@
 
                         <td class="border-dark">
                           <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          {{-- <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
+                        
                           <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
                         
@@ -292,7 +291,7 @@
                     <th >Skor Pekerja</th>
                     <th >Skor Penyelia</th>
                     <th >Skor Sebenar</th>
-                    {{-- <th >Penilaian </th> --}}
+
                     <th class="w-25" ><i class="fas fa-cogs"></i></th>
                   </tr>
                 </thead>
@@ -305,7 +304,7 @@
                     <tr class="font-weight-bold">
                         <td class="border-dark">{{ $i++  }}</td>
                         <td class="border-dark">{{ $userss -> kecekapan_teras }}</td>
-                        {{-- {{dd($userss -> kecekapan_teras)}} --}}
+
                         <td class="border-dark">{{ $userss -> jangkaan_hasil }}</td>
                         <td class="border-dark">{{  '20%' }}</td>
                         <td class="border-dark">{{ 'Percentage (%)' }}</td>
@@ -315,7 +314,7 @@
 
                         <td class="border-dark">
                           <a href="{{ url('employee/edit/kecekapan/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                          {{-- <a href="{{ url('employee/bukti/edit/'.$kecekapans->id) }}" class="btn btn-warning btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Bukti/Metrik</a> --}}
+                         
                           <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                         </td>
                         
@@ -328,7 +327,161 @@
           </div>
           @else
           @endif
-        </div>
+        </div> --}}
+
+        @if (Auth::user()->role == "employee")
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-header pb-0">
+                  {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+                  <h6>Maklumat Pencapaian</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                  <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                      <thead>
+                        <tr>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @php($i = 1)
+                        @foreach ($kecekapan as $key => $kecekapans)
+                          <tr>
+                            <td>    
+                              <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                  <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> jangkaan_hasil }}">{{ $kecekapans -> jangkaan_hasil }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ '20%' }}">{{ '20%' }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ 'Percentage (%)' }}">{{ 'Percentage (%)' }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_pekerja }}}">{{ $kecekapans -> skor_pekerja }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_penyelia }}">{{ $kecekapans -> skor_penyelia }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                            </td>
+                            <td class="align-middle text-center">
+                              <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                            </td>
+                          </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        @else
+        @endif 
+
+        @if (Auth::user()->role == "manager")
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-header pb-0">
+                  {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+                  <h6>Maklumat Pencapaian</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                  <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                      <thead>
+                        <tr>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @php($i = 1)
+                        @foreach ($users as $key => $userss)
+                          <tr>
+                            <td>    
+                              <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                  <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <p class="text-xs font-weight-bold mb-0" value="{{ $userss -> kecekapan_teras }}">{{ $userss -> kecekapan_teras }}</p>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> jangkaan_hasil }}">{{ $userss -> jangkaan_hasil }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ '20%' }}">{{ '20%' }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ 'Percentage (%)' }}">{{ 'Percentage (%)' }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> skor_pekerja }}}">{{ $userss -> skor_pekerja }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> skor_penyelia }}">{{ $userss -> skor_penyelia }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> skor_sebenar }}">{{ $userss -> skor_sebenar }}</span>
+                            </td>
+                            <td class="align-middle text-center">
+                              <a href="{{ url('employee/edit/kecekapan/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                            </td>
+                            <td class="align-middle text-center">
+                              <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                            </td>
+                          </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        @else
+        @endif 
 
       </div>
   </div>

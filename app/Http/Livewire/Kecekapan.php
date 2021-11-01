@@ -30,6 +30,20 @@ class Kecekapan extends Component
 
     public function kecekapan_save(Request $request){
 
+        //check kat sini 
+        $kecekapans = Kecekapan_::where('user_id', '=', auth()->user()->id)->get();
+
+        $total_percent = 0;
+
+        foreach ($kecekapans as $key => $kecekapan) {
+            $total_percent = $total_percent + $kecekapan->peratus;
+        }
+
+
+        if ($total_percent > 99.99999) {
+            return redirect()->back()->with('fail', 'Maaf, anda telah melebihi had Kecekapan Teras iaitu 100 peratus sahaja');
+        }
+
         $validatedData = $request->validate([
 
             'kecekapan_teras' => ['required'],
@@ -56,7 +70,8 @@ class Kecekapan extends Component
         'updated_at'=> Carbon::now(),
 
         'grade'=> $request->grade,
-        'weightage'=> $request->weightage,
+        // 'weightage'=> $request->weightage,
+        'weightage'=> '20',
 
         'total_score'=> $request->total_score,
         // 'tahun'=> $request->tahun,
@@ -69,7 +84,7 @@ class Kecekapan extends Component
 
         // 'peratus'=> $request->peratus,
         'skor_pekerja'=> $request->skor_pekerja,
-        'peratus'=> '20%',
+        'peratus'=> '20',
         'ukuran'=> 'Percentage (%)',
         // 'skor_penyelia'=> $request->skor_penyelia,
 
@@ -112,7 +127,7 @@ class Kecekapan extends Component
             'updated_at'=> Carbon::now(),
 
             'grade'=> $request->grade,
-            'weightage'=> $request->weightage,
+            'weightage'=> '20',
 
             'total_score'=> $request->total_score,
             // 'tahun'=> $request->tahun,
@@ -126,8 +141,13 @@ class Kecekapan extends Component
             // 'peratus'=> $request->peratus,
             'skor_pekerja'=> $request->skor_pekerja,
             'skor_penyelia'=> $request->skor_penyelia,
+            'status'=> 'Not Submitted',
 
         ]);
+
+        // $update = User::find(Auth::user()->id)->update([
+        //     'status'=> 'Not Submitted',
+        // ]);
 
         return redirect()->route('kecekapan')->with('message', 'Kecekapan Updated Successfully');
 

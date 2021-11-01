@@ -552,6 +552,7 @@ class ComposerStaticInit5b00ac9372657a96bb5681939e351160
         'App\\Http\\Livewire\\LaravelExamples\\UserManagementFormWire' => __DIR__ . '/../..' . '/app/Http/Livewire/LaravelExamples/UserManagementFormWire.php',
         'App\\Http\\Livewire\\LaravelExamples\\UserProfile' => __DIR__ . '/../..' . '/app/Http/Livewire/LaravelExamples/UserProfile.php',
         'App\\Http\\Livewire\\Nilai' => __DIR__ . '/../..' . '/app/Http/Livewire/Nilai.php',
+        'App\\Http\\Livewire\\NilaiManager' => __DIR__ . '/../..' . '/app/Http/Livewire/NilaiManager.php',
         'App\\Http\\Livewire\\OfiNcr' => __DIR__ . '/../..' . '/app/Http/Livewire/OfiNcr.php',
         'App\\Http\\Livewire\\Profile' => __DIR__ . '/../..' . '/app/Http/Livewire/Profile.php',
         'App\\Http\\Livewire\\Rtl' => __DIR__ . '/../..' . '/app/Http/Livewire/Rtl.php',

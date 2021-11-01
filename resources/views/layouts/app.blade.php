@@ -8,6 +8,7 @@
         {{-- If the user is authenticated on the static sign up or the sign up page --}}
         @if (auth()->user()->role == 'admin')
             @include('layouts.navbars.auth.sidebar')
+            {{-- @include('livewire.form_kpi') --}}
             @include('layouts.navbars.auth.nav')
             @include('components.plugins.fixed-plugin')
             @if (isset($slot))
@@ -24,6 +25,7 @@
             </main>
         @else
             @include('layouts.navbars.auth.sidebar')
+            {{-- @include('livewire.form_kpi') --}}
             @include('layouts.navbars.auth.nav')
             @include('components.plugins.fixed-plugin')
             @if (isset($slot))

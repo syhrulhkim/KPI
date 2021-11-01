@@ -78,6 +78,7 @@ class UserManagementFormWire extends Component
             $add->email = $this->email;
             $add->password = Hash::make($this->password);
             $add->role = $this->role;
+            $add->status = 'Not Submitted';
             $add->save();
     
             session()->flash('message', 'New user successfully added');

@@ -98,10 +98,10 @@
                             <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
                           </td>
                           {{-- <td class="align-middle text-center">
-                            <a href="{{ url('manager/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                            <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="{{ url('manager/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                            <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                           </td> --}}
                         </tr>
                       @endforeach
@@ -129,7 +129,6 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -163,11 +162,11 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
                             </td>
-                            <td class="align-middle text-center">
-                              <a href="{{ url('manager/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                            </td>
                             {{-- <td class="align-middle text-center">
-                              <a href="{{ url('manager/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                              <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                            </td>
+                            <td class="align-middle text-center">
+                              <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                             </td> --}}
                           </tr>
                         @endforeach
@@ -195,7 +194,6 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -229,11 +227,11 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_sebenar }}">{{ $nilais -> skor_sebenar }}</span>
                             </td>
-                            <td class="align-middle text-center">
-                              <a href="{{ url('manager/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
-                            </td>
                             {{-- <td class="align-middle text-center">
-                              <a href="{{ url('manager/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                              <a href="{{ url('employee/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                            </td>
+                            <td class="align-middle text-center">
+                              <a href="{{ url('employee/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                             </td> --}}
                           </tr>
                         @endforeach
@@ -243,9 +241,9 @@
                 </div>
               </div>
               @foreach ($user as $users)
-              @if ($users->status == 'Submitted' || $users->status == 'Appraised By Manager')
-              <a href="{{ url('manager/changeup/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Appraised ?</a> 
-              <a href="{{ url('manager/changedown/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Appraised ?</a>
+              @if ($users->status == 'Appraised By Manager' || $users->status == 'Completed')
+              <a href="{{ url('hr/changeup/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Completed ?</a>
+              <a href="{{ url('hr/changedown/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Completed ?</a>
               @else
               @endif
               @endforeach
@@ -258,4 +256,4 @@
     <script src="{{asset('assets/js/nilai.js')}}"></script>
     
     </body>
-  </div>
+  </div>  

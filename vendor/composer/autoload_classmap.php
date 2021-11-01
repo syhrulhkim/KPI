@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Livewire\\LaravelExamples\\UserManagementFormWire' => $baseDir . '/app/Http/Livewire/LaravelExamples/UserManagementFormWire.php',
     'App\\Http\\Livewire\\LaravelExamples\\UserProfile' => $baseDir . '/app/Http/Livewire/LaravelExamples/UserProfile.php',
     'App\\Http\\Livewire\\Nilai' => $baseDir . '/app/Http/Livewire/Nilai.php',
+    'App\\Http\\Livewire\\NilaiManager' => $baseDir . '/app/Http/Livewire/NilaiManager.php',
     'App\\Http\\Livewire\\OfiNcr' => $baseDir . '/app/Http/Livewire/OfiNcr.php',
     'App\\Http\\Livewire\\Profile' => $baseDir . '/app/Http/Livewire/Profile.php',
     'App\\Http\\Livewire\\Rtl' => $baseDir . '/app/Http/Livewire/Rtl.php',

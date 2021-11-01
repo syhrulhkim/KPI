@@ -2,8 +2,19 @@
 {{-- @section('title','Staff | Pencapaian') --}}
 
 {{-- @section('content') --}}
+<div>
+  @extends('layouts.app')
+  {{-- @extends('layouts.base') --}}
+  {{-- @extends('layouts.navbars.auth.nav-profile')
+  @extends('layouts.navbars.auth.nav')
+  @extends('layouts.navbars.auth.sidebar')
+  @extends('layouts.navbars.guest.login')
+  @extends('layouts.navbars.guest.sign-up')
 
-<body>
+  @extends('layouts.footers.guest.with-socials')
+  @extends('layouts.footers.guest.description')
+  @extends('layouts.footers.auth.footer') --}}
+
 
     <div class="wrapper">
         <!-- Page Content  -->
@@ -204,10 +215,10 @@
                                   <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
                                   <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kpi') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
-  
+                              </form>
                               </div>
   
-                          </form>
+                          
   
                         </div>
                     </div>
@@ -216,9 +227,10 @@
         </div>
     </div>
 
-</form>
+
    <!-- Calculation JS -->
    <script src="{{asset('assets/js/master.js')}}"></script>
+       <script src="{{url('assets/js/core/bootstrap.min.js')}}"></script>
+  </div>
 
-  </body>
   {{-- @endsection --}}

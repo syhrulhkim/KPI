@@ -92,6 +92,16 @@ function masterClac() {
       gradeClass();
       percentageValid();
 
+      let totalperatus = 0;
+      totalperatus = totalperatus + peratus;
+      console.log(totalperatus);
+      if (totalperatus > 100) {
+        alert("Maaf, anda telah melebihi had KPI iaitu 100 peratus sahaja");
+      }
+      // if (totalperatus < 100) {
+      //   alert("Maaf, KPI anda tidak mencukupi 100 peratus");
+      // }
+      // console.log(totalperatus);
 }
 
 // GRADE CLASS

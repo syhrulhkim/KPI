@@ -187,7 +187,7 @@ function percentageValid() {
       perValidUI.style.fontWeight = "bold";
 
     }
-    // console.log(weightageTotal);
+    console.log(weightageTotal);
 }
 
 // function gradeClass2(){

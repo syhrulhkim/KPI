@@ -33,6 +33,7 @@ use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
 
 use App\Http\Controllers\ManagerKPI;
+use App\Http\Controllers\HRKPI;
 
 use Illuminate\Http\Request;
 
@@ -82,6 +83,20 @@ Route::get('/manager/edit/nilai/{id}', [NilaiManager::class, 'nilai_edit']);
 Route::post('/manager/update/nilai/{id}', [NilaiManager::class, 'nilai_update']);
 // Route::get('/manager/delete/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_delete']);
 
+Route::post('/manager/update/nilai/{id}', [NilaiManager::class, 'nilai_update']);
+
+Route::get('/manager/changeup/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'changeup']);
+Route::get('/manager/changedown/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'changedown']);
+
+Route::get('/hr/changeup/kpi/{id}', [\App\Http\Controllers\HRKPI::class, 'changeup']);
+Route::get('/hr/changedown/kpi/{id}', [\App\Http\Controllers\HRKPI::class, 'changedown']);
+
+// Route::get('/employee/changeup/kpi/{id}', [\App\Http\Controllers\Displaykpi::class, 'changeup']);
+// Route::get('/employee/changedown/kpi/{id}', [\App\Http\Controllers\Displaykpi::class, 'changedown']);
+
+Route::get('/employee/changeup/kpi/{id}', [Displaykpi::class, 'changeup']);
+Route::get('/employee/changedown/kpi/{id}', [Displaykpi::class, 'changedown']);
+
 Route::get('/employee/edit/nilai/{id}', [Nilai::class, 'nilai_edit']);
 Route::post('/employee/update/nilai/{id}', [Nilai::class, 'nilai_update']);
 Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
@@ -93,6 +108,7 @@ Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
 //     echo 'john';
 // });
 Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
+Route::get('/hr/view/kpi/{id}', [\App\Http\Controllers\HRKPI::class, 'index']);
 // Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index'])->name('kecekapan-manager');
 
 Route::middleware('auth')->group(function () {
