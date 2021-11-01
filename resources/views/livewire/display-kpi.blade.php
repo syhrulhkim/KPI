@@ -50,24 +50,50 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($kpi as $key => $kpis)
+                    @php($i = 1)
+
+                    @foreach ($kadskor as $key => $kpis)
                       <tr>
-                        <td>    
+                        @if ($key == 0)
+                        {{-- <td class="border-dark">{{ $i++  }}</td> --}}
+                        {{-- <td>    
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
                               <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                            </div>
+                          </div>
+                        </td> --}}
+                        <td>    
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                             </div>
                           </div>
                         </td>
                         <td>
                           <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
                         </td>
-                        {{-- <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-success" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
-                        </td> --}}
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
                         </td>
+                        @else
+                        <td>    
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+                        </td>
+                        @endif
+                        {{-- <td class="align-middle text-center text-sm">
+                          <span class="badge badge-sm bg-gradient-success" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
+                        </td> --}}
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
                         </td>
@@ -106,12 +132,13 @@
                         </td> --}}
                       </tr>
                     @endforeach
-                    @foreach ($kpi2 as $key => $kpis)
+                    @foreach ($kewangan as $key => $kpis)
                     <tr>
+                      @if ($key == 0)
                       <td>    
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                            <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                           </div>
                         </div>
                       </td>
@@ -121,6 +148,21 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
                       </td>
+                      @else
+                      <td>    
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+                      </td>
+                      @endif
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
                       </td>
@@ -153,12 +195,13 @@
                       </td>
                     </tr>
                   @endforeach
-                  @foreach ($kpi3 as $key => $kpis)
+                  @foreach ($pelangganI as $key => $kpis)
                   <tr>
+                    @if ($key == 0)
                     <td>    
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                          <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                         </div>
                       </div>
                     </td>
@@ -168,6 +211,21 @@
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
                     </td>
+                    @else
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+                    </td>
+                    @endif
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
                     </td>
@@ -200,12 +258,13 @@
                     </td>
                   </tr>
                 @endforeach
-                @foreach ($kpi4 as $key => $kpis)
+                @foreach ($pelangganII as $key => $kpis)
                 <tr>
+                  @if ($key == 0)
                   <td>    
                     <div class="d-flex px-2 py-1">
                       <div class="d-flex flex-column justify-content-center">
-                        <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                        <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                       </div>
                     </div>
                   </td>
@@ -215,6 +274,21 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
                   </td>
+                  @else
+                  <td>    
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+                  </td>
+                  @endif
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
                   </td>
@@ -247,12 +321,13 @@
                   </td>
                 </tr>
               @endforeach
-              @foreach ($kpi5 as $key => $kpis)
+              @foreach ($kecemerlangan as $key => $kpis)
               <tr>
+                @if ($key == 0)
                 <td>    
                   <div class="d-flex px-2 py-1">
                     <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                      <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                     </div>
                   </div>
                 </td>
@@ -262,6 +337,21 @@
                 <td class="align-middle text-center">
                   <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
                 </td>
+                @else
+                <td>    
+                  <div class="d-flex px-2 py-1">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+                </td>
+                @endif
                 <td class="align-middle text-center">
                   <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
                 </td>
@@ -294,12 +384,13 @@
                 </td>
               </tr>
             @endforeach
-            @foreach ($kpi6 as $key => $kpis)
+            @foreach ($training as $key => $kpis)
             <tr>
+              @if ($key == 0)
               <td>    
                 <div class="d-flex px-2 py-1">
                   <div class="d-flex flex-column justify-content-center">
-                    <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                    <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                   </div>
                 </div>
               </td>
@@ -309,6 +400,21 @@
               <td class="align-middle text-center">
                 <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
               </td>
+              @else
+              <td>    
+                <div class="d-flex px-2 py-1">
+                  <div class="d-flex flex-column justify-content-center">
+                    <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+              </td>
+              @endif
               <td class="align-middle text-center">
                 <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
               </td>
@@ -341,12 +447,13 @@
               </td>
             </tr>
           @endforeach
-          @foreach ($kpi7 as $key => $kpis)
+          @foreach ($ncr as $key => $kpis)
           <tr>
+            @if ($key == 0)
             <td>    
               <div class="d-flex px-2 py-1">
                 <div class="d-flex flex-column justify-content-center">
-                  <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                  <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                 </div>
               </div>
             </td>
@@ -356,6 +463,21 @@
             <td class="align-middle text-center">
               <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
             </td>
+            @else
+            <td>    
+              <div class="d-flex px-2 py-1">
+                <div class="d-flex flex-column justify-content-center">
+                  <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+            </td>
+            @endif
             <td class="align-middle text-center">
               <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
             </td>
@@ -388,12 +510,13 @@
             </td>
           </tr>
         @endforeach
-        @foreach ($kpi8 as $key => $kpis)
+        @foreach ($kolaborasi as $key => $kpis)
         <tr>
+          @if ($key == 0)
           <td>    
             <div class="d-flex px-2 py-1">
               <div class="d-flex flex-column justify-content-center">
-                <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
               </div>
             </div>
           </td>
@@ -403,6 +526,21 @@
           <td class="align-middle text-center">
             <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
           </td>
+          @else
+          <td>    
+            <div class="d-flex px-2 py-1">
+              <div class="d-flex flex-column justify-content-center">
+                <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+          </td>
+          <td class="align-middle text-center">
+            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{  NULL }}</span>
+          </td>
+          @endif
           <td class="align-middle text-center">
             <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
           </td>

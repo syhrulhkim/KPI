@@ -65,6 +65,16 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 // Route::post('/employee/bukti/update/kpi/{id}',[KPI::class, 'bukti_update']);
 
 Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
+
+Route::post('/employee/save/kpimaster1',[KPI::class, 'kpi_master_save1'])->name('kpi_master_save1');
+Route::post('/employee/save/kpimaster2',[KPI::class, 'kpi_master_save2'])->name('kpi_master_save2');
+Route::post('/employee/save/kpimaster3',[KPI::class, 'kpi_master_save3'])->name('kpi_master_save3');
+Route::post('/employee/save/kpimaster4',[KPI::class, 'kpi_master_save4'])->name('kpi_master_save4');
+Route::post('/employee/save/kpimaster5',[KPI::class, 'kpi_master_save5'])->name('kpi_master_save5');
+Route::post('/employee/save/kpimaster6',[KPI::class, 'kpi_master_save6'])->name('kpi_master_save6');
+Route::post('/employee/save/kpimaster7',[KPI::class, 'kpi_master_save7'])->name('kpi_master_save7');
+Route::post('/employee/save/kpimaster8',[KPI::class, 'kpi_master_save8'])->name('kpi_master_save8');
+
 Route::post('/employee/save/kecekapan',[Kecekapan::class, 'kecekapan_save'])->name('kecekapan_save');
 Route::post('/employee/save/nilai',[Nilai::class, 'nilai_save'])->name('nilai_save');
 

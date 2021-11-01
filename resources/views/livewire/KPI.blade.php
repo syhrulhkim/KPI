@@ -115,18 +115,18 @@
                                   </div>
                                 </div>
 
-                                <div class="col-sm-4 pt-3 " >
+                                {{-- <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
                                       <label class="font-weight-bold " >Objektif KPI</label>
                                       <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
                                   </div>
-                                </div>      
-                                <div class="col-sm-4 pt-3 " >
+                                </div>       --}}
+                                {{-- <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
                                       <label class="font-weight-bold " >Link Bukti</label>
                                       <input type="text" class="form-control form-control-sm" id="link" name="link">
                                   </div>
-                                </div>                       
+                                </div>                        --}}
 
                                 <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
@@ -229,7 +229,7 @@
                             </div>
 
                             <div class="p-3" style="text-align: right">
-                              <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Simpan Pencapaian</button>                           
+                              <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
                             </div>
                           </div>
                       </form>
@@ -256,15 +256,17 @@
               <h6>KAD SKOR KORPORAT</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save1') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
+                      {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th> --}}
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
+                      {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th> --}}
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -290,15 +292,15 @@
                         <td>
                           <p class="text-xs font-weight-bold mb-0" value="{{ $kadskors -> fungsi }}">{{ $kadskors -> fungsi }}</p>
                         </td>
-                        <td class="align-middle text-center">
+                        {{-- <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskors -> objektif }}">{{ $kadskors -> objektif }}</span>
-                        </td>
+                        </td> --}}
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskors -> bukti }}}">{{ $kadskors -> bukti }}</span>
                         </td>
-                        <td class="align-middle text-center">
+                        {{-- <td class="align-middle text-center">
                           <a href=" {{ $kadskors->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
-                        </td>
+                        </td> --}}
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskors -> peratus }}">{{ $kadskors -> peratus }}</span>
                         </td>
@@ -324,7 +326,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kadskors -> skor_sebenar,2) }}">{{ round($kadskors -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kadskors->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kadskors->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$kadskors->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -332,8 +334,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -354,15 +382,15 @@
               <h6>KEWANGAN</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save2') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -389,13 +417,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $kewangans -> fungsi }}">{{ $kewangans -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kewangans -> objektif }}">{{ $kewangans -> objektif }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kewangans -> bukti }}}">{{ $kewangans -> bukti }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href=" {{ $kewangans->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
@@ -422,7 +444,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kewangans -> skor_sebenar,2) }}">{{ round($kewangans -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kewangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kewangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$kewangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -430,8 +452,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -450,15 +498,15 @@
               <h6>PELANGGAN (INTERNAL)</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save3') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -485,13 +533,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $pelangganIs -> fungsi }}">{{ $pelangganIs -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIs -> objektif }}">{{ $pelangganIs -> objektif }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIs -> bukti }}}">{{ $pelangganIs -> bukti }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href=" {{ $pelangganIs->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIs -> peratus }}">{{ $pelangganIs -> peratus }}</span>
@@ -518,7 +560,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($pelangganIs -> skor_sebenar,2) }}">{{ round($pelangganIs -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$pelangganIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$pelangganIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$pelangganIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -526,8 +568,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -546,15 +614,15 @@
               <h6>PELANGGAN (OUTER)</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save4') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -581,13 +649,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $pelangganIIs -> fungsi }}">{{ $pelangganIIs -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIIs -> objektif }}">{{ $pelangganIIs -> objektif }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIIs -> bukti }}}">{{ $pelangganIIs -> bukti }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href=" {{ $pelangganIIs->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIIs -> peratus }}">{{ $pelangganIIs -> peratus }}</span>
@@ -614,7 +676,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($pelangganIIs -> skor_sebenar,2) }}">{{ round($pelangganIIs -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$pelangganIIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$pelangganIIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$pelangganIIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -622,8 +684,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -642,15 +730,15 @@
               <h6>KECEMERLANGAN OPERASI</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save5') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -677,13 +765,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $kecemerlangans -> fungsi }}">{{ $kecemerlangans -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlangans -> objektif }}">{{ $kecemerlangans -> objektif }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlangans -> bukti }}}">{{ $kecemerlangans -> bukti }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href=" {{ $kecemerlangans->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlangans -> peratus }}">{{ $kecemerlangans -> peratus }}</span>
@@ -710,7 +792,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kecemerlangans -> skor_sebenar,2) }}">{{ round($kecemerlangans -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kecemerlangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kecemerlangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$kecemerlangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -718,8 +800,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -738,15 +846,15 @@
               <h6>MANUSIA & PROCESS (TRAINING)</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save6') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -773,13 +881,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $trainings -> fungsi }}">{{ $trainings -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $trainings -> objektif }}">{{ $trainings -> objektif }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $trainings -> bukti }}}">{{ $trainings -> bukti }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href=" {{ $trainings->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $trainings -> peratus }}">{{ $trainings -> peratus }}</span>
@@ -806,7 +908,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($trainings -> skor_sebenar,2) }}">{{ round($trainings -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$trainings->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$trainings->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$trainings->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -814,8 +916,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -834,15 +962,15 @@
               <h6>MANUSIA & PROCESS (NCR/OFI)</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save7') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -869,13 +997,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $ncrs -> fungsi }}">{{ $ncrs -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrs -> objektif }}">{{ $ncrs -> objektif }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrs -> bukti }}}">{{ $ncrs -> bukti }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href=" {{ $ncrs->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrs -> peratus }}">{{ $ncrs -> peratus }}</span>
@@ -902,7 +1024,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($ncrs -> skor_sebenar,2) }}">{{ round($ncrs -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$ncrs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$ncrs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$ncrs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -910,8 +1032,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -930,15 +1078,15 @@
               <h6>KOLABORASI</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              <form action="{{ route('kpi_master_save8') }}" method="post">  
+                @csrf
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
@@ -965,13 +1113,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $kolaborasis -> fungsi }}">{{ $kolaborasis -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasis -> objektif }}">{{ $kolaborasis -> objektif }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasis -> bukti }}}">{{ $kolaborasis -> bukti }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href=" {{ $kolaborasis->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasis -> peratus }}">{{ $kolaborasis -> peratus }}</span>
@@ -998,7 +1140,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kolaborasis -> skor_sebenar,2) }}">{{ round($kolaborasis -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kolaborasis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kolaborasis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
                           <a href="{{ url('employee/delete/kpi/'.$kolaborasis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -1006,8 +1148,34 @@
                       </tr>
                     @endforeach
                   </tbody>
+                  <div class="row">
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Percentage KPI Master</label>
+                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Link Bukti</label>
+                          <input type="text" class="form-control form-control-sm" id="link" name="link">
+                      </div>
+                    </div> 
+                    <div class="col-sm-4 pt-3 " >
+                      <div class="mb-4">
+                          <label class="font-weight-bold " >Objektif KPI</label>
+                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
+                      </div>
+                    </div> 
+                    
+                  </div>
+                  
                 </table>
+                <div class="p-3" style="text-align: right">
+                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                </div>
               </div>
+            </form>
             </div>
           </div>
         </div>

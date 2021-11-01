@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 // namespace App\Models\KPI_;
 
 use App\Models\KPI_;
+use App\Models\KPIMaster_;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -24,6 +25,112 @@ class KPI extends Component
         // return view('livewire.create-kpi', compact('kpi', 'kpi2') );
         return view('livewire.create-kpi', compact('kpi') );
     }
+
+    public function kpi_master_save1(Request $request){
+        // dd($request->fungsi);
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Kad Skor Korporat',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Kad Skor Korporat berjaya ditambah!');
+    }
+
+    public function kpi_master_save2(Request $request){
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Kewangan',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Kewangan berjaya ditambah!');
+    }
+
+    public function kpi_master_save3(Request $request){
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Pelanggan (Internal)',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Pelanggan (Internal) berjaya ditambah!');
+    }
+
+    public function kpi_master_save4(Request $request){
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Pelanggan (Outer)',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Pelanggan (Outer) berjaya ditambah!');
+    }
+
+    public function kpi_master_save5(Request $request){
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Kecemerlangan Operasi',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Kecemerlangan Operasi berjaya ditambah!');
+    }
+
+    public function kpi_master_save6(Request $request){
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Manusia & Proses (Training)',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (Training) berjaya ditambah!');
+    }
+
+    public function kpi_master_save7(Request $request){
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Manusia & Proses (NCR/OFI)',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (NCR/OFI) berjaya ditambah!');
+    }
+
+    public function kpi_master_save8(Request $request){
+        KPIMaster_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'objektif'=> $request->objektif,
+            'link'=> $request->link,
+            'percent_master'=> $request->percent_master,
+            'fungsi'=> 'Kolaborasi',
+            ]);
+            return redirect()->back()->with('message', 'KPI Master untuk Kolaborasi berjaya ditambah!');
+    }
+    
 
     public function kpi_save(Request $request){
        
@@ -116,7 +223,7 @@ class KPI extends Component
         $validatedData = $request->validate([
 
             'fungsi' => ['required'],
-            'objektif' => ['required'],
+            // 'objektif' => ['required'],
             'bukti' => ['required'],
             'peratus' => ['required'],
             'ukuran' => ['required'],
@@ -148,10 +255,10 @@ class KPI extends Component
         'bulan'=> $request->bulan,
 
         'fungsi'=> $request->fungsi,
-        'objektif'=> $request->objektif,
+        // 'objektif'=> $request->objektif,
         
         'bukti'=> $request->bukti,
-        'link'=> $request->link,
+        // 'link'=> $request->link,
         'ukuran'=> $request->ukuran,
 
         'peratus'=> $request->peratus,
@@ -200,7 +307,7 @@ class KPI extends Component
         $validatedData = $request->validate([
 
             'fungsi' => ['required'],
-            'objektif' => ['required'],
+            // 'objektif' => ['required'],
             'bukti' => ['required'],
             'peratus' => ['required'],
             'ukuran' => ['required'],
@@ -231,11 +338,11 @@ class KPI extends Component
             'tahun'=> $request->tahun,
             'bulan'=> $request->bulan,
 
-            'objektif'=> $request->objektif,
+            // 'objektif'=> $request->objektif,
             'fungsi'=> $request->fungsi,
 
             'bukti'=> $request->bukti,
-            'link'=> $request->link,
+            // 'link'=> $request->link,
             'ukuran'=> $request->ukuran,
 
             'peratus'=> $request->peratus,

@@ -9,6 +9,7 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\HRKPI' => $baseDir . '/app/Http/Controllers/HRKPI.php',
     'App\\Http\\Controllers\\ManagerKPI' => $baseDir . '/app/Http/Controllers/ManagerKPI.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Livewire\\Auth\\ForgotPassword' => $baseDir . '/app/Http/Livewire/Auth/ForgotPassword.php',

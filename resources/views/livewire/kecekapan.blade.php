@@ -210,7 +210,7 @@
                             </div>
 
                             <div class="p-3" style="text-align: right">
-                              <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Simpan Pencapaian</button>                           
+                              <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
                             </div>
 
                           </div>

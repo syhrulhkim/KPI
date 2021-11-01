@@ -65,14 +65,24 @@ class Displaykpi extends Component
         // 'skor_KPI'=> $request->skor_KPI,
         // 'skor_sebenar'=> $request->skor_sebenar,
 
-        $kpi = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->orderBy('created_at','desc')->get();
-        $kpi2 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan')->orderBy('created_at','desc')->get();
-        $kpi3 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Pelanggan (Internal)')->orderBy('created_at','desc')->get();
-        $kpi4 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Pelanggan (Outer)')->orderBy('created_at','desc')->get();
-        $kpi5 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kecemerlangan Operasi')->orderBy('created_at','desc')->get();
-        $kpi6 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Manusia & Proses (Training)')->orderBy('created_at','desc')->get();
-        $kpi7 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->orderBy('created_at','desc')->get();
-        $kpi8 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kolaborasi')->orderBy('created_at','desc')->get();
+        $kadskor = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->orderBy('created_at','desc')->get();
+        $kewangan = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan')->orderBy('created_at','desc')->get();
+        $pelangganI = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Pelanggan (Internal)')->orderBy('created_at','desc')->get();
+        $pelangganII = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Pelanggan (Outer)')->orderBy('created_at','desc')->get();
+        $kecemerlangan = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kecemerlangan Operasi')->orderBy('created_at','desc')->get();
+        $training = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Manusia & Proses (Training)')->orderBy('created_at','desc')->get();
+        $ncr = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->orderBy('created_at','desc')->get();
+        $kolaborasi = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kolaborasi')->orderBy('created_at','desc')->get();
+
+        $kadskorcount = $kadskor->count();
+        $kewangancount = $kewangan->count();
+        $pelangganIcount = $pelangganI->count();
+        $pelangganIIcount = $pelangganII->count();
+        $kecemerlangancount = $kecemerlangan->count();
+        $trainingcount = $training->count();
+        $ncrcount = $ncr->count();
+        $kolaborasicount = $kolaborasi->count();
+
         // $kpifungsi = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->orderBy('created_at','desc')->get();
         $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
         $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
@@ -81,7 +91,7 @@ class Displaykpi extends Component
 
         $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
-        return view('livewire.display-kpi', compact('kpi', 'users', 'hrs', 'kecekapan', 'nilai', 'displaykpi', 'user', 'kpi2', 'kpi3', 'kpi4', 'kpi5', 'kpi6', 'kpi7', 'kpi8'));
+        return view('livewire.display-kpi', compact('kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'displaykpi', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount'));
 
 
         // return view('livewire.display-kpi', compact('displaykpi'));

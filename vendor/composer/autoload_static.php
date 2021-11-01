@@ -530,6 +530,7 @@ class ComposerStaticInit5b00ac9372657a96bb5681939e351160
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HRKPI' => __DIR__ . '/../..' . '/app/Http/Controllers/HRKPI.php',
         'App\\Http\\Controllers\\ManagerKPI' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagerKPI.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\Auth\\ForgotPassword' => __DIR__ . '/../..' . '/app/Http/Livewire/Auth/ForgotPassword.php',
