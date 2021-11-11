@@ -34,7 +34,7 @@ class UserManagementAdmin extends Component
     public function delete()
     {
         $user = User::find($this->id_user);
-        dd($user);
+        // dd($user);
         $user->delete();
     }
 

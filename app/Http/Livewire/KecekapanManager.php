@@ -33,22 +33,24 @@ class KecekapanManager extends Component
         return redirect()->back()->with('message', 'Skor penyelia berjaya ditambah!');
     } 
        
-    public function kecekapan_edit($id) {
-        $kecekapan = Kecekapan_::find($id);
-        return view('livewire.form_kecekapan_manager' , compact('kecekapan'));
-    }
-
-    public function kecekapan_update(Request $request, $id) {
-        $validatedData = $request->validate([
-            'skor_penyelia' => ['required'],
-        ]);
-
-        $update = Kecekapan_::find($id)->update([
-            'skor_penyelia'=> $request->skor_penyelia,
-            'skor_sebenar' => $request->skor_sebenar,
-        ]);
+        public function kecekapan_edit($id_user, $id) {
+            $kecekapan = Kecekapan_::find($id);
+            $user = User::find($id_user);
+            return view('livewire.form_kecekapan_manager' , compact('kecekapan', 'user'));
+        }
+    
+        public function kecekapan_update(Request $request,$id_user, $id) {
+            $validatedData = $request->validate([
+                'skor_penyelia' => ['required'],
+            ]);
+    
+            $update = Kecekapan_::find($id)->update([
+                'skor_penyelia'=> $request->skor_penyelia,
+                'skor_sebenar' => $request->skor_sebenar,
+            ]);
         // return redirect()->route('kecekapan-manager')->with('message', 'Skor penyelia Updated Successfully');
-        return redirect()->back()->with('message', 'Skor penyelia Updated Successfully');
+        // return redirect()->back()->with('message', 'Skor penyelia Updated Successfully');
+        return redirect('manager/view/kpi/'.$id_user)->with('message', 'Skor penyelia Updated Successfully');
     }
 
         public function render()

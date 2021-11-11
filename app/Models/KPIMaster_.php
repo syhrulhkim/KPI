@@ -10,6 +10,7 @@ class KPIMaster_ extends Model
     use HasFactory;
 
     protected $table = 'kpi_master';
+    // public $incrementing = false;
 
     protected $fillable = [
 
@@ -23,4 +24,7 @@ class KPIMaster_ extends Model
          
         'user_id',
     ];
+        public function kpi() {
+        return $this->hasMany('App\Models\KPI_', 'kpimaster_id', 'id');
+    }
 }

@@ -81,12 +81,12 @@
   
                                 <div class="row">
   
-                                    <div class="col-sm-4 pt-3 " >
+                                    {{-- <div class="col-sm-4 pt-3 " >
                                       <div class="mb-4">
                                           <label class="font-weight-bold " >Objektif</label>
                                           <input type="text" class="form-control form-control-sm" id="objektif" name="objektif" value="{{ $kpi->objektif }}" >
                                       </div>
-                                    </div>
+                                    </div> --}}
   
                                     <div class="col-sm-4 pt-3 " >
                                       <div class="mb-4">
@@ -111,12 +111,12 @@
                                       </div>
                                     </div>
 
-                                    <div class="col-sm-4 pt-3 " >
+                                    {{-- <div class="col-sm-4 pt-3 " >
                                       <div class="mb-4">
                                           <label class="font-weight-bold " >Link Bukti</label>
                                           <input type="text" class="form-control form-control-sm" id="link" name="link" value="{{ $kpi->link }}" >
                                       </div>
-                                    </div>
+                                    </div> --}}
   
                                 </div>
                               

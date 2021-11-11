@@ -116,6 +116,9 @@
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Department:</strong> &nbsp; {{ Auth::user()->department }}</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Unit:</strong> &nbsp; {{ Auth::user()->unit }}</li>
                                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Gred Staff:</strong> &nbsp; {{ Auth::user()->grade}}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ Auth::user()->email}}</li>
+                                {{-- <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Gred Staff:</strong> &nbsp; {{Auth::user()->status}}</li> --}}
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Status:</strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{Auth::user()->status}}</span>
                                 {{-- <li class="list-group-item border-0 ps-0 pb-0">
                                     <strong class="text-dark text-sm">Social:</strong> &nbsp;
                                     <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
@@ -146,7 +149,7 @@
                                                 <tr>
                                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                                                     {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th> --}}
-                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score</th>
                                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                                     <th class="text-secondary opacity-7"></th>
                                                 </tr>
@@ -174,7 +177,7 @@
                                                     {{-- <td class="align-middle text-center">
                                                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                                                     </td> --}}
-                                                    <td class="align-middle">
+                                                    <td class="align-middle text-center text-sm">
                                                         <a href="http://kpi.test/create-kpi" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                             Edit
                                                         </a>
@@ -202,7 +205,7 @@
                                                 {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
                                                 </td> --}}
-                                                <td class="align-middle">
+                                                <td class="align-middle text-center text-sm">
                                                     <a href="http://kpi.test/create-kecekapan" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                     Edit
                                                     </a>
@@ -230,7 +233,7 @@
                                                 {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
                                                 </td> --}}
-                                                <td class="align-middle">
+                                                <td class="align-middle text-center text-sm">
                                                     <a href="http://kpi.test/create-nilai" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                         Edit
                                                     </a>

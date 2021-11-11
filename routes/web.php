@@ -75,6 +75,24 @@ Route::post('/employee/save/kpimaster6',[KPI::class, 'kpi_master_save6'])->name(
 Route::post('/employee/save/kpimaster7',[KPI::class, 'kpi_master_save7'])->name('kpi_master_save7');
 Route::post('/employee/save/kpimaster8',[KPI::class, 'kpi_master_save8'])->name('kpi_master_save8');
 
+Route::get('/employee/edit/kpimaster1/{id}', [KPI::class, 'kpi_master_edit1']);
+Route::get('/employee/edit/kpimaster2/{id}', [KPI::class, 'kpi_master_edit2']);
+Route::get('/employee/edit/kpimaster3/{id}', [KPI::class, 'kpi_master_edit3']);
+Route::get('/employee/edit/kpimaster4/{id}', [KPI::class, 'kpi_master_edit4']);
+Route::get('/employee/edit/kpimaster5/{id}', [KPI::class, 'kpi_master_edit5']);
+Route::get('/employee/edit/kpimaster6/{id}', [KPI::class, 'kpi_master_edit6']);
+Route::get('/employee/edit/kpimaster7/{id}', [KPI::class, 'kpi_master_edit7']);
+Route::get('/employee/edit/kpimaster8/{id}', [KPI::class, 'kpi_master_edit8']);
+
+Route::post('/employee/update/kpimaster/{id}', [KPI::class, 'kpi_master_update']);
+// Route::post('/employee/update/kpimaster2/{id}', [KPI::class, 'kpi_master_update2']);
+// Route::post('/employee/update/kpimaster3/{id}', [KPI::class, 'kpi_master_update3']);
+// Route::post('/employee/update/kpimaster4/{id}', [KPI::class, 'kpi_master_update4']);
+// Route::post('/employee/update/kpimaster5/{id}', [KPI::class, 'kpi_master_update5']);
+// Route::post('/employee/update/kpimaster6/{id}', [KPI::class, 'kpi_master_update6']);
+// Route::post('/employee/update/kpimaster7/{id}', [KPI::class, 'kpi_master_update7']);
+// Route::post('/employee/update/kpimaster8/{id}', [KPI::class, 'kpi_master_update8']);
+
 Route::post('/employee/save/kecekapan',[Kecekapan::class, 'kecekapan_save'])->name('kecekapan_save');
 Route::post('/employee/save/nilai',[Nilai::class, 'nilai_save'])->name('nilai_save');
 
@@ -82,18 +100,19 @@ Route::get('/employee/edit/kpi/{id}', [KPI::class, 'kpi_edit']);
 Route::post('/employee/update/kpi/{id}', [KPI::class, 'kpi_update']);
 Route::get('/employee/delete/kpi/{id}', [KPI::class, 'kpi_delete']);
 
+
+Route::get('/employee/save/kpimaster/{id}', [KPI::class, 'kpi_master_save1']);
+
 Route::get('/employee/edit/kecekapan/{id}', [Kecekapan::class, 'kecekapan_edit']);
 Route::post('/employee/update/kecekapan/{id}', [Kecekapan::class, 'kecekapan_update']);
 Route::get('/employee/delete/kecekapan/{id}', [Kecekapan::class, 'kecekapan_delete']);
 
-Route::get('/manager/edit/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_edit']);
-Route::post('/manager/update/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_update']);
+Route::get('/manager/edit/kecekapan/{id_user}/{id}', [KecekapanManager::class, 'kecekapan_edit']);
+Route::post('/manager/update/kecekapan/{id_user}/{id}', [KecekapanManager::class, 'kecekapan_update']);
 
-Route::get('/manager/edit/nilai/{id}', [NilaiManager::class, 'nilai_edit']);
-Route::post('/manager/update/nilai/{id}', [NilaiManager::class, 'nilai_update']);
+Route::get('/manager/edit/nilai/{id_user}/{id}', [NilaiManager::class, 'nilai_edit']);
+Route::post('/manager/update/nilai/{id_user}/{id}', [NilaiManager::class, 'nilai_update']);
 // Route::get('/manager/delete/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_delete']);
-
-Route::post('/manager/update/nilai/{id}', [NilaiManager::class, 'nilai_update']);
 
 Route::get('/manager/changeup/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'changeup']);
 Route::get('/manager/changedown/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'changedown']);

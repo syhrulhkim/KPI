@@ -34,12 +34,13 @@ class NilaiManager extends Component
         return redirect()->back()->with('message', 'Skor penyelia berjaya ditambah!');
     } 
        
-    public function nilai_edit($id) {
+    public function nilai_edit($id_user, $id) {
         $nilai = Nilai_::find($id);
-        return view('livewire.form_nilai_manager' , compact('nilai'));
+        $user = User::find($id_user);
+        return view('livewire.form_nilai_manager' , compact('nilai', 'user'));
     }
 
-    public function nilai_update(Request $request, $id) {
+    public function nilai_update(Request $request,$id_user, $id) {
         $validatedData = $request->validate([
             'skor_penyelia' => ['required'],
         ]);
@@ -49,7 +50,9 @@ class NilaiManager extends Component
             'skor_sebenar' => $request->skor_sebenar,
         ]);
         // return redirect()->route('kecekapan-manager')->with('message', 'Skor penyelia Updated Successfully');
-        return redirect()->back()->with('message', 'Skor penyelia Updated Successfully');
+        // return redirect()->back()->with('message', 'Skor penyelia Updated Successfully');
+        // return redirect()->route('create-nilai')->with('message', 'Skor penyelia Updated Successfully');
+        return redirect('manager/view/kpi/'.$id_user)->with('message', 'Skor penyelia Updated Successfully');
     }
 
         public function render()

@@ -2,7 +2,8 @@
 {{-- @section('title','Staff | Pencapaian') --}}
 
 {{-- @section('content') --}}
-
+<div>
+  @extends('layouts.app')
 <body>
 
     <div class="wrapper">
@@ -52,7 +53,7 @@
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('/manager/update/nilai/'.$nilai->id) }}" method="post">  
+                            <form action="{{ url('/manager/update/nilai/'.$user->id.'/'.$nilai->id) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -197,3 +198,4 @@
 
   </body>
   {{-- @endsection --}}
+</div>

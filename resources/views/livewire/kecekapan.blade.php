@@ -82,12 +82,12 @@
                                   </div>
                                 </div>
 
-                                <div class="col-sm-4 pt-3 " >
+                                {{-- <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
                                       <label class="font-weight-bold " >Jangkaan Hasil</label>
                                       <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil">
                                   </div>
-                                </div>
+                                </div> --}}
                                 
                                 {{-- <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
@@ -369,9 +369,78 @@
                             <td>
                               <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
                             </td>
-                            <td class="align-middle text-center">
-                              <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> jangkaan_hasil }}">{{ $kecekapans -> jangkaan_hasil }}</span>
+
+                            @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi
+                                <br>
+                                Pengurus yang dapat mengembangkan dan memperkasakan pekerja bawahannya
+                                <br>
+                                Budaya organisasi yang mencerminkan nilainya
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
                             </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Keupayaan Inovatif")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berupaya memberi idea dan memberi penyelesaian untuk menyelesaikan masalah
+                                <br>
+                                Amalan kerja yang dikemas kini lebih sesuai dengan jangkaan masa kini
+                                <br>
+                                Penerimaan untuk organisasi, dan semua bahagiannya, perlu berubah dan terus meningkat
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pelanggan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Amalan organisasi yang lebih sesuai dengan keperluan pelanggan moden
+                                <br>
+                                Pekerja yang memahami dan bertindak mengikut kehendak pelanggan tepat pada masanya
+                                <br>
+                                Penciptaan produk dan perkhidmatan masa depan yang lebih mencerminkan keperluan pelanggan
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pemegang Berkepentingan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang lebih empati dengan pihak berkepentingan mereka
+                                <br>
+                                Pembinaan hubungan positif dengan pihak berkepentingan
+                                <br>
+                                Pembentukan perkongsian strategik yang membantu mencapai objektif organisasi
+                                <br>
+                                Pengurus yang mendorong pekerja bawahan mereka membina rangkaian profesional mereka sendiri
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Ketangkasan Dalam Organisasi")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berpengetahuan dan serba boleh
+                                <br>
+                                Penghargaan dan penerapan budaya bimbingan dalam organisasi
+                                <br>
+                                Amalan organisasi yang boleh menyesuaikan diri dengan masalah di pasaran
+                                <br>
+                                Organisasi yang menekankan dan mendorong pembelajaran dan perkembangan berterusan
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif
+
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ '20%' }}">{{ '20%' }}</span>
                             </td>
@@ -388,10 +457,10 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                              <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                              <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                             </td>
                           </tr>
                         @endforeach
@@ -446,9 +515,78 @@
                             <td>
                               <p class="text-xs font-weight-bold mb-0" value="{{ $userss -> kecekapan_teras }}">{{ $userss -> kecekapan_teras }}</p>
                             </td>
-                            <td class="align-middle text-center">
-                              <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> jangkaan_hasil }}">{{ $userss -> jangkaan_hasil }}</span>
+
+                            @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi
+                                <br>
+                                Pengurus yang dapat mengembangkan dan memperkasakan pekerja bawahannya
+                                <br>
+                                Budaya organisasi yang mencerminkan nilainya
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
                             </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Keupayaan Inovatif")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berupaya memberi idea dan memberi penyelesaian untuk menyelesaikan masalah
+                                <br>
+                                Amalan kerja yang dikemas kini lebih sesuai dengan jangkaan masa kini
+                                <br>
+                                Penerimaan untuk organisasi, dan semua bahagiannya, perlu berubah dan terus meningkat
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pelanggan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Amalan organisasi yang lebih sesuai dengan keperluan pelanggan moden
+                                <br>
+                                Pekerja yang memahami dan bertindak mengikut kehendak pelanggan tepat pada masanya
+                                <br>
+                                Penciptaan produk dan perkhidmatan masa depan yang lebih mencerminkan keperluan pelanggan
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pemegang Berkepentingan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang lebih empati dengan pihak berkepentingan mereka
+                                <br>
+                                Pembinaan hubungan positif dengan pihak berkepentingan
+                                <br>
+                                Pembentukan perkongsian strategik yang membantu mencapai objektif organisasi
+                                <br>
+                                Pengurus yang mendorong pekerja bawahan mereka membina rangkaian profesional mereka sendiri
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Ketangkasan Dalam Organisasi")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berpengetahuan dan serba boleh
+                                <br>
+                                Penghargaan dan penerapan budaya bimbingan dalam organisasi
+                                <br>
+                                Amalan organisasi yang boleh menyesuaikan diri dengan masalah di pasaran
+                                <br>
+                                Organisasi yang menekankan dan mendorong pembelajaran dan perkembangan berterusan
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif
+
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ '20%' }}">{{ '20%' }}</span>
                             </td>
@@ -465,10 +603,10 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> skor_sebenar }}">{{ $userss -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/edit/kecekapan/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                              <a href="{{ url('employee/edit/kecekapan/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                              <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                             </td>
                           </tr>
                         @endforeach

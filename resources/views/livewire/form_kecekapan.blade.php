@@ -2,7 +2,8 @@
 {{-- @section('title','Staff | Pencapaian') --}}
 
 {{-- @section('content') --}}
-
+<div>
+  @extends('layouts.app')
 <body>
 
     <div class="wrapper">
@@ -85,13 +86,13 @@
                                         </div>
                                       </div>
 
-                                      <div class="col-sm-4 pt-3 " >
+                                      {{-- <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4">
                                             <label class="font-weight-bold " >Jangkaan Hasil</label>
-                                            {{-- <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil"> --}}
+                                            <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil">
                                             <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil" value="{{ $kecekapan->jangkaan_hasil }}" >
                                         </div>
-                                      </div>
+                                      </div> --}}
   
                                 </div>
                               
@@ -181,6 +182,7 @@
   
                                 <div class="p-3" style="text-align: right">
                                   <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
+                                  {{-- {{dd('john')}} --}}
                                   <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kecekapan') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
   
@@ -201,3 +203,4 @@
 
   </body>
   {{-- @endsection --}}
+</div>

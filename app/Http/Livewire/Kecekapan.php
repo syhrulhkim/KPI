@@ -48,7 +48,7 @@ class Kecekapan extends Component
 
             'kecekapan_teras' => ['required'],
             // dd(Auth::user()->id),
-            'jangkaan_hasil' => ['required'],
+            // 'jangkaan_hasil' => ['required'],
             // 'peratus' => ['required'],
             // 'ukuran' => ['required'],
             'skor_pekerja' => ['required'],
@@ -78,7 +78,7 @@ class Kecekapan extends Component
         // 'bulan'=> $request->bulan,
 
         'kecekapan_teras'=> $request->kecekapan_teras,
-        'jangkaan_hasil'=> $request->jangkaan_hasil,
+        // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
         // 'ukuran'=> $request->ukuran,
 
@@ -104,21 +104,31 @@ class Kecekapan extends Component
 
     public function kecekapan_update(Request $request, $id) {
 
-        $validatedData = $request->validate([
+        if(Auth::user()->role == 'employee') {
+            $validatedData = $request->validate([
 
-            'kecekapan_teras' => ['required'],
-            'jangkaan_hasil' => ['required'],
-            // 'peratus' => ['required'],
-            // 'ukuran' => ['required'],
-            'skor_pekerja' => ['required'],
-            'skor_penyelia' => ['required'],
-            'user_id' => ['required'],
+                'kecekapan_teras' => ['required'],
+                // dd(Auth::user()->id),
+                // 'jangkaan_hasil' => ['required'],
+                // 'peratus' => ['required'],
+                // 'ukuran' => ['required'],
+                'skor_pekerja' => ['required'],
+                // 'skor_penyelia' => ['required'],
+                // 'user_id' => ['required'],
 
-            'grade' => ['required'],
-            'total_score' => ['required', 'numeric'],
-            'weightage' => ['required', 'numeric'],
-            
-        ]);
+                // 'grade' => ['required'],
+                // 'total_score' => ['required', 'numeric'],
+                // 'weightage' => ['required', 'numeric'],
+                // dd(Auth::user()->id),
+            ]);
+        }
+
+        // if(Auth::user()->role == 'manager') {
+        //     $validatedData = $request->validate([
+        //         'kecekapan_teras' => ['required'],
+        //         'skor_penyelia' => ['required'],
+        //     ]);
+        // }
 
         $update = Kecekapan_::find($id)->update([
 
@@ -134,7 +144,7 @@ class Kecekapan extends Component
             // 'bulan'=> $request->bulan,
 
             'kecekapan_teras'=> $request->kecekapan_teras,
-            'jangkaan_hasil'=> $request->jangkaan_hasil,
+            // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
             // 'ukuran'=> $request->ukuran,
 
@@ -149,7 +159,7 @@ class Kecekapan extends Component
         //     'status'=> 'Not Submitted',
         // ]);
 
-        return redirect()->route('kecekapan')->with('message', 'Kecekapan Updated Successfully');
+        return redirect()->route('create-kecekapan')->with('message', 'Kecekapan Updated Successfully');
 
     }
 

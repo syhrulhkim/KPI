@@ -1,3 +1,4 @@
+
 {{-- @extends('layouts/employee_template') --}}
 {{-- @section('title','Staff | Master') --}}
 
@@ -256,6 +257,8 @@
               <h6>KAD SKOR KORPORAT</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
+              {{-- <form action="{{ url('kpi_master_save1'.$kadskormaster->id) }}" method="post">  
+                @csrf --}}
               <form action="{{ route('kpi_master_save1') }}" method="post">  
                 @csrf
               <div class="table-responsive p-0">
@@ -329,37 +332,48 @@
                           <a href="{{ url('employee/edit/kpi/'.$kadskors->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kadskors->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$kadskors->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
+
                   
                 </table>
-                <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+
+                @foreach ($kadskormaster as $kadskormasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskormasters -> percent_master }}">{{ $kadskormasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskormasters -> link }}">{{ $kadskormasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskormasters -> objektif }}">{{ $kadskormasters -> objektif }}</span>
+                    </div>
+                  </div> 
                 </div>
+                @endforeach
+
+                <div class="p-3" style="text-align: right">
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
+                  {{-- <button type="submit" href="{{ url('employee/edit/kpimaster/'.$kadskormasters->id) }}" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
+                  {{-- {{dd($kadskormasters)}} --}}
+                  {{-- {{dd($kadskormasters)}} --}}
+                  @foreach ($kadskormaster as $kadskormasters)
+                  <a href="{{ url('employee/edit/kpimaster1/'.$kadskormasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>    
+                  @endforeach                     
+                </div>
+                
               </div>
             </form>
             </div>
@@ -447,37 +461,45 @@
                           <a href="{{ url('employee/edit/kpi/'.$kewangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kewangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$kewangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
+
                   
                 </table>
-                <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+
+                @foreach ($kewanganmaster as $kewanganmasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kewanganmasters -> percent_master }}">{{ $kewanganmasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kewanganmasters -> link }}">{{ $kewanganmasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kewanganmasters -> objektif }}">{{ $kewanganmasters -> objektif }}</span>
+                    </div>
+                  </div> 
                 </div>
+                @endforeach
+
+                <div class="p-3" style="text-align: right">
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
+                  @foreach ($kewanganmaster as $kewanganmasters)
+                  <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>  
+                  @endforeach                          
+                </div>
+
               </div>
             </form>
             </div>
@@ -563,36 +585,43 @@
                           <a href="{{ url('employee/edit/kpi/'.$pelangganIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$pelangganIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$pelangganIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
                   
                 </table>
+
+                @foreach ($pelangganImaster as $pelangganImasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganImasters -> percent_master }}">{{ $pelangganImasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganImasters -> link }}">{{ $pelangganImasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganImasters -> objektif }}">{{ $pelangganImasters -> objektif }}</span>
+                    </div>
+                  </div> 
+                </div>
+                @endforeach
+
                 <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
+                  {{-- {{dd($pelangganImasters)}} --}}
+                  @foreach ($pelangganImaster as $pelangganImasters)
+                  <a href="{{ url('employee/edit/kpimaster3/'.$pelangganImasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>   
+                  @endforeach                         
                 </div>
               </div>
             </form>
@@ -679,36 +708,43 @@
                           <a href="{{ url('employee/edit/kpi/'.$pelangganIIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$pelangganIIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$pelangganIIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
+
                   
                 </table>
+
+                @foreach ($pelangganIImaster as $pelangganIImasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIImasters -> percent_master }}">{{ $pelangganIImasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIImasters -> link }}">{{ $pelangganIImasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIImasters -> objektif }}">{{ $pelangganIImasters -> objektif }}</span>
+                    </div>
+                  </div> 
+                </div>
+                @endforeach
+
                 <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
+                  @foreach ($pelangganIImaster as $pelangganIImasters)
+                  <a href="{{ url('employee/edit/kpimaster4/'.$pelangganIImasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a> 
+                  @endforeach                           
                 </div>
               </div>
             </form>
@@ -795,36 +831,43 @@
                           <a href="{{ url('employee/edit/kpi/'.$kecemerlangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kecemerlangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$kecemerlangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
+
                   
                 </table>
+
+                @foreach ($kecemerlanganmaster as $kecemerlanganmasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlanganmasters -> percent_master }}">{{ $kecemerlanganmasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlanganmasters -> link }}">{{ $kecemerlanganmasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlanganmasters -> objektif }}">{{ $kecemerlanganmasters -> objektif }}</span>
+                    </div>
+                  </div> 
+                </div>
+                @endforeach
+
                 <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>    --}}
+                  @foreach ($kecemerlanganmaster as $kecemerlanganmasters)
+                  <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>    
+                  @endforeach                     
                 </div>
               </div>
             </form>
@@ -911,36 +954,43 @@
                           <a href="{{ url('employee/edit/kpi/'.$trainings->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$trainings->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$trainings->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
+
                   
                 </table>
+
+                @foreach ($trainingmaster as $trainingmasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $trainingmasters -> percent_master }}">{{ $trainingmasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $trainingmasters -> link }}">{{ $trainingmasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $trainingmasters -> objektif }}">{{ $trainingmasters -> objektif }}</span>
+                    </div>
+                  </div> 
+                </div>
+                @endforeach
+
                 <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
+                  @foreach ($trainingmaster as $trainingmasters)
+                  <a href="{{ url('employee/edit/kpimaster6/'.$trainingmasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>   
+                  @endforeach                       
                 </div>
               </div>
             </form>
@@ -1027,36 +1077,43 @@
                           <a href="{{ url('employee/edit/kpi/'.$ncrs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$ncrs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$ncrs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
+
                   
                 </table>
+
+                @foreach ($ncrmaster as $ncrmasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrmasters -> percent_master }}">{{ $ncrmasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrmasters -> link }}">{{ $ncrmasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrmasters -> objektif }}">{{ $ncrmasters -> objektif }}</span>
+                    </div>
+                  </div> 
+                </div>
+                @endforeach
+                
                 <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>    --}}
+                  @foreach ($ncrmaster as $ncrmasters)
+                  <a href="{{ url('employee/edit/kpimaster7/'.$ncrmasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>   
+                  @endforeach                        
                 </div>
               </div>
             </form>
@@ -1143,36 +1200,42 @@
                           <a href="{{ url('employee/edit/kpi/'.$kolaborasis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kolaborasis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          <a href="{{ url('employee/delete/kpi/'.$kolaborasis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
-                  <div class="row">
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Percentage KPI Master</label>
-                          <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Link Bukti</label>
-                          <input type="text" class="form-control form-control-sm" id="link" name="link">
-                      </div>
-                    </div> 
-                    <div class="col-sm-4 pt-3 " >
-                      <div class="mb-4">
-                          <label class="font-weight-bold " >Objektif KPI</label>
-                          <input type="text" class="form-control form-control-sm" id="objektif" name="objektif">
-                      </div>
-                    </div> 
-                    
-                  </div>
                   
                 </table>
+
+                @foreach ($kolaborasimaster as $kolaborasimasters)
+                <div class="row">
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Percentage KPI Master: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasimasters -> percent_master }}">{{ $kolaborasimasters -> percent_master }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Link Bukti: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasimasters -> link }}">{{ $kolaborasimasters -> link }}</span>
+                    </div>
+                  </div> 
+                  <div class="col-sm-4 pt-3 " >
+                    <div class="mb-4">
+                        <label class="font-weight-bold " >Objektif KPI: </label>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasimasters -> objektif }}">{{ $kolaborasimasters -> objektif }}</span>
+                    </div>
+                  </div> 
+                </div>
+                @endforeach
+
                 <div class="p-3" style="text-align: right">
-                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
+                  @foreach ($kolaborasimaster as $kolaborasimasters)
+                  <a href="{{ url('employee/edit/kpimaster8/'.$kolaborasimasters->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a> 
+                  @endforeach                          
                 </div>
               </div>
             </form>

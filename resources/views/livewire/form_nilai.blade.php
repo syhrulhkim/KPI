@@ -2,7 +2,8 @@
 {{-- @section('title','Staff | Pencapaian') --}}
 
 {{-- @section('content') --}}
-
+<div>
+  @extends('layouts.app')
 <body>
 
     <div class="wrapper">
@@ -85,13 +86,13 @@
                                         </div>
                                       </div>
 
-                                      <div class="col-sm-4 pt-3 " >
+                                      {{-- <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4">
                                             <label class="font-weight-bold " >Jangkaan Hasil</label>
-                                            {{-- <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil"> --}}
+                                            <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil">
                                             <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil" value="{{ $nilai->jangkaan_hasil }}" >
                                         </div>
-                                      </div>
+                                      </div> --}}
   
                                 </div>
                               
@@ -127,6 +128,10 @@
                                         <tbody>
                                           <tr>
 
+                                            <td class="font-weight-bold border-dark">
+                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" value="{{ $nilai->peratus }}" min="0"  >
+                                            </td>
+
                                             <td style="word-break: break-all;" class="border-dark">
                                               <select class="form-select form-select-sm" id="ukuran" name="ukuran">
                                                 <option selected readonly value="{{ $nilai->ukuran }}">{{ $nilai->ukuran }}</option>
@@ -146,17 +151,23 @@
                                               </select>
                                             </td>
 
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $nilai->peratus }}" min="0"  >
-                                            </td>
+                                            
+                                      
+                                            {{-- <td class="font-weight-bold border-dark">
+                                              <input type="text" maxlength="4"  class="input_pencapaian w-75" id="ukuran" name="ukuran" onkeyup="masterClac();" value="{{ $kecekapan->ukuran }}" min="0" >
+                                            </td> --}}
                                       
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4"  class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" value="{{ $nilai->pencapaian }}" min="0" >
+                                              <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $nilai->skor_pekerja }}">
                                             </td>
-                                      
+
                                             <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_KPI" name="skor_KPI" value="{{ $nilai->skor_KPI }}" readonly>
+                                              <input type="text" class="form-control " id="skor_penyelia" name="skor_penyelia" value="{{ $nilai->skor_penyelia }}" readonly>
                                             </td>
+
+                                            {{-- <td class="font-weight-bold border-dark">
+                                              <input type="text" maxlength="4" class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $kecekapan->skor_penyelia }}" min="0" >
+                                            </td> --}}
                                       
                                             <td class="font-weight-bold border-dark">
                                               <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $nilai->skor_sebenar }}" readonly>
@@ -187,7 +198,9 @@
 
 </form>
    <!-- Calculation JS -->
-    <script src="{{asset('js/master.js')}}"></script>
+    {{-- <script src="{{asset('js/master.js')}}"></script> --}}
+    <script src="{{asset('assets/js/nilai.js')}}"></script>
 
   </body>
   {{-- @endsection --}}
+</div>

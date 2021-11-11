@@ -94,7 +94,7 @@ function masterClac() {
 
       let totalperatus = 0;
       totalperatus = totalperatus + peratus;
-      console.log(totalperatus);
+      // console.log(totalperatus);
       if (totalperatus > 100) {
         alert("Maaf, anda telah melebihi had KPI iaitu 100 peratus sahaja");
       }

@@ -39,15 +39,15 @@ class Nilai extends Component
             $total_percent = $total_percent + $nilai->peratus;
         }
 
-        if ($total_percent > 99.99999) {
-            return redirect()->back()->with('fail', 'Maaf, anda telah melebihi had Nilai Teras iaitu 100 peratus sahaja');
+        if ($total_percent > 119.99999) {
+            return redirect()->back()->with('fail', 'Maaf, anda telah melebihi had Nilai Teras iaitu 120 peratus sahaja');
         }
 
         $validatedData = $request->validate([
 
             'nilai_teras' => ['required'],
             // dd(Auth::user()->id),
-            'jangkaan_hasil' => ['required'],
+            // 'jangkaan_hasil' => ['required'],
             // 'peratus' => ['required'],
             // 'ukuran' => ['required'],
             'skor_pekerja' => ['required'],
@@ -76,7 +76,7 @@ class Nilai extends Component
         // 'bulan'=> $request->bulan,
 
         'nilai_teras'=> $request->nilai_teras,
-        'jangkaan_hasil'=> $request->jangkaan_hasil,
+        // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
         // 'ukuran'=> $request->ukuran,
 
@@ -102,21 +102,19 @@ class Nilai extends Component
 
     public function nilai_update(Request $request, $id) {
 
-        $validatedData = $request->validate([
-
-            'nilai_teras' => ['required'],
-            'jangkaan_hasil' => ['required'],
-            // 'peratus' => ['required'],
-            // 'ukuran' => ['required'],
-            'skor_pekerja' => ['required'],
-            'skor_penyelia' => ['required'],
-            'user_id' => ['required'],
-
-            'grade' => ['required'],
-            'total_score' => ['required', 'numeric'],
-            'weightage' => ['required', 'numeric'],
-            
-        ]);
+        if(Auth::user()->role == 'employee') {
+            $validatedData = $request->validate([
+                'nilai_teras' => ['required'],
+                'skor_pekerja' => ['required'],
+            ]);
+        }
+        // dd('john');
+        // if(Auth::user()->role == 'manager') {
+        //     $validatedData = $request->validate([
+        //         'nilai_teras' => ['required'],
+        //         'skor_penyelia' => ['required'],
+        //     ]);
+        // }
 
         $update = Nilai_::find($id)->update([
 
@@ -132,7 +130,7 @@ class Nilai extends Component
             // 'bulan'=> $request->bulan,
 
             'nilai_teras'=> $request->nilai_teras,
-            'jangkaan_hasil'=> $request->jangkaan_hasil,
+            // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
             // 'ukuran'=> $request->ukuran,
 
@@ -141,7 +139,7 @@ class Nilai extends Component
             'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
-
+        // dd('john');
         return redirect()->route('create-nilai')->with('message', 'Nilai Updated Successfully');
 
     }
