@@ -11,6 +11,7 @@ use App\Http\Livewire\DashboardManager;
 use App\Http\Livewire\Firstpage;
 use App\Http\Livewire\Billing;
 use App\Http\Livewire\Profile;
+// use App\Http\Livewire\EditProfile;
 use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Rtl;

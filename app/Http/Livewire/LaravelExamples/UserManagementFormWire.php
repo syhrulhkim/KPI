@@ -30,7 +30,6 @@ class UserManagementFormWire extends Component
         $this->password = $user->password;
         $this->role = $user->role;
         // $this->created_at = $user->created_at;
-
     }
 
     public function store()

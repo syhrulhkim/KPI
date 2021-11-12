@@ -1182,7 +1182,7 @@
               </div>
             </div>
 
-            <div class="col-12">
+            {{-- <div class="col-12">
               <div class="card mb-4">
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="table-responsive p-0">
@@ -1267,7 +1267,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
 
             @foreach ($user as $userss)
             @if ($userss->status == 'Not Submitted' || $userss->status == 'Submitted')

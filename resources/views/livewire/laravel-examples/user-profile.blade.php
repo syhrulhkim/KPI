@@ -140,7 +140,7 @@
                     <div class="col-12">
                         <div class="card mb-4 ">
                             <div class="card-header pb-0">
-                                <h6>KPI table</h6>
+                                <h6>KPI Score Information</h6>
                             </div>
                             <div class="card-body px-0 pt-0 pb-2">
                                 <div class="table-responsive p-0">
@@ -158,9 +158,9 @@
                                                 <tr>
                                                     <td>
                                                         <div class="d-flex px-2 py-1">
-                                                            <div>
+                                                            {{-- <div>
                                                                 <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                                                            </div>
+                                                            </div> --}}
                                                                 <div class="d-flex flex-column justify-content-center">
                                                                     <h6 class="mb-0 text-sm">KPI Master</h6>
                                                                     {{-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> --}}
@@ -186,9 +186,9 @@
                                                 <tr>
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
-                                                        <div>
+                                                        {{-- <div>
                                                             <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <h6 class="mb-0 text-sm">Kecekapan Teras</h6>
                                                             {{-- <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p> --}}
@@ -214,9 +214,9 @@
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
-                                                        <div>
+                                                        {{-- <div>
                                                             <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="d-flex flex-column justify-content-center">
                                                             <h6 class="mb-0 text-sm">Nilai Teras</h6>
                                                             {{-- <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p> --}}
@@ -237,6 +237,62 @@
                                                     <a href="http://kpi.test/create-nilai" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                         Edit
                                                     </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        {{-- <div>
+                                                            <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
+                                                        </div> --}}
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">Skor Akhir</h6>
+                                                            {{-- <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p> --}}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                {{-- <td>
+                                                    <p class="text-xs font-weight-bold mb-0">Executive</p>
+                                                    <p class="text-xs text-secondary mb-0">Projects</p>
+                                                </td> --}}
+                                                <td class="align-middle text-center text-sm">
+                                                    <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                </td>
+                                                {{-- <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
+                                                </td> --}}
+                                                <td class="align-middle text-center text-sm">
+                                                    {{-- <a href="http://kpi.test/create-nilai" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                        Edit
+                                                    </a> --}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        {{-- <div>
+                                                            <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
+                                                        </div> --}}
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">Grade</h6>
+                                                            {{-- <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p> --}}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                {{-- <td>
+                                                    <p class="text-xs font-weight-bold mb-0">Executive</p>
+                                                    <p class="text-xs text-secondary mb-0">Projects</p>
+                                                </td> --}}
+                                                <td class="align-middle text-center text-sm">
+                                                    <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                </td>
+                                                {{-- <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
+                                                </td> --}}
+                                                <td class="align-middle text-center text-sm">
+                                                    {{-- <a href="http://kpi.test/create-nilai" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                        Edit
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                         </tbody>

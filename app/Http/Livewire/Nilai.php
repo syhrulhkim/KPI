@@ -12,6 +12,14 @@ use Illuminate\Support\Carbon;
 
 class Nilai extends Component
 {
+    public $id_nilai;
+    public $action;
+
+    protected $listeners = [
+        'refreshParent' => '$refresh',
+        'delete'
+    ];
+    
     // public function kecekapan() {
 
     //     $kecekapan = Kecekapan_::latest()->get();
@@ -144,12 +152,30 @@ class Nilai extends Component
 
     }
 
-    public function nilai_delete($id) {
+    public function selectItem($id_nilai , $action)
+    {
+        // dd($id_nilai);
+        $this->id_nilai = $id_nilai;
+        // dd($this->id_nilai);
+        $this->action = $action;
+        // dd($this->action);
+        $this->emit('refreshParent');
+    }
 
-        $delete = Nilai_::find($id)->forceDelete();
-
+    public function delete()
+    {
+        // dd('john');
+        $nilai = Nilai_::find($this->id_nilai);
+        $nilai->delete();
         return redirect()->back()->with('message', 'Nilai Deleted Successfully');
     }
+
+    // public function nilai_delete($id) {
+
+    //     $delete = Nilai_::find($id)->forceDelete();
+
+    //     return redirect()->back()->with('message', 'Nilai Deleted Successfully');
+    // }
 
         public function render()
     {

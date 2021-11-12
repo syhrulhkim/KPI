@@ -374,9 +374,12 @@
                             <td class="align-middle text-center">
                               <a href="{{ url('employee/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
-                            <td class="align-middle text-center">
+                            {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
-                            </td>
+                            </td> --}}
+                            <td style="border:none">
+                              <button type="button" wire:click="selectItem({{$nilais->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$nilais->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                          </td>
                           </tr>
                         @endforeach
                       </tbody>
@@ -539,9 +542,12 @@
                             <td class="align-middle text-center">
                               <a href="{{ url('employee/edit/nilai/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
-                            <td class="align-middle text-center">
+                            {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/delete/nilai/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
-                            </td>
+                            </td> --}}
+                            <td style="border:none">
+                              <button type="button" wire:click="selectItem({{$userss->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>Delete</button>
+                          </td>
                           </tr>
                         @endforeach
                       </tbody>
@@ -560,7 +566,35 @@
 
       </div>
   </div>
-
+  @push('scripts')
+    
+  {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
+  <script>
+    document.addEventListener('livewire:load', function () {
+  
+  
+      $(document).on("click", ".data-delete", function (e) 
+          {
+              e.preventDefault();
+              swal({
+              title: "Are you sure?",
+              text: "Once deleted, you will not be able to recover!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+              })
+              .then((willDelete) => {
+              if (willDelete) {
+                  e.preventDefault();
+                  Livewire.emit('delete')
+              } 
+              });
+          });
+    })
+  </script>
+  {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
+  
+  @endpush
  <!-- Master Pencapaian JS -->
 <script src="{{asset('assets/js/nilai.js')}}"></script>
 {{-- <script src="{{asset('assets/js/master.js')}}"></script> --}}
