@@ -58,7 +58,28 @@
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          <span class="badge badge-sm bg-gradient-success">{{$users->status}}</span>
+                          {{-- <span class="badge badge-sm bg-gradient-success">{{$users->status}}</span> --}}
+
+                          @if ($users->status == "Not Submitted")
+                          <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$users->status}}</span></span>
+                          @else 
+                          @endif
+
+                          @if ($users->status == "Submitted")
+                          <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$users->status}}</span></span>
+                          @else 
+                          @endif
+
+                          @if ($users->status == "Signed By Manager")
+                          <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$users->status}}</span></span>
+                          @else 
+                          @endif
+
+                          @if ($users->status == "Completed")
+                          <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$users->status}}</span></span>
+                          @else 
+                          @endif
+
                         </div>
                       </div>
                     </td>

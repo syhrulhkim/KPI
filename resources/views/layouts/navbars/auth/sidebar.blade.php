@@ -87,8 +87,8 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Profile</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-profile' ? 'active' : '' }}"
-                    href="{{ route('user-profile') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'view-profile' ? 'active' : '' }}"
+                    href="{{ route('view-profile') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -114,15 +114,15 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">User Profile</span>
+                    <span class="nav-link-text ms-1">View Profile</span>
                 </a>
             </li>
             @else
             @endif
 
-            {{-- @if (Auth::user()->role != "moderator")
+            @if (Auth::user()->role != "moderator")
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-profile' ? 'active' : '' }}"
+                <a class="nav-link {{ Route::currentRouteName() == 'edit-profile' ? 'active' : '' }}"
                     href="{{ route('edit-profile') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -153,11 +153,11 @@
                 </a>
             </li>
             @else
-            @endif --}}
+            @endif
             
             @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
             <li class="nav-item mt-2">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">KPI Tables</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Master KPI</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'display-kpi' ? 'active' : '' }}"
@@ -187,7 +187,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">View KPI</span>
+                    <span class="nav-link-text ms-1">View Master KPI</span>
                 </a>
             </li>
             @else
@@ -233,7 +233,7 @@
 
             @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
             <li class="nav-item mt-2">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">KPI Tables</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">KPI</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'create-kpi' ? 'active' : '' }}"
@@ -263,7 +263,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Create Kpi</span>
+                    <span class="nav-link-text ms-1">Add KPI</span>
                 </a>
             </li>
             @else
@@ -334,7 +334,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Kecekapan Teras</span>
+                    <span class="nav-link-text ms-1">Add Kecekapan Teras</span>
                 </a>
             </li>
             @else
@@ -369,7 +369,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Nilai Teras</span>
+                    <span class="nav-link-text ms-1">Add Nilai Teras</span>
                 </a>
             </li>
             @else

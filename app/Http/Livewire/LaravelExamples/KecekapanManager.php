@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\LaravelExamples;
 
 use Livewire\Component;
 use App\Models\KPI_;
@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
 
-class Kecekapan extends Component
+class KecekapanManager extends Component
 {
     // public function kecekapan() {
 

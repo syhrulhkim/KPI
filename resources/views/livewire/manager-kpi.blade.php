@@ -243,9 +243,9 @@
                 </div>
               </div>
               @foreach ($user as $users)
-              @if ($users->status == 'Submitted' || $users->status == 'Appraised By Manager')
-              <a href="{{ url('manager/changeup/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Appraised ?</a> 
-              <a href="{{ url('manager/changedown/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Appraised ?</a>
+              @if ($users->status == 'Submitted' || $users->status == 'Signed By Manager')
+              <a href="{{ url('manager/changeup/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Signed ?</a> 
+              <a href="{{ url('manager/changedown/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Signed ?</a>
               @else
               @endif
               @endforeach

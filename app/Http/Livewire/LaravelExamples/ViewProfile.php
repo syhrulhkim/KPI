@@ -5,7 +5,7 @@ use App\Models\User;
 
 use Livewire\Component;
 
-class UserProfile extends Component
+class ViewProfile extends Component
 {
     public User $user;
     public $showSuccesNotification  = false;
@@ -35,6 +35,6 @@ class UserProfile extends Component
     }
     public function render()
     {
-        return view('livewire.laravel-examples.user-profile');
+        return view('livewire.laravel-examples.view-profile');
     }
 }

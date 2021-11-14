@@ -241,7 +241,7 @@
                 </div>
               </div>
               @foreach ($user as $users)
-              @if ($users->status == 'Appraised By Manager' || $users->status == 'Completed')
+              @if ($users->status == 'Signed By Manager' || $users->status == 'Completed')
               <a href="{{ url('hr/changeup/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Completed ?</a>
               <a href="{{ url('hr/changedown/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Completed ?</a>
               @else

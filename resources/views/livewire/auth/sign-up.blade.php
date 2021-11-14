@@ -105,16 +105,9 @@
                               <div class="mb-3">
                                 <div class="@error('nostaff') border border-danger rounded-3 @enderror">
                                     <input wire:model="nostaff" type="text" class="form-control" placeholder="No Staff"
-                                        aria-label="NoStaff" aria-describedby="email-addon">
+                                        aria-label="Nostaff" aria-describedby="email-addon">
                                 </div>
                                 @error('nostaff') <div class="text-danger">{{ $message }}</div> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <div class="@error('unit') border border-danger rounded-3 @enderror">
-                                    <input wire:model="unit" type="text" class="form-control" placeholder="Unit"
-                                        aria-label="Unit" aria-describedby="email-addon">
-                                </div>
-                                @error('unit') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="@error('position') border border-danger rounded-3 @enderror">
@@ -144,15 +137,24 @@
                                             <option value="">-- Choose Department --</option>
                                             <option value="Sales">Sales</option>
                                             <option value="Marketing">Marketing</option>
-                                            <option value="COD">Corporate of Division (COD)</option>
+                                            <option value="Human Resource (HR)">Human Resource (HR)</option>
+                                            <option value="Finance & Admin (F&A)">Finance & Admin (F&A)</option>
+                                            <option value="CEO Office">CEO Office</option>
                                             <option value="Operation">Operation</option>
-                                            <option value="R&D">Research & Development (R&D)</option>
+                                            <option value="Research & Development (R&D)">Research & Development (R&D)</option>
                                         </select>
                                 </div>
                                 @error('department') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
+                            {{-- <div class="mb-3">
+                                <div class="@error('unit') border border-danger rounded-3 @enderror">
+                                    <input wire:model="unit" type="text" class="form-control" placeholder="Unit"
+                                        aria-label="Unit" aria-describedby="email-addon">
+                                </div>
+                                @error('unit') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div> --}}
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <div class="@error('hr') border border-danger rounded-3 @enderror">
                                         <select wire:model="hr" name="hr" id="hr" class="form-control custom-select" data-placeholder="Are you HR ?" tabindex="1">
                                             <option value="">-- Are you HR ? --</option>
@@ -161,7 +163,7 @@
                                         </select>
                                 </div>
                                 @error('hr') <div class="text-danger">{{ $message }}</div> @enderror
-                            </div>
+                            </div> --}}
                            
                             {{-- <div class="mb-3">
                                 <div class="@error('grade') border border-danger rounded-3 @enderror">

@@ -15,13 +15,13 @@
           <div class="m-3">
             @if (session('message'))
               <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{ session('message') }}</strong>.
+                <strong>{{ session('message') }}</strong>
               </div>	
             @endif
 
             @if (session('fail'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>{{ session('fail') }}</strong>.
+              <strong>{{ session('fail') }}</strong>
             </div>	
             @endif
 
@@ -102,7 +102,7 @@
 
                                         <option value="Kewangan" >Kewangan</option>
 
-                                        @if (Auth::user()->hr == 'Yes')
+                                        @if (Auth::user()->department == 'Human Resource (HR)')
                                         <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
                                         @else
                                         @endif

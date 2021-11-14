@@ -9,14 +9,14 @@ use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\DashboardManager;
 use App\Http\Livewire\Firstpage;
-use App\Http\Livewire\Billing;
-use App\Http\Livewire\Profile;
+// use App\Http\Livewire\Billing;
+// use App\Http\Livewire\Profile;
 // use App\Http\Livewire\EditProfile;
-use App\Http\Livewire\StaticSignIn;
-use App\Http\Livewire\StaticSignUp;
-use App\Http\Livewire\Rtl;
-use App\Http\Livewire\TahapKepuasanPelanggan;
-use App\Http\Livewire\OfiNcr;
+// use App\Http\Livewire\StaticSignIn;
+// use App\Http\Livewire\StaticSignUp;
+// use App\Http\Livewire\Rtl;
+// use App\Http\Livewire\TahapKepuasanPelanggan;
+// use App\Http\Livewire\OfiNcr;
 
 use App\Http\Livewire\KPI;
 use App\Http\Livewire\Displaykpi;
@@ -29,7 +29,8 @@ use App\Http\Livewire\Nilai;
 use App\Http\Livewire\NilaiManager;
 // use App\Http\Livewire\LaravelExamples\ManagerKPI;
 
-use App\Http\Livewire\LaravelExamples\UserProfile;
+use App\Http\Livewire\LaravelExamples\ViewProfile;
+use App\Http\Livewire\LaravelExamples\EditProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
 
@@ -145,8 +146,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/dashboard-manager', DashboardManager::class)->name('dashboard-manager');
     Route::get('/firstpage', Firstpage::class)->name('firstpage');
-    Route::get('/billing', Billing::class)->name('billing');
-    Route::get('/profile', Profile::class)->name('profile');
+    // Route::get('/billing', Billing::class)->name('billing');
+    // Route::get('/profile', Profile::class)->name('profile');
+    Route::post('/employee/profile/update/{id}',[EditProfile::class, 'profile_update']);
 
     Route::get('/create-kpi', KPI::class)->name('create-kpi');
     Route::get('/create-kecekapan', Kecekapan::class)->name('create-kecekapan');
@@ -156,12 +158,13 @@ Route::middleware('auth')->group(function () {
     // Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
     Route::get('/create-nilai', Nilai::class)->name('create-nilai');
 
-    Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
-    Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
-    Route::get('/rtl', Rtl::class)->name('rtl');
-    Route::get('/tahap-kepuasan-pelanggan', TahapKepuasanPelanggan::class)->name('tahap-kepuasan-pelanggan');
-    Route::get('/ofi-ncr', OfiNcr::class)->name('ofi-ncr');
-    Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
+    // Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
+    // Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
+    // Route::get('/rtl', Rtl::class)->name('rtl');
+    // Route::get('/tahap-kepuasan-pelanggan', TahapKepuasanPelanggan::class)->name('tahap-kepuasan-pelanggan');
+    // Route::get('/ofi-ncr', OfiNcr::class)->name('ofi-ncr');
+    Route::get('/laravel-view-profile', ViewProfile::class)->name('view-profile');
+    Route::get('/laravel-edit-profile', EditProfile::class)->name('edit-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
     Route::get('/laravel-user-management-admin', UserManagementAdmin::class)->name('user-management-admin');
 });

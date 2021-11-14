@@ -1269,6 +1269,44 @@
               </div>
             </div> --}}
 
+            {{-- <table style="width:100%">
+              <tr>
+                <td>KPI</td>
+                <td rowspan="3">SKOR AKHIR :</td>
+              </tr>
+              <tr>
+                <td>KECEKAPAN TERAS :</td>
+              </tr>
+              <tr>
+                <td>NILAI TERAS :</td>
+              </tr>
+            </table> --}}
+
+            <div class="col-12">
+              <div class="card mb-4">
+                <div class="card-body px-0 pt-0 pb-2">
+                  <div class="table-responsive p-0">
+                    <table style="width:100%" class="table align-items-center mb-0">
+                      <tr>
+                        <td>KPI</td>
+                        <td>30%</td>
+                        <td rowspan="3">SKOR AKHIR :</td>
+                        <td rowspan="3">60%</td>
+                      </tr>
+                      <tr>
+                        <td>KECEKAPAN TERAS :</td>
+                        <td>30%</td>
+                      </tr>
+                      <tr>
+                        <td>NILAI TERAS :</td>
+                        <td>30%</td>
+                      </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
             @foreach ($user as $userss)
             @if ($userss->status == 'Not Submitted' || $userss->status == 'Submitted')
             <a href="{{ url('employee/changeup/kpi/'. Auth()->user()->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Submitted ?</a>

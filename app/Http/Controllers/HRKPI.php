@@ -34,7 +34,7 @@ class HRKPI extends Controller
     public function changedown($id)
     {
     $update = User::find($id)->update([
-        'status'=> 'Appraised By Manager',
+        'status'=> 'Signed By Manager',
         ]);
         return redirect()->back()->with('fail', 'You have undo the completed kpi!');
     }

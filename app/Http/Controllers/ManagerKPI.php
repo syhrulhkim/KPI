@@ -67,7 +67,7 @@ class ManagerKPI extends Controller
     //     $user = User::find($id);
     //     // dd($user);
     //     // dd($this->id_question);
-    //     $user->status == 'Appraised By Manager';
+    //     $user->status == 'Signed By Manager';
     //     dd( $user->status);
     // }
     
@@ -76,12 +76,12 @@ class ManagerKPI extends Controller
         // dd($id);
     $update = User::find($id)->update([
         // dd($update),
-        'status'=> 'Appraised By Manager',
+        'status'=> 'Signed By Manager',
         // 'age'=> '25',
         // dd('status'),
         ]);
 
-        return redirect()->back()->with('message', 'The kpi has been appraised!');
+        return redirect()->back()->with('message', 'The kpi has been signed!');
     }
 
     public function changedown($id)
@@ -89,7 +89,7 @@ class ManagerKPI extends Controller
     $update = User::find($id)->update([
         'status'=> 'Submitted',
         ]);
-        return redirect()->back()->with('fail', 'You have undo the appraised kpi!');
+        return redirect()->back()->with('fail', 'You have undo the signed kpi!');
     }
 
     // public function change($id)
@@ -97,7 +97,7 @@ class ManagerKPI extends Controller
     // User::insert([
     // $update = User::find($id)->update([
        
-    //     'status'=> 'Appraised By Manager',
+    //     'status'=> 'Signed By Manager',
     //     // 'age'=> '25',
     //     // dd('status'),
     //     ]);
@@ -106,14 +106,14 @@ class ManagerKPI extends Controller
     //     {
     //         // dd($id);
     //         $update = User::find($id);
-    //         $status = 'Appraised By Manager';
+    //         $status = 'Signed By Manager';
     //         $update->status = $status;
-    //         // $update->status = 'Appraised By Manager';
+    //         // $update->status = 'Signed By Manager';
     //         $update->save();
             
     //         // dd($update->save());
     
-    //         // session()->flash('message', 'The kpi has been appraised!');
+    //         // session()->flash('message', 'The kpi has been signed!');
     //         // dd($id);
     //     }
     //     else
@@ -123,10 +123,10 @@ class ManagerKPI extends Controller
     //         // ]);
     //         dd($id);
     //         $add = New User();
-    //         $add->status = 'Appraised By Manager';
+    //         $add->status = 'signed By Manager';
     //         $add->save();
     //     }
 
-    //     return redirect()->back()->with('message', 'The kpi has been appraised!');
+    //     return redirect()->back()->with('message', 'The kpi has been signed!');
     // }
 }

@@ -2,7 +2,8 @@
 {{-- @section('title','Staff | Pencapaian') --}}
 
 {{-- @section('content') --}}
-<div>
+
+
   @extends('layouts.app')
   {{-- @extends('layouts.base') --}}
   {{-- @extends('layouts.navbars.auth.nav-profile')
@@ -231,6 +232,6 @@
    <!-- Calculation JS -->
    <script src="{{asset('assets/js/master.js')}}"></script>
        <script src="{{url('assets/js/core/bootstrap.min.js')}}"></script>
-  </div>
+ 
 
   {{-- @endsection --}}
