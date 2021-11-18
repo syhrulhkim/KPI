@@ -53,7 +53,7 @@
         </ul>
         
 
-        <ul class="list-unstyled">
+        {{-- <ul class="list-unstyled">
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -66,7 +66,7 @@
                  </form>
                 
             </li>
-        </ul>
+        </ul> --}}
     </nav>
     
     <!-- Page Content  -->

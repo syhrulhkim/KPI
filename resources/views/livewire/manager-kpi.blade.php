@@ -1,3 +1,4 @@
+@section('content')
 <div>
   @extends('layouts.app')
 <style>
@@ -145,9 +146,76 @@
                             <td>
                               <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
                             </td>
-                            <td class="align-middle text-center">
-                              <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> jangkaan_hasil }}">{{ $kecekapans -> jangkaan_hasil }}</span>
+                            @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi
+                                <br>
+                                Pengurus yang dapat mengembangkan dan memperkasakan pekerja bawahannya
+                                <br>
+                                Budaya organisasi yang mencerminkan nilainya
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
                             </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Keupayaan Inovatif")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berupaya memberi idea dan memberi penyelesaian untuk menyelesaikan masalah
+                                <br>
+                                Amalan kerja yang dikemas kini lebih sesuai dengan jangkaan masa kini
+                                <br>
+                                Penerimaan untuk organisasi, dan semua bahagiannya, perlu berubah dan terus meningkat
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pelanggan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Amalan organisasi yang lebih sesuai dengan keperluan pelanggan moden
+                                <br>
+                                Pekerja yang memahami dan bertindak mengikut kehendak pelanggan tepat pada masanya
+                                <br>
+                                Penciptaan produk dan perkhidmatan masa depan yang lebih mencerminkan keperluan pelanggan
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pemegang Berkepentingan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang lebih empati dengan pihak berkepentingan mereka
+                                <br>
+                                Pembinaan hubungan positif dengan pihak berkepentingan
+                                <br>
+                                Pembentukan perkongsian strategik yang membantu mencapai objektif organisasi
+                                <br>
+                                Pengurus yang mendorong pekerja bawahan mereka membina rangkaian profesional mereka sendiri
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
+  
+                            @if ($kecekapans -> kecekapan_teras == "Ketangkasan Dalam Organisasi")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berpengetahuan dan serba boleh
+                                <br>
+                                Penghargaan dan penerapan budaya bimbingan dalam organisasi
+                                <br>
+                                Amalan organisasi yang boleh menyesuaikan diri dengan masalah di pasaran
+                                <br>
+                                Organisasi yang menekankan dan mendorong pembelajaran dan perkembangan berterusan
+                                <br>
+                                Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                            </td>
+                            @else
+                            @endif 
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{  '20%' }}">{{  '20%' }}</span>
                             </td>
@@ -164,7 +232,7 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                              <a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('manager/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -211,9 +279,95 @@
                             <td>
                               <p class="text-xs font-weight-bold mb-0" value="{{ $nilais -> nilai_teras }}">{{ $nilais -> nilai_teras }}</p>
                             </td>
-                            <td class="align-middle text-center">
-                              <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> jangkaan_hasil }}">{{ $nilais -> jangkaan_hasil }}</span>
+                            @if ($nilais -> nilai_teras == "Kepimpinan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">
+                                1. Kami adalah pemimpin yang bertanggungjawab.
+                                <br>
+                                2. Kami memberikan contoh yang baik.
+                                <br>
+                                3. Kami melaksanakan setiap apa yang diperkatakan.
+                                <br>
+                                4. Kami menjadi inspirasi untuk berubah lebih baik.</span>
+  
                             </td>
+                            @else
+                            @endif
+  
+                            @if ($nilais -> nilai_teras == "Perkembangan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">
+                                1. Kami ambil peduli dengan peningkatan hidup sendiri.
+                                <br>
+                                2. Kami sentiasa menambah dan meningkatkan ilmu pengetahuan.
+                                <br>
+                                3. Kami memupuk sikap ingin sentiasa berjaya.
+                                <br>
+                                4. Kami sentiasa memperbaiki dan memajukan diri di setiap saat.</span>
+  
+                            </td>
+                            @else
+                            @endif
+  
+                            @if ($nilais -> nilai_teras == "Keputusan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">
+                                1. Kami membantu menggilap potensi orang lain.
+                                <br>
+                                2. Kami memastikan pelanggan mencapai keputusan cemerlang.
+                                <br>
+                                3. Kami komited dengan hasil usaha yang dilakukan.
+                                <br>
+                                4. Kami berusaha untuk memberikan yang terbaik.</span>
+  
+                            </td>
+                            @else
+                            @endif
+  
+                            @if ($nilais -> nilai_teras == "Sumbangan")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">
+                                1. Kami menghulurkan bantuan dengan sepenuh semangat dan jiwa kami.
+                                <br>
+                                2. Kami membantu mengatasi kelemahan dan membina kekuatan pelanggan.
+                                <br>
+                                3. Kami komited untuk memberi manfaat dan menyebarkan kebaikan.
+                                <br>
+                                4. Kami bertanggungjawab dengan orang sekeliling dan persekitaran.</span>
+  
+                            </td>
+                            @else
+                            @endif
+  
+                            @if ($nilais -> nilai_teras == "Rohani")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">
+                                1. Kami adalah hamba Allah.
+                                <br>
+                                2. Kami membantu orang untuk mendapat kehidupan yang lebih baik.
+                                <br>
+                                3. Kami bangkit berjaya dengan memajukan orang lain.
+                                <br>
+                                4. Kami sentiasa beriman dan percaya dengan Qada’ dan Qadar.</span>
+  
+                            </td>
+                            @else
+                            @endif
+  
+                            @if ($nilais -> nilai_teras == "Keluarga")
+                            <td class="text-xs font-weight-bold mb-0">
+                              <span class="text-secondary text-xs font-weight-bold" value="">
+                                1. Kami sangat menyayangi keluarga kami.
+                                <br>
+                                2. Kami berusaha untuk berikan yang terbaik kepada keluarga kami.
+                                <br>
+                                3. Kami tidak akan mengabaikan keluarga kami.
+                                <br>
+                                4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
+  
+                            </td>
+                            @else
+                            @endif
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{  '20%' }}">{{  '20%' }}</span>
                             </td>
@@ -230,7 +384,7 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_sebenar }}">{{ $nilais -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
+                              <a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('manager/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
@@ -258,4 +412,6 @@
     <script src="{{asset('assets/js/nilai.js')}}"></script>
     
     </body>
+
   </div>
+  @endsection

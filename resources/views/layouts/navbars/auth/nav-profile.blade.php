@@ -16,7 +16,7 @@
                 @else
                 @endif
 
-                @if (Route::currentRouteName() == 'create-kpi' || Route::currentRouteName() == 'create-kecekapan' || Route::currentRouteName() == 'create-nilai')
+                @if (Route::currentRouteName() == 'add-kpi' || Route::currentRouteName() == 'add-kecekapan' || Route::currentRouteName() == 'add-nilai')
                 <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">KPI</a>
                 </li>
                 @else

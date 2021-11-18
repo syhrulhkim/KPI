@@ -9,7 +9,7 @@
       <!-- Page Content  -->
       <div id="content">
 
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <div class="container-fluid ">
 
                  <!-- Board Score -->
@@ -27,7 +27,7 @@
 
 
               </div>
-          </nav>
+          </nav> --}}
           
           <br>
 
@@ -35,13 +35,13 @@
 
             @if (session('message'))
               <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{ session('message') }}</strong>.
+                <strong>{{ session('message') }}</strong>
               </div>	
             @endif
 
             @if (session('fail'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong></strong>{{ session('fail') }}
+              <strong>{{ session('fail') }}</strong>
             </div>	
             @endif
 
@@ -68,17 +68,35 @@
 
                             <div class="row">
 
-                                <div class="col-sm-4 pt-3 " >
+                                {{-- <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
-                                      <label class="font-weight-bold" >Kecekapan Teras</label>
-                                      <select  class="form-control form-control-sm" id="kecekapan_teras" name="kecekapan_teras">
-                                        <option selected value="">N/A</option>
+                                      <label class="font-weight-bold" >Kecekapan Teras</label><br>
+                                      <select  class="form-control-sm" id="kecekapan_teras" name="kecekapan_teras">
+                                        <option selected value="">-- Sila Pilih --</option>
                                         <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
                                         <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
                                         <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option> 
                                         <option value="Pengurusan Pemegang Berkepentingan" >Pengurusan Pemegang Berkepentingan</option>
                                         <option value="Ketangkasan Dalam Organisasi" >Ketangkasan Dalam Organisasi</option>
                                     </select>
+                                  </div>
+                                </div> --}}
+
+                                <div class="col-sm-4 pt-3 " >
+                                  <div class="mb-4" class="@error('kecekapan_teras') border border-danger rounded-3 @enderror">
+                                        <label class="font-weight-bold" >Kecekapan Teras</label><br>
+                                        <td style="word-break: break-all;" class="border-dark">
+                                          <select class="form-select form-select-sm" id="kecekapan_teras" name="kecekapan_teras">
+                                            <option selected value="">-- Sila Pilih --</option>
+                                            <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
+                                            <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
+                                            <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option> 
+                                            <option value="Pengurusan Pemegang Berkepentingan" >Pengurusan Pemegang Berkepentingan</option>
+                                            <option value="Ketangkasan Dalam Organisasi" >Ketangkasan Dalam Organisasi</option>
+                                          </select>
+                                        </td>
+                                    </select>
+                                    @error('kecekapan_teras') <div class="text-danger">{{ $message }}</div> @enderror
                                   </div>
                                 </div>
 
@@ -121,7 +139,7 @@
                                 <table class="table table-bordered text-center">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th rowspan="2">Peratus (%)</th>
+                                            <th rowspan="2">(%)</th>
                                             <th rowspan="2">Ukuran</th>
                                             {{-- <th colspan="3">KPI Targets</th> --}}
                                             @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
@@ -142,11 +160,11 @@
 
                                           <td class="font-weight-bold border-dark">
                                             {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
-                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
+                                            <input type="text"  class="form-control" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
                                           </td>
 
                                           <td class="font-weight-bold border-dark">
-                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="ukuran" name="ukuran" value="Percentage" selected readonly>
+                                            <input type="text"  class="form-control" id="ukuran" name="ukuran" value="Percentage" selected readonly>
                                           </td>
 
                                           {{-- <td style="word-break: break-all;" class="border-dark">
@@ -182,15 +200,17 @@
                                           </td> --}}
                                           
                                           @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
-                                          <td class="font-weight-bold border-dark">
-                                            <input type="text" maxlength="1"  class="input_skor_pekerja w-75" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                                          <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
+                                            <input type="text" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                                            @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
                                           @endif
 
                                           @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
-                                          <td class="font-weight-bold border-dark">
-                                            <input type="text" maxlength="1"  class="input_skor_penyelia w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                                          <td style="word-break: break-all;" class="border-dark" class="@error('skor_penyelia') border border-danger rounded-3 @enderror">
+                                            <input type="text" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                                            @error('skor_penyelia') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
                                           @endif
@@ -516,7 +536,7 @@
                               <p class="text-xs font-weight-bold mb-0" value="{{ $userss -> kecekapan_teras }}">{{ $userss -> kecekapan_teras }}</p>
                             </td>
 
-                            @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
+                            @if ($userss -> kecekapan_teras == "Kepimpinan Organisasi")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
                                 <br>
@@ -531,7 +551,7 @@
                             @else
                             @endif 
   
-                            @if ($kecekapans -> kecekapan_teras == "Keupayaan Inovatif")
+                            @if ($userss -> kecekapan_teras == "Keupayaan Inovatif")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berupaya memberi idea dan memberi penyelesaian untuk menyelesaikan masalah
                                 <br>
@@ -544,7 +564,7 @@
                             @else
                             @endif 
   
-                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pelanggan")
+                            @if ($userss -> kecekapan_teras == "Pengurusan Pelanggan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">Amalan organisasi yang lebih sesuai dengan keperluan pelanggan moden
                                 <br>
@@ -557,7 +577,7 @@
                             @else
                             @endif 
   
-                            @if ($kecekapans -> kecekapan_teras == "Pengurusan Pemegang Berkepentingan")
+                            @if ($userss -> kecekapan_teras == "Pengurusan Pemegang Berkepentingan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang lebih empati dengan pihak berkepentingan mereka
                                 <br>
@@ -572,7 +592,7 @@
                             @else
                             @endif 
   
-                            @if ($kecekapans -> kecekapan_teras == "Ketangkasan Dalam Organisasi")
+                            @if ($userss -> kecekapan_teras == "Ketangkasan Dalam Organisasi")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berpengetahuan dan serba boleh
                                 <br>

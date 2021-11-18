@@ -41,7 +41,8 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label" style="font-weight:500">Role</label>
-                                <select wire:model="role" name="role" id="role" class="form-control custom-select" data-placeholder="Choose a Role" tabindex="1">
+                                {{-- <select class="form-select form-select-sm" id="department" name="department"> --}}
+                                <select wire:model="role" name="role" id="role" class="form-select custom-select" data-placeholder="Choose a Role" tabindex="1">
                                     <option value="">-- Choose a Role --</option>
                                     {{-- <option value="admin">Admin</option> --}}
                                     <option value="manager">Moderator</option>

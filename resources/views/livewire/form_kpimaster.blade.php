@@ -1,9 +1,10 @@
+@section('content')
 <div>
     @extends('layouts.app')
   
       <div class="wrapper">
           <div id="content">
-              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                   <div class="container-fluid">
                       <button type="button" id="sidebarCollapse" class="btn btn-dark">
                         <i class="fas fa-align-left"></i>
@@ -15,7 +16,7 @@
                         </li>
                     </ul>
                   </div>
-              </nav>
+              </nav> --}}
              
               @if (session('message'))
                 <div class="alert alert-success" role="alert">
@@ -64,7 +65,7 @@
     
                                   <div class="p-3" style="text-align: right">
                                     <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i>Save</button>   
-                                    <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kpi') }}"><i class="fas fa-window-close"></i>Back</a></button>                        
+                                    <button type="button" class="btn btn-cancel" ><a href="{{ route('add-kpi') }}"><i class="fas fa-window-close"></i>Back</a></button>                        
                                   </div>
                                 </form>
                                 </div>
@@ -76,4 +77,4 @@
       </div>
      {{-- <script src="{{url('assets/js/core/bootstrap.min.js')}}"></script> --}}
 </div>
-  
+@endsection

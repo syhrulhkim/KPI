@@ -25,7 +25,7 @@ class Kecekapan extends Component
 
         $kecekapan = Kecekapan_::latest()->get();
 
-        return view('livewire.create-kecekapan', compact('kecekapan') );
+        return view('livewire.add-kecekapan', compact('kecekapan') );
     }
 
     public function kecekapan_save(Request $request){
@@ -159,7 +159,7 @@ class Kecekapan extends Component
         //     'status'=> 'Not Submitted',
         // ]);
 
-        return redirect()->route('create-kecekapan')->with('message', 'Kecekapan Updated Successfully');
+        return redirect()->route('add-kecekapan')->with('message', 'Kecekapan Updated Successfully');
 
     }
 

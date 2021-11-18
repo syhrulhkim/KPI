@@ -112,7 +112,7 @@
                             <div class="mb-3">
                                 <div class="@error('position') border border-danger rounded-3 @enderror">
                                         <select wire:model="position" name="position" id="position" class="form-control custom-select" data-placeholder="Choose Position" tabindex="1">
-                                            <option value="">-- Choose Position --</option>
+                                            <option class="text-center" value="">-- Choose Position --</option>
                                             <option value="CEO (TM2)">CEO (TM2)</option>
                                             <option value="Director (TM1)">Director (TM1)</option>
                                             <option value="COO (UM4)">COO (UM4)</option>
@@ -134,17 +134,66 @@
                             <div class="mb-3">
                                 <div class="@error('department') border border-danger rounded-3 @enderror">
                                         <select wire:model="department" name="department" id="department" class="form-control custom-select" data-placeholder="Choose Department" tabindex="1">
-                                            <option value="">-- Choose Department --</option>
+                                            <option class="text-center" value="">-- Choose Department --</option>
                                             <option value="Sales">Sales</option>
                                             <option value="Marketing">Marketing</option>
-                                            <option value="Human Resource (HR)">Human Resource (HR)</option>
-                                            <option value="Finance & Admin (F&A)">Finance & Admin (F&A)</option>
+                                            <option value="Human Resource (HR) & Admin">Human Resource (HR) & Admin</option>
+                                            <option value="Account & Finance (A&F)">Account & Finance (A&F)</option>
                                             <option value="CEO Office">CEO Office</option>
                                             <option value="Operation">Operation</option>
                                             <option value="Research & Development (R&D)">Research & Development (R&D)</option>
                                         </select>
                                 </div>
                                 @error('department') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="@error('unit') border border-danger rounded-3 @enderror">
+                                        <select wire:model="unit" name="unit" id="unit" class="form-control custom-select" data-placeholder="Choose Unit" tabindex="1">
+                                           
+                                            {{-- HR --}}
+                                            <option class="text-center" value="">-- Human Resource (HR) --</option>
+                                            <option value="Payroll and C&B">Payroll and C&B</option>
+                                            <option value="Training & Development">Training & Development</option>
+                                            <option value="Admin Procurement">Admin Procurement</option>
+                                            <option value="Recruitment">Recruitment</option>
+
+                                            {{-- F&A --}}
+                                            <option class="text-center" value="">-- Finance & Admin (F&A) --</option>
+                                            <option value="Account Receivable">Account Receivable</option>
+                                            <option value="Account Payable">Account Payable</option>
+                                            {{-- Operation --}}
+                                            <option class="text-center" value="">-- Operation --</option>
+                                            <option value="Admin">Admin</option>
+                                            <option value="Event Management">Event Management</option>
+                                            <option value="Inventory & Logistic">Inventory & Logistic</option>
+                                            <option value="Procurement">Procurement</option>
+                                            <option value="General Worker">General Worker</option>
+                                            {{-- Sales --}}
+                                            <option class="text-center" value="">-- Sales --</option>
+                                            <option value="High Net Worth Client">High Net Worth Client</option>
+                                            <option value="Customer Success Relation">Customer Success Relation</option>
+                                            <option value="Basic Program">Basic Program</option>
+                                            {{-- Marketing --}}
+                                            <option class="text-center" value="">-- Marketing --</option>
+                                            <option value="Creative Director">Creative Director</option>
+                                            <option value="Media Director">Media Director</option>
+                                            <option value="Social Media">Social Media</option>
+                                            <option value="Digital Marketer">Digital Marketer</option>
+                                            {{-- R&D --}}
+                                            <option class="text-center" value="">-- Research & Development (R&D) --</option>
+                                            <option value="Web Designer">Web Designer</option>
+                                            <option value="Web Developer">Web Developer</option>
+                                            <option value="Data Analyst">Data Analyst</option>
+                                            {{-- CEO Office --}}
+                                            <option class="text-center" value="">-- CEO Office --</option>
+                                            <option value="Personal Assistant">Personal Assistant</option>
+                                            <option value="Document Controller">Document Controller</option>
+                                            <option value="Driver & Logistic">Driver & Logistic</option>
+                                            <option class="text-center" value="">-- Choose Unit --</option>
+                                        </select>
+                                </div>
+                                @error('unit') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
                             {{-- <div class="mb-3">
                                 <div class="@error('unit') border border-danger rounded-3 @enderror">

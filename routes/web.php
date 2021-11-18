@@ -150,13 +150,13 @@ Route::middleware('auth')->group(function () {
     // Route::get('/profile', Profile::class)->name('profile');
     Route::post('/employee/profile/update/{id}',[EditProfile::class, 'profile_update']);
 
-    Route::get('/create-kpi', KPI::class)->name('create-kpi');
-    Route::get('/create-kecekapan', Kecekapan::class)->name('create-kecekapan');
+    Route::get('/add-kpi', KPI::class)->name('add-kpi');
+    Route::get('/add-kecekapan', Kecekapan::class)->name('add-kecekapan');
     Route::get('/display-kpi', Displaykpi::class)->name('display-kpi');
     // Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
 
     // Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
-    Route::get('/create-nilai', Nilai::class)->name('create-nilai');
+    Route::get('/add-nilai', Nilai::class)->name('add-nilai');
 
     // Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
     // Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');

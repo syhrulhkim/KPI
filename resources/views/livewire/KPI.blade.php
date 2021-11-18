@@ -82,10 +82,36 @@
                             <div class="row">
 
                                 <div class="col-sm-4 pt-3 " >
-                                  <div class="mb-4">
-                                      <label class="font-weight-bold" >Fungsi</label>
-                                      <select  class="form-control form-control-sm" id="fungsi" name="fungsi">
-                                        <option selected value="">-- Sila Pilih --</option>
+                                  <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
+                                      {{-- <label class="font-weight-bold" >Fungsi</label><br>
+                                      <select  class="form-control-sm" id="fungsi" name="fungsi">
+                                        <option selected value="">-- Sila Pilih --</option> --}}
+                                        <label class="font-weight-bold" >Fungsi</label><br>
+
+                                        <td style="word-break: break-all;" class="border-dark">
+                                          <select class="form-select form-select-sm" id="fungsi" name="fungsi">
+                                            {{-- <option selected disabled value=""></option> --}}
+                                            <option selected value="">-- Sila Pilih --</option>
+                                            @if (Auth::user()->position == 'Junior Non-Executive (NE1)' || Auth::user()->position == 'Senior Non-Executive (NE2)')
+                                            @else
+                                            <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
+                                            @endif
+    
+                                            <option value="Kewangan" >Kewangan</option>
+    
+                                            @if (Auth::user()->department == 'Human Resource (HR)')
+                                            <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
+                                            @else
+                                            @endif
+    
+                                            <option value="Pelanggan (Outer)" >Pelanggan (Outer)</option>
+                                            <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
+                                            <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
+                                            <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
+                                            <option value="Kolaborasi" >Kolaborasi</option>
+                                          </select>
+                                        </td>
+                                        
                                         {{-- <option value="Kad Skor Korporat" >Kad Skor Korporat</option> --}}
                                         {{-- <option value="Kewangan" >Kewangan</option> --}}
                                         
@@ -95,7 +121,7 @@
                                             
                                         @endif --}}
                                         {{-- @foreach ($Question->answer as $answer) --}}
-                                        @if (Auth::user()->position == 'Junior Non-Executive (NE1)' || Auth::user()->position == 'Senior Non-Executive (NE2)')
+                                        {{-- @if (Auth::user()->position == 'Junior Non-Executive (NE1)' || Auth::user()->position == 'Senior Non-Executive (NE2)')
                                         @else
                                         <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
                                         @endif
@@ -111,9 +137,11 @@
                                         <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
                                         <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
                                         <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
-                                        <option value="Kolaborasi" >Kolaborasi</option>
+                                        <option value="Kolaborasi" >Kolaborasi</option> --}}
                                     </select>
+                                    @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                                   </div>
+
                                 </div>
 
                                 {{-- <div class="col-sm-4 pt-3 " >
@@ -130,9 +158,10 @@
                                 </div>                        --}}
 
                                 <div class="col-sm-4 pt-3 " >
-                                  <div class="mb-4">
+                                  <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
                                       <label class="font-weight-bold " >Metrik / Bukti</label>
                                       <br><textarea name="bukti" id="bukti" cols="30" rows="10"></textarea>
+                                      @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                                   </div>
                                 </div>
                                 
@@ -156,7 +185,7 @@
                                 <table class="table table-bordered text-center">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th rowspan="2">Peratus (%)</th>
+                                            <th rowspan="2">(%)</th>
                                             <th rowspan="2">Ukuran</th>
                                             <th colspan="3">KPI Targets</th>
                                             <th rowspan="2">Pencapaian</th>
@@ -172,11 +201,12 @@
                                     <tbody>
                                         <tr>
 
-                                          <td class="font-weight-bold border-dark">
+                                          <td class="border-dark" class="@error('peratus') border border-danger rounded-3 @enderror">
                                             <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >
+                                            @error('peratus') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
 
-                                          <td style="word-break: break-all;" class="border-dark">
+                                          <td style="word-break: break-all;" class="border-dark" class="@error('peratus') border border-danger rounded-3 @enderror">
                                             <select class="form-select form-select-sm" id="ukuran" name="ukuran">
                                               <option selected disabled value=""></option>
                                               <option value="N/A">N/A</option>
@@ -193,30 +223,37 @@
                                               <option value="RM (*000)" >RM (*000)</option>
                                               <option value="KM/Miles" >KM/Miles</option>
                                             </select>
+                                            @error('ukuran') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
 
-                                          <td class="font-weight-bold border-dark">
+                                          <td class="border-dark" class="@error('threshold') border border-danger rounded-3 @enderror">
                                             <input type="text" maxlength="4" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" min="0" >
+                                            @error('threshold') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
-                                          <td class="font-weight-bold border-dark">
+                                          <td class="border-dark" class="@error('base') border border-danger rounded-3 @enderror">
                                             <input type="text" maxlength="4" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" min="0" >
+                                            @error('base') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
-                                          <td class="font-weight-bold border-dark">
+                                          <td class="border-dark" class="@error('stretch') border border-danger rounded-3 @enderror">
                                             <input type="text" maxlength="4" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" min="0" >
+                                            @error('stretch') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
-                                          <td class="font-weight-bold border-dark">
+                                          <td class="border-dark" class="@error('pencapaian') border border-danger rounded-3 @enderror">
                                             <input type="text" maxlength="4"  class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" min="0" >
+                                            @error('pencapaian') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
-                                          <td class="font-weight-bold border-dark">
-                                            <input type="text" class="form-control " id="skor_KPI" name="skor_KPI" value="0" readonly>
+                                          <td class="border-dark" class="@error('skor_KPI') border border-danger rounded-3 @enderror">
+                                            <input type="text" class="form-control" id="skor_KPI" name="skor_KPI" value="0" readonly>
+                                            @error('skor_KPI') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
-                                          <td class="font-weight-bold border-dark">
+                                          <td class="border-dark" class="@error('skor_sebenar') border border-danger rounded-3 @enderror">
                                             <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="0" readonly>
+                                            @error('skor_sebenar') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
 
 
@@ -255,6 +292,9 @@
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
               <h6>KAD SKOR KORPORAT</h6>
+              @foreach ($kadskor as $key => $kadskors)
+              {{-- <h6>Total Score = {{round($kadskors -> skor_sebenar,2)}}</h6> --}}
+              @endforeach
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ url('kpi_master_save1'.$kadskormaster->id) }}" method="post">  

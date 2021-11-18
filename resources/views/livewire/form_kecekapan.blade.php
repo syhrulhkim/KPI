@@ -1,7 +1,7 @@
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Pencapaian') --}}
 
-{{-- @section('content') --}}
+@section('content')
 <div>
   @extends('layouts.app')
 <body>
@@ -10,7 +10,7 @@
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
@@ -26,7 +26,7 @@
 
 
                 </div>
-            </nav>
+            </nav> --}}
            
             @if (session('message'))
               <div class="alert alert-success" role="alert">
@@ -71,20 +71,44 @@
                                 
                                 <div class="row">
   
-                                    <div class="col-sm-4 pt-3 " >
-                                        <div class="mb-4">
-                                            <label class="font-weight-bold" >Kecekapan Teras</label>
-                                            <select  class="form-control form-control-sm" id="kecekapan_teras" name="kecekapan_teras">
-                                              <option selected readonly value="{{ $kecekapan->kecekapan_teras }}">{{ $kecekapan->kecekapan_teras }}</option>
-                                              {{-- <option value="">N/A</option> --}}
+                                  <div class="col-sm-4 pt-3 " >
+                                    <div class="mb-4" class="@error('kecekapan_teras') border border-danger rounded-3 @enderror">
+                                          <label class="font-weight-bold" >Kecekapan Teras</label><br>
+                                          <td style="word-break: break-all;" class="border-dark">
+                                            <select class="form-select form-select-sm" id="kecekapan_teras" name="kecekapan_teras">
+                                              <option selected class="bg-secondary text-white" value="{{ $kecekapan->kecekapan_teras }}" >{{ $kecekapan->kecekapan_teras }}</option>
+                                              
+                                              @if ($kecekapan->kecekapan_teras != "Kepimpinan Organisasi")
                                               <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
-                                              <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
-                                              <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option> 
+                                              @else
+                                              @endif
+
+                                              @if ($kecekapan->kecekapan_teras != "Keupayaan Inovatif")
+                                              <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option>
+                                              @else
+                                              @endif
+                                              
+                                              @if ($kecekapan->kecekapan_teras != "Pengurusan Pelanggan")
+                                              <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option>
+                                              @else
+                                              @endif
+                                              
+                                              @if ($kecekapan->kecekapan_teras != "Pengurusan Pemegang Berkepentingan")
                                               <option value="Pengurusan Pemegang Berkepentingan" >Pengurusan Pemegang Berkepentingan</option>
+                                              @else
+                                              @endif
+
+                                              @if ($kecekapan->kecekapan_teras != "Ketangkasan Dalam Organisasi")
                                               <option value="Ketangkasan Dalam Organisasi" >Ketangkasan Dalam Organisasi</option>
-                                          </select>
-                                        </div>
-                                      </div>
+                                              @else
+                                              @endif
+
+                                            </select>
+                                          </td>
+                                      </select>
+                                      @error('kecekapan_teras') <div class="text-danger">{{ $message }}</div> @enderror
+                                    </div>
+                                  </div>
 
                                       {{-- <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4">
@@ -119,8 +143,14 @@
                                             <tr>
                                                 <th rowspan="2">(%)</th>
                                                 <th rowspan="2">Ukuran</th>
+                                                @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                                                 <th rowspan="2">Skor Pekerja</th>
+                                                @else
+                                                @endif
+                                                @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
                                                 <th rowspan="2">Skor Penyelia</th>
+                                                @else
+                                                @endif
                                                 <th rowspan="2">Skor Sebenar</th>
                                                 {{-- <th rowspan="2">Skor Sebenar</th> --}}
                                             </tr>
@@ -128,28 +158,19 @@
                                         <tbody>
                                           <tr>
 
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" value="{{ $kecekapan->peratus }}" min="0"  >
-                                            </td>
 
-                                            <td style="word-break: break-all;" class="border-dark">
-                                              <select class="form-select form-select-sm" id="ukuran" name="ukuran">
-                                                <option selected readonly value="{{ $kecekapan->ukuran }}">{{ $kecekapan->ukuran }}</option>
-                                                <option value="N/A">N/A</option>
-                                                <option value="Quantity" >Quantity</option>
-                                                <option value="Ratio" >Ratio</option>
-                                                <option value="Rating" >Rating</option>
-                                                <option value="Percentage (%)" >Percentage(%)</option>  
-                                                <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
-                                                <option value="Month/Year"  >Month/Year</option> 
-                                                <option value="Quarter"  >Quarter</option>
-                                                <option value="Hours" >Hours</option> 
-                                                <option value="RM (billion)" >RM (billion)</option>
-                                                <option value="RM (million)" >RM (million)</option> 
-                                                <option value="RM (*000)" >RM (*000)</option>
-                                                <option value="KM/Miles" >KM/Miles</option>
-                                              </select>
-                                            </td>
+                                              <div class="mb-4">
+                                                <td class="font-weight-bold border-dark">
+                                                  <input type="text" class="form-control " id="peratus" name="peratus" value="{{ $kecekapan->peratus }}" readonly>
+                                                </td>
+                                              </div>
+
+
+                                            <div class="mb-4">
+                                              <td class="font-weight-bold border-dark">
+                                                <input type="text" class="form-control " id="ukuran" name="ukuran" value="{{ $kecekapan->ukuran }}" readonly>
+                                              </td>
+                                            </div>
 
                                             
                                       
@@ -159,10 +180,6 @@
                                       
                                             <td class="font-weight-bold border-dark">
                                               <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $kecekapan->skor_pekerja }}">
-                                            </td>
-
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}" readonly>
                                             </td>
 
                                             {{-- <td class="font-weight-bold border-dark">
@@ -181,9 +198,9 @@
                                 </div>
   
                                 <div class="p-3" style="text-align: right">
-                                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
+                                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   
                                   {{-- {{dd('john')}} --}}
-                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kecekapan') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
+                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('add-kecekapan') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
   
                               </div>
@@ -202,5 +219,5 @@
    <script src="{{asset('assets/js/kecekapan.js')}}"></script>
 
   </body>
-  {{-- @endsection --}}
+  @endsection
 </div>

@@ -36,6 +36,6 @@ class HRKPI extends Controller
     $update = User::find($id)->update([
         'status'=> 'Signed By Manager',
         ]);
-        return redirect()->back()->with('fail', 'You have undo the completed kpi!');
+        return redirect()->back()->with('message', 'You have undo the completed kpi!');
     }
 }

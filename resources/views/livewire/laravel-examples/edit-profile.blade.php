@@ -10,7 +10,7 @@
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
@@ -24,7 +24,7 @@
                         </li>                        
                     </ul>
                </div>
-            </nav>
+            </nav> --}}
 
                       
           <div class="m-3">
@@ -100,7 +100,8 @@
 
                                                 <div class="mb-3">
                                                     <label class="font-weight-bold" >Department</label>
-                                                    <select class="form-control" name="department" required>
+                                                        {{-- <td style="word-break: break-all;" class="border-dark"> --}}
+                                                            <select class="form-select form-select-sm" id="department" name="department">
                                                         <option selected class="bg-secondary text-white" value="{{ Auth::user()->department }}" >{{ Auth::user()->department }}</option>
                                                         {{-- <option value="BAHAGIAN PENYELIDIKAN & PEMBANGUNAN">BAHAGIAN PENYELIDIKAN & PEMBANGUNAN</option>
                                                         <option value="BAHAGIAN PEJABAT KORPORAT">BAHAGIAN PEJABAT KORPORAT</option>

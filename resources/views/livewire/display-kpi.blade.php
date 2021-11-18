@@ -117,13 +117,13 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">100</span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
                         </td>
                         @else
                         <td class="align-middle text-center">
@@ -145,13 +145,13 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
                         </td>
                         @endif
 
@@ -218,13 +218,13 @@
                         <span class="text-secondary text-xs font-weight-bold" value="">100</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
                       </td>
                       @else
                       <td class="align-middle text-center">
@@ -246,13 +246,13 @@
                         <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
                       </td>
                       @endif
 
@@ -312,13 +312,13 @@
                       <span class="text-secondary text-xs font-weight-bold" value="">100</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
                     </td>
                     @else
                     <td class="align-middle text-center">
@@ -340,13 +340,13 @@
                       <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
                     </td>
                     <td class="align-middle text-center">
-                      <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
                     </td>
                     @endif
 
@@ -406,13 +406,13 @@
                     <span class="text-secondary text-xs font-weight-bold" value="">100</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
                   </td>
                   @else
                   <td class="align-middle text-center">
@@ -434,13 +434,13 @@
                     <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
                   </td>
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
                   </td>
                   @endif
 
@@ -500,13 +500,13 @@
                   <span class="text-secondary text-xs font-weight-bold" value="">100</span>
                 </td>
                 <td class="align-middle text-center">
-                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
                 </td>
                 <td class="align-middle text-center">
-                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
                 </td>
                 <td class="align-middle text-center">
-                  <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
                 </td>
                 @else
                 <td class="align-middle text-center">
@@ -528,13 +528,13 @@
                   <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
                 </td>
                 <td class="align-middle text-center">
-                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
                 </td>
                 <td class="align-middle text-center">
-                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
                 </td>
                 <td class="align-middle text-center">
-                  <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
                 </td>
                 @endif
 
@@ -594,13 +594,13 @@
                 <span class="text-secondary text-xs font-weight-bold" value="">100</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
               </td>
               @else
               <td class="align-middle text-center">
@@ -622,13 +622,13 @@
                 <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+                <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
               </td>
               @endif
 
@@ -688,13 +688,13 @@
               <span class="text-secondary text-xs font-weight-bold" value="">100</span>
             </td>
             <td class="align-middle text-center">
-              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
             </td>
             <td class="align-middle text-center">
-              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
             </td>
             <td class="align-middle text-center">
-              <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+              <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
             </td>
             @else
             <td class="align-middle text-center">
@@ -716,13 +716,13 @@
               <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
             </td>
             <td class="align-middle text-center">
-              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
             </td>
             <td class="align-middle text-center">
-              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
             </td>
             <td class="align-middle text-center">
-              <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+              <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
             </td>
             @endif
 
@@ -782,13 +782,13 @@
             <span class="text-secondary text-xs font-weight-bold" value="">100</span>
           </td>
           <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
           </td>
           <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
           </td>
           <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
           </td>
           @else
           <td class="align-middle text-center">
@@ -810,13 +810,13 @@
             <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
           </td>
           <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ NULL }}</span>
+            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
           </td>
           <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ NULL }}</span>
+            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
           </td>
           <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ NULL }}</span>
+            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
           </td>
           @endif
 

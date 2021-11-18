@@ -25,7 +25,8 @@ class SignUp extends Component
         'password' => 'required|min:6',
         'nostaff' => 'required|min:3',
         'position' => 'required|min:3',
-        'department' => 'required|min:3'
+        'department' => 'required|min:3',
+        'unit' => 'required|min:3'
     ];
 
     public function mount() {
@@ -42,7 +43,7 @@ class SignUp extends Component
             'nostaff' => $this->nostaff,
             'position' => $this->position,
             'department' => $this->department,
-            // 'unit' => $this->unit,
+            'unit' => $this->unit,
             // 'hr' => $this->hr,
             // 'grade' => $this->grade,
             'role' => 'employee',

@@ -9,7 +9,7 @@
       <!-- Page Content  -->
       <div id="content">
 
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <div class="container-fluid ">
 
                  <!-- Board Score -->
@@ -27,7 +27,7 @@
 
 
               </div>
-          </nav>
+          </nav> --}}
           
           <br>
 
@@ -68,11 +68,11 @@
 
                             <div class="row">
 
-                                <div class="col-sm-4 pt-3 " >
+                                {{-- <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
-                                      <label class="font-weight-bold" >Nilai Teras</label>
-                                      <select  class="form-control form-control-sm" id="nilai_teras" name="nilai_teras">
-                                        <option selected value="">N/A</option>
+                                      <label class="font-weight-bold" >Nilai Teras</label><br>
+                                      <select  class="form-control-sm" id="nilai_teras" name="nilai_teras">
+                                        <option selected value="">-- Sila Pilih --</option>
                                         <option value="Kepimpinan " >Kepimpinan </option>
                                         <option value="Perkembangan" >Perkembangan</option> 
                                         <option value="Keputusan" >Keputusan</option> 
@@ -80,6 +80,25 @@
                                         <option value="Rohani" >Rohani</option>
                                         <option value="Keluarga" >Keluarga</option>
                                     </select>
+                                  </div>
+                                </div> --}}
+
+                                <div class="col-sm-4 pt-3 " >
+                                  <div class="mb-4" class="@error('nilai_teras') border border-danger rounded-3 @enderror">
+                                        <label class="font-weight-bold" >Nilai Teras</label><br>
+                                        <td style="word-break: break-all;" class="border-dark">
+                                          <select class="form-select form-select-sm" id="nilai_teras" name="nilai_teras">
+                                            <option selected value="">-- Sila Pilih --</option>
+                                            <option value="Kepimpinan " >Kepimpinan </option>
+                                            <option value="Perkembangan" >Perkembangan</option> 
+                                            <option value="Keputusan" >Keputusan</option> 
+                                            <option value="Sumbangan" >Sumbangan</option>
+                                            <option value="Rohani" >Rohani</option>
+                                            <option value="Keluarga" >Keluarga</option>
+                                          </select>
+                                        </td>
+                                    </select>
+                                    @error('nilai_teras') <div class="text-danger">{{ $message }}</div> @enderror
                                   </div>
                                 </div>
 
@@ -122,7 +141,7 @@
                                 <table class="table table-bordered text-center">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th rowspan="2">Peratus (%)</th>
+                                            <th rowspan="2">(%)</th>
                                             <th rowspan="2">Ukuran</th>
                                             {{-- <th colspan="3">KPI Targets</th> --}}
                                             @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
@@ -141,13 +160,22 @@
                                     <tbody>
                                         <tr>
 
-                                          <td class="font-weight-bold border-dark">
+                                          {{-- <td class="font-weight-bold border-dark"> --}}
                                             {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
-                                            <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
+                                            {{-- <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
                                           </td>
 
                                           <td class="font-weight-bold border-dark">
                                             <input class="font-weight-bold w-500 btn-sm btn btn-outline-secondary ml-2" id="ukuran" name="ukuran" value="Percentage" selected readonly>
+                                          </td> --}}
+
+                                          <td class="font-weight-bold border-dark">
+                                            {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
+                                            <input type="text"  class="form-control" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
+                                          </td>
+
+                                          <td class="font-weight-bold border-dark">
+                                            <input type="text"  class="form-control" id="ukuran" name="ukuran" value="Percentage" selected readonly>
                                           </td>
 
                                           {{-- <td style="word-break: break-all;" class="border-dark">
@@ -183,15 +211,17 @@
                                           </td> --}}
                                           
                                           @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
-                                          <td class="font-weight-bold border-dark">
-                                            <input type="text" maxlength="1"  class="input_skor_pekerja w-75" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                                          <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
+                                            <input type="text" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                                            @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
                                           @endif
 
                                           @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
-                                          <td class="font-weight-bold border-dark">
-                                            <input type="text" maxlength="1"  class="input_skor_penyelia w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                                          <td style="word-break: break-all;" class="border-dark" class="@error('skor_penyelia') border border-danger rounded-3 @enderror">
+                                            <input type="text" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                                            @error('skor_penyelia') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
                                           @endif
@@ -434,7 +464,7 @@
                               <p class="text-xs font-weight-bold mb-0" value="{{ $userss -> nilai_teras }}">{{ $userss -> nilai_teras }}</p>
                             </td>
                             
-                            @if ($nilais -> nilai_teras == "Kepimpinan")
+                            @if ($userss -> nilai_teras == "Kepimpinan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
                                 1. Kami adalah pemimpin yang bertanggungjawab.
@@ -449,7 +479,7 @@
                             @else
                             @endif
   
-                            @if ($nilais -> nilai_teras == "Perkembangan")
+                            @if ($userss -> nilai_teras == "Perkembangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
                                 1. Kami ambil peduli dengan peningkatan hidup sendiri.
@@ -464,7 +494,7 @@
                             @else
                             @endif
   
-                            @if ($nilais -> nilai_teras == "Keputusan")
+                            @if ($userss -> nilai_teras == "Keputusan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
                                 1. Kami membantu menggilap potensi orang lain.
@@ -479,7 +509,7 @@
                             @else
                             @endif
   
-                            @if ($nilais -> nilai_teras == "Sumbangan")
+                            @if ($userss -> nilai_teras == "Sumbangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
                                 1. Kami menghulurkan bantuan dengan sepenuh semangat dan jiwa kami.
@@ -494,7 +524,7 @@
                             @else
                             @endif
   
-                            @if ($nilais -> nilai_teras == "Rohani")
+                            @if ($userss -> nilai_teras == "Rohani")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
                                 1. Kami adalah hamba Allah.
@@ -509,7 +539,7 @@
                             @else
                             @endif
   
-                            @if ($nilais -> nilai_teras == "Keluarga")
+                            @if ($userss -> nilai_teras == "Keluarga")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
                                 1. Kami sangat menyayangi keluarga kami.

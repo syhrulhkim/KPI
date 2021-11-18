@@ -1,7 +1,7 @@
-{{-- @extends('staff/layout/staff_template') --}}
+{{-- @extends('layouts.employee_template') --}}
 {{-- @section('title','Staff | Pencapaian') --}}
 
-{{-- @section('content') --}}
+@section('content')
 
 
   @extends('layouts.app')
@@ -21,7 +21,7 @@
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
@@ -37,7 +37,7 @@
 
 
                 </div>
-            </nav>
+            </nav> --}}
            
             @if (session('message'))
               <div class="alert alert-success" role="alert">
@@ -90,19 +90,65 @@
                                     </div> --}}
   
                                     <div class="col-sm-4 pt-3 " >
-                                      <div class="mb-4">
-                                          <label class="font-weight-bold" >Fungsi</label>
-                                          <select  class="form-control form-control-sm" id="fungsi" name="fungsi">
-                                            <option selected readonly value="{{ $kpi->fungsi }}">{{ $kpi->fungsi }}</option>
-                                            {{-- <option value="N/A">N/A</option> --}}
-                                            <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
-                                            <option value="Kewangan" >Kewangan</option>
-                                            <option value="Pelanggan" >Pelanggan</option>
-                                            <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
-                                            <option value="Manusia & Proses" >Manusia & Proses</option> 
-                                            <option value="Kolaborasi" >Kolaborasi</option>
+                                      <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
+                                            <label class="font-weight-bold" >Fungsi</label><br>
+    
+                                            <td style="word-break: break-all;" class="border-dark">
+                                              <select class="form-select form-select-sm" id="fungsi" name="fungsi">
+                                                <option selected class="bg-secondary text-white" value="{{ $kpi->fungsi }}" >{{ $kpi->fungsi }}</option>
+
+                                                @if ($kpi->fungsi != "Kad Skor Korporat")
+                                                @if (Auth::user()->position == 'Junior Non-Executive (NE1)' || Auth::user()->position == 'Senior Non-Executive (NE2)')
+                                                @else
+                                                <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
+                                                @endif
+                                                @else
+                                                @endif
+        
+                                                @if ($kpi->fungsi != "Kewangan")
+                                                <option value="Kewangan" >Kewangan</option>
+                                                @else
+                                                @endif
+
+                                                @if ($kpi->fungsi != "Pelanggan (Internal)")
+                                                @if (Auth::user()->department == 'Human Resource (HR)')
+                                                <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
+                                                @else
+                                                @endif
+                                                @else
+                                                @endif
+                                                
+                                                @if ($kpi->fungsi != "Pelanggan (Outer)")
+                                                <option value="Pelanggan (Outer)" >Pelanggan (Outer)</option>
+                                                @else
+                                                @endif
+
+                                                @if ($kpi->fungsi != "Kecemerlangan Operasi")
+                                                <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option>
+                                                @else
+                                                @endif
+
+                                                @if ($kpi->fungsi != "Manusia & Proses (Training)")
+                                                <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
+                                                @else
+                                                @endif
+
+                                                @if ($kpi->fungsi != "Manusia & Proses (NCR/OFI)")
+                                                <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
+                                                @else
+                                                @endif
+
+                                                @if ($kpi->fungsi != "Kolaborasi")
+                                                <option value="Kolaborasi" >Kolaborasi</option>
+                                                @else
+                                                @endif
+                                                
+                                              </select>
+                                            </td>
                                         </select>
+                                        @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                                       </div>
+    
                                     </div>
   
                                     <div class="col-sm-4 pt-3 " >
@@ -213,8 +259,8 @@
                                 </div>
   
                                 <div class="p-3" style="text-align: right">
-                                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
-                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('create-kpi') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
+                                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   
+                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('add-kpi') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
                               </form>
                               </div>
@@ -234,4 +280,4 @@
        <script src="{{url('assets/js/core/bootstrap.min.js')}}"></script>
  
 
-  {{-- @endsection --}}
+  @endsection

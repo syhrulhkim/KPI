@@ -33,7 +33,7 @@ class Nilai extends Component
 
         $nilai = Nilai_::latest()->get();
 
-        return view('livewire.create-nilai', compact('nilai') );
+        return view('livewire.add-nilai', compact('nilai') );
     }
 
     public function nilai_save(Request $request){
@@ -148,7 +148,7 @@ class Nilai extends Component
 
         ]);
         // dd('john');
-        return redirect()->route('create-nilai')->with('message', 'Nilai Updated Successfully');
+        return redirect()->route('add-nilai')->with('message', 'Nilai Updated Successfully');
 
     }
 

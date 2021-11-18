@@ -16,6 +16,14 @@ use Illuminate\Support\Carbon;
 
 class KPI extends Component
 {
+    // public $fungsi = '';
+    // public $bukti = '';
+
+    // protected $rules = [
+    //     'fungsi' => 'required|min:3',
+    //     'bukti' => 'required|min:3',
+    // ];
+
     // use WithFileUploads;
     // public $file_path;
     
@@ -25,28 +33,28 @@ class KPI extends Component
         // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
         // return view('livewire.create-kpi', compact('kpi', 'kpi2') );
-        return view('livewire.create-kpi', compact('kpi') );
+        return view('livewire.add-kpi', compact('kpi') );
     }
 
-    public function kpi_master_save1(Request $request){
-        // dd($request->fungsi);
-        $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        // $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        if ($kadskormastercount == 0) {
-        // dd('john');
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Kad Skor Korporat',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Kad Skor Korporat berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save1(Request $request){
+    //     // dd($request->fungsi);
+    //     $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     // $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+    //     if ($kadskormastercount == 0) {
+    //     // dd('john');
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Kad Skor Korporat',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Kad Skor Korporat berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit1($id) {
         $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -56,22 +64,22 @@ class KPI extends Component
         }
     }
 
-    public function kpi_master_save2(Request $request){
-        $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        if ($kewanganmastercount == 0) {
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Kewangan',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Kewangan berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save2(Request $request){
+    //     $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     if ($kewanganmastercount == 0) {
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Kewangan',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Kewangan berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit2($id) {
         $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -81,22 +89,22 @@ class KPI extends Component
         }
     }
 
-    public function kpi_master_save3(Request $request){
-        $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        if ($pelangganImastercount == 0) {
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Pelanggan (Internal)',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Pelanggan (Internal) berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save3(Request $request){
+    //     $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     if ($pelangganImastercount == 0) {
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Pelanggan (Internal)',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Pelanggan (Internal) berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit3($id) {
         $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -106,22 +114,22 @@ class KPI extends Component
         }
     }
 
-    public function kpi_master_save4(Request $request){
-        $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        if ($pelangganIImastercount == 0) {
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Pelanggan (Outer)',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Pelanggan (Outer) berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save4(Request $request){
+    //     $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     if ($pelangganIImastercount == 0) {
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Pelanggan (Outer)',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Pelanggan (Outer) berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit4($id) {
         $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -131,22 +139,22 @@ class KPI extends Component
         }
     }
 
-    public function kpi_master_save5(Request $request){
-        $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        if ($kecemerlanganmastercount == 0) {
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Kecemerlangan Operasi',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Kecemerlangan Operasi berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save5(Request $request){
+    //     $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     if ($kecemerlanganmastercount == 0) {
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Kecemerlangan Operasi',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Kecemerlangan Operasi berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit5($id) {
         $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -156,22 +164,22 @@ class KPI extends Component
         }
     }
 
-    public function kpi_master_save6(Request $request){
-        $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        if ($trainingmastercount == 0) {
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Manusia & Proses (Training)',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (Training) berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save6(Request $request){
+    //     $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     if ($trainingmastercount == 0) {
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Manusia & Proses (Training)',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (Training) berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit6($id) {
         $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -181,22 +189,22 @@ class KPI extends Component
         }
     }
 
-    public function kpi_master_save7(Request $request){
-        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        if ($ncrmastercount == 0) {
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Manusia & Proses (NCR/OFI)',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (NCR/OFI) berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save7(Request $request){
+    //     $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     if ($ncrmastercount == 0) {
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Manusia & Proses (NCR/OFI)',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (NCR/OFI) berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit7($id) {
         $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -206,22 +214,22 @@ class KPI extends Component
         }
     }
 
-    public function kpi_master_save8(Request $request){
-        $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        if ($kolaborasimastercount == 0) {
-        KPIMaster_::insert([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            'objektif'=> $request->objektif,
-            'link'=> $request->link,
-            'percent_master'=> $request->percent_master,
-            'fungsi'=> 'Kolaborasi',
-            ]);
-            return redirect()->back()->with('message', 'KPI Master untuk Kolaborasi berjaya ditambah!');
-        }
-        return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
-    }
+    // public function kpi_master_save8(Request $request){
+    //     $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     if ($kolaborasimastercount == 0) {
+    //     KPIMaster_::insert([
+    //         'user_id'=> Auth::user()->id,
+    //         'created_at'=> Carbon::now(),
+    //         'updated_at'=> Carbon::now(),
+    //         'objektif'=> $request->objektif,
+    //         'link'=> $request->link,
+    //         'percent_master'=> $request->percent_master,
+    //         'fungsi'=> 'Kolaborasi',
+    //         ]);
+    //         return redirect()->back()->with('message', 'KPI Master untuk Kolaborasi berjaya ditambah!');
+    //     }
+    //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
+    // }
 
     public function kpi_master_edit8($id) {
         $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -232,7 +240,7 @@ class KPI extends Component
     }
 
     public function kpi_master_update(Request $request, $id) {
-
+        $total_score = KPI_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
         $update = KPIMaster_::find($id)->update([
             // 'user_id'=> Auth::user()->id,
             // 'created_at'=> Carbon::now(),
@@ -242,7 +250,7 @@ class KPI extends Component
             'percent_master'=> $request->percent_master,
             // 'fungsi'=> 'Kad Skor Korporat',
         ]);
-        return redirect()->route('create-kpi')->with('message', 'KPI Master Updated Successfully');
+        return redirect()->route('add-kpi')->with('message', 'KPI Master Updated Successfully');
     }
     
     public function kpi_save(Request $request){
@@ -353,13 +361,35 @@ class KPI extends Component
             
         ]);
 
+        // $total_score1 = KPI_::where('fungsi','Kad Skor Korporat')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score2 = KPI_::where('fungsi','Kewangan')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score3 = KPI_::where('fungsi','Pelanggan (Internal)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score4 = KPI_::where('fungsi','Pelanggan (Outer)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score5 = KPI_::where('fungsi','Kecemerlangan Operasi')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score6 = KPI_::where('fungsi','Manusia & Proses (Training)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score7 = KPI_::where('fungsi','Manusia & Proses (NCR/OFI)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score8 = KPI_::where('fungsi','Kolaborasi')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+       
+
+
+        // dd($total_score6);
         // $kpimaster1 = 0;
         // $id_kpimaster = DB::getPdo()->lastInsertId();
 
         if (KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->count() == 1) {
             // dd('john');
             $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->get();
-            
+            $kpimasters_id = count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0';
+            $total_score = KPI_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+            $total_score2 = $request->skor_sebenar;
+            // $percent_master = $kpimasters->percent_master;
+            // dd($percent_master);
+            KPIMaster_::find($kpimasters_id)->update([
+                'pencapaian'=> $total_score + $total_score2,
+            ]);
+            // dd($kpimasters->id);
+            // $total_score = KPIMaster_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->sum('skor_KPI');
+            // dd($total_score);
         }
         else {
             // $kpimaster1 = KPIMaster_::get();
@@ -368,6 +398,7 @@ class KPI extends Component
             $kpimaster = KPIMaster_::insert([
                 'fungsi'=> $request->fungsi,
                 'user_id'=> Auth::user()->id,
+                'pencapaian'=> $request->skor_sebenar,
                 // $id1 = KPIMaster_::pluck('id'),
                 // $id2 = KPIMaster_::all()->modelKeys(),
                 // $id3 = DB::table('kpi_master')->insertGetId(
@@ -436,7 +467,7 @@ class KPI extends Component
         // 'kpimaster_id' => Auth::user()->id,
         
         ]);
-
+        // dd($total_score);
         // Bukti::insert([
         
         //     'user_id'=> Auth::user()->id,
@@ -455,6 +486,7 @@ class KPI extends Component
         // ]);
 
         return redirect()->back()->with('message', 'KPI berjaya ditambah!');
+        // dd($total_score);
     } 
        
     public function kpi_edit($id) {
@@ -521,7 +553,7 @@ class KPI extends Component
         ]);
 
 
-        return redirect()->route('create-kpi')->with('message', 'KPI Updated Successfully');
+        return redirect()->route('add-kpi')->with('message', 'KPI Updated Successfully');
 
     }
 

@@ -1,7 +1,7 @@
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Pencapaian') --}}
 
-{{-- @section('content') --}}
+@section('content')
 <div>
   @extends('layouts.app')
 <body>
@@ -10,7 +10,7 @@
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
@@ -26,7 +26,7 @@
 
 
                 </div>
-            </nav>
+            </nav> --}}
            
             @if (session('message'))
               <div class="alert alert-success" role="alert">
@@ -71,28 +71,21 @@
                                 
                                 <div class="row">
   
-                                    <div class="col-sm-4 pt-3 " >
-                                        <div class="mb-4">
-                                            <label class="font-weight-bold" >Nilai Teras</label>
-                                            <select  class="form-control form-control-sm" id="nilai_teras" name="nilai_teras">
-                                              <option selected readonly value="{{ $nilai->nilai_teras }}">{{ $nilai->nilai_teras }}</option>
-                                              {{-- <option value="">N/A</option> --}}
-                                              <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
-                                              <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option> 
-                                              <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option> 
-                                              <option value="Pengurusan Pemegang Berkepentingan" >Pengurusan Pemegang Berkepentingan</option>
-                                              <option value="Ketangkasan Dalam Organisasi" >Ketangkasan Dalam Organisasi</option>
-                                          </select>
-                                        </div>
-                                      </div>
+                                  <div class="col-sm-4 pt-3 " >
+                                    <div class="mb-4">
+                                      <td class="font-weight-bold border-dark">
+                                        <label class="font-weight-bold" >Nilai Teras</label>
+                                        <input type="text" class="form-control " id="nilai_teras" name="nilai_teras" value="{{ $nilai->nilai_teras }}" readonly>
+                                      </td>
+                                    </div>
+                                  </div>
 
-                                      <div class="col-sm-4 pt-3 " >
+                                      {{-- <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4">
                                             <label class="font-weight-bold " >Jangkaan Hasil</label>
-                                            {{-- <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil"> --}}
                                             <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil" value="{{ $nilai->jangkaan_hasil }}" >
                                         </div>
-                                      </div>
+                                      </div> --}}
   
                                 </div>
                               
@@ -119,8 +112,14 @@
                                             <tr>
                                                 <th rowspan="2">(%)</th>
                                                 <th rowspan="2">Ukuran</th>
+                                                @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                                                 <th rowspan="2">Skor Pekerja</th>
+                                                @else
+                                                @endif
+                                                @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
                                                 <th rowspan="2">Skor Penyelia</th>
+                                                @else
+                                                @endif
                                                 <th rowspan="2">Skor Sebenar</th>
                                                 {{-- <th rowspan="2">Skor Sebenar</th> --}}
                                             </tr>
@@ -128,28 +127,17 @@
                                         <tbody>
                                           <tr>
 
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $nilai->peratus }}" min="0"  >
-                                            </td>
+                                            <div class="mb-4">
+                                              <td class="font-weight-bold border-dark">
+                                                <input type="text" class="form-control " id="peratus" name="peratus" value="{{ $nilai->peratus }}" readonly>
+                                              </td>
+                                            </div>
 
-                                            <td style="word-break: break-all;" class="border-dark">
-                                              <select class="form-select form-select-sm" id="ukuran" name="ukuran">
-                                                <option selected readonly value="{{ $nilai->ukuran }}">{{ $nilai->ukuran }}</option>
-                                                <option value="N/A">N/A</option>
-                                                <option value="Quantity" >Quantity</option>
-                                                <option value="Ratio" >Ratio</option>
-                                                <option value="Rating" >Rating</option>
-                                                <option value="Percentage (%)" >Percentage(%)</option>  
-                                                <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
-                                                <option value="Month/Year"  >Month/Year</option> 
-                                                <option value="Quarter"  >Quarter</option>
-                                                <option value="Hours" >Hours</option> 
-                                                <option value="RM (billion)" >RM (billion)</option>
-                                                <option value="RM (million)" >RM (million)</option> 
-                                                <option value="RM (*000)" >RM (*000)</option>
-                                                <option value="KM/Miles" >KM/Miles</option>
-                                              </select>
-                                            </td>
+                                            <div class="mb-4">
+                                              <td class="font-weight-bold border-dark">
+                                                <input type="text" class="form-control " id="ukuran" name="ukuran" value="{{ $nilai->ukuran }}" readonly>
+                                              </td>
+                                            </div>
 
                                             
                                       
@@ -157,13 +145,10 @@
                                               <input type="text" maxlength="4"  class="input_pencapaian w-75" id="ukuran" name="ukuran" onkeyup="masterClac();" value="{{ $kecekapan->ukuran }}" min="0" >
                                             </td> --}}
                                       
-                                            <td class="font-weight-bold border-dark">
-                                                <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $nilai->skor_pekerja }}" readonly>
-                                              </td>
   
                                               <td class="font-weight-bold border-dark">
                                                 <input type="text" maxlength="4" class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $nilai->skor_penyelia }}" min="0" >
-                                              </td>>
+                                              </td>
                                       
                                             <td class="font-weight-bold border-dark">
                                               <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $nilai->skor_sebenar }}" readonly>
@@ -177,7 +162,7 @@
                                 </div>
   
                                 <div class="p-3" style="text-align: right">
-                                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Kemaskini Pencapaian</button>   
+                                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   
                                   <button type="button" class="btn btn-cancel" ><a href="{{ route('dashboard-manager') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
                                 </div>
   
@@ -197,5 +182,6 @@
 <script src="{{asset('assets/js/nilai.js')}}"></script>
 
   </body>
-  {{-- @endsection --}}
+
 </div>
+  @endsection
