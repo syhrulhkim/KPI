@@ -111,7 +111,7 @@
                                                 @endif
 
                                                 @if ($kpi->fungsi != "Pelanggan (Internal)")
-                                                @if (Auth::user()->department == 'Human Resource (HR)')
+                                                @if (Auth::user()->department == 'Human Resource (HR) & Administration')
                                                 <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
                                                 @else
                                                 @endif
@@ -133,8 +133,8 @@
                                                 @else
                                                 @endif
 
-                                                @if ($kpi->fungsi != "Manusia & Proses (NCR/OFI)")
-                                                <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
+                                                @if ($kpi->fungsi != "Manusia & Proses (NCROFI)")
+                                                <option value="Manusia & Proses (NCROFI)" >Manusia & Proses (NCROFI)</option> 
                                                 @else
                                                 @endif
 
@@ -171,7 +171,7 @@
                                 
                                 
                                   {{-- Score KPI --}}
-                                    <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
+                                    {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                       <tr>
                                           <th class="w-25" >Gred : 
                                               <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="{{ $kpi->grade }}" readonly>
@@ -183,7 +183,7 @@
                                               <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" value="{{ $kpi->weightage }}" readonly>
                                           </th>
                                       </tr>
-                                  </table>
+                                  </table> --}}
                                   <div class="table-responsive">
                                     <table class="table table-bordered text-center">
                                         <thead class="thead-dark">
@@ -277,7 +277,7 @@
 
    <!-- Calculation JS -->
    <script src="{{asset('assets/js/master.js')}}"></script>
-       <script src="{{url('assets/js/core/bootstrap.min.js')}}"></script>
+  <script src="{{url('assets/js/core/bootstrap.min.js')}}"></script>
  
 
   @endsection

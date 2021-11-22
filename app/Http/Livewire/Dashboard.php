@@ -14,7 +14,7 @@ class Dashboard extends Component
         $ceoemp = User::where([['department', '=', 'CEO Office'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
         $rndemp = User::where([['department', '=', 'Research & Development (R&D)'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
         $operationemp = User::where([['department', '=', 'Operation'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
-        $hremp = User::where([['department', '=', 'Human Resource (HR) & Admin'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
+        $hremp = User::where([['department', '=', 'Human Resource (HR) & Administration'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
         $afemp = User::where([['department', '=', 'Account & Finance (A&F)'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
 
         $userscount = User::where('role', '=', 'employee')->count();
@@ -24,7 +24,7 @@ class Dashboard extends Component
         $ceoempcount = User::where([['department', '=', 'CEO Office'] , ['role', '=', 'employee']])->count();
         $rndempcount = User::where([['department', '=', 'Research & Development (R&D)'] , ['role', '=', 'employee']])->count();
         $operationempcount = User::where([['department', '=', 'Operation'] , ['role', '=', 'employee']])->count();
-        $hrempcount = User::where([['department', '=', 'Human Resource (HR) & Admin'] , ['role', '=', 'employee']])->count();
+        $hrempcount = User::where([['department', '=', 'Human Resource (HR) & Administration'] , ['role', '=', 'employee']])->count();
         $afempcount = User::where([['department', '=', 'Account & Finance (A&F)'] , ['role', '=', 'employee']])->count();
 
         return view('livewire.dashboard')->with(compact('marketingemp','salesemp','ceoemp','rndemp','operationemp','hremp','afemp','userscount', 'marketingempcount', 'salesempcount', 'ceoempcount', 'rndempcount', 'operationempcount', 'hrempcount', 'afempcount'));

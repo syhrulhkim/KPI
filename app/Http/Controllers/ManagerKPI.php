@@ -42,7 +42,7 @@ class ManagerKPI extends Controller
         $pelangganII = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (Outer)')->orderBy('bukti','asc')->get();
         $kecemerlangan = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kecemerlangan Operasi')->orderBy('bukti','asc')->get();
         $training = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (Training)')->orderBy('bukti','asc')->get();
-        $ncr = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->orderBy('bukti','asc')->get();
+        $ncr = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (NCROFI)')->orderBy('bukti','asc')->get();
         $kolaborasi = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kolaborasi')->orderBy('bukti','asc')->get();
 
         $kadskorcount = $kadskor->count();
@@ -66,7 +66,7 @@ class ManagerKPI extends Controller
         $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
         $kecemerlanganmaster = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
         $trainingmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
+        $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
         $kolaborasimaster = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
 
         $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
@@ -75,7 +75,7 @@ class ManagerKPI extends Controller
         $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
         $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
         $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
+        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
         $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
 
         return view('livewire.manager-kpi', compact('kpi', 'userNE', 'nilai', 'user' , 'id', 'kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount'));

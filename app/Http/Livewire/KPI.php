@@ -10,6 +10,7 @@ use App\Models\User;
 use Ramsey\Uuid\Uuid;
 use Livewire\Component;
 use App\Models\KPIMaster_;
+use App\Models\KPIAll_;
 use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Carbon;
@@ -58,9 +59,10 @@ class KPI extends Component
 
     public function kpi_master_edit1($id) {
         $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kad Skor Korporat';
         if ($kadskormastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
@@ -83,9 +85,10 @@ class KPI extends Component
 
     public function kpi_master_edit2($id) {
         $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan';
         if ($kewanganmastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
@@ -108,9 +111,10 @@ class KPI extends Component
 
     public function kpi_master_edit3($id) {
         $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Pelanggan (Internal)';
         if ($pelangganImastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
@@ -133,9 +137,10 @@ class KPI extends Component
 
     public function kpi_master_edit4($id) {
         $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Pelanggan (Outer)';
         if ($pelangganIImastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
@@ -158,9 +163,10 @@ class KPI extends Component
 
     public function kpi_master_edit5($id) {
         $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kecemerlangan Operasi';
         if ($kecemerlanganmastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
@@ -183,14 +189,15 @@ class KPI extends Component
 
     public function kpi_master_edit6($id) {
         $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Manusia & Proses (Training)';
         if ($trainingmastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
     // public function kpi_master_save7(Request $request){
-    //     $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+    //     $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
     //     if ($ncrmastercount == 0) {
     //     KPIMaster_::insert([
     //         'user_id'=> Auth::user()->id,
@@ -199,18 +206,19 @@ class KPI extends Component
     //         'objektif'=> $request->objektif,
     //         'link'=> $request->link,
     //         'percent_master'=> $request->percent_master,
-    //         'fungsi'=> 'Manusia & Proses (NCR/OFI)',
+    //         'fungsi'=> 'Manusia & Proses (NCROFI)',
     //         ]);
-    //         return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (NCR/OFI) berjaya ditambah!');
+    //         return redirect()->back()->with('message', 'KPI Master untuk Manusia & Proses (NCROFI) berjaya ditambah!');
     //     }
     //     return redirect()->back()->with('fail', 'You already have add KPI Master untuk Kad Skor Korporat!');
     // }
 
     public function kpi_master_edit7($id) {
-        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Manusia & Proses (NCROFI)';
         if ($ncrmastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
@@ -233,14 +241,129 @@ class KPI extends Component
 
     public function kpi_master_edit8($id) {
         $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kolaborasi';
+        // dd($fungsi);
         if ($kolaborasimastercount == 1) {
             $kpimaster = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimaster'));
+            return view('livewire.form_kpimaster' , compact('kpimaster', 'fungsi'));
         }
     }
 
-    public function kpi_master_update(Request $request, $id) {
+    public function kpi_master_update(Request $request, $id, $fungsi) {
+        // dd($request->fungsi);
+        $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->get();
+        $kpimasters_id = count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0';
+
+        // $fungsi = $fungsi;
+        // dd($fungsi);
         $total_score = KPI_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // dd($total_score);
+        // dd($request->fungsi);
+        // dd($total_score);
+        $skor_kpi = 0;
+        $skor_sebenar = 0;
+        if ($total_score < 30 ) {
+            $skor_kpi = 0;
+            $skor_sebenar = 0;
+        }
+        elseif ($total_score >= 30 && $total_score < 65) {
+            $value1 = $total_score - 30;
+            $value2 = 65 - 30;
+
+            $skor_kpi = ((($value1/$value2)*35)+30);
+            $skor_sebenar = (($request->percent_master/100)*$skor_kpi);
+        }
+        elseif ($total_score >= 65 && $total_score < 100) {
+            $value1 = $total_score - 65;
+            $value2 = 100 - 65;
+
+            $skor_kpi = ((($value1/$value2)*35)+65);
+            $skor_sebenar = (($request->percent_master/100)*$skor_kpi);
+        }
+        elseif ($total_score >= 100) {
+            $skor_kpi = 100;
+            $skor_sebenar = (($request->percent_master/100)*$skor_kpi);
+        }
+
+        if (KPIAll_::where('user_id', '=', Auth::user()->id)->count() == 1) {
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
+            $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
+
+            $total_score_master_past = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+            $total_score_master_present = $skor_sebenar;
+            $total_score_master = $total_score_master_past + $total_score_master_present;
+
+            $grade = '';
+            if ($total_score_master >= 80 ) {
+                $grade = 'PLATINUM';
+            }
+            elseif ($total_score_master >= 75 && $total_score_master <= 79.99) {
+                $grade = 'HIGH GOLD';
+            }
+            elseif ($total_score_master >= 70 && $total_score_master <= 74.99) {
+                $grade = 'MID GOLD';
+            }
+            elseif ($total_score_master >= 65 && $total_score_master <= 69.99) {
+                $grade = 'LOW GOLD';
+            }
+            elseif ($total_score_master >= 60 && $total_score_master <= 64.99) {
+                $grade = 'HIGH SILVER';
+            }
+            elseif ($total_score_master >= 50 && $total_score_master <= 59.99) {
+                $grade = 'LOW SILVER';
+            }
+            elseif ($total_score_master >= 1 && $total_score_master <= 49.99) {
+                $grade = 'BRONZE';
+            }
+            else {
+                $grade = 'NO GRED';
+            }
+
+            $weightage_past = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('percent_master');
+            $weightage_present = $request->percent_master;
+            $weightage = $weightage_past + $weightage_present;
+
+            KPIAll_::find($kpiall_id)->update([
+                'total_score_master'=>  $total_score_master,
+                'grade_master'=>  $grade,
+                'weightage_master'=>  $weightage,
+            ]);
+        }
+        else {
+            KPIAll_::insert([              
+                'user_id'=> Auth::user()->id,
+            ]);
+        }
+        // dd($skor_sebenar);
+        // $total_score_master = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $grade = '';
+        // if ($total_score_master >= 80 ) {
+        //     $grade = 'PLATINUM';
+        // }
+        // elseif ($total_score_master >= 75 && $total_score_master <= 79.99) {
+        //     $grade = 'HIGH GOLD';
+        // }
+        // elseif ($total_score_master >= 70 && $total_score_master <= 74.99) {
+        //     $grade = 'MID GOLD';
+        // }
+        // elseif ($total_score_master >= 65 && $total_score_master <= 69.99) {
+        //     $grade = 'LOW GOLD';
+        // }
+        // elseif ($total_score_master >= 60 && $total_score_master <= 64.99) {
+        //     $grade = 'HIGH SILVER';
+        // }
+        // elseif ($total_score_master >= 50 && $total_score_master <= 59.99) {
+        //     $grade = 'LOW SILVER';
+        // }
+        // elseif ($total_score_master >= 1 && $total_score_master <= 49.99) {
+        //     $grade = 'BRONZE';
+        // }
+        // else {
+        //     $grade = 'NO GRED';
+        // }
+
+        // $weightage = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('percent_master');
+
         $update = KPIMaster_::find($id)->update([
             // 'user_id'=> Auth::user()->id,
             // 'created_at'=> Carbon::now(),
@@ -248,6 +371,12 @@ class KPI extends Component
             'objektif'=> $request->objektif,
             'link'=> $request->link,
             'percent_master'=> $request->percent_master,
+            'pencapaian'=> $total_score,
+            'skor_KPI'=> $skor_kpi,
+            'skor_sebenar'=> $skor_sebenar,
+            // 'total_score'=>  $total_score_master,
+            // 'grade'=>  $grade,
+            // 'weightage'=>  $weightage,
             // 'fungsi'=> 'Kad Skor Korporat',
         ]);
         return redirect()->route('add-kpi')->with('message', 'KPI Master Updated Successfully');
@@ -262,7 +391,7 @@ class KPI extends Component
         $pelangganII = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Pelanggan (Outer)')->get();
         $kecemerlangan = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kecemerlangan Operasi')->get();
         $training = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Manusia & Proses (Training)')->get();
-        $ncr = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->get();
+        $ncr = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Manusia & Proses (NCROFI)')->get();
         $kolaborasi = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kolaborasi')->get();
 
         $total_percent1 = 0;
@@ -330,9 +459,9 @@ class KPI extends Component
             return redirect()->back()->with('fail', 'Maaf, anda telah melebihi had KPI untuk Manusia & Proses (Training) iaitu 100 peratus sahaja');
             }
         }
-        if($request->fungsi == 'Manusia & Proses (NCR/OFI)'){
+        if($request->fungsi == 'Manusia & Proses (NCROFI)'){
         if ($total_percent7 > 99.99999) {
-            return redirect()->back()->with('fail', 'Maaf, anda telah melebihi had KPI untuk Manusia & Proses (NCR/OFI) iaitu 100 peratus sahaja');
+            return redirect()->back()->with('fail', 'Maaf, anda telah melebihi had KPI untuk Manusia & Proses (NCROFI) iaitu 100 peratus sahaja');
             }
         }
         if($request->fungsi == 'Kolaborasi'){
@@ -355,9 +484,9 @@ class KPI extends Component
             'skor_KPI' => ['required'],
             'skor_sebenar' => ['required'],
 
-            'grade' => ['required'],
-            'total_score' => ['required', 'numeric'],
-            'weightage' => ['required', 'numeric'],
+            // 'grade' => ['required'],
+            // 'total_score' => ['required', 'numeric'],
+            // 'weightage' => ['required', 'numeric'],
             
         ]);
 
@@ -367,7 +496,7 @@ class KPI extends Component
         // $total_score4 = KPI_::where('fungsi','Pelanggan (Outer)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
         // $total_score5 = KPI_::where('fungsi','Kecemerlangan Operasi')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
         // $total_score6 = KPI_::where('fungsi','Manusia & Proses (Training)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
-        // $total_score7 = KPI_::where('fungsi','Manusia & Proses (NCR/OFI)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        // $total_score7 = KPI_::where('fungsi','Manusia & Proses (NCROFI)')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
         // $total_score8 = KPI_::where('fungsi','Kolaborasi')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
        
 
@@ -376,29 +505,160 @@ class KPI extends Component
         // $kpimaster1 = 0;
         // $id_kpimaster = DB::getPdo()->lastInsertId();
 
+        // KPIALL 
+        if (KPIAll_::where('user_id', '=', Auth::user()->id)->count() == 1) {
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
+            $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
+
+            $total_score_master = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+            $grade = '';
+            if ($total_score_master >= 80 ) {
+                $grade = 'PLATINUM';
+            }
+            elseif ($total_score_master >= 75 && $total_score_master <= 79.99) {
+                $grade = 'HIGH GOLD';
+            }
+            elseif ($total_score_master >= 70 && $total_score_master <= 74.99) {
+                $grade = 'MID GOLD';
+            }
+            elseif ($total_score_master >= 65 && $total_score_master <= 69.99) {
+                $grade = 'LOW GOLD';
+            }
+            elseif ($total_score_master >= 60 && $total_score_master <= 64.99) {
+                $grade = 'HIGH SILVER';
+            }
+            elseif ($total_score_master >= 50 && $total_score_master <= 59.99) {
+                $grade = 'LOW SILVER';
+            }
+            elseif ($total_score_master >= 1 && $total_score_master <= 49.99) {
+                $grade = 'BRONZE';
+            }
+            else {
+                $grade = 'NO GRED';
+            }
+            $weightage = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('percent_master');
+
+            KPIAll_::find($kpiall_id)->update([
+                'total_score_master'=>  $total_score_master,
+                'grade_master'=>  $grade,
+                'weightage_master'=>  $weightage,
+            ]);
+        }
+        else {
+            KPIAll_::insert([              
+                'user_id'=> Auth::user()->id,
+            ]);
+        }
+        // dd('john');
         if (KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->count() == 1) {
             // dd('john');
             $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->get();
             $kpimasters_id = count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0';
-            $total_score = KPI_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
-            $total_score2 = $request->skor_sebenar;
+            $total_past = KPI_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+            $total_present = $request->skor_sebenar;
+
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
+            // dd($kpiall);
             // $percent_master = $kpimasters->percent_master;
             // dd($percent_master);
+
+            // $percent_master = DB::table('kpi_master')->where('fungsi', '=', $request->fungsi)->pluck('percent_master');
+            // dd($kpimasters_id);
+            // $percent_master = KPIMaster_::find($kpimasters_id)->value('percent_master');
+            // $percent_master = KPIMaster_::select('percent_master')->where('id', $kpimasters_id)->get();
+            // $percent_master2 =  $percent_master->percent_master;
+            // $percent_master = DB::table('kpi_master')->select('percent_master')->where('id', $kpimasters_id)->first();
+            $percent_master = DB::table('kpi_master')->where('id', '=', $kpimasters_id)->value('percent_master');
+            // dd($percent_master);
+            $total_score = $total_past + $total_present;
+
+            // $percent_master1 = $percent_master + 1;
+            // dd($percent_master1);
+            $skor_kpi = 0;
+            $skor_sebenar = 0;
+            // dd($total_score);
+            if ($total_score < 30 ) {
+                $skor_kpi = 0;
+                $skor_sebenar = 0;
+            }
+            elseif ($total_score >= 30 && $total_score < 65) {
+                $value1 = $total_score - 30;
+                $value2 = 65 - 30;
+
+                $skor_kpi = ((($value1/$value2)*35)+30);
+                $skor_sebenar = (($percent_master/100)*$skor_kpi);
+                // dd($skor_kpi);
+                // dd($skor_sebenar);
+            }
+            elseif ($total_score >= 65 && $total_score < 100) {
+                $value1 = $total_score - 65;
+                $value2 = 100 - 65;
+
+                $skor_kpi = ((($value1/$value2)*35)+65);
+                $skor_sebenar = (($percent_master/100)*$skor_kpi);
+            }
+            elseif ($total_score >= 100) {
+                $skor_kpi = 100;
+                $skor_sebenar = (($percent_master/100)*$skor_kpi);
+            }
+
+            // $skor_kpi = $total_score;
+            // dd($skor_kpi);
+
+            // $total_score_master = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+            // $grade = '';
+            // if ($total_score_master >= 80 ) {
+            //     $grade = 'PLATINUM';
+            // }
+            // elseif ($total_score_master >= 75 && $total_score_master <= 79.99) {
+            //     $grade = 'HIGH GOLD';
+            // }
+            // elseif ($total_score_master >= 70 && $total_score_master <= 74.99) {
+            //     $grade = 'MID GOLD';
+            // }
+            // elseif ($total_score_master >= 65 && $total_score_master <= 69.99) {
+            //     $grade = 'LOW GOLD';
+            // }
+            // elseif ($total_score_master >= 60 && $total_score_master <= 64.99) {
+            //     $grade = 'HIGH SILVER';
+            // }
+            // elseif ($total_score_master >= 50 && $total_score_master <= 59.99) {
+            //     $grade = 'LOW SILVER';
+            // }
+            // elseif ($total_score_master >= 1 && $total_score_master <= 49.99) {
+            //     $grade = 'BRONZE';
+            // }
+            // else {
+            //     $grade = 'NO GRED';
+            // }
+
+            // $weightage = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('percent_master');
+            // dd($total_score_master);
             KPIMaster_::find($kpimasters_id)->update([
-                'pencapaian'=> $total_score + $total_score2,
+                'pencapaian'=>  $total_score,
+                'skor_KPI'=>  $skor_kpi,
+                'skor_sebenar'=>  $skor_sebenar,
+                // 'total_score'=>  $total_score_master,
+                // 'grade'=>  $grade,
+                // 'weightage'=>  $weightage,
+                'kpiall_id'=>  count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0',
             ]);
+            // dd($total_score_master);
+            // dd($grade);
             // dd($kpimasters->id);
             // $total_score = KPIMaster_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->sum('skor_KPI');
             // dd($total_score);
         }
         else {
+           
             // $kpimaster1 = KPIMaster_::get();
 
-
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
             $kpimaster = KPIMaster_::insert([
                 'fungsi'=> $request->fungsi,
                 'user_id'=> Auth::user()->id,
                 'pencapaian'=> $request->skor_sebenar,
+                'kpiall_id'=>  count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0',
                 // $id1 = KPIMaster_::pluck('id'),
                 // $id2 = KPIMaster_::all()->modelKeys(),
                 // $id3 = DB::table('kpi_master')->insertGetId(
@@ -411,6 +671,7 @@ class KPI extends Component
                 // dd($kpimaster),
                 // dd(KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->where('user_id', '=', Auth::user()->id)->count()),
             ]);
+            // dd('john');
             // dd($kpimaster);
             // $id_kpimaster = $kpimaster;
             // dd($id_kpimaster->id);
@@ -421,6 +682,48 @@ class KPI extends Component
             // $id4 = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->getPdo()->lastInsertId();
             // $id4 = DB::getPdo()->lastInsertId();
             // dd($id4);
+        }
+        // dd('john');
+        // KPIALL 
+        if (KPIAll_::where('user_id', '=', Auth::user()->id)->count() == 1) {
+            // dd('john');
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
+            $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
+
+            $total_score_master = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+            $grade = '';
+            if ($total_score_master >= 80 ) {
+                $grade = 'PLATINUM';
+            }
+            elseif ($total_score_master >= 75 && $total_score_master <= 79.99) {
+                $grade = 'HIGH GOLD';
+            }
+            elseif ($total_score_master >= 70 && $total_score_master <= 74.99) {
+                $grade = 'MID GOLD';
+            }
+            elseif ($total_score_master >= 65 && $total_score_master <= 69.99) {
+                $grade = 'LOW GOLD';
+            }
+            elseif ($total_score_master >= 60 && $total_score_master <= 64.99) {
+                $grade = 'HIGH SILVER';
+            }
+            elseif ($total_score_master >= 50 && $total_score_master <= 59.99) {
+                $grade = 'LOW SILVER';
+            }
+            elseif ($total_score_master >= 1 && $total_score_master <= 49.99) {
+                $grade = 'BRONZE';
+            }
+            else {
+                $grade = 'NO GRED';
+            }
+            $weightage = KPIMaster_::where('user_id', '=', Auth::user()->id)->sum('percent_master');
+           
+            KPIAll_::find($kpiall_id)->update([
+                'total_score_master'=>  $total_score_master,
+                'grade_master'=>  $grade,
+                'weightage_master'=>  $weightage,
+            ]);
+            
         }
         // $id_kpimaster = DB::getPdo()->lastInsertId();
         // $id_kpimaster = DB::getPdo()->lastInsertId();
@@ -433,6 +736,7 @@ class KPI extends Component
         // dd(Auth::user()->id);
 
         $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->get();
+        // $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
         KPI_::insert([
         'user_id'=> Auth::user()->id,
         'created_at'=> Carbon::now(),
@@ -513,9 +817,9 @@ class KPI extends Component
             'skor_KPI' => ['required'],
             'skor_sebenar' => ['required'],
 
-            'grade' => ['required'],
-            'total_score' => ['required', 'numeric'],
-            'weightage' => ['required', 'numeric'],
+            // 'grade' => ['required'],
+            // 'total_score' => ['required', 'numeric'],
+            // 'weightage' => ['required', 'numeric'],
             
         ]);
 
@@ -660,14 +964,14 @@ class KPI extends Component
         $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
         $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
 
-        $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $pelangganII = KPI_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $kecemerlangan = KPI_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $training = KPI_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $ncr = KPI_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $kolaborasi = KPI_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
+        $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
+        $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
+        $pelangganII = KPI_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
+        $kecemerlangan = KPI_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
+        $training = KPI_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
+        $ncr = KPI_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
+        $kolaborasi = KPI_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','asc')->get();
 
         $kadskorcount = $kadskor->count();
         $kewangancount = $kewangan->count();
@@ -684,7 +988,7 @@ class KPI extends Component
         $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
         $kecemerlanganmaster = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
         $trainingmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
         $kolaborasimaster = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
         $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
@@ -693,7 +997,7 @@ class KPI extends Component
         $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
         $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
         $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCR/OFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
         $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
 
         // $userscount = User::where('role', '=', 'employee')->count();

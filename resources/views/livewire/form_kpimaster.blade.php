@@ -38,8 +38,8 @@
                       <div class="col-sm-auto p-3">
                           <div class="card">
                               <div class="m-3">
-    
-                              <form action="{{ url('employee/update/kpimaster/'.$kpimaster->id) }}" method="post">  
+                                {{-- {{dd($fungsi)}} --}}
+                              <form action="{{ url('employee/update/kpimaster/'.$kpimaster->id.'/'.$fungsi) }}" method="post">  
                                       @csrf
       
                                   <div class="row">

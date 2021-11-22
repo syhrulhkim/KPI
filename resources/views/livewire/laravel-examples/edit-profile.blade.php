@@ -110,6 +110,22 @@
                                                         <option value="BAHAGIAN JUALAN">BAHAGIAN JUALAN</option> --}}
                                                         {{-- <option value="">-- Choose Department --</option> --}}
 
+                                                        
+                                                        @if (Auth::user()->department != "CEO Office")
+                                                        <option value="CEO Office">CEO Office</option>
+                                                        @else
+                                                        @endif
+
+                                                        @if (Auth::user()->department != "Human Resource (HR) & Administration")
+                                                        <option value="Human Resource (HR) & Administration">Human Resource (HR) & Administration</option>
+                                                        @else
+                                                        @endif
+
+                                                        @if (Auth::user()->department != "Finance & Admin (F&A)")
+                                                        <option value="Finance & Admin (F&A)">Finance & Admin (F&A)</option>
+                                                        @else
+                                                        @endif
+
                                                         @if (Auth::user()->department != "Sales")
                                                         <option value="Sales">Sales</option>
                                                         @else
@@ -119,21 +135,7 @@
                                                         <option value="Marketing">Marketing</option>
                                                         @else
                                                         @endif
-
-                                                        @if (Auth::user()->department != "Human Resource (HR)")
-                                                        <option value="Human Resource (HR)">Human Resource (HR)</option>
-                                                        @else
-                                                        @endif
                                                         
-                                                        @if (Auth::user()->department != "Finance & Admin (F&A)")
-                                                        <option value="Finance & Admin (F&A)">Finance & Admin (F&A)</option>
-                                                        @else
-                                                        @endif
-
-                                                        @if (Auth::user()->department != "CEO Office")
-                                                        <option value="CEO Office">CEO Office</option>
-                                                        @else
-                                                        @endif
 
                                                         @if (Auth::user()->department != "Operation")
                                                         <option value="Operation">Operation</option>

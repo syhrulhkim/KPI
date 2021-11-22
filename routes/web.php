@@ -86,7 +86,7 @@ Route::get('/employee/edit/kpimaster6/{id}', [KPI::class, 'kpi_master_edit6']);
 Route::get('/employee/edit/kpimaster7/{id}', [KPI::class, 'kpi_master_edit7']);
 Route::get('/employee/edit/kpimaster8/{id}', [KPI::class, 'kpi_master_edit8']);
 
-Route::post('/employee/update/kpimaster/{id}', [KPI::class, 'kpi_master_update']);
+Route::post('/employee/update/kpimaster/{id}/{fungsi}', [KPI::class, 'kpi_master_update']);
 // Route::post('/employee/update/kpimaster2/{id}', [KPI::class, 'kpi_master_update2']);
 // Route::post('/employee/update/kpimaster3/{id}', [KPI::class, 'kpi_master_update3']);
 // Route::post('/employee/update/kpimaster4/{id}', [KPI::class, 'kpi_master_update4']);

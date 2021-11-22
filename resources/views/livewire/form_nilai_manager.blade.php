@@ -93,7 +93,7 @@
                                 
                                 
                                   {{-- Score KPI --}}
-                                    <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
+                                    {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                       <tr>
                                           <th class="w-25" >Gred : 
                                               <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="{{ $nilai->grade }}" readonly>
@@ -105,7 +105,7 @@
                                               <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" value="{{ $nilai->weightage }}" readonly>
                                           </th>
                                       </tr>
-                                  </table>
+                                  </table> --}}
                                   <div class="table-responsive">
                                     <table class="table table-bordered text-center">
                                         <thead class="thead-dark">

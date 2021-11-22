@@ -21,10 +21,17 @@ class KPIMaster_ extends Model
         'pencapaian',
         'skor_KPI', 
         'skor_sebenar',
+        'total_score',
+        'grade',
+        'weightage',
          
         'user_id',
+        'kpiall_id',
     ];
         public function kpi() {
         return $this->hasMany('App\Models\KPI_', 'kpimaster_id', 'id');
+    }
+        public function kpiall() {
+        return $this->hasOne('App\Models\KPIAll_', 'id', 'kpiall_id');
     }
 }

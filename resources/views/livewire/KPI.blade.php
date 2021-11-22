@@ -99,7 +99,7 @@
     
                                             <option value="Kewangan" >Kewangan</option>
     
-                                            @if (Auth::user()->department == 'Human Resource (HR)')
+                                            @if (Auth::user()->department == 'Human Resource (HR) & Administration')
                                             <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
                                             @else
                                             @endif
@@ -107,7 +107,7 @@
                                             <option value="Pelanggan (Outer)" >Pelanggan (Outer)</option>
                                             <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
                                             <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
-                                            <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
+                                            <option value="Manusia & Proses (NCROFI)" >Manusia & Proses (NCROFI)</option> 
                                             <option value="Kolaborasi" >Kolaborasi</option>
                                           </select>
                                         </td>
@@ -128,7 +128,7 @@
 
                                         <option value="Kewangan" >Kewangan</option>
 
-                                        @if (Auth::user()->department == 'Human Resource (HR)')
+                                        @if (Auth::user()->department == 'Human Resource (HR) & Administration')
                                         <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
                                         @else
                                         @endif
@@ -136,7 +136,7 @@
                                         <option value="Pelanggan (Outer)" >Pelanggan (Outer)</option>
                                         <option value="Kecemerlangan Operasi" >Kecemerlangan Operasi</option> 
                                         <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
-                                        <option value="Manusia & Proses (NCR/OFI)" >Manusia & Proses (NCR/OFI)</option> 
+                                        <option value="Manusia & Proses (NCROFI)" >Manusia & Proses (NCROFI)</option> 
                                         <option value="Kolaborasi" >Kolaborasi</option> --}}
                                     </select>
                                     @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
@@ -168,7 +168,7 @@
                             </div>
                             <div class="row m-auto">
                               {{-- Score KPI --}}
-                                <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
+                                {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                   <tr>
                                       <th class="w-25" >Gred : 
                                           <input class="font-weight-bold w-50 btn-sm btn btn-outline-secondary ml-2" id="grade" name="grade" value="NO GRADE" readonly>
@@ -180,7 +180,7 @@
                                           <input class="font-weight-bold w-50 bg-light btn-sm btn btn-outline-secondary ml-2" id="percentage-weightage" name="weightage" readonly>
                                       </th>
                                   </tr>
-                              </table>
+                              </table> --}}
                               <div class="table-responsive">
                                 <table class="table table-bordered text-center">
                                     <thead class="thead-dark">
@@ -1049,7 +1049,7 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
-              <h6>MANUSIA & PROCESS (NCR/OFI)</h6>
+              <h6>MANUSIA & PROCESS (NCROFI)</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <form action="{{ route('kpi_master_save7') }}" method="post">  

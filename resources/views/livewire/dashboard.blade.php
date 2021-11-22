@@ -1,4 +1,414 @@
   <div class="container-fluid py-4">
+    
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <p><strong>{{$ceoempcount}} employees</strong> in CEO Office department</p>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($ceoemp as $ceoemps)
+                  <tr>
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div>
+                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm" value="{{$ceoemps->id}}">{{$ceoemps->name}}</h6>
+                          <p class="text-xs text-secondary mb-0">roles</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="{{$ceoemps->id}}">{{$ceoemps->position}}</p>
+                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->nostaff}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->department}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->unit}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->grade}}</span>
+                    </td>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            @if ($ceoemps->status == "Not Submitted")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$ceoemps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($ceoemps->status == "Submitted")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$ceoemps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($ceoemps->status == "Signed By Manager")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$ceoemps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($ceoemps->status == "Completed")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$ceoemps->status}}</span></li>
+                            @else 
+                            @endif
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <a href="{{ url('hr/view/kpi/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <p><strong>{{$hrempcount}} employees</strong> in Human Resource (HR) & Administration department</p>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($hremp as $hremps)
+                  <tr>
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div>
+                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm" value="{{$hremps->id}}">{{$hremps->name}}</h6>
+                          <p class="text-xs text-secondary mb-0">roles</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="{{$hremps->id}}">{{$hremps->position}}</p>
+                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->nostaff}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->department}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->unit}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->grade}}</span>
+                    </td>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            @if ($hremps->status == "Not Submitted")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$hremps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($hremps->status == "Submitted")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$hremps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($hremps->status == "Signed By Manager")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$hremps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($hremps->status == "Completed")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$hremps->status}}</span></li>
+                            @else 
+                            @endif
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <a href="{{ url('hr/view/kpi/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <p><strong>{{$afempcount}} employees</strong> in Account & Finance (A&F) department</p>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($afemp as $afemps)
+                  <tr>
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div>
+                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm" value="{{$afemps->id}}">{{$afemps->name}}</h6>
+                          <p class="text-xs text-secondary mb-0">roles</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="{{$afemps->id}}">{{$afemps->position}}</p>
+                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->nostaff}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->department}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->unit}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->grade}}</span>
+                    </td>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            @if ($afemps->status == "Not Submitted")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$afemps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($afemps->status == "Submitted")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$afemps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($afemps->status == "Signed By Manager")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$afemps->status}}</span></li>
+                            @else 
+                            @endif
+
+                            @if ($afemps->status == "Completed")
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$afemps->status}}</span></li>
+                            @else 
+                            @endif
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <a href="{{ url('hr/view/kpi/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <p><strong>{{$salesempcount}} employees</strong> in Sales department</p>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($salesemp as $salesemps)
+                  <tr>
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div>
+                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                        </div>
+                        
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm" value="{{$salesemps->id}}">{{$salesemps->name}}</h6>
+                          <p class="text-xs text-secondary mb-0">roles</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="{{$salesemps->id}}">{{$salesemps->position}}</p>
+                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->nostaff}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->department}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->unit}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->grade}}</span>
+                    </td>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                          @if ($salesemps->status == "Not Submitted")
+                          <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$salesemps->status}}</span></li>
+                          @else 
+                          @endif
+
+                          @if ($salesemps->status == "Submitted")
+                          <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$salesemps->status}}</span></li>
+                          @else 
+                          @endif
+
+                          @if ($salesemps->status == "Signed By Manager")
+                          <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$salesemps->status}}</span></li>
+                          @else 
+                          @endif
+
+                          @if ($salesemps->status == "Completed")
+                          <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$salesemps->status}}</span></li>
+                          @else 
+                          @endif
+                        </div>
+                        </div>
+                      </td>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <a href="{{ url('hr/view/kpi/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
@@ -105,210 +515,108 @@
           </div>
         </div>
       </div>
-
-        <div class="row">
-          <div class="col-12">
-            <div class="card mb-4">
-              <div class="card-header pb-0">
-                <p><strong>{{$salesempcount}} employees</strong> in Sales department</p>
-              </div>
-              <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0">
-                    <thead>
-                      <tr>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($salesemp as $salesemps)
-                      <tr>
-                        <td>    
+      
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <p><strong>{{$operationempcount}} employees</strong> in Operation department</p>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($operationemp as $operationemps)
+                    <tr>
+                      <td>    
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                          </div>
+                          
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm" value="{{$operationemps->id}}">{{$operationemps->name}}</h6>
+                            <p class="text-xs text-secondary mb-0">roles</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0" value="{{$operationemps->id}}">{{$operationemps->position}}</p>
+                        <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->nostaff}}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->department}}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->unit}}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->grade}}</span>
+                      </td>
+                      <div class="d-flex flex-column justify-content-center">
+                        <td>
                           <div class="d-flex px-2 py-1">
                             <div>
-                              <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
                             </div>
-                            
                             <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm" value="{{$salesemps->id}}">{{$salesemps->name}}</h6>
-                              <p class="text-xs text-secondary mb-0">roles</p>
+                              @if ($operationemps->status == "Not Submitted")
+                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$operationemps->status}}</span></li>
+                              @else 
+                              @endif
+  
+                              @if ($operationemps->status == "Submitted")
+                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$operationemps->status}}</span></li>
+                              @else 
+                              @endif
+  
+                              @if ($operationemps->status == "Signed By Manager")
+                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$operationemps->status}}</span></li>
+                              @else 
+                              @endif
+  
+                              @if ($operationemps->status == "Completed")
+                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$operationemps->status}}</span></li>
+                              @else 
+                              @endif
                             </div>
                           </div>
                         </td>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
                         <td>
-                          <p class="text-xs font-weight-bold mb-0" value="{{$salesemps->id}}">{{$salesemps->position}}</p>
-                          <p class="text-xs text-secondary mb-0">Momentum Internet</p>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->nostaff}}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->department}}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->unit}}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->grade}}</span>
-                        </td>
-                        <div class="d-flex flex-column justify-content-center">
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                              @if ($salesemps->status == "Not Submitted")
-                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$salesemps->status}}</span></li>
-                              @else 
-                              @endif
-  
-                              @if ($salesemps->status == "Submitted")
-                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$salesemps->status}}</span></li>
-                              @else 
-                              @endif
-  
-                              @if ($salesemps->status == "Signed By Manager")
-                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$salesemps->status}}</span></li>
-                              @else 
-                              @endif
-  
-                              @if ($salesemps->status == "Completed")
-                              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$salesemps->status}}</span></li>
-                              @else 
-                              @endif
+                          <div class="d-flex px-2 py-1">
+                            <div>
                             </div>
+                            <div class="d-flex flex-column justify-content-center">
+                              <a href="{{ url('hr/view/kpi/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                             </div>
-                          </td>
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <a href="{{ url('hr/view/kpi/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
-                              </div>
-                            </div>
-                          </td>
-                        </div>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
-                </div>
+                          </div>
+                        </td>
+                      </div>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
-
-          <div class="row">
-            <div class="col-12">
-              <div class="card mb-4">
-                <div class="card-header pb-0">
-                  <p><strong>{{$ceoempcount}} employees</strong> in CEO Office department</p>
-                </div>
-                <div class="card-body px-0 pt-0 pb-2">
-                  <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0">
-                      <thead>
-                        <tr>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach ($ceoemp as $ceoemps)
-                        <tr>
-                          <td>    
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                              </div>
-                              
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm" value="{{$ceoemps->id}}">{{$ceoemps->name}}</h6>
-                                <p class="text-xs text-secondary mb-0">roles</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <p class="text-xs font-weight-bold mb-0" value="{{$ceoemps->id}}">{{$ceoemps->position}}</p>
-                            <p class="text-xs text-secondary mb-0">Momentum Internet</p>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->nostaff}}</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->department}}</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->unit}}</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->grade}}</span>
-                          </td>
-                          <div class="d-flex flex-column justify-content-center">
-                            <td>
-                              <div class="d-flex px-2 py-1">
-                                <div>
-                                </div>
-                                <div class="d-flex flex-column justify-content-center">
-                                  @if ($ceoemps->status == "Not Submitted")
-                                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$ceoemps->status}}</span></li>
-                                  @else 
-                                  @endif
-      
-                                  @if ($ceoemps->status == "Submitted")
-                                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$ceoemps->status}}</span></li>
-                                  @else 
-                                  @endif
-      
-                                  @if ($ceoemps->status == "Signed By Manager")
-                                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$ceoemps->status}}</span></li>
-                                  @else 
-                                  @endif
-      
-                                  @if ($ceoemps->status == "Completed")
-                                  <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$ceoemps->status}}</span></li>
-                                  @else 
-                                  @endif
-                                </div>
-                              </div>
-                            </td>
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <td>
-                              <div class="d-flex px-2 py-1">
-                                <div>
-                                </div>
-                                <div class="d-flex flex-column justify-content-center">
-                                  <a href="{{ url('hr/view/kpi/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
-                                </div>
-                              </div>
-                            </td>
-                          </div>
-                        </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      </div>
 
             <div class="row">
               <div class="col-12">
@@ -411,312 +719,6 @@
                 </div>
               </div>
             </div>
-
-              <div class="row">
-                <div class="col-12">
-                  <div class="card mb-4">
-                    <div class="card-header pb-0">
-                      <p><strong>{{$operationempcount}} employees</strong> in Operation department</p>
-                    </div>
-                    <div class="card-body px-0 pt-0 pb-2">
-                      <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                          <thead>
-                            <tr>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @foreach ($operationemp as $operationemps)
-                            <tr>
-                              <td>    
-                                <div class="d-flex px-2 py-1">
-                                  <div>
-                                    <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                                  </div>
-                                  
-                                  <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm" value="{{$operationemps->id}}">{{$operationemps->name}}</h6>
-                                    <p class="text-xs text-secondary mb-0">roles</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0" value="{{$operationemps->id}}">{{$operationemps->position}}</p>
-                                <p class="text-xs text-secondary mb-0">Momentum Internet</p>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->nostaff}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->department}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->unit}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->grade}}</span>
-                              </td>
-                              <div class="d-flex flex-column justify-content-center">
-                                <td>
-                                  <div class="d-flex px-2 py-1">
-                                    <div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                      @if ($operationemps->status == "Not Submitted")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$operationemps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($operationemps->status == "Submitted")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$operationemps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($operationemps->status == "Signed By Manager")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$operationemps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($operationemps->status == "Completed")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$operationemps->status}}</span></li>
-                                      @else 
-                                      @endif
-                                    </div>
-                                  </div>
-                                </td>
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <td>
-                                  <div class="d-flex px-2 py-1">
-                                    <div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                      <a href="{{ url('hr/view/kpi/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
-                                    </div>
-                                  </div>
-                                </td>
-                              </div>
-                            </tr>
-                            @endforeach
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12">
-                  <div class="card mb-4">
-                    <div class="card-header pb-0">
-                      <p><strong>{{$hrempcount}} employees</strong> in Human Resource (HR) & Admin department</p>
-                    </div>
-                    <div class="card-body px-0 pt-0 pb-2">
-                      <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                          <thead>
-                            <tr>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @foreach ($hremp as $hremps)
-                            <tr>
-                              <td>    
-                                <div class="d-flex px-2 py-1">
-                                  <div>
-                                    <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                                  </div>
-                                  
-                                  <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm" value="{{$hremps->id}}">{{$hremps->name}}</h6>
-                                    <p class="text-xs text-secondary mb-0">roles</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0" value="{{$hremps->id}}">{{$hremps->position}}</p>
-                                <p class="text-xs text-secondary mb-0">Momentum Internet</p>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->nostaff}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->department}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->unit}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->grade}}</span>
-                              </td>
-                              <div class="d-flex flex-column justify-content-center">
-                                <td>
-                                  <div class="d-flex px-2 py-1">
-                                    <div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                      @if ($hremps->status == "Not Submitted")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$hremps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($hremps->status == "Submitted")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$hremps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($hremps->status == "Signed By Manager")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$hremps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($hremps->status == "Completed")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$hremps->status}}</span></li>
-                                      @else 
-                                      @endif
-                                    </div>
-                                  </div>
-                                </td>
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <td>
-                                  <div class="d-flex px-2 py-1">
-                                    <div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                      <a href="{{ url('hr/view/kpi/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
-                                    </div>
-                                  </div>
-                                </td>
-                              </div>
-                            </tr>
-                            @endforeach
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12">
-                  <div class="card mb-4">
-                    <div class="card-header pb-0">
-                      <p><strong>{{$afempcount}} employees</strong> in Account & Finance (A&F) department</p>
-                    </div>
-                    <div class="card-body px-0 pt-0 pb-2">
-                      <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                          <thead>
-                            <tr>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @foreach ($afemp as $afemps)
-                            <tr>
-                              <td>    
-                                <div class="d-flex px-2 py-1">
-                                  <div>
-                                    <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                                  </div>
-                                  
-                                  <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm" value="{{$afemps->id}}">{{$afemps->name}}</h6>
-                                    <p class="text-xs text-secondary mb-0">roles</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p class="text-xs font-weight-bold mb-0" value="{{$afemps->id}}">{{$afemps->position}}</p>
-                                <p class="text-xs text-secondary mb-0">Momentum Internet</p>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->nostaff}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->department}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->unit}}</span>
-                              </td>
-                              <td class="align-middle text-center">
-                                <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->grade}}</span>
-                              </td>
-                              <div class="d-flex flex-column justify-content-center">
-                                <td>
-                                  <div class="d-flex px-2 py-1">
-                                    <div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                      @if ($afemps->status == "Not Submitted")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$afemps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($afemps->status == "Submitted")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$afemps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($afemps->status == "Signed By Manager")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$afemps->status}}</span></li>
-                                      @else 
-                                      @endif
-          
-                                      @if ($afemps->status == "Completed")
-                                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$afemps->status}}</span></li>
-                                      @else 
-                                      @endif
-                                    </div>
-                                  </div>
-                                </td>
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <td>
-                                  <div class="d-flex px-2 py-1">
-                                    <div>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center">
-                                      <a href="{{ url('hr/view/kpi/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
-                                    </div>
-                                  </div>
-                                </td>
-                              </div>
-                            </tr>
-                            @endforeach
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
       </div>
 
