@@ -16,7 +16,6 @@ class Nilai extends Component
     public $action;
 
     protected $listeners = [
-        'refreshParent' => '$refresh',
         'delete'
     ];
     
@@ -68,33 +67,37 @@ class Nilai extends Component
             // dd(Auth::user()->id),
         ]);
 
-        // dd(Auth::user()->id);
-        Nilai_::insert([
-        
-        'user_id'=> Auth::user()->id,
-        // dd(Auth::user()->id),
-        'created_at'=> Carbon::now(),
-        'updated_at'=> Carbon::now(),
+        $nilaiscount = Nilai_::where('user_id', '=', auth()->user()->id)->where('nilai_teras', '=', $request->nilai_teras)->count();
 
-        'grade'=> $request->grade,
-        'weightage'=> '20',
+        if ($nilaiscount == 0) {
+            Nilai_::insert([
+            
+            'user_id'=> Auth::user()->id,
+            // dd(Auth::user()->id),
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
 
-        'total_score'=> $request->total_score,
-        // 'tahun'=> $request->tahun,
-        // 'bulan'=> $request->bulan,
+            'grade'=> $request->grade,
+            'weightage'=> '20',
 
-        'nilai_teras'=> $request->nilai_teras,
-        // 'jangkaan_hasil'=> $request->jangkaan_hasil,
+            'total_score'=> $request->total_score,
+            // 'tahun'=> $request->tahun,
+            // 'bulan'=> $request->bulan,
 
-        // 'ukuran'=> $request->ukuran,
+            'nilai_teras'=> $request->nilai_teras,
+            // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
-        // 'peratus'=> $request->peratus,
-        'skor_pekerja'=> $request->skor_pekerja,
-        'peratus'=> '20',
-        'ukuran'=> 'Percentage (%)',
-        // 'skor_penyelia'=> $request->skor_penyelia,
+            // 'ukuran'=> $request->ukuran,
 
-        ]);
+            // 'peratus'=> $request->peratus,
+            'skor_pekerja'=> $request->skor_pekerja,
+            'peratus'=> '20',
+            'ukuran'=> 'Percentage (%)',
+            // 'skor_penyelia'=> $request->skor_penyelia,
+            ]);
+        } else {
+            return redirect()->back()->with('fail', 'Maaf, anda telah pun memilih jenis nilai teras ini');
+        }
 
         return redirect()->back()->with('message', 'Nilai berjaya ditambah!');
     } 
@@ -159,7 +162,7 @@ class Nilai extends Component
         // dd($this->id_nilai);
         $this->action = $action;
         // dd($this->action);
-        $this->emit('refreshParent');
+        // $this->emit('refreshParent');
     }
 
     public function delete()

@@ -72,46 +72,11 @@
                                 <div class="row">
   
                                   <div class="col-sm-4 pt-3 " >
-                                    <div class="mb-4" class="@error('nilai_teras') border border-danger rounded-3 @enderror">
-                                          <label class="font-weight-bold" >Nilai Teras</label><br>
-                                          <td style="word-break: break-all;" class="border-dark">
-                                            <select class="form-select form-select-sm" id="nilai_teras" name="nilai_teras">
-                                              <option selected class="bg-secondary text-white" value="{{ $nilai->nilai_teras }}" >{{ $nilai->nilai_teras }}</option>
-                                              
-                                              @if ($nilai->nilai_teras != "Kepimpinan")
-                                              <option value="Kepimpinan" >Kepimpinan</option>
-                                              @else
-                                              @endif
-
-                                              @if ($nilai->nilai_teras != "Perkembangan")
-                                              <option value="Perkembangan" >Perkembangan</option>
-                                              @else
-                                              @endif
-                                              
-                                              @if ($nilai->nilai_teras != "Keputusan")
-                                              <option value="Keputusan" >Keputusan</option>
-                                              @else
-                                              @endif
-                                              
-                                              @if ($nilai->nilai_teras != "Sumbangan")
-                                              <option value="Sumbangan" >Sumbangan</option>
-                                              @else
-                                              @endif
-
-                                              @if ($nilai->nilai_teras != "Rohani")
-                                              <option value="Rohani" >Rohani</option>
-                                              @else
-                                              @endif
-
-                                              @if ($nilai->nilai_teras != "Keluarga")
-                                              <option value="Keluarga" >Keluarga</option>
-                                              @else
-                                              @endif
-                                              
-                                            </select>
-                                          </td>
-                                      </select>
-                                      @error('nilai_teras') <div class="text-danger">{{ $message }}</div> @enderror
+                                    <div class="mb-4">
+                                      <td class="font-weight-bold border-dark">
+                                        <label class="font-weight-bold" >Nilai Teras</label>
+                                        <input type="text" class="form-control " id="nilai_teras" name="nilai_teras" value="{{ $nilai->nilai_teras }}" readonly>
+                                      </td>
                                     </div>
                                   </div>
 
@@ -181,8 +146,9 @@
                                               <input type="text" maxlength="4"  class="input_pencapaian w-75" id="ukuran" name="ukuran" onkeyup="masterClac();" value="{{ $kecekapan->ukuran }}" min="0" >
                                             </td> --}}
                                       
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $nilai->skor_pekerja }}">
+                                            <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
+                                              <input type="text" class="form-control " pattern="[0-4]+" maxlength="1" id="skor_pekerja" name="skor_pekerja" value="{{ $nilai->skor_pekerja }}">
+                                              @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
 
 

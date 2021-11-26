@@ -4,7 +4,7 @@
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        <img src="../assets/img/profileavatar.png" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
                 <div class="col-auto my-auto">
@@ -94,9 +94,12 @@
                         <div class="card h-100">
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
-                                    <div class="col-md-8 d-flex align-items-center">
+                                    {{-- <div class="col-md-8 d-flex align-items-center">
                                         <h6 class="mb-0">Profile Information</h6>
-                                    </div>
+                                    </div> --}}
+                                    <div class="card-header pb-0">
+                                        <h6>Profile Information</h6>
+                                      </div>
                                     <div class="col-md-4 text-end">
                                     {{-- <a href="javascript:;">
                                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
@@ -182,7 +185,7 @@
                                                     <td>
                                                         <div class="d-flex px-2 py-1">
                                                             {{-- <div>
-                                                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                                                                <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                                                             </div> --}}
                                                                 <div class="d-flex flex-column justify-content-center">
                                                                     <h6 class="mb-0 text-sm">KPI Master</h6>
@@ -195,16 +198,21 @@
                                                         <p class="text-xs text-secondary mb-0">Organization</p>
                                                     </td> --}}
                                                     <td class="align-middle text-center text-sm">
-                                                        <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                        @foreach ($kpiall as $key => $kpialls)
+                                                        <span>{{ $kpialls -> total_score_master }}%</span>
+                                                        @endforeach
                                                     </td>
                                                     {{-- <td class="align-middle text-center">
                                                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                                                     </td> --}}
-                                                    <td class="align-middle text-center text-sm">
-                                                        <a href="http://kpi.test/add-kpi" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                    <td class="align-middle text-center">
+                                                        <a href="http://kpi.test/add-kpi" style="color:blue;text-decoration:underline;font-size:13.5px"; >
                                                             Edit
                                                         </a>
                                                     </td>
+                                                    {{-- <td class="align-middle text-center">
+                                                        <a style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                                                      </td> --}}
                                                 </tr>
                                                 <tr>
                                                 <td>
@@ -223,14 +231,21 @@
                                                     <p class="text-xs text-secondary mb-0">Developer</p>
                                                 </td> --}}
                                                 <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                                                    @foreach ($kpiall as $key => $kpialls)
+                                                    <span>{{ $kpialls -> total_score_kecekapan }}%</span>
+                                                    @endforeach
                                                 </td>
                                                 {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
                                                 </td> --}}
-                                                <td class="align-middle text-center text-sm">
+                                                {{-- <td class="align-middle text-center text-sm">
                                                     <a href="http://kpi.test/add-kecekapan" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                     Edit
+                                                    </a>
+                                                </td> --}}
+                                                <td class="align-middle text-center">
+                                                    <a href="http://kpi.test/add-kecekapan" style="color:blue;text-decoration:underline;font-size:13.5px"; >
+                                                        Edit
                                                     </a>
                                                 </td>
                                             </tr>
@@ -251,13 +266,15 @@
                                                     <p class="text-xs text-secondary mb-0">Projects</p>
                                                 </td> --}}
                                                 <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                    @foreach ($kpiall as $key => $kpialls)
+                                                    <span>{{ $kpialls -> total_score_nilai }}%</span>
+                                                    @endforeach
                                                 </td>
                                                 {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
                                                 </td> --}}
-                                                <td class="align-middle text-center text-sm">
-                                                    <a href="http://kpi.test/add-nilai" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                <td class="align-middle text-center">
+                                                    <a href="http://kpi.test/add-nilai" style="color:blue;text-decoration:underline;font-size:13.5px"; >
                                                         Edit
                                                     </a>
                                                 </td>
@@ -279,7 +296,10 @@
                                                     <p class="text-xs text-secondary mb-0">Projects</p>
                                                 </td> --}}
                                                 <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                    @foreach ($kpiall as $key => $kpialls)
+                                                    <span>{{ round($kpialls -> total_score_all,2) }}%</span>
+                                                    
+                                                    @endforeach
                                                 </td>
                                                 {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
@@ -307,7 +327,9 @@
                                                     <p class="text-xs text-secondary mb-0">Projects</p>
                                                 </td> --}}
                                                 <td class="align-middle text-center text-sm">
-                                                    <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                    @foreach ($kpiall as $key => $kpialls)
+                                                    <span>{{ $kpialls -> grade_all }}</span>
+                                                    @endforeach
                                                 </td>
                                                 {{-- <td class="align-middle text-center">
                                                     <span class="text-secondary text-xs font-weight-bold">19/09/17</span>

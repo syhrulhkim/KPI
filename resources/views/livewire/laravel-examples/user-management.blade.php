@@ -4,7 +4,7 @@
         {{-- <div class="alert alert-secondary mx-4" role="alert">
             <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
                 <strong>PRO</strong> feature!
-                Click <strong><a href="https://demos.creative-tim.com/soft-ui-dashboard-laravel-pro/dashboard-default" target="_blank"
+                Click <strong><a href="https://momentuminternet.com/" target="_blank"
                         class="text-white">here</a></strong>
                 to see the PRO
                 product!</span>
@@ -63,7 +63,7 @@
                                         </td>
                                         <td>
                                             {{-- <div>
-                                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                                <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3">
                                             </div> --}}
                                         
                                              <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->name}}</p>

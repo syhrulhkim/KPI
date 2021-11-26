@@ -4,7 +4,9 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\KPI_;
+use App\Models\KPIMaster_;
 use App\Models\Kecekapan_;
+use App\Models\KpiAll_;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -12,6 +14,12 @@ use Illuminate\Support\Carbon;
 
 class Kecekapan extends Component
 {
+    public $id_kecekapan;
+    public $action;
+
+    protected $listeners = [
+        'delete'
+    ];
     // public function kecekapan() {
 
     //     $kecekapan = Kecekapan_::latest()->get();
@@ -61,34 +69,64 @@ class Kecekapan extends Component
             // dd(Auth::user()->id),
         ]);
 
+        // if (KPIAll_::where('user_id', '=', Auth::user()->id)->count() == 1) {
+        //     $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
+        //     $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
+
+        //     $total_score_kecekapan = Kecekapan_::where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
+        //     $weightage = Kecekapan_::where('user_id', '=', Auth::user()->id)->sum('peratus');
+
+        //     KPIAll_::find($kpiall_id)->update([
+        //         'total_score_kecekapan'=>  $total_score_kecekapan,
+        //         'weightage_kecekapan'=>  $weightage,
+        //     ]);
+        // }
+        // else {
+        //     KPIAll_::insert([              
+        //         'user_id'=> Auth::user()->id,
+        //     ]);
+        // }
+
         // dd(Auth::user()->id);
-        Kecekapan_::insert([
-        
-        'user_id'=> Auth::user()->id,
-        // dd(Auth::user()->id),
-        'created_at'=> Carbon::now(),
-        'updated_at'=> Carbon::now(),
+        $kecekapanscount = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('kecekapan_teras', '=', $request->kecekapan_teras)->count();
+        // $past_weightage = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('kecekapan_teras', '=', $request->kecekapan_teras)->sum('skor_sebenar');
+        // $present_weightage = 20;
+        // $total_weightage = $past_weightage + $present_weightage;
+        // dd($total_weightage);
+        // dd($kecekapanscount);
 
-        'grade'=> $request->grade,
-        // 'weightage'=> $request->weightage,
-        'weightage'=> '20',
+        // if ($kecekapanscount == 0 && $total_weightage <= 100 ) {
+            if ($kecekapanscount == 0) {
+            Kecekapan_::insert([
+            
+            'user_id'=> Auth::user()->id,
+            // dd(Auth::user()->id),
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
 
-        'total_score'=> $request->total_score,
-        // 'tahun'=> $request->tahun,
-        // 'bulan'=> $request->bulan,
+            'grade'=> $request->grade,
+            // 'weightage'=> $request->weightage,
+            'weightage'=> '20',
 
-        'kecekapan_teras'=> $request->kecekapan_teras,
-        // 'jangkaan_hasil'=> $request->jangkaan_hasil,
+            'total_score'=> $request->total_score,
+            // 'tahun'=> $request->tahun,
+            // 'bulan'=> $request->bulan,
 
-        // 'ukuran'=> $request->ukuran,
+            'kecekapan_teras'=> $request->kecekapan_teras,
+            // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
-        // 'peratus'=> $request->peratus,
-        'skor_pekerja'=> $request->skor_pekerja,
-        'peratus'=> '20',
-        'ukuran'=> 'Percentage (%)',
-        // 'skor_penyelia'=> $request->skor_penyelia,
+            // 'ukuran'=> $request->ukuran,
 
-        ]);
+            // 'peratus'=> $request->peratus,
+            'skor_pekerja'=> $request->skor_pekerja,
+            'peratus'=> '20',
+            'ukuran'=> 'Percentage (%)',
+            // 'skor_penyelia'=> $request->skor_penyelia,
+
+            ]);
+        } else {
+            return redirect()->back()->with('fail', 'Maaf, anda telah pun memilih jenis kecekapan teras ini');
+        }
 
         return redirect()->back()->with('message', 'Kecekapan berjaya ditambah!');
     } 
@@ -163,10 +201,23 @@ class Kecekapan extends Component
 
     }
 
-    public function kecekapan_delete($id) {
+    // public function kecekapan_delete($id) {
 
-        $delete = Kecekapan_::find($id)->forceDelete();
+    //     $delete = Kecekapan_::find($id)->forceDelete();
 
+    //     return redirect()->back()->with('message', 'Kecekapan Deleted Successfully');
+    // }
+
+    public function selectItem($id_kecekapan , $action)
+    {
+        $this->id_kecekapan = $id_kecekapan;
+        $this->action = $action;
+    }
+
+    public function delete()
+    {
+        $kecekapan = Kecekapan_::find($this->id_kecekapan);
+        $kecekapan->delete();
         return redirect()->back()->with('message', 'Kecekapan Deleted Successfully');
     }
 

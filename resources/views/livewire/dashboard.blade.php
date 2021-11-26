@@ -4,6 +4,8 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
+            <h6>Employee Details</h6>
+            <p><strong>{{$userscount}} employees</strong> in this company</p>
             <p><strong>{{$ceoempcount}} employees</strong> in CEO Office department</p>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
@@ -27,18 +29,18 @@
                     <td>    
                       <div class="d-flex px-2 py-1">
                         <div>
-                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                          <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                         </div>
                         
                         <div class="d-flex flex-column justify-content-center">
                           <h6 class="mb-0 text-sm" value="{{$ceoemps->id}}">{{$ceoemps->name}}</h6>
-                          <p class="text-xs text-secondary mb-0">roles</p>
+                          {{-- <p class="text-xs text-secondary mb-0">roles</p> --}}
                         </div>
                       </div>
                     </td>
                     <td>
                       <p class="text-xs font-weight-bold mb-0" value="{{$ceoemps->id}}">{{$ceoemps->position}}</p>
-                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                      {{-- <p class="text-xs text-secondary mb-0">Momentum Internet</p> --}}
                     </td>
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->nostaff}}</span>
@@ -129,18 +131,18 @@
                     <td>    
                       <div class="d-flex px-2 py-1">
                         <div>
-                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                          <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                         </div>
                         
                         <div class="d-flex flex-column justify-content-center">
                           <h6 class="mb-0 text-sm" value="{{$hremps->id}}">{{$hremps->name}}</h6>
-                          <p class="text-xs text-secondary mb-0">roles</p>
+                          {{-- <p class="text-xs text-secondary mb-0">roles</p> --}}
                         </div>
                       </div>
                     </td>
                     <td>
                       <p class="text-xs font-weight-bold mb-0" value="{{$hremps->id}}">{{$hremps->position}}</p>
-                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                      {{-- <p class="text-xs text-secondary mb-0">Momentum Internet</p> --}}
                     </td>
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->nostaff}}</span>
@@ -231,18 +233,18 @@
                     <td>    
                       <div class="d-flex px-2 py-1">
                         <div>
-                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                          <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                         </div>
                         
                         <div class="d-flex flex-column justify-content-center">
                           <h6 class="mb-0 text-sm" value="{{$afemps->id}}">{{$afemps->name}}</h6>
-                          <p class="text-xs text-secondary mb-0">roles</p>
+                          {{-- <p class="text-xs text-secondary mb-0">roles</p> --}}
                         </div>
                       </div>
                     </td>
                     <td>
                       <p class="text-xs font-weight-bold mb-0" value="{{$afemps->id}}">{{$afemps->position}}</p>
-                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                      {{-- <p class="text-xs text-secondary mb-0">Momentum Internet</p> --}}
                     </td>
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->nostaff}}</span>
@@ -334,18 +336,18 @@
                     <td>    
                       <div class="d-flex px-2 py-1">
                         <div>
-                          <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                          <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                         </div>
                         
                         <div class="d-flex flex-column justify-content-center">
                           <h6 class="mb-0 text-sm" value="{{$salesemps->id}}">{{$salesemps->name}}</h6>
-                          <p class="text-xs text-secondary mb-0">roles</p>
+                          {{-- <p class="text-xs text-secondary mb-0">roles</p> --}}
                         </div>
                       </div>
                     </td>
                     <td>
                       <p class="text-xs font-weight-bold mb-0" value="{{$salesemps->id}}">{{$salesemps->position}}</p>
-                      <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                      {{-- <p class="text-xs text-secondary mb-0">Momentum Internet</p> --}}
                     </td>
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->nostaff}}</span>
@@ -413,8 +415,6 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Employee Details</h6>
-              <p><strong>{{$userscount}} employees</strong> in this company</p>
               <p><strong>{{$marketingempcount}} employees</strong> in Marketing department</p>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -437,19 +437,22 @@
                     <tr>
                       <td>    
                         <div class="d-flex px-2 py-1">
+                          {{-- <div>
+                            <img src="../assets/img/profileavatars.png" class="avatar avatar-sm me-3" alt="user1">
+                          </div> --}}
                           <div>
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                            <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                           </div>
                           
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm" value="{{$marketingemps->id}}">{{$marketingemps->name}}</h6>
-                            <p class="text-xs text-secondary mb-0">roles</p>
+                            {{-- <p class="text-xs text-secondary mb-0">roles</p> --}}
                           </div>
                         </div>
                       </td>
                       <td>
                         <p class="text-xs font-weight-bold mb-0" value="{{$marketingemps->id}}">{{$marketingemps->position}}</p>
-                        <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                        {{-- <p class="text-xs text-secondary mb-0">Momentum Internet</p> --}}
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold" value="{{$marketingemps->id}}">{{$marketingemps->nostaff}}</span>
@@ -543,18 +546,18 @@
                       <td>    
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                            <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                           </div>
                           
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm" value="{{$operationemps->id}}">{{$operationemps->name}}</h6>
-                            <p class="text-xs text-secondary mb-0">roles</p>
+                            {{-- <p class="text-xs text-secondary mb-0">roles</p> --}}
                           </div>
                         </div>
                       </td>
                       <td>
                         <p class="text-xs font-weight-bold mb-0" value="{{$operationemps->id}}">{{$operationemps->position}}</p>
-                        <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                        {{-- <p class="text-xs text-secondary mb-0">Momentum Internet</p> --}}
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->nostaff}}</span>
@@ -645,18 +648,18 @@
                             <td>    
                               <div class="d-flex px-2 py-1">
                                 <div>
-                                  <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                                  <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3" alt="user1">
                                 </div>
                                 
                                 <div class="d-flex flex-column justify-content-center">
                                   <h6 class="mb-0 text-sm" value="{{$rndemps->id}}">{{$rndemps->name}}</h6>
-                                  <p class="text-xs text-secondary mb-0">roles</p>
+                                  {{-- <p class="text-xs text-secondary mb-0">roles</p> --}}
                                 </div>
                               </div>
                             </td>
                             <td>
                               <p class="text-xs font-weight-bold mb-0" value="{{$rndemps->id}}">{{$rndemps->position}}</p>
-                              <p class="text-xs text-secondary mb-0">Momentum Internet</p>
+                              {{-- <p class="text-xs text-secondary mb-0">Momentum Internet</p> --}}
                             </td>
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{$rndemps->id}}">{{$rndemps->nostaff}}</span>

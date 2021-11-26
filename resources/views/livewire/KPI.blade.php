@@ -1,4 +1,7 @@
+{{-- {{dd($weightage_master)}} --}}
 
+<div>
+  
 {{-- @extends('layouts/employee_template') --}}
 {{-- @section('title','Staff | Master') --}}
 
@@ -25,6 +28,12 @@
             </div>	
             @endif
 
+            @if (session('fail2'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>{{ session('fail2') }}</strong>
+            </div>	
+            @endif
+
             @if (session('weightage'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
               <strong>Sila semak semula butiran pencapaian!</strong>{{ session('weightage') }}.
@@ -36,9 +45,15 @@
         
           <div class="col-md-auto">
                 <div class="col-sm-auto p-3">
+                  @if ($weightage_master > 100) 
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>{{ session('fail2') }}Your Percentage for KPI Master exceed 100%. Please check back.</strong>
+                    </div>
+                  @else
+                  @endif
                     <div class="card">
                     <div class="card-header pb-0">
-                      <h6>KAD SKOR 2021 - KPI</h6>
+                      <h6>KAD SKOR 2021 - KPI (Current weightage = {{$weightage_master}})</h6>
                     </div>
                         <div class="m-3">
 
@@ -202,7 +217,7 @@
                                         <tr>
 
                                           <td class="border-dark" class="@error('peratus') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >
+                                            <input type="text" pattern="[0-9]+" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  >
                                             @error('peratus') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
 
@@ -227,22 +242,22 @@
                                           </td>
 
                                           <td class="border-dark" class="@error('threshold') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="4" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="[0-9]+" maxlength="3" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" min="0" >
                                             @error('threshold') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
                                           <td class="border-dark" class="@error('base') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="4" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="[0-9]+" maxlength="3" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" min="0" >
                                             @error('base') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
                                           <td class="border-dark" class="@error('stretch') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="4" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="[0-9]+" maxlength="3" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" min="0" >
                                             @error('stretch') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
                                           <td class="border-dark" class="@error('pencapaian') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="4"  class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="^\d*(\.\d{0,2})?$" maxlength="4" class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" min="0" >
                                             @error('pencapaian') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                     
@@ -260,11 +275,11 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
+{{-- 
                             </div>    
                               <caption>**pastikan maklumat profil lengkap sebelum hantar</caption><br>
-                              <caption>**maklumat pencapaian ini terus hantar ke pengurus jabatan</caption>
-                            </div>
+                              <caption>**Performance Information ini terus hantar ke pengurus jabatan</caption>
+                            </div> --}}
 
                             <div class="p-3" style="text-align: right">
                               <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
@@ -372,7 +387,9 @@
                           <a href="{{ url('employee/edit/kpi/'.$kadskors->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kadskors->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- {{dd($kadskors->kpimaster->id)}} --}}
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$kadskors->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$kadskors->kpimaster->kpiall->id}} , {{$kadskors->kpimaster->id}} , {{$kadskors->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kadskors->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -382,9 +399,9 @@
                 </table>
 
                 @foreach ($kadskormaster as $kadskormasters)
-                <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                <div class="row pl-4 ml-4">
+                  <div class="col-sm-4 pt-3 pl-4 ml-4 " >
+                    <div class="mb-4 pl-4 ml-4">
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskormasters -> percent_master }}">{{ $kadskormasters -> percent_master }}</span>
                     </div>
@@ -501,7 +518,8 @@
                           <a href="{{ url('employee/edit/kpi/'.$kewangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kewangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$kewangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$kewangans->kpimaster->kpiall->id}} , {{$kewangans->kpimaster->id}} , {{$kewangans->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kewangans->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -625,7 +643,8 @@
                           <a href="{{ url('employee/edit/kpi/'.$pelangganIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$pelangganIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$pelangganIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$pelangganIs->kpimaster->kpiall->id}} , {{$pelangganIs->kpimaster->id}} , {{$pelangganIs->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$pelangganIs->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -748,7 +767,8 @@
                           <a href="{{ url('employee/edit/kpi/'.$pelangganIIs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$pelangganIIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$pelangganIIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$pelangganIIs->kpimaster->kpiall->id}} , {{$pelangganIIs->kpimaster->id}} , {{$pelangganIIs->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$pelangganIIs->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -871,7 +891,8 @@
                           <a href="{{ url('employee/edit/kpi/'.$kecemerlangans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kecemerlangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$kecemerlangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$kecemerlangans->kpimaster->kpiall->id}} , {{$kecemerlangans->kpimaster->id}} , {{$kecemerlangans->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecemerlangans->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -994,7 +1015,9 @@
                           <a href="{{ url('employee/edit/kpi/'.$trainings->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$trainings->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- {{dd($trainings->kpimaster->id)}} --}}
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$trainings->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$trainings->kpimaster->kpiall->id}} , {{$trainings->kpimaster->id}} , {{$trainings->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$trainings->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -1117,7 +1140,9 @@
                           <a href="{{ url('employee/edit/kpi/'.$ncrs->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$ncrs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- {{dd($ncrs->kpimaster->kpiall->id)}} --}}
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$ncrs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$ncrs->kpimaster->kpiall->id}} , {{$ncrs->kpimaster->id}} , {{$ncrs->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$ncrs->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -1240,7 +1265,8 @@
                           <a href="{{ url('employee/edit/kpi/'.$kolaborasis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kolaborasis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                          {{-- <a href="{{ url('employee/delete/kpi/'.$kolaborasis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                          <button type="button" wire:click="selectItem({{$kolaborasis->kpimaster->kpiall->id}} , {{$kolaborasis->kpimaster->id}} , {{$kolaborasis->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kolaborasis->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                         </td>
                       </tr>
                     @endforeach
@@ -1285,7 +1311,35 @@
       </div>
     </div> 
     @endif
-
+    @push('scripts')
+    
+    {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
+    <script>
+      document.addEventListener('livewire:load', function () {
+    
+    
+        $(document).on("click", ".data-delete", function (e) 
+            {
+                e.preventDefault();
+                swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    e.preventDefault();
+                    Livewire.emit('delete')
+                } 
+                });
+            });
+      })
+    </script>
+    {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
+    
+    @endpush
  <!-- Master Pencapaian JS -->
 <script src="{{asset('assets/js/master.js')}}"></script>
 {{-- <script src="{{asset('assets/js/penilaian.js')}}"></script>
@@ -1299,3 +1353,4 @@
 
 </body>
 {{-- @endsection --}}
+</div>

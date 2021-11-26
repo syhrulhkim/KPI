@@ -22,6 +22,12 @@ class KPIAll_ extends Model
         'weightage_all',
         'total_score_all',
         
+        'weightage_kecekapan',
+        'total_score_kecekapan',
+
+        'weightage_nilai',
+        'total_score_nilai',
+        
         'user_id',
     ];
         public function kpimasters() {

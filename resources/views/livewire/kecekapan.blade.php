@@ -1,3 +1,4 @@
+<div>
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Master') --}}
 
@@ -52,7 +53,9 @@
         
           <div class="col-md-auto">
             <div class="card shadow rounded">
-                <div class="card-header font-weight-bold" style="text-transform:uppercase" >KAD SKOR 2021 - Kecekapan Teras</div>
+              <div class="card-header pb-0">
+                <h6>KAD SKOR 2021 - KECEKAPAN TERAS</h6>
+              </div>
 
                 <div class="col-sm-auto p-3">
                     <div class="card">
@@ -201,7 +204,7 @@
                                           
                                           @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                                           <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                                             @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
@@ -209,7 +212,7 @@
 
                                           @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
                                           <td style="word-break: break-all;" class="border-dark" class="@error('skor_penyelia') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
                                             @error('skor_penyelia') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
@@ -223,11 +226,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
-                            </div>    
-                              <caption>**pastikan maklumat profil lengkap sebelum hantar</caption><br>
-                              <caption>**maklumat pencapaian ini terus hantar ke pengurus jabatan</caption>
-                            </div>
 
                             <div class="p-3" style="text-align: right">
                               <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
@@ -247,7 +245,7 @@
         {{-- <div class="card m-3">
           @if (Auth::user()->role == "employee")
 
-          <div class="card-header font-weight-bold" style="text-transform:uppercase" >Maklumat Pencapaian</div>
+          <div class="card-header font-weight-bold" style="text-transform:uppercase" >Performance Information</div>
           <div class="table-responsive">
             <table  class="table table-bordered text-center">
                 <thead class="thead-dark">
@@ -298,7 +296,7 @@
         <div class="card m-3">
           @if (Auth::user()->role == "manager")
 
-          <div class="card-header font-weight-bold" style="text-transform:uppercase" >Maklumat Pencapaian</div>
+          <div class="card-header font-weight-bold" style="text-transform:uppercase" >Performance Information</div>
           <div class="table-responsive">
             <table  class="table table-bordered text-center">
                 <thead class="thead-dark">
@@ -356,7 +354,7 @@
               <div class="card mb-4">
                 <div class="card-header pb-0">
                   {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
-                  <h6>Maklumat Pencapaian</h6>
+                  <h6>Performance Information</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="table-responsive p-0">
@@ -480,7 +478,8 @@
                               <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                              {{-- <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                              <button type="button" wire:click="selectItem({{$kecekapans->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                             </td>
                           </tr>
                         @endforeach
@@ -502,7 +501,7 @@
               <div class="card mb-4">
                 <div class="card-header pb-0">
                   {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
-                  <h6>Maklumat Pencapaian</h6>
+                  <h6>Performance Information</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="table-responsive p-0">
@@ -626,7 +625,8 @@
                               <a href="{{ url('employee/edit/kecekapan/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                              {{-- <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
+                              <button type="button" wire:click="selectItem({{$userss->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>Delete</button>
                             </td>
                           </tr>
                         @endforeach
@@ -643,10 +643,39 @@
 
       </div>
   </div>
-
+  @push('scripts')
+    
+  {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
+  <script>
+    document.addEventListener('livewire:load', function () {
+  
+  
+      $(document).on("click", ".data-delete", function (e) 
+          {
+              e.preventDefault();
+              swal({
+              title: "Are you sure?",
+              text: "Once deleted, you will not be able to recover!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+              })
+              .then((willDelete) => {
+              if (willDelete) {
+                  e.preventDefault();
+                  Livewire.emit('delete')
+              } 
+              });
+          });
+    })
+  </script>
+  {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
+  
+  @endpush
  <!-- Master Pencapaian JS -->
 <script src="{{asset('assets/js/kecekapan.js')}}"></script>
 {{-- <script src="{{asset('assets/js/master.js')}}"></script> --}}
 
 </body>
 {{-- @endsection --}}
+</div>

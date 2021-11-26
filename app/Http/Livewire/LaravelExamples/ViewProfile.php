@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\LaravelExamples;
 use App\Models\User;
+use App\Models\KPIAll_;
 
 use Livewire\Component;
 
@@ -35,6 +36,7 @@ class ViewProfile extends Component
     }
     public function render()
     {
-        return view('livewire.laravel-examples.view-profile');
+        $kpiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        return view('livewire.laravel-examples.view-profile', compact('kpiall'));
     }
 }

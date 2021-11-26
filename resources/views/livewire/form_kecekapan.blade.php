@@ -72,41 +72,11 @@
                                 <div class="row">
   
                                   <div class="col-sm-4 pt-3 " >
-                                    <div class="mb-4" class="@error('kecekapan_teras') border border-danger rounded-3 @enderror">
-                                          <label class="font-weight-bold" >Kecekapan Teras</label><br>
-                                          <td style="word-break: break-all;" class="border-dark">
-                                            <select class="form-select form-select-sm" id="kecekapan_teras" name="kecekapan_teras">
-                                              <option selected class="bg-secondary text-white" value="{{ $kecekapan->kecekapan_teras }}" >{{ $kecekapan->kecekapan_teras }}</option>
-                                              
-                                              @if ($kecekapan->kecekapan_teras != "Kepimpinan Organisasi")
-                                              <option value="Kepimpinan Organisasi" >Kepimpinan Organisasi</option>
-                                              @else
-                                              @endif
-
-                                              @if ($kecekapan->kecekapan_teras != "Keupayaan Inovatif")
-                                              <option value="Keupayaan Inovatif" >Keupayaan Inovatif</option>
-                                              @else
-                                              @endif
-                                              
-                                              @if ($kecekapan->kecekapan_teras != "Pengurusan Pelanggan")
-                                              <option value="Pengurusan Pelanggan" >Pengurusan Pelanggan</option>
-                                              @else
-                                              @endif
-                                              
-                                              @if ($kecekapan->kecekapan_teras != "Pengurusan Pemegang Berkepentingan")
-                                              <option value="Pengurusan Pemegang Berkepentingan" >Pengurusan Pemegang Berkepentingan</option>
-                                              @else
-                                              @endif
-
-                                              @if ($kecekapan->kecekapan_teras != "Ketangkasan Dalam Organisasi")
-                                              <option value="Ketangkasan Dalam Organisasi" >Ketangkasan Dalam Organisasi</option>
-                                              @else
-                                              @endif
-
-                                            </select>
-                                          </td>
-                                      </select>
-                                      @error('kecekapan_teras') <div class="text-danger">{{ $message }}</div> @enderror
+                                    <div class="mb-4">
+                                      <td class="font-weight-bold border-dark">
+                                        <label class="font-weight-bold" >Kecekapan Teras</label>
+                                        <input type="text" class="form-control " id="kecekapan_teras" name="kecekapan_teras" value="{{ $kecekapan->kecekapan_teras }}" readonly>
+                                      </td>
                                     </div>
                                   </div>
 
@@ -178,8 +148,9 @@
                                               <input type="text" maxlength="4"  class="input_pencapaian w-75" id="ukuran" name="ukuran" onkeyup="masterClac();" value="{{ $kecekapan->ukuran }}" min="0" >
                                             </td> --}}
                                       
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" class="form-control " id="skor_pekerja" name="skor_pekerja" value="{{ $kecekapan->skor_pekerja }}">
+                                            <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
+                                              <input type="text" class="form-control " pattern="[0-4]+" maxlength="1" id="skor_pekerja" name="skor_pekerja" value="{{ $kecekapan->skor_pekerja }}">
+                                              @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
 
                                             {{-- <td class="font-weight-bold border-dark">

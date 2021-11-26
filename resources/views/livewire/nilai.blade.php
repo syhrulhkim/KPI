@@ -1,3 +1,4 @@
+<div>
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Master') --}}
 
@@ -52,7 +53,10 @@
         
           <div class="col-md-auto">
             <div class="card shadow rounded">
-                <div class="card-header font-weight-bold" style="text-transform:uppercase" >KAD SKOR 2021 - Nilai Teras</div>
+                {{-- <div class="card-header font-weight-bold" style="text-transform:uppercase" >KAD SKOR 2021 - Nilai Teras</div> --}}
+                <div class="card-header pb-0">
+                  <h6>KAD SKOR 2021 - NILAI TERAS</h6>
+                </div>
 
                 <div class="col-sm-auto p-3">
                     <div class="card">
@@ -212,7 +216,7 @@
                                           
                                           @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                                           <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="[0-4]+" maxlength="1" class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                                             @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
@@ -220,7 +224,7 @@
 
                                           @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
                                           <td style="word-break: break-all;" class="border-dark" class="@error('skor_penyelia') border border-danger rounded-3 @enderror">
-                                            <input type="text" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                                            <input type="text" pattern="[0-4]+" maxlength="1" class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
                                             @error('skor_penyelia') <div class="text-danger">{{ $message }}</div> @enderror
                                           </td>
                                           @else
@@ -234,11 +238,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
-                            </div>    
-                              <caption>**pastikan maklumat profil lengkap sebelum hantar</caption><br>
-                              <caption>**maklumat pencapaian ini terus hantar ke pengurus jabatan</caption>
-                            </div>
 
                             <div class="p-3" style="text-align: right">
                               <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
@@ -262,7 +261,7 @@
               <div class="card mb-4">
                 <div class="card-header pb-0">
                   {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
-                  <h6>Maklumat Pencapaian</h6>
+                  <h6>Performance Information</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="table-responsive p-0">
@@ -430,7 +429,7 @@
               <div class="card mb-4">
                 <div class="card-header pb-0">
                   {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
-                  <h6>Maklumat Pencapaian</h6>
+                  <h6>Performance Information</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="table-responsive p-0">
@@ -593,9 +592,6 @@
 
       </div>
   </div>
-
-      </div>
-  </div>
   @push('scripts')
     
   {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
@@ -631,3 +627,4 @@
 
 </body>
 {{-- @endsection --}}
+</div>

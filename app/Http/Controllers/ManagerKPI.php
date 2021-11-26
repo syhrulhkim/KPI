@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\KPI_;
+use App\Models\KPIAll_;
 use App\Models\Kecekapan_;
 use App\Models\Nilai_;
 use App\Models\KPIMaster_;
@@ -24,6 +25,7 @@ class ManagerKPI extends Controller
         // dd($userdepartment);
         // $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
         $kpi = KPI_::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
+        $kpimaster = KPIMaster_::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
         // dd($kpi);
         $userNE = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
         // $user = User::where('id', '=', $id)->get();
@@ -78,7 +80,10 @@ class ManagerKPI extends Controller
         $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
         $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
 
-        return view('livewire.manager-kpi', compact('kpi', 'userNE', 'nilai', 'user' , 'id', 'kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount'));
+        $kpiall = KPIAll_::where('user_id', '=', $id)->get();
+        $weightage_master = KpiAll_::where('user_id', '=', $id)->value('weightage_master');
+
+        return view('livewire.manager-kpi', compact('kpi', 'userNE', 'nilai', 'user' , 'id', 'kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount', 'kpimaster', 'kpiall', 'weightage_master'));
     }
 
     // public function changeStatus($id_answer)

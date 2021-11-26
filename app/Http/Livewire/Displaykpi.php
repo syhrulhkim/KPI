@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Displaykpi_;
 use App\Models\KPI_;
+use App\Models\KPIAll_;
 use App\Models\KPIMaster_;
 use App\Models\Kecekapan_;
 use App\Models\Nilai_;
@@ -110,7 +111,13 @@ class Displaykpi extends Component
         $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
         $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
 
-        return view('livewire.display-kpi', compact('kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'displaykpi', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount'));
+        $kpiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->value('weightage_master');
+        // $kecekapanall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        // $nilaiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        // $skorakhir = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+
+        return view('livewire.display-kpi', compact('kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'displaykpi', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount', 'kpiall', 'weightage_master'));
 
 
         // return view('livewire.display-kpi', compact('displaykpi'));

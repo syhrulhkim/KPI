@@ -53,51 +53,112 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($kpi as $key => $kpis)
+                      @php($i = 1)
+  
+                      @foreach ($kadskor as $key => $kpis)
                         <tr>
-                          <td>    
+                          @if ($key == 0)
+                          {{-- <td class="border-dark">{{ $i++  }}</td> --}}
+                          {{-- <td>    
                             <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
                                 <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                              </div>
+                            </div>
+                          </td> --}}
+                          <td>    
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
                               </div>
                             </div>
                           </td>
                           <td>
                             <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
                           </td>
-                          <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
+                          <td class="text-xs font-weight-bold mb-0">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
                           </td>
-                          <td class="align-middle text-center">
+                          @else
+                          <td>    
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                          </td>
+                          <td class="text-xs font-weight-bold mb-0">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+                          </td>
+                          @endif
+                          {{-- <td class="align-middle text-center text-sm">
+                            <span class="badge badge-sm bg-gradient-success" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
+                          </td> --}}
+                          <td class="text-xs font-weight-bold mb-0">
                             <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
                           </td>
+                          @if ($key == 0)
                           <td class="align-middle text-center">
-                            <a href=" {{ $kpis->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                            <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> peratus }}">{{ $kpis -> peratus }}</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> ukuran }}">{{ $kpis -> ukuran }}</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> threshold }}">{{ $kpis -> threshold }}</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="">30</span>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> base }}">{{ $kpis -> base }}</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="">65</span>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> stretch }}">{{ $kpis -> stretch }}</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="">100</span>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> pencapaian }}">{{ $kpis -> pencapaian }}</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> skor_KPI }}">{{ $kpis -> skor_KPI }}</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
                           </td>
                           <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis -> skor_sebenar,2) }}">{{ round($kpis -> skor_sebenar,2) }} %</span>
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
                           </td>
+                          @else
+                          <td class="align-middle text-center">
+                            <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value=""></span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+                          </td>
+                          @endif
+  
+  
                           {{-- <td class="align-middle text-center">
                             <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
                           </td>
@@ -106,6 +167,664 @@
                           </td> --}}
                         </tr>
                       @endforeach
+                      @foreach ($kewangan as $key => $kpis)
+                      <tr>
+                        @if ($key == 0)
+                        <td>    
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+                        </td>
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
+                        </td>
+                        @else
+                        <td>    
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                        </td>
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+                        </td>
+                        @endif
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        @if ($key == 0)
+                        <td class="align-middle text-center">
+                          <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
+                        </td>
+                        @else
+                        <td class="align-middle text-center">
+                          <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value=""></span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+                        </td>
+                        @endif
+  
+                      </tr>
+                    @endforeach
+                    @foreach ($pelangganI as $key => $kpis)
+                    <tr>
+                      @if ($key == 0)
+                      <td>    
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+                      </td>
+                      <td class="text-xs font-weight-bold mb-0">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
+                      </td>
+                      @else
+                      <td>    
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                      </td>
+                      <td class="text-xs font-weight-bold mb-0">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+                      </td>
+                      @endif
+                      <td class="text-xs font-weight-bold mb-0">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                      </td>
+                      @if ($key == 0)
+                      <td class="align-middle text-center">
+                        <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
+                      </td>
+                      @else
+                      <td class="align-middle text-center">
+                        <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value=""></span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+                      </td>
+                      @endif
+  
+                    </tr>
+                  @endforeach
+                  @foreach ($pelangganII as $key => $kpis)
+                  <tr>
+                    @if ($key == 0)
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+                    </td>
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
+                    </td>
+                    @else
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                    </td>
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+                    </td>
+                    @endif
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                    </td>
+                    @if ($key == 0)
+                    <td class="align-middle text-center">
+                      <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
+                    </td>
+                    @else
+                    <td class="align-middle text-center">
+                      <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value=""></span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+                    </td>
+                    @endif
+  
+                  </tr>
+                @endforeach
+                @foreach ($kecemerlangan as $key => $kpis)
+                <tr>
+                  @if ($key == 0)
+                  <td>    
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+                  </td>
+                  <td class="text-xs font-weight-bold mb-0">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
+                  </td>
+                  @else
+                  <td>    
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                  </td>
+                  <td class="text-xs font-weight-bold mb-0">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+                  </td>
+                  @endif
+                  <td class="text-xs font-weight-bold mb-0">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                  </td>
+                  @if ($key == 0)
+                  <td class="align-middle text-center">
+                    <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
+                  </td>
+                  @else
+                  <td class="align-middle text-center">
+                    <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value=""></span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+                  </td>
+                  @endif
+  
+                </tr>
+              @endforeach
+              @foreach ($training as $key => $kpis)
+              <tr>
+                @if ($key == 0)
+                <td>    
+                  <div class="d-flex px-2 py-1">
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+                </td>
+                <td class="text-xs font-weight-bold mb-0">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
+                </td>
+                @else
+                <td>    
+                  <div class="d-flex px-2 py-1">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                </td>
+                <td class="text-xs font-weight-bold mb-0">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+                </td>
+                @endif
+                <td class="text-xs font-weight-bold mb-0">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                </td>
+                @if ($key == 0)
+                <td class="align-middle text-center">
+                  <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
+                </td>
+                @else
+                <td class="align-middle text-center">
+                  <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value=""></span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+                </td>
+                @endif
+  
+              </tr>
+            @endforeach
+            @foreach ($ncr as $key => $kpis)
+            <tr>
+              @if ($key == 0)
+              <td>    
+                <div class="d-flex px-2 py-1">
+                  <div class="d-flex flex-column justify-content-center">
+                    <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+              </td>
+              <td class="text-xs font-weight-bold mb-0">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
+              </td>
+              @else
+              <td>    
+                <div class="d-flex px-2 py-1">
+                  <div class="d-flex flex-column justify-content-center">
+                    <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+              </td>
+              <td class="text-xs font-weight-bold mb-0">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+              </td>
+              @endif
+              <td class="text-xs font-weight-bold mb-0">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+              </td>
+              @if ($key == 0)
+              <td class="align-middle text-center">
+                <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
+              </td>
+              @else
+              <td class="align-middle text-center">
+                <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value=""></span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+              </td>
+              <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+              </td>
+              @endif
+  
+            </tr>
+          @endforeach
+          @foreach ($kolaborasi as $key => $kpis)
+          <tr>
+            @if ($key == 0)
+            <td>    
+              <div class="d-flex px-2 py-1">
+                <div class="d-flex flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+            </td>
+            <td class="text-xs font-weight-bold mb-0">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{ $kpis->kpimaster -> objektif }}</span>
+            </td>
+            @else
+            <td>    
+              <div class="d-flex px-2 py-1">
+                <div class="d-flex flex-column justify-content-center">
+                  <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+            </td>
+            <td class="text-xs font-weight-bold mb-0">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> objektif }}">{{  NULL }}</span>
+            </td>
+            @endif
+            <td class="text-xs font-weight-bold mb-0">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+            </td>
+            @if ($key == 0)
+            <td class="align-middle text-center">
+              <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ $kpis->kpimaster -> pencapaian }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ $kpis->kpimaster -> skor_KPI }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ round($kpis->kpimaster -> skor_sebenar,2) }} %</span>
+            </td>
+            @else
+            <td class="align-middle text-center">
+              <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ NULL }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value=""></span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> pencapaian }}">{{ NULL }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> skor_KPI }}">{{ NULL }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimaster -> skor_sebenar,2) }}">{{ NULL }}</span>
+            </td>
+            @endif
+  
+          </tr>
+        @endforeach
                     </tbody>
                   </table>
                 </div>
@@ -394,6 +1113,54 @@
                   </div>
                 </div>
               </div>
+
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                      <table style="width:100%" class="table align-items-center mb-0">
+                        <tr>
+  
+                          <td>KPI</td>
+                          @foreach ($kpiall as $key => $kpialls)
+                          <td>{{ $kpialls -> total_score_master }}%</td>
+                          @endforeach
+  
+                          <td rowspan="2">SKOR AKHIR :</td>
+                          @foreach ($kpiall as $key => $kpialls)
+                          <td rowspan="2">{{ round($kpialls -> total_score_all,2) }}%</td>
+                          @endforeach
+  
+  
+  
+                        </tr>
+                        <tr>
+  
+                          <td>KECEKAPAN TERAS :</td>
+                          @foreach ($kpiall as $key => $kpialls)
+                          <td>{{ $kpialls -> total_score_kecekapan }}%</td>
+                          @endforeach
+  
+                        </tr>
+                        <tr>
+  
+                          <td>NILAI TERAS :</td>
+                          @foreach ($kpiall as $key => $kpialls)
+                          <td>{{ $kpialls -> total_score_nilai }}%</td>
+                          @endforeach
+  
+                          <td rowspan="1">GRADE :</td>
+                          @foreach ($kpiall as $key => $kpialls)
+                          <td rowspan="1">{{ $kpialls -> grade_all }}</td>
+                          @endforeach
+  
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
               @foreach ($user as $users)
               @if ($users->status == 'Signed By Manager' || $users->status == 'Completed')
               <a href="{{ url('hr/changeup/kpi/'. $id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Completed ?</a>

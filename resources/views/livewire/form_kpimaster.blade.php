@@ -44,27 +44,30 @@
       
                                   <div class="row">
                                       <div class="col-sm-4 pt-3 " >
-                                        <div class="mb-4">
+                                        <div class="mb-4" class="@error('percent_master') border border-danger rounded-3 @enderror">
                                             <label class="font-weight-bold " >Percentage KPI Master</label>
                                             <input type="text" class="form-control form-control-sm" id="percent_master" name="percent_master" value="{{ $kpimaster->percent_master }}" >
+                                            @error('percent_master') <div class="text-danger">{{ $message }}</div> @enderror
                                         </div>
                                       </div>
                                       <div class="col-sm-4 pt-3 " >
-                                        <div class="mb-4">
+                                        <div class="mb-4" class="@error('link') border border-danger rounded-3 @enderror">
                                             <label class="font-weight-bold " >Link Bukti</label>
                                             <input type="text" class="form-control form-control-sm" id="link" name="link" value="{{ $kpimaster->link }}" >
+                                            @error('link') <div class="text-danger">{{ $message }}</div> @enderror
                                         </div>
                                       </div>
                                       <div class="col-sm-4 pt-3 " >
-                                        <div class="mb-4">
+                                        <div class="mb-4" class="@error('objektif') border border-danger rounded-3 @enderror">
                                             <label class="font-weight-bold " >Objektif KPI</label>
                                             <input type="text" class="form-control form-control-sm" id="objektif" name="objektif" value="{{ $kpimaster->objektif }}" >
+                                            @error('objektif') <div class="text-danger">{{ $message }}</div> @enderror
                                         </div>
                                       </div>
                                   </div>
     
                                   <div class="p-3" style="text-align: right">
-                                    <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i>Save</button>   
+                                    <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   
                                     <button type="button" class="btn btn-cancel" ><a href="{{ route('add-kpi') }}"><i class="fas fa-window-close"></i>Back</a></button>                        
                                   </div>
                                 </form>

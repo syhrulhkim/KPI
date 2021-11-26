@@ -147,7 +147,7 @@
                                       
   
                                               <td class="font-weight-bold border-dark">
-                                                <input type="text" maxlength="4" class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $nilai->skor_penyelia }}" min="0" >
+                                                <input type="text"  pattern="[0-4]+" maxlength="1"  class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $nilai->skor_penyelia }}" min="0" >
                                               </td>
                                       
                                             <td class="font-weight-bold border-dark">

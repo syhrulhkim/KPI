@@ -157,6 +157,7 @@ Route::middleware('auth')->group(function () {
 
     // Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
     Route::get('/add-nilai', Nilai::class)->name('add-nilai');
+    Route::get('/delete-nilai', Nilai::class)->name('delete-nilai');
 
     // Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
     // Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');

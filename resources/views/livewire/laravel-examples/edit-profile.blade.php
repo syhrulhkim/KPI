@@ -42,8 +42,10 @@
           
              <div class="col-md-auto">
                 <div class="card shadow rounded">
-                    <div class="card-header font-weight-bold" style="text-transform:uppercase" >Profile Information</div>
-
+                    {{-- <div class="card-header font-weight-bold" style="text-transform:uppercase" >Profile Information</div> --}}
+                    <div class="card-header pb-0">
+                        <h6>Profile Information</h6>
+                      </div>
                     <div class="col-sm-auto p-3">
                         <div class="card">
                             <div class="m-3">

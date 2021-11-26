@@ -1,3 +1,10 @@
+{{-- {{dd($kpiall)}} --}}
+{{-- @if ($weightage_master > 100) 
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{ session('fail') }}Your Percentage for KPI Master exceed 100%. Please check back.</strong>
+</div>
+@else
+@endif --}}
 <style>
 .table-responsive {
   // Other values...
@@ -21,9 +28,24 @@
     </div>	
     @endif
 
+    @if (session('fail2'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{ session('fail2') }}</strong>
+    </div>	
+    @endif
+
     <div class="container-fluid py-4">
+
+
+
       <div class="row">
         <div class="col-12">
+          @if ($weightage_master > 100) 
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{ session('fail2') }}Your Percentage for KPI Master exceed 100%. Please check back.</strong>
+          </div>
+        @else
+        @endif
           <div class="card mb-4">
             <div class="card-header pb-0">
               <h6>KAD SKOR 2021 - KPI</h6>
@@ -99,7 +121,7 @@
                         </td>
                         @if ($key == 0)
                         <td class="align-middle text-center">
-                          <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                          <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -200,7 +222,7 @@
                       </td>
                       @if ($key == 0)
                       <td class="align-middle text-center">
-                        <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                        <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -294,7 +316,7 @@
                     </td>
                     @if ($key == 0)
                     <td class="align-middle text-center">
-                      <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                      <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                     </td>
                     <td class="align-middle text-center">
                       <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -388,7 +410,7 @@
                   </td>
                   @if ($key == 0)
                   <td class="align-middle text-center">
-                    <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                    <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                   </td>
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -482,7 +504,7 @@
                 </td>
                 @if ($key == 0)
                 <td class="align-middle text-center">
-                  <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                  <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                 </td>
                 <td class="align-middle text-center">
                   <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -576,7 +598,7 @@
               </td>
               @if ($key == 0)
               <td class="align-middle text-center">
-                <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+                <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
               </td>
               <td class="align-middle text-center">
                 <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -670,7 +692,7 @@
             </td>
             @if ($key == 0)
             <td class="align-middle text-center">
-              <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+              <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
             </td>
             <td class="align-middle text-center">
               <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -764,7 +786,7 @@
           </td>
           @if ($key == 0)
           <td class="align-middle text-center">
-            <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; >Link Bukti</a>
+            <a href=" {{ $kpis->kpimaster -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
           </td>
           <td class="align-middle text-center">
             <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimaster -> percent_master }}">{{ $kpis->kpimaster -> percent_master }}</span>
@@ -1288,18 +1310,40 @@
                   <div class="table-responsive p-0">
                     <table style="width:100%" class="table align-items-center mb-0">
                       <tr>
+
                         <td>KPI</td>
-                        <td>30%</td>
-                        <td rowspan="3">SKOR AKHIR :</td>
-                        <td rowspan="3">60%</td>
+                        @foreach ($kpiall as $key => $kpialls)
+                        <td>{{ $kpialls -> total_score_master }}%</td>
+                        @endforeach
+
+                        <td rowspan="2">SKOR AKHIR :</td>
+                        @foreach ($kpiall as $key => $kpialls)
+                        <td rowspan="2">{{ round($kpialls -> total_score_all,2) }}%</td>
+                        @endforeach
+
+
+
                       </tr>
                       <tr>
+
                         <td>KECEKAPAN TERAS :</td>
-                        <td>30%</td>
+                        @foreach ($kpiall as $key => $kpialls)
+                        <td>{{ $kpialls -> total_score_kecekapan }}%</td>
+                        @endforeach
+
                       </tr>
                       <tr>
+
                         <td>NILAI TERAS :</td>
-                        <td>30%</td>
+                        @foreach ($kpiall as $key => $kpialls)
+                        <td>{{ $kpialls -> total_score_nilai }}%</td>
+                        @endforeach
+
+                        <td rowspan="1">GRADE :</td>
+                        @foreach ($kpiall as $key => $kpialls)
+                        <td rowspan="1">{{ $kpialls -> grade_all }}</td>
+                        @endforeach
+
                       </tr>
                   </table>
                 </div>

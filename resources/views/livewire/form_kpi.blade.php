@@ -89,7 +89,7 @@
                                       </div>
                                     </div> --}}
   
-                                    <div class="col-sm-4 pt-3 " >
+                                    {{-- <div class="col-sm-4 pt-3 " >
                                       <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
                                             <label class="font-weight-bold" >Fungsi</label><br>
     
@@ -149,12 +149,22 @@
                                         @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                                       </div>
     
+                                    </div> --}}
+
+                                    <div class="col-sm-4 pt-3 " >
+                                      <div class="mb-4">
+                                        <td class="font-weight-bold border-dark">
+                                          <label class="font-weight-bold" >Fungsi</label>
+                                          <input type="text" class="form-control " id="fungsi" name="fungsi" value="{{ $kpi->fungsi }}" readonly>
+                                        </td>
+                                      </div>
                                     </div>
   
                                     <div class="col-sm-4 pt-3 " >
-                                      <div class="mb-4">
+                                      <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
                                           <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
                                           <textarea name="bukti" id="bukti" cols="30" rows="10">{{ $kpi->bukti }}</textarea>
+                                          @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                                       </div>
                                     </div>
 
@@ -188,8 +198,9 @@
                                     <table class="table table-bordered text-center">
                                         <thead class="thead-dark">
                                             <tr>
+                                              <th rowspan="2">(%)</th>
                                                 <th rowspan="2">Ukuran</th>
-                                                <th rowspan="2">Peratus (%)</th>
+                                               
                                                 <th colspan="3">KPI Targets</th>
                                                 <th rowspan="2">Pencapaian</th>
                                                 <th rowspan="2">Skor KPI</th>
@@ -204,7 +215,12 @@
                                         <tbody>
                                           <tr>
 
-                                            <td style="word-break: break-all;" class="border-dark">
+                                            <td class="font-weight-bold border-dark"  class="@error('peratus') border border-danger rounded-3 @enderror">
+                                              <input type="text" pattern="[0-9]+" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $kpi->peratus }}" min="0"  >
+                                              @error('peratus') <div class="text-danger">{{ $message }}</div> @enderror
+                                            </td>
+
+                                            <td style="word-break: break-all;" class="border-dark" class="@error('peratus') border border-danger rounded-3 @enderror">
                                               <select class="form-select form-select-sm" id="ukuran" name="ukuran">
                                                 <option selected readonly value="{{ $kpi->ukuran }}">{{ $kpi->ukuran }}</option>
                                                 <option value="N/A">N/A</option>
@@ -221,34 +237,39 @@
                                                 <option value="RM (*000)" >RM (*000)</option>
                                                 <option value="KM/Miles" >KM/Miles</option>
                                               </select>
+                                              @error('ukuran') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
 
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $kpi->peratus }}" min="0"  >
-                                            </td>
 
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" value="{{ $kpi->threshold }}" min="0" >
+
+                                            <td class="border-dark" class="@error('threshold') border border-danger rounded-3 @enderror">
+                                              <input type="text" pattern="[0-9]+" maxlength="3" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" value="{{ $kpi->threshold }}" min="0" >
+                                              @error('threshold') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" value="{{ $kpi->base }}" min="0" >
+                                            <td class="border-dark" class="@error('base') border border-danger rounded-3 @enderror">
+                                              <input type="text" pattern="[0-9]+" maxlength="3" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" value="{{ $kpi->base }}" min="0" >
+                                              @error('base') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" value="{{ $kpi->stretch }}" min="0" >
+                                            <td class="border-dark" class="@error('stretch') border border-danger rounded-3 @enderror">
+                                              <input type="text" pattern="[0-9]+" maxlength="3" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" value="{{ $kpi->stretch }}" min="0" >
+                                              @error('stretch') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
-                                            <td class="font-weight-bold border-dark">
-                                              <input type="text" maxlength="4"  class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" value="{{ $kpi->pencapaian }}" min="0" >
+                                            <td class="border-dark" class="@error('stretch') border border-danger rounded-3 @enderror">
+                                              <input type="text" pattern="^\d*(\.\d{0,2})?$" maxlength="4" class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" value="{{ $kpi->pencapaian }}" min="0" >
+                                              @error('pencapaian') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
-                                            <td class="font-weight-bold border-dark">
+                                            <td class="border-dark" class="@error('skor_KPI') border border-danger rounded-3 @enderror">
                                               <input type="text" class="form-control " id="skor_KPI" name="skor_KPI" value="{{ $kpi->skor_KPI }}" readonly>
+                                              @error('skor_KPI') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
-                                            <td class="font-weight-bold border-dark">
+                                            <td class="border-dark" class="@error('skor_sebenar') border border-danger rounded-3 @enderror">
                                               <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $kpi->skor_sebenar }}" readonly>
+                                              @error('skor_sebenar') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
 
 
