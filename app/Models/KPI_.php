@@ -15,9 +15,7 @@ class KPI_ extends Model
     protected $fillable = [
 
         'fungsi',
-        'objektif',
         'bukti',
-        'link',
         'peratus',
         'ukuran',
         'threshold',
@@ -27,20 +25,19 @@ class KPI_ extends Model
         'skor_KPI', 
         'skor_sebenar',
 
-        'grade',
-        'total_score',
-        'weightage',
+        'kpimaster_id',
          
         'user_id',
-        'tahun',
-        'bulan',
+
+        'year',
+        'month',
     ];
 
     // public function buktia() {
     //     return $this->hasOne('App\Models\bukti', 'kpi_id', 'id');
     // }
 
-        public function kpimaster() {
+    public function kpimasters() {
         return $this->hasOne('App\Models\KPIMaster_', 'id', 'kpimaster_id');
     }
 }

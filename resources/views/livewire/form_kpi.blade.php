@@ -49,7 +49,7 @@
             @error('weightage')
             <div class="alert alert-danger" role="alert">
               <h4 class="alert-heading">Alert!</h4>
-              <span class="text-danger">Sila semak semula butiran pencapaian</span>
+              <span class="text-danger">Please check back your entered information</span>
             </div>
             @enderror
 
@@ -64,7 +64,7 @@
                         <div class="card">
                             <div class="m-3">
   
-                            <form action="{{ url('employee/update/kpi/'.$kpi->id) }}" method="post">  
+                            <form action="{{ url('employee/update/kpi/'.$kpi->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">  
                                     @csrf
   
                                 <?php
@@ -72,12 +72,12 @@
                                     $yearArray = range(2021, 2050);
                                 ?>
                                     <!-- List Dropdown -->
-                                  <label for="tahun" class="col-form-label font-weight-bold" style="font-size: 1rem;">Tahun :</label>
-                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="tahun" name="tahun" value="{{ $kpi->tahun }}" readonly>
+                                  <label for="year" class="col-form-label font-weight-bold" style="font-size: 1rem;">Year :</label>
+                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="year" name="year" value="{{ $kpi->year }}" readonly>
 
                                   &nbsp;
-                                  <label for="bulan" class="col-form-label font-weight-bold" style="font-size: 1rem;">Bulan :</label>
-                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="bulan" name="bulan" value="{{ $kpi->bulan }}" readonly>
+                                  <label for="month" class="col-form-label font-weight-bold" style="font-size: 1rem;">Month :</label>
+                                  <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="month" name="month" value="{{ $kpi->month }}" readonly>
     
   
                                 <div class="row">
@@ -281,7 +281,8 @@
   
                                 <div class="p-3" style="text-align: right">
                                   <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   
-                                  <button type="button" class="btn btn-cancel" ><a href="{{ route('add-kpi') }}"><i class="fas fa-window-close"></i> Batal</a></button>                        
+                                  {{-- <button type="button" class="btn btn-cancel" ><a href="{{ route('add-date') }}"><i class="fas fa-window-close"></i> Back</a></button>  --}}
+                                  <button type="button" class="btn btn-cancel" ><a href="{{ url('/employee/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}"><i class="fas fa-window-close"></i> Back</a></button>                       
                                 </div>
                               </form>
                               </div>

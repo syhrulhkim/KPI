@@ -14,19 +14,16 @@ class Kecekapan_ extends Model
     protected $fillable = [
 
         'kecekapan_teras',
-        'jangkaan_hasil',
         'peratus',
         'ukuran',
         'skor_pekerja',
         'skor_penyelia',
         'skor_sebenar',
-
-        'grade',
-        'total_score',
         'weightage',
          
         'user_id',
-        // 'tahun',
-        // 'bulan',
+
+        'year',
+        'month',
     ];
 }

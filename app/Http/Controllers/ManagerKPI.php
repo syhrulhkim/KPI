@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Models\KPI_;
 use App\Models\KPIAll_;
 use App\Models\Kecekapan_;
-use App\Models\Nilai_;
 use App\Models\KPIMaster_;
+use App\Models\Nilai_;
 use App\Models\User;
-use Auth;
-use Illuminate\Support\Carbon;
+use App\Models\Date_;
 
 class ManagerKPI extends Controller
 {
 
-    public function index($id)
+    public function index($id, $date_id, $user_id, $year, $month)
     {
         // $alluser = User::all();
         // $employee = $alluser->id->$id;
@@ -24,12 +21,10 @@ class ManagerKPI extends Controller
         // $userdepartment = auth()->user()->department;
         // dd($userdepartment);
         // $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
-        $kpi = KPI_::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $kpimaster = KPIMaster_::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
         // dd($kpi);
-        $userNE = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
+        // $userNE = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
         // $user = User::where('id', '=', $id)->get();
-        $id = $id;
+        // $id = $id;
         // dd($users);
         // $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
         // dd($hrs);
@@ -38,52 +33,25 @@ class ManagerKPI extends Controller
         // $nilai = Nilai_::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
         // dd($nilai);
 
-        $kadskor = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kad Skor Korporat')->orderBy('bukti','asc')->get();
-        $kewangan = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kewangan')->orderBy('bukti','asc')->get();
-        $pelangganI = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (Internal)')->orderBy('bukti','asc')->get();
-        $pelangganII = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (Outer)')->orderBy('bukti','asc')->get();
-        $kecemerlangan = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kecemerlangan Operasi')->orderBy('bukti','asc')->get();
-        $training = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (Training)')->orderBy('bukti','asc')->get();
-        $ncr = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (NCROFI)')->orderBy('bukti','asc')->get();
-        $kolaborasi = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kolaborasi')->orderBy('bukti','asc')->get();
+        $kadskor = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kad Skor Korporat')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kewangan = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kewangan')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $pelangganI = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (Internal)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $pelangganII = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (Outer)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kecemerlangan = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kecemerlangan Operasi')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $training = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (Training)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $ncr = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (NCROFI)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kolaborasi = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kolaborasi')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
 
-        $kadskorcount = $kadskor->count();
-        $kewangancount = $kewangan->count();
-        $pelangganIcount = $pelangganI->count();
-        $pelangganIIcount = $pelangganII->count();
-        $kecemerlangancount = $kecemerlangan->count();
-        $trainingcount = $training->count();
-        $ncrcount = $ncr->count();
-        $kolaborasicount = $kolaborasi->count();
-
-        $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
-        $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
+        $kpi = KPI_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kpimaster = KPIMaster_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $user = User::where('id', '=', $id)->get();
-        $kecekapan = Kecekapan_::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $nilai = Nilai_::where('user_id', '=', $id)->orderBy('created_at','desc')->get();
+        $kecekapan = Kecekapan_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $nilai = Nilai_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kpiall = KPIAll_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
+        $date = Date_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
 
-        $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $kewanganmaster = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $pelangganImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $kecemerlanganmaster = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $trainingmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-        $kolaborasimaster = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->get();
-
-        $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-        $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', $id)->orderBy('created_at','desc')->count();
-
-        $kpiall = KPIAll_::where('user_id', '=', $id)->get();
-        $weightage_master = KpiAll_::where('user_id', '=', $id)->value('weightage_master');
-
-        return view('livewire.manager-kpi', compact('kpi', 'userNE', 'nilai', 'user' , 'id', 'kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount', 'kpimaster', 'kpiall', 'weightage_master'));
+        return view('livewire.manager-kpi', compact('kpi', 'kpimaster', 'user', 'kecekapan' , 'nilai', 'kpiall', 'kadskor', 'kewangan', 
+        'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'id', 'date_id', 'user_id', 'year', 'month', 'date'));
     }
 
     // public function changeStatus($id_answer)
@@ -120,10 +88,10 @@ class ManagerKPI extends Controller
     //     dd( $user->status);
     // }
     
-    public function changeup($id)
+    public function changeupmanager($date_id)
     {
         // dd($id);
-    $update = User::find($id)->update([
+        Date_::find($date_id)->update([
         // dd($update),
         'status'=> 'Signed By Manager',
         // 'age'=> '25',
@@ -133,12 +101,29 @@ class ManagerKPI extends Controller
         return redirect()->back()->with('message', 'The kpi has been signed!');
     }
 
-    public function changedown($id)
+    public function changedownmanager($date_id)
     {
-    $update = User::find($id)->update([
+        Date_::find($date_id)->update([
         'status'=> 'Submitted',
         ]);
         return redirect()->back()->with('message', 'You have undo the signed kpi!');
+    }
+
+    public function changeuphr($date_id)
+    {
+        Date_::find($date_id)->update([
+        'status'=> 'Completed',
+        ]);
+
+        return redirect()->back()->with('message', 'The kpi has been completed!');
+    }
+
+    public function changedownhr($date_id)
+    {
+        Date_::find($date_id)->update([
+        'status'=> 'Signed By Manager',
+        ]);
+        return redirect()->back()->with('message', 'You have undo the completed kpi!');
     }
 
     // public function change($id)

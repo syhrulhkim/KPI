@@ -19,7 +19,6 @@ class KPIAll_ extends Model
         'total_score_master',
 
         'grade_all',
-        'weightage_all',
         'total_score_all',
         
         'weightage_kecekapan',
@@ -27,6 +26,9 @@ class KPIAll_ extends Model
 
         'weightage_nilai',
         'total_score_nilai',
+
+        'year',
+        'month',
         
         'user_id',
     ];

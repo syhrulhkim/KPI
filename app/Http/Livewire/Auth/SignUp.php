@@ -47,7 +47,7 @@ class SignUp extends Component
             // 'hr' => $this->hr,
             // 'grade' => $this->grade,
             'role' => 'employee',
-            'status' => 'Not Submitted',
+            // 'status' => 'Not Submitted',
             'password' => Hash::make($this->password)
         ]);
 

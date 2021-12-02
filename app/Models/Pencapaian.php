@@ -30,7 +30,7 @@ class Pencapaian extends Model
         'weightage',
          
         'user_id',
-        'tahun',
-        'bulan',
+        'year',
+        'month',
     ];
 }

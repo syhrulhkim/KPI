@@ -1,3 +1,5 @@
+@section('content')
+@extends('layouts.app')
 <div>
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Master') --}}
@@ -62,7 +64,8 @@
                     <div class="card">
                         <div class="m-3">
 
-                        <form action="{{ route('nilai_save') }}" method="post">  
+                        {{-- <form action="{{ route('nilai_save') }}" method="post">   --}}
+                          <form action="{{ url('employee/save/nilai/'.$year.'/'.$month) }}" method="post">
                                 @csrf
 
                             <?php
@@ -76,7 +79,7 @@
                                   <div class="mb-4">
                                       <label class="font-weight-bold" >Nilai Teras</label><br>
                                       <select  class="form-control-sm" id="nilai_teras" name="nilai_teras">
-                                        <option selected value="">-- Sila Pilih --</option>
+                                        <option selected value="">-- Please Choose --</option>
                                         <option value="Kepimpinan " >Kepimpinan </option>
                                         <option value="Perkembangan" >Perkembangan</option> 
                                         <option value="Keputusan" >Keputusan</option> 
@@ -92,7 +95,7 @@
                                         <label class="font-weight-bold" >Nilai Teras</label><br>
                                         <td style="word-break: break-all;" class="border-dark">
                                           <select class="form-select form-select-sm" id="nilai_teras" name="nilai_teras">
-                                            <option selected value="">-- Sila Pilih --</option>
+                                            <option selected value="">-- Please Choose --</option>
                                             <option value="Kepimpinan " >Kepimpinan </option>
                                             <option value="Perkembangan" >Perkembangan</option> 
                                             <option value="Keputusan" >Keputusan</option> 
@@ -401,7 +404,7 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_sebenar }}">{{ $nilais -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                              <a href="{{ url('employee/edit/nilai/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
@@ -569,7 +572,7 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> skor_sebenar }}">{{ $userss -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/edit/nilai/'.$userss->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                              <a href="{{ url('employee/edit/nilai/'.$userss->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/delete/nilai/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
@@ -628,3 +631,4 @@
 </body>
 {{-- @endsection --}}
 </div>
+@endsection

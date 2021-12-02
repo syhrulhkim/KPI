@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\KPI_;
+use App\Models\Date_;
 use App\Models\KPIMaster_;
 use App\Models\Kecekapan_;
 use App\Models\KpiAll_;
@@ -11,14 +12,21 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class Kecekapan extends Component
 {
     public $id_kecekapan;
     public $action;
+    public $id_date;
+    public $year;
+    public $month;
+    public $date_id;
+    public $user_id;
 
     protected $listeners = [
-        'delete'
+        'delete',
+        // "dd('john')"
     ];
     // public function kecekapan() {
 
@@ -29,17 +37,17 @@ class Kecekapan extends Component
     //     return view('livewire.create-kpi', compact('kecekapan') );
     // }
 
-    public function kecekapan() {
+    // public function kecekapan() {
 
-        $kecekapan = Kecekapan_::latest()->get();
+    //     $kecekapan = Kecekapan_::latest()->get();
 
-        return view('livewire.add-kecekapan', compact('kecekapan') );
-    }
+    //     return view('livewire.add-kecekapan', compact('kecekapan') );
+    // }
 
-    public function kecekapan_save(Request $request){
+    public function kecekapan_save(Request $request, $year, $month){
 
         //check kat sini 
-        $kecekapans = Kecekapan_::where('user_id', '=', auth()->user()->id)->get();
+        $kecekapans = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
 
         $total_percent = 0;
 
@@ -49,7 +57,7 @@ class Kecekapan extends Component
 
 
         if ($total_percent > 99.99999) {
-            return redirect()->back()->with('fail', 'Maaf, anda telah melebihi had Kecekapan Teras iaitu 100 peratus sahaja');
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of Kecekepan Teras which is 100 percent only');
         }
 
         $validatedData = $request->validate([
@@ -88,7 +96,7 @@ class Kecekapan extends Component
         // }
 
         // dd(Auth::user()->id);
-        $kecekapanscount = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('kecekapan_teras', '=', $request->kecekapan_teras)->count();
+        $kecekapanscount = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('kecekapan_teras', '=', $request->kecekapan_teras)->where('year', '=', $year)->where('month', '=', $month)->count();
         // $past_weightage = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('kecekapan_teras', '=', $request->kecekapan_teras)->sum('skor_sebenar');
         // $present_weightage = 20;
         // $total_weightage = $past_weightage + $present_weightage;
@@ -104,13 +112,13 @@ class Kecekapan extends Component
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
 
-            'grade'=> $request->grade,
+            // 'grade'=> $request->grade,
             // 'weightage'=> $request->weightage,
             'weightage'=> '20',
 
-            'total_score'=> $request->total_score,
-            // 'tahun'=> $request->tahun,
-            // 'bulan'=> $request->bulan,
+            // 'total_score'=> $request->total_score,
+            // 'year'=> $request->year,
+            // 'month'=> $request->month,
 
             'kecekapan_teras'=> $request->kecekapan_teras,
             // 'jangkaan_hasil'=> $request->jangkaan_hasil,
@@ -121,27 +129,29 @@ class Kecekapan extends Component
             'skor_pekerja'=> $request->skor_pekerja,
             'peratus'=> '20',
             'ukuran'=> 'Percentage (%)',
+            'year'=> $year,
+            'month'=> $month,
             // 'skor_penyelia'=> $request->skor_penyelia,
 
             ]);
         } else {
-            return redirect()->back()->with('fail', 'Maaf, anda telah pun memilih jenis kecekapan teras ini');
+            return redirect()->back()->with('fail', 'Sorry, This type of Kecekapan Teras already exist');
         }
 
-        return redirect()->back()->with('message', 'Kecekapan berjaya ditambah!');
+        return redirect()->back()->with('message', 'Kecekapan Teras has been successfully inserted');
     } 
        
 
-    public function kecekapan_edit($id) {
+    public function kecekapan_edit($id, $date_id, $user_id, $year, $month) {
 
         $kecekapan = Kecekapan_::find($id);
 
-        return view('livewire.form_kecekapan' , compact('kecekapan'));
+        return view('livewire.form_kecekapan' , compact('kecekapan', 'date_id', 'user_id', 'year', 'month'));
 
     }
 
-    public function kecekapan_update(Request $request, $id) {
-
+    public function kecekapan_update(Request $request, $id, $date_id, $user_id, $year, $month) {
+       
         if(Auth::user()->role == 'employee') {
             $validatedData = $request->validate([
 
@@ -170,34 +180,35 @@ class Kecekapan extends Component
 
         $update = Kecekapan_::find($id)->update([
 
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
+            // 'user_id'=> Auth::user()->id,
+            // 'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
 
-            'grade'=> $request->grade,
-            'weightage'=> '20',
+            // 'grade'=> $request->grade,
+            // 'weightage'=> '20',
 
-            'total_score'=> $request->total_score,
-            // 'tahun'=> $request->tahun,
-            // 'bulan'=> $request->bulan,
+            // 'total_score'=> $request->total_score,
+            // 'year'=> $request->year,
+            // 'month'=> $request->month,
 
-            'kecekapan_teras'=> $request->kecekapan_teras,
+            // 'kecekapan_teras'=> $request->kecekapan_teras,
             // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
             // 'ukuran'=> $request->ukuran,
 
             // 'peratus'=> $request->peratus,
             'skor_pekerja'=> $request->skor_pekerja,
-            'skor_penyelia'=> $request->skor_penyelia,
-            'status'=> 'Not Submitted',
+            // 'skor_penyelia'=> $request->skor_penyelia,
+            // 'status'=> 'Not Submitted',
 
         ]);
-
+        // dd($year);
         // $update = User::find(Auth::user()->id)->update([
         //     'status'=> 'Not Submitted',
         // ]);
-
-        return redirect()->route('add-kecekapan')->with('message', 'Kecekapan Updated Successfully');
+        // return redirect('pendaftaran-berjaya/' . $product_id );
+        return redirect('employee/kecekapan/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'Kecekapan Updated Successfully');
+        // return redirect()->route('add-kecekapan')->with('message', 'Kecekapan Updated Successfully');
 
     }
 
@@ -210,19 +221,29 @@ class Kecekapan extends Component
 
     public function selectItem($id_kecekapan , $action)
     {
+        // dd('john');
         $this->id_kecekapan = $id_kecekapan;
         $this->action = $action;
+        // dd($this->id_kecekapan);
     }
 
     public function delete()
     {
+        // dd('john');
         $kecekapan = Kecekapan_::find($this->id_kecekapan);
         $kecekapan->delete();
         return redirect()->back()->with('message', 'Kecekapan Deleted Successfully');
     }
 
+    public function add_kecekapan($date_id, $user_id, $year, $month) {
+        // dd($year);
+        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
+        return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month'));
+    }
+
         public function render()
     {
+        // dd($year);
         $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('kecekapan_teras')->get();
 
         $userdepartment = auth()->user()->department;

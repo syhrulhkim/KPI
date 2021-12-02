@@ -14,10 +14,10 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                 </tr>
               </thead>
@@ -43,9 +43,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$users->id}}">{{$users->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$users->id}}">{{$users->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$users->id}}">{{$users->unit}}</span>
                   </td>
@@ -53,12 +53,10 @@
                     <span class="text-secondary text-xs font-weight-bold" value="{{$users->id}}">{{$users->grade}}</span>
                   </td>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
-                        <div>
-                        </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <span class="badge badge-sm bg-gradient-success">{{$users->status}}</span> --}}
+                          <span class="badge badge-sm bg-gradient-success">{{$users->status}}</span>
 
                           @if ($users->status == "Not Submitted")
                           <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$users->status}}</span></span>
@@ -82,7 +80,7 @@
 
                         </div>
                       </div>
-                    </td>
+                    </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <td>
@@ -90,7 +88,8 @@
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          <a href="{{ url('manager/view/kpi/'.$users->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;KPI</a>
+                          {{-- <a href="{{ url('manager/view/kpi/'.$users->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;KPI</a> --}}
+                          <a href="{{ url('add-date/'.$users->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                         </div>
                       </div>
                     </td>

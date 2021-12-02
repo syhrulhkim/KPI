@@ -27,6 +27,9 @@ class KPIMaster_ extends Model
          
         'user_id',
         'kpiall_id',
+        
+        'year',
+        'month',
     ];
         public function kpi() {
         return $this->hasMany('App\Models\KPI_', 'kpimaster_id', 'id');

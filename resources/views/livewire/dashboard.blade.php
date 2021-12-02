@@ -19,7 +19,6 @@
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                   </tr>
                 </thead>
@@ -55,10 +54,8 @@
                       <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->grade}}</span>
                     </td>
                     <div class="d-flex flex-column justify-content-center">
-                      <td>
+                      {{-- <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             @if ($ceoemps->status == "Not Submitted")
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$ceoemps->status}}</span></li>
@@ -81,7 +78,7 @@
                             @endif
                           </div>
                         </div>
-                      </td>
+                      </td> --}}
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <td>
@@ -89,7 +86,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <a href="{{ url('hr/view/kpi/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -121,7 +119,6 @@
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                   </tr>
                 </thead>
@@ -157,10 +154,8 @@
                       <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->grade}}</span>
                     </td>
                     <div class="d-flex flex-column justify-content-center">
-                      <td>
+                      {{-- <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             @if ($hremps->status == "Not Submitted")
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$hremps->status}}</span></li>
@@ -183,7 +178,7 @@
                             @endif
                           </div>
                         </div>
-                      </td>
+                      </td> --}}
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <td>
@@ -191,7 +186,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <a href="{{ url('hr/view/kpi/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -223,7 +219,6 @@
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                   </tr>
                 </thead>
@@ -259,10 +254,8 @@
                       <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->grade}}</span>
                     </td>
                     <div class="d-flex flex-column justify-content-center">
-                      <td>
+                      {{-- <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                             @if ($afemps->status == "Not Submitted")
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$afemps->status}}</span></li>
@@ -285,7 +278,7 @@
                             @endif
                           </div>
                         </div>
-                      </td>
+                      </td> --}}
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <td>
@@ -293,7 +286,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <a href="{{ url('hr/view/kpi/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -326,7 +320,6 @@
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                   </tr>
                 </thead>
@@ -362,10 +355,8 @@
                       <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->grade}}</span>
                     </td>
                     <div class="d-flex flex-column justify-content-center">
-                      <td>
+                      {{-- <td>
                         <div class="d-flex px-2 py-1">
-                          <div>
-                          </div>
                           <div class="d-flex flex-column justify-content-center">
                           @if ($salesemps->status == "Not Submitted")
                           <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$salesemps->status}}</span></li>
@@ -388,7 +379,7 @@
                           @endif
                         </div>
                         </div>
-                      </td>
+                      </td> --}}
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <td>
@@ -396,7 +387,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <a href="{{ url('hr/view/kpi/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -428,7 +420,6 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                     </tr>
                   </thead>
@@ -467,13 +458,8 @@
                         <span class="text-secondary text-xs font-weight-bold" value="{{$marketingemps->id}}">{{$marketingemps->grade}}</span>
                       </td>
                       <div class="d-flex flex-column justify-content-center">
-                        <td>
+                        {{-- <td>
                           <div class="d-flex px-2 py-1">
-                            <div>
-                            </div>
-                            {{-- <div class="d-flex flex-column justify-content-center">
-                              <span class="badge badge-sm bg-gradient-success">{{$marketingemps->status}}</span>
-                            </div> --}}
                             <div class="d-flex flex-column justify-content-center">
                             @if ($marketingemps->status == "Not Submitted")
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$marketingemps->status}}</span></li>
@@ -496,7 +482,7 @@
                             @endif
                           </div>
                           </div>
-                        </td>
+                        </td> --}}
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <td>
@@ -504,7 +490,8 @@
                             <div>
                             </div>
                             <div class="d-flex flex-column justify-content-center">
-                              <a href="{{ url('hr/view/kpi/'.$marketingemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                              {{-- <a href="{{ url('hr/view/kpi/'.$marketingemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
+                              <a href="{{ url('add-date/'.$marketingemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                             </div>
                           </div>
                         </td>
@@ -536,7 +523,6 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                     </tr>
                   </thead>
@@ -572,10 +558,8 @@
                         <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->grade}}</span>
                       </td>
                       <div class="d-flex flex-column justify-content-center">
-                        <td>
+                        {{-- <td>
                           <div class="d-flex px-2 py-1">
-                            <div>
-                            </div>
                             <div class="d-flex flex-column justify-content-center">
                               @if ($operationemps->status == "Not Submitted")
                               <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$operationemps->status}}</span></li>
@@ -598,7 +582,7 @@
                               @endif
                             </div>
                           </div>
-                        </td>
+                        </td> --}}
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <td>
@@ -606,7 +590,8 @@
                             <div>
                             </div>
                             <div class="d-flex flex-column justify-content-center">
-                              <a href="{{ url('hr/view/kpi/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                              {{-- <a href="{{ url('hr/view/kpi/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
+                              <a href="{{ url('add-date/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                             </div>
                           </div>
                         </td>
@@ -638,7 +623,6 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
                           </tr>
                         </thead>
@@ -674,10 +658,8 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{$rndemps->id}}">{{$rndemps->grade}}</span>
                             </td>
                             <div class="d-flex flex-column justify-content-center">
-                              <td>
+                              {{-- <td>
                                 <div class="d-flex px-2 py-1">
-                                  <div>
-                                  </div>
                                   <div class="d-flex flex-column justify-content-center">
                                     @if ($rndemps->status == "Not Submitted")
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$rndemps->status}}</span></li>
@@ -700,7 +682,7 @@
                                     @endif
                                   </div>
                                 </div>
-                              </td>
+                              </td> --}}
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <td>
@@ -708,7 +690,8 @@
                                   <div>
                                   </div>
                                   <div class="d-flex flex-column justify-content-center">
-                                    <a href="{{ url('hr/view/kpi/'.$rndemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                                    {{-- <a href="{{ url('hr/view/kpi/'.$rndemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
+                                    <a href="{{ url('add-date/'.$rndemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
                                   </div>
                                 </div>
                               </td>

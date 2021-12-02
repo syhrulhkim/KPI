@@ -42,13 +42,17 @@ class UserManagement extends Component
     public function render()
     {
         // $users = User::orderBy('created_at','desc')->get();no
-        $users = User::where('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderator')->get();
-        $employees = User::where('role', 'employee')->get();
-        $allusers = User::orderBy('created_at','desc')->get();
+        // $user = User::where('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderator')->get();
+        $employee = User::where('role', 'employee')->get();
+        $manager = User::where('role', 'manager')->get();
+        $hr = User::where('role', 'hr')->get();
+        $moderator = User::where('role', 'moderator')->get();
+        
+        $alluser = User::all();
         // dd( $users);
         // $attemptQuizzes = AttemptQuiz::where( [[ 'id_createquizzes', '=', $this->id_createquizzes ], ['id_question', '=', $question->id], ['status_answer', '=', '1']] )->get();
-        $userscount = $users->count();
+        $allusercount = $alluser->count();
 
-        return view('livewire.laravel-examples.user-management')->with(compact('userscount', 'users', 'employees', 'allusers'));
+        return view('livewire.laravel-examples.user-management')->with(compact('employee', 'manager', 'hr', 'moderator','alluser', 'allusercount'));
     }
 }
