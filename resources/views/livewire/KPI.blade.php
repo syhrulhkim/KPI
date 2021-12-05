@@ -56,7 +56,12 @@
                   @endif
                     <div class="card">
                     <div class="card-header pb-0">
+                      @if ($weightage_master == 0 || $weightage_master == NULL)
+                      <h6>KAD SKOR 2021 - KPI</h6>
+                      @else
                       <h6>KAD SKOR 2021 - KPI (Current weightage = {{$weightage_master}})</h6>
+                      @endif
+                      
                     </div>
                         <div class="m-3">
 
@@ -253,7 +258,10 @@
                             </div> --}}
 
                             <div class="p-3" style="text-align: right">
-                              <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                              {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                Save
+                            </button>                   --}}
+                            <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                             </div>
                           </div>
                       </form>
@@ -357,7 +365,7 @@
                         </td>
                         {{-- {{dd($date_id)}} --}}
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kadskors->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kadskors->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- {{dd($kadskors->kpimaster->id)}} --}}
@@ -395,12 +403,12 @@
                 @endforeach
 
                 <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
+                  {{-- <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>   --}}
                   {{-- <button type="submit" href="{{ url('employee/edit/kpimaster/'.$kadskormasters->id) }}" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
                   {{-- {{dd($kadskormasters)}} --}}
                   {{-- {{dd($kadskormasters)}} --}}
                   @foreach ($kadskormaster as $kadskormasters)
-                  <a href="{{ url('employee/edit/kpimaster1/'.$kadskormasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>    
+                  <a href="{{ url('employee/edit/kpimaster1/'.$kadskormasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                     
                 </div>
                 
@@ -489,7 +497,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kewangans -> skor_sebenar,2) }}">{{ round($kewangans -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- <a href="{{ url('employee/delete/kpi/'.$kewangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
@@ -528,7 +536,7 @@
                 <div class="p-3" style="text-align: right">
                   {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
                   @foreach ($kewanganmaster as $kewanganmasters)
-                  <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>  
+                  <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                          
                 </div>
 
@@ -615,7 +623,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($pelangganIs -> skor_sebenar,2) }}">{{ round($pelangganIs -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$pelangganIs->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$pelangganIs->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- <a href="{{ url('employee/delete/kpi/'.$pelangganIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
@@ -654,7 +662,7 @@
                   {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
                   {{-- {{dd($pelangganImasters)}} --}}
                   @foreach ($pelangganImaster as $pelangganImasters)
-                  <a href="{{ url('employee/edit/kpimaster3/'.$pelangganImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>   
+                  <a href="{{ url('employee/edit/kpimaster3/'.$pelangganImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                         
                 </div>
               </div>
@@ -740,7 +748,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($pelangganIIs -> skor_sebenar,2) }}">{{ round($pelangganIIs -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$pelangganIIs->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$pelangganIIs->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- <a href="{{ url('employee/delete/kpi/'.$pelangganIIs->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
@@ -779,7 +787,7 @@
                 <div class="p-3" style="text-align: right">
                   {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
                   @foreach ($pelangganIImaster as $pelangganIImasters)
-                  <a href="{{ url('employee/edit/kpimaster4/'.$pelangganIImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a> 
+                  <a href="{{ url('employee/edit/kpimaster4/'.$pelangganIImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                           
                 </div>
               </div>
@@ -865,7 +873,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kecemerlangans -> skor_sebenar,2) }}">{{ round($kecemerlangans -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kecemerlangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kecemerlangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- <a href="{{ url('employee/delete/kpi/'.$kecemerlangans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
@@ -904,7 +912,7 @@
                 <div class="p-3" style="text-align: right">
                   {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>    --}}
                   @foreach ($kecemerlanganmaster as $kecemerlanganmasters)
-                  <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>    
+                  <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                     
                 </div>
               </div>
@@ -990,7 +998,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($trainings -> skor_sebenar,2) }}">{{ round($trainings -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$trainings->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$trainings->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- {{dd($trainings->kpimaster->id)}} --}}
@@ -1030,7 +1038,7 @@
                 <div class="p-3" style="text-align: right">
                   {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
                   @foreach ($trainingmaster as $trainingmasters)
-                  <a href="{{ url('employee/edit/kpimaster6/'.$trainingmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>   
+                  <a href="{{ url('employee/edit/kpimaster6/'.$trainingmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                       
                 </div>
               </div>
@@ -1116,7 +1124,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($ncrs -> skor_sebenar,2) }}">{{ round($ncrs -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$ncrs->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$ncrs->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- {{dd($ncrs->kpimaster->kpiall->id)}} --}}
@@ -1156,7 +1164,7 @@
                 <div class="p-3" style="text-align: right">
                   {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>    --}}
                   @foreach ($ncrmaster as $ncrmasters)
-                  <a href="{{ url('employee/edit/kpimaster7/'.$ncrmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>   
+                  <a href="{{ url('employee/edit/kpimaster7/'.$ncrmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                        
                 </div>
               </div>
@@ -1242,7 +1250,7 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kolaborasis -> skor_sebenar,2) }}">{{ round($kolaborasis -> skor_sebenar,2) }} %</span>
                         </td>
                         <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kolaborasis->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                          <a href="{{ url('employee/edit/kpi/'.$kolaborasis->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                         </td>
                         <td class="align-middle text-center">
                           {{-- <a href="{{ url('employee/delete/kpi/'.$kolaborasis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
@@ -1280,7 +1288,7 @@
                 <div class="p-3" style="text-align: right">
                   {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
                   @foreach ($kolaborasimaster as $kolaborasimasters)
-                  <a href="{{ url('employee/edit/kpimaster8/'.$kolaborasimasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a> 
+                  <a href="{{ url('employee/edit/kpimaster8/'.$kolaborasimasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                          
                 </div>
               </div>

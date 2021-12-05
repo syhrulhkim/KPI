@@ -379,7 +379,7 @@ class KPI extends Component
                 $weightage_present = $request->percent_master;
                 $weightage = $weightage_past + $weightage_present - $weightage_master;
             }
-            dd($total_score_kecekapan);
+           
             $total_score_kecekapan = Kecekapan_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
             $total_score_nilai = Nilai_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
             $total_score_all = ($total_score_kecekapan*0.1) + (($total_score_nilai/1.2)*0.1) + ($total_score_master*0.8);

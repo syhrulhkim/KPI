@@ -92,7 +92,7 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$user->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$user->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
                                                         <button type="button" wire:click="selectItem({{$user->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$user->id}}"><i class="fas fa-trash-alt"></i></button>
@@ -304,7 +304,7 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$employee->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$employee->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
                                                         <button type="button" wire:click="selectItem({{$employee->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$employee->id}}"><i class="fas fa-trash-alt"></i></button>

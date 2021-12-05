@@ -89,7 +89,7 @@
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                           {{-- <a href="{{ url('manager/view/kpi/'.$users->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;KPI</a> --}}
-                          <a href="{{ url('add-date/'.$users->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                          <a href="{{ url('add-date/'.$users->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                         </div>
                       </div>
                     </td>

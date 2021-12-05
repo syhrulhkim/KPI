@@ -162,8 +162,12 @@
                                                                                         
                                         </div>
 
-                                        <div class="pl-3">
-                                            <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-save"></i> Save</button> 
+                                        {{-- <div class="pl-3"> --}}
+                                            <div class="p-3" style="text-align: right">
+                                            {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                                Save
+                                            </button> --}}
+                                            <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                                             {{-- <p class="m-2">**Sebarang masalah dan maklumat sila berhubung pada Jabatan R&D.</p>                          --}}
                                         </div>
 

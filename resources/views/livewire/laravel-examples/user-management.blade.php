@@ -92,10 +92,10 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$moderators->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$moderators->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$moderators->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$moderators->id}}"><i class="fas fa-trash-alt"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$moderators->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$moderators->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -305,10 +305,10 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$hrs->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$hrs->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$hrs->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$hrs->id}}"><i class="fas fa-trash-alt"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$hrs->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$hrs->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -393,10 +393,10 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$managers->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$managers->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$managers->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$managers->id}}"><i class="fas fa-trash-alt"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$managers->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$managers->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -481,10 +481,10 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$employees->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$employees->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$employees->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$employees->id}}"><i class="fas fa-trash-alt"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$employees->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$employees->id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                                                     </td>
                                                 </tr>
                                             </table>

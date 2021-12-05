@@ -37,7 +37,7 @@
       <strong>{{ session('fail2') }}</strong>
     </div>	
     @endif
-
+  </div>
     <div class="container-fluid py-4">
 
 
@@ -1357,10 +1357,10 @@
 
             @foreach ($date as $dates)
               @if ($dates->status == 'Not Submitted' || $dates->status == 'Submitted')
-                <a href="{{ url('employee/changeup/kpi/'.$dates->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Submitted ?</a>
+                <a href="{{ url('employee/changeup/kpi/'.$dates->id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Submit</a>
             {{-- @endforeach --}}
           {{-- {{dd($kpialls->id)}} --}}
-                <a href="{{ url('employee/changedown/kpi/'.$dates->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Submitted ?</a>
+                <a href="{{ url('employee/changedown/kpi/'.$dates->id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Submit</a>
               @else
               @endif
             @endforeach
@@ -1368,8 +1368,9 @@
         </div>
 
 
-      </div>
-
+     
+    </body>
+  </div>
 
   
    <!-- Master Pencapaian JS -->
@@ -1377,5 +1378,5 @@
   <script src="{{asset('assets/js/kecekapan.js')}}"></script>
   <script src="{{asset('assets/js/nilai.js')}}"></script>
   
-  </body>
+ 
   @endsection

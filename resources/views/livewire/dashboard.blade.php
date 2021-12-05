@@ -86,8 +86,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            {{-- <a href="{{ url('hr/view/kpi/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
-                            <a href="{{ url('add-date/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$ceoemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -186,8 +186,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            {{-- <a href="{{ url('hr/view/kpi/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
-                            <a href="{{ url('add-date/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$hremps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -286,8 +286,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            {{-- <a href="{{ url('hr/view/kpi/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
-                            <a href="{{ url('add-date/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$afemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -387,8 +387,8 @@
                           <div>
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            {{-- <a href="{{ url('hr/view/kpi/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
-                            <a href="{{ url('add-date/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                            {{-- <a href="{{ url('hr/view/kpi/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
+                            <a href="{{ url('add-date/'.$salesemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                           </div>
                         </div>
                       </td>
@@ -490,8 +490,8 @@
                             <div>
                             </div>
                             <div class="d-flex flex-column justify-content-center">
-                              {{-- <a href="{{ url('hr/view/kpi/'.$marketingemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
-                              <a href="{{ url('add-date/'.$marketingemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                              {{-- <a href="{{ url('hr/view/kpi/'.$marketingemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
+                              <a href="{{ url('add-date/'.$marketingemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                             </div>
                           </div>
                         </td>
@@ -590,8 +590,8 @@
                             <div>
                             </div>
                             <div class="d-flex flex-column justify-content-center">
-                              {{-- <a href="{{ url('hr/view/kpi/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
-                              <a href="{{ url('add-date/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                              {{-- <a href="{{ url('hr/view/kpi/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
+                              <a href="{{ url('add-date/'.$operationemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                             </div>
                           </div>
                         </td>
@@ -690,8 +690,8 @@
                                   <div>
                                   </div>
                                   <div class="d-flex flex-column justify-content-center">
-                                    {{-- <a href="{{ url('hr/view/kpi/'.$rndemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a> --}}
-                                    <a href="{{ url('add-date/'.$rndemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View</a>
+                                    {{-- <a href="{{ url('hr/view/kpi/'.$rndemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
+                                    <a href="{{ url('add-date/'.$rndemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                                   </div>
                                 </div>
                               </td>

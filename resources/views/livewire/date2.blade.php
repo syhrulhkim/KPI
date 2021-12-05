@@ -102,8 +102,8 @@
                             </td>
 
                             <td class="align-middle text-center">
-                              {{-- <a href="{{ url('employee/displaykpi/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View KPI Master</a> --}}
-                              <a href="{{ url('manager-hr/view/kpi/'.$user_id.'/'.$dates->id.'/'.$user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View KPI Master</a>
+                              {{-- <a href="{{ url('employee/displaykpi/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View KPI Master</a> --}}
+                              <a href="{{ url('manager-hr/view/kpi/'.$user_id.'/'.$dates->id.'/'.$user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View KPI Master</a>
                             </td>
 
                             {{-- <td style="border:none">

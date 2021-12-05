@@ -98,7 +98,10 @@
                                   <div class="table-responsive">
 
                                 <div class="p-3" style="text-align: right">
-                                  <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                                  {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                    Save
+                                </button>                      --}}
+                                <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                                 </div>
                               </div>
                     
@@ -158,23 +161,23 @@
                             </td>
 
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/kpi/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
+                              <a href="{{ url('employee/kpi/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI</a>
                             </td>
 
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/kecekapan/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Kecekapan</a>
+                              <a href="{{ url('employee/kecekapan/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Kecekapan</a>
                             </td>
 
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/nilai/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Nilai</a>
+                              <a href="{{ url('employee/nilai/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Nilai</a>
                             </td>
 
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/displaykpi/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;View KPI Master</a>
+                              <a href="{{ url('employee/displaykpi/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View KPI Master</a>
                             </td>
 
                             <td style="border:none">
-                              <button type="button" wire:click="selectItem({{$dates->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                              <button type="button" wire:click="selectItem({{$dates->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit Date</button>
                             </td>
 
                             <td class="align-middle text-center">

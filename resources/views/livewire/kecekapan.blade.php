@@ -232,7 +232,10 @@
                                 </table>
 
                             <div class="p-3" style="text-align: right">
-                              <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>                           
+                              {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                Save
+                            </button>                         --}}
+                            <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                             </div>
 
                           </div>
@@ -479,7 +482,7 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                              <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             {{-- Route::get('/employee/edit/kecekapan/{id}/{date_id}/{user_id}/{year}/{month}', [Kecekapan::class, 'kecekapan_edit']); --}}
                             {{-- <td class="align-middle text-center"> --}}
@@ -631,7 +634,7 @@
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> skor_sebenar }}">{{ $userss -> skor_sebenar }}</span>
                             </td>
                             <td class="align-middle text-center">
-                              <a href="{{ url('employee/edit/kecekapan/'.$userss->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                              <a href="{{ url('employee/edit/kecekapan/'.$userss->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             <td class="align-middle text-center">
                               {{-- <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}

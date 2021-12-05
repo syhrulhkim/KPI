@@ -955,7 +955,7 @@
                             </td>
                             @if (Auth::user()->role == "manager")
                             <td class="align-middle text-center">
-                              <a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                              <a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             @else 
                             @endif
@@ -1113,7 +1113,7 @@
                             </td>
                             @if (Auth::user()->role == "manager")
                             <td class="align-middle text-center">
-                              <a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                              <a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             @else 
                             @endif
@@ -1178,8 +1178,8 @@
             @if (Auth::user()->role == "manager")
               @foreach ($date as $dates)
                 @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager')
-                  <a href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Signed ?</a> 
-                  <a href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Signed ?</a>
+                  <a href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraised</a>
+                  <a href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Appraised</a>
                 @else
                 @endif
               @endforeach
@@ -1189,8 +1189,8 @@
             @if (Auth::user()->role == "hr")
               @foreach ($date as $dates)
               @if ($dates->status == 'Signed By Manager' || $dates->status == 'Completed')
-                <a href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Completed ?</a>
-                <a href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Completed ?</a>
+                <a href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Complete</a>
+                <a href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Complete</a>
               @else
               @endif
               @endforeach

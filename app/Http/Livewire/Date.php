@@ -23,7 +23,7 @@ class Date extends Component
     protected $listeners = [
         'getModelId',
         'delete',
-        // 'date_save'
+        // 'dd("date_save")'
     ];
     
     public function selectItem($id_date, $action)
@@ -119,10 +119,10 @@ class Date extends Component
         $kpiall = KPIAll_::all();
         $user = User::where('id', '=', $user_id)->get();
         if (auth()->user()->role == "manager") {
-            $date = Date_::where('user_id', '=', $user_id)->get();
+            $date = Date_::where('user_id', '=', $user_id)->orderBy('year','desc')->orderBy('month','desc')->get();
             $kpi = KPI_::where('user_id', '=', $user_id)->get();
         } else if(auth()->user()->role == "hr"){
-            $date = Date_::where('user_id', '=', $user_id)->get();
+            $date = Date_::where('user_id', '=', $user_id)->orderBy('year','desc')->orderBy('month','desc')->get();
             $kpi = KPI_::where('user_id', '=', $user_id)->get();
         }
 
@@ -134,7 +134,7 @@ class Date extends Component
         // $coursefiles = CourseFile::all();
         // dd($kpi);
      
-            $date = Date_::where('user_id', '=', auth()->user()->id)->get();
+            $date = Date_::where('user_id', '=', auth()->user()->id)->orderBy('year','desc')->orderBy('month','desc')->get();
             $kpi = KPI_::where('user_id', '=', auth()->user()->id)->get();
 
 

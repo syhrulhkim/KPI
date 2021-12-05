@@ -33,7 +33,7 @@
               @enderror
               <div class="col-md-auto">
                   <div class="card shadow rounded">
-                      <div class="card-header font-weight-bold" style="text-transform:uppercase" >Borang Pencapaian</div>
+                      <div class="card-header font-weight-bold" style="text-transform:uppercase" >Performance Form</div>
     
                       <div class="col-sm-auto p-3">
                           <div class="card">
@@ -67,9 +67,15 @@
                                   </div>
     
                                   <div class="p-3" style="text-align: right">
-                                    <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   
+                                    {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                      Save
+                                  </button> --}}
+                                  <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                                     {{-- <button type="button" class="btn btn-cancel" ><a href="{{ route('add-date') }}"><i class="fas fa-window-close"></i>Back</a></button>   --}}
-                                    <button type="button" class="btn btn-cancel" ><a href="{{ url('/employee/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}"><i class="fas fa-window-close"></i> Back</a></button>                      
+                                    {{-- <button type="button" class="btn btn-cancel" ><a href="{{ url('/employee/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}"><i class="fas fa-window-close"></i> Back</a></button>      --}}
+                                    {{-- <button type="button" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150"><a style="color:white" href="{{ url('/employee/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}">
+                                      Back </a>
+                                  </button>                  --}}
                                   </div>
                                 </form>
                                 </div>
