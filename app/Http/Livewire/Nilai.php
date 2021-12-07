@@ -12,6 +12,13 @@ use Illuminate\Support\Carbon;
 
 class Nilai extends Component
 {
+    public $id_nilai;
+    public $action;
+
+    protected $listeners = [
+        'delete'
+    ];
+    
     // public function kecekapan() {
 
     //     $kecekapan = Kecekapan_::latest()->get();
@@ -25,16 +32,29 @@ class Nilai extends Component
 
         $nilai = Nilai_::latest()->get();
 
-        return view('livewire.create-nilai', compact('nilai') );
+        return view('livewire.add-nilai', compact('nilai') );
     }
 
-    public function nilai_save(Request $request){
+    public function nilai_save(Request $request, $year, $month){
+
+        //check kat sini 
+        $nilais = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
+
+        $total_percent = 0;
+
+        foreach ($nilais as $key => $nilai) {
+            $total_percent = $total_percent + $nilai->peratus;
+        }
+
+        if ($total_percent > 119.99999) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of Nilai Teras which is 100 percent only');
+        }
 
         $validatedData = $request->validate([
 
             'nilai_teras' => ['required'],
             // dd(Auth::user()->id),
-            'jangkaan_hasil' => ['required'],
+            // 'jangkaan_hasil' => ['required'],
             // 'peratus' => ['required'],
             // 'ukuran' => ['required'],
             'skor_pekerja' => ['required'],
@@ -47,63 +67,69 @@ class Nilai extends Component
             // dd(Auth::user()->id),
         ]);
 
-        // dd(Auth::user()->id);
-        Nilai_::insert([
-        
-        'user_id'=> Auth::user()->id,
-        // dd(Auth::user()->id),
-        'created_at'=> Carbon::now(),
-        'updated_at'=> Carbon::now(),
+        $nilaiscount = Nilai_::where('user_id', '=', auth()->user()->id)->where('nilai_teras', '=', $request->nilai_teras)->where('year', '=', $year)->where('month', '=', $month)->count();
 
-        'grade'=> $request->grade,
-        'weightage'=> $request->weightage,
+        if ($nilaiscount == 0) {
+            Nilai_::insert([
+            
+            'user_id'=> Auth::user()->id,
+            // dd(Auth::user()->id),
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
 
-        'total_score'=> $request->total_score,
-        // 'tahun'=> $request->tahun,
-        // 'bulan'=> $request->bulan,
+            // 'grade'=> $request->grade,
+            'weightage'=> '20',
 
-        'nilai_teras'=> $request->nilai_teras,
-        'jangkaan_hasil'=> $request->jangkaan_hasil,
+            // 'total_score'=> $request->total_score,
+            // 'year'=> $request->year,
+            // 'month'=> $request->month,
 
-        // 'ukuran'=> $request->ukuran,
+            'nilai_teras'=> $request->nilai_teras,
+            // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
-        // 'peratus'=> $request->peratus,
-        'skor_pekerja'=> $request->skor_pekerja,
-        'peratus'=> '20%',
-        'ukuran'=> 'Percentage (%)',
-        // 'skor_penyelia'=> $request->skor_penyelia,
+            // 'ukuran'=> $request->ukuran,
 
-        ]);
+            // 'peratus'=> $request->peratus,
+            'skor_pekerja'=> $request->skor_pekerja,
+            'peratus'=> '20',
+            'ukuran'=> 'Percentage (%)',
+            'year'=> $year,
+            'month'=> $month,
+            // 'skor_penyelia'=> $request->skor_penyelia,
+            ]);
+        } else {
+            return redirect()->back()->with('fail', 'Sorry, This type of Nilai Teras already exist');
+        }
 
-        return redirect()->back()->with('message', 'Nilai berjaya ditambah!');
+        return redirect()->back()->with('message', 'Nilai Teras has been successfully inserted');
     } 
        
 
-    public function nilai_edit($id) {
+    // public function nilai_edit($id, $year, $month) {
+        public function nilai_edit($id, $date_id, $user_id, $year, $month) {
 
         $nilai = Nilai_::find($id);
 
-        return view('livewire.form_nilai' , compact('nilai'));
+        return view('livewire.form_nilai' , compact('nilai', 'date_id', 'user_id', 'year', 'month'));
 
     }
 
-    public function nilai_update(Request $request, $id) {
+    // public function nilai_update(Request $request, $id, $year, $month) {
+        public function nilai_update(Request $request, $id, $date_id, $user_id, $year, $month) {
 
-        $validatedData = $request->validate([
-
-            'nilai_teras' => ['required'],
-            'jangkaan_hasil' => ['required'],
-            // 'peratus' => ['required'],
-            // 'ukuran' => ['required'],
-            'skor_pekerja' => ['required'],
-            'skor_penyelia' => ['required'],
-            'user_id' => ['required'],
-
-            'grade' => ['required'],
-            'total_score' => ['required', 'numeric'],
-            'weightage' => ['required', 'numeric'],
-            
-        ]);
+        if(Auth::user()->role == 'employee') {
+            $validatedData = $request->validate([
+                'nilai_teras' => ['required'],
+                'skor_pekerja' => ['required'],
+            ]);
+        }
+        // dd('john');
+        // if(Auth::user()->role == 'manager') {
+        //     $validatedData = $request->validate([
+        //         'nilai_teras' => ['required'],
+        //         'skor_penyelia' => ['required'],
+        //     ]);
+        // }
 
         $update = Nilai_::find($id)->update([
 
@@ -111,15 +137,15 @@ class Nilai extends Component
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
 
-            'grade'=> $request->grade,
-            'weightage'=> $request->weightage,
+            // 'grade'=> $request->grade,
+            'weightage'=> '20',
 
-            'total_score'=> $request->total_score,
-            // 'tahun'=> $request->tahun,
-            // 'bulan'=> $request->bulan,
+            // 'total_score'=> $request->total_score,
+            // 'year'=> $request->year,
+            // 'month'=> $request->month,
 
             'nilai_teras'=> $request->nilai_teras,
-            'jangkaan_hasil'=> $request->jangkaan_hasil,
+            // 'jangkaan_hasil'=> $request->jangkaan_hasil,
 
             // 'ukuran'=> $request->ukuran,
 
@@ -128,21 +154,45 @@ class Nilai extends Component
             'skor_penyelia'=> $request->skor_penyelia,
 
         ]);
-
-        return redirect()->route('create-nilai')->with('message', 'Nilai Updated Successfully');
+        // dd('john');
+        // return redirect()->route('add-nilai')->with('message', 'Nilai Updated Successfully');
+        return redirect('employee/nilai/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'Nilai Updated Successfully');
 
     }
 
-    public function nilai_delete($id) {
+    public function selectItem($id_nilai , $action)
+    {
+        // dd($id_nilai);
+        $this->id_nilai = $id_nilai;
+        // dd($this->id_nilai);
+        $this->action = $action;
+        // dd($this->action);
+        // $this->emit('refreshParent');
+    }
 
-        $delete = Nilai_::find($id)->forceDelete();
-
+    public function delete()
+    {
+        // dd('john');
+        $nilai = Nilai_::find($this->id_nilai);
+        $nilai->delete();
         return redirect()->back()->with('message', 'Nilai Deleted Successfully');
     }
 
+    public function add_nilai($date_id, $user_id, $year, $month) {
+        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('nilai_teras')->get();
+        return view('livewire.nilai', compact('nilai', 'date_id', 'user_id', 'year', 'month'));
+    }
+
+    // public function nilai_delete($id) {
+
+    //     $delete = Nilai_::find($id)->forceDelete();
+
+    //     return redirect()->back()->with('message', 'Nilai Deleted Successfully');
+    // }
+
         public function render()
     {
-        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('nilai_teras')->get();
+        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('nilai_teras')->get();
 
         return view('livewire.nilai', compact('nilai'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));

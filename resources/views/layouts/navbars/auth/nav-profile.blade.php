@@ -2,20 +2,50 @@
 <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
     <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-transparentmb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-                <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a>
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                {{-- {{dd(Route::currentRouteName())}} --}}
+                @if (Route::currentRouteName() == 'view-profile' || Route::currentRouteName() == 'edit-profile')
+                <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Profile</a>
                 </li>
-                <li class="breadcrumb-item text-sm text-white active text-capitalize" aria-current="page"> {{ str_replace('-', ' ', Route::currentRouteName()) }}</li>
+                @else
+                @endif
+
+                @if (Route::currentRouteName() == 'display-kpi')
+                <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Master KPI</a>
+                </li>
+                @else
+                @endif
+
+                @if (Route::currentRouteName() == 'add-date' || Route::currentRouteName() == 'add-kecekapan' || Route::currentRouteName() == 'add-nilai')
+                <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">KPI</a>
+                </li>
+                @else
+                @endif
+
+                @if (Route::currentRouteName() == 'dashboard-manager' || Route::currentRouteName() == 'dashboard')
+                <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a>
+                </li>
+                @else
+                @endif
+
+                @if (Route::currentRouteName() == 'user-management')
+                <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">User Management</a>
+                </li>
+                @else
+                @endif
+
+                <li class="breadcrumb-item text-sm text-dark active text-capitalize" aria-current="page">
+                    {{ str_replace('-', ' ', Route::currentRouteName()) }}</li>
             </ol>
             <h6 class="text-white font-weight-bolder ms-2 text-capitalize"> {{ str_replace('-', ' ', Route::currentRouteName()) }}</h6>
         </nav>
         <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
-            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            {{-- <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div class="input-group">
                     <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                     <input type="text" class="form-control" placeholder="Type here...">
                 </div>
-            </div>
+            </div> --}}
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
@@ -33,23 +63,23 @@
                         </a>
                     </a>
                 </li>
-                <li class="nav-item px-3 d-flex align-items-center">
+                {{-- <li class="nav-item px-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-white p-0">
                         <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton"
+                    {{-- <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-bell cursor-pointer"></i>
-                    </a>
+                    </a> --}}
                     <ul class="dropdown-menu dropdown-menu-end px-2 py-3 ms-n4"
                         aria-labelledby="dropdownMenuButton">
                         <li class="mb-2">
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                        <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">

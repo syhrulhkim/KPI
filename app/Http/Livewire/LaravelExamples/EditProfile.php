@@ -4,8 +4,10 @@ namespace App\Http\Livewire\LaravelExamples;
 use App\Models\User;
 
 use Livewire\Component;
+use Illuminate\Http\Request;
+use Auth;
 
-class UserProfile extends Component
+class EditProfile extends Component
 {
     public User $user;
     public $showSuccesNotification  = false;
@@ -33,8 +35,22 @@ class UserProfile extends Component
             $this->showSuccesNotification = true;
         }
     }
+
+    public function profile_update(Request $request, $id) { 
+        $profile = User::find($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'nostaff' => $request->nostaff,
+            // dd($request->nostaff),
+            'position' => $request->position,
+            'department' => $request->department,
+            'unit' => $request->unit,
+        ]);
+        return redirect()->back()->with('message', 'Profile Updated Successfully');
+    }
+
     public function render()
     {
-        return view('livewire.laravel-examples.user-profile');
+        return view('livewire.laravel-examples.edit-profile');
     }
 }

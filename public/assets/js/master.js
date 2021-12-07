@@ -26,20 +26,34 @@ function masterClac() {
     } else {
       
       // CONDITION ONE
-        if (pencapaian <= threshold) {
+        if (pencapaian < threshold) {
 
         skor_KPI = document.getElementById("skor_KPI").value = 0;
         skor_sebenar = document.getElementById("skor_sebenar").value = 0;
         // console.log(skor_sebenar);
         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        // console.log(total_score);
+
+        // total_score = total_score + skor_sebenar;
+        console.log(total_score);
 
         } else if (pencapaian >= stretch) {
 
         skor_KPI = document.getElementById("skor_KPI").value = 100;
-        skor_sebenar = document.getElementById("skor_sebenar").value = peratus;
+        // skor_sebenar = document.getElementById("skor_sebenar").value = 100 * (peratus/100);
+        // console.log(skor_KPI);
+        skor_sebenar = document.getElementById("skor_sebenar").value = (peratus / 100) * skor_KPI
+        // console.log(skor_sebenar);
         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        // console.log(total_score);
+        // console.log(total_score);
 
-        } else if (pencapaian >= threshold && pencapaian <= base) {
+        // total_score = total_score + skor_sebenar;
+        // console.log(total_score);
+        // let total_score = 0;
+        console.log(total_score);
+
+        } else if (pencapaian >= threshold && pencapaian < base) {
 
         value1 = parseFloat(pencapaian) - parseFloat(threshold); 
         value2 = parseFloat(base) - parseFloat(threshold); 
@@ -50,6 +64,10 @@ function masterClac() {
         total = document.getElementById("skor_KPI").value = KPIScore.toFixed(2) ;
         skor_sebenar = document.getElementById("skor_sebenar").value = ScoreSebenar.toFixed(2) ;
         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        // console.log(total_score);
+
+        // total_score = total_score + skor_sebenar;
+        console.log(total_score);
 
       } else if (pencapaian >= base && pencapaian < stretch) {
 
@@ -62,10 +80,13 @@ function masterClac() {
         skor_KPI = document.getElementById("skor_KPI").value = KPIScore.toFixed(2) ;
         skor_sebenar = document.getElementById("skor_sebenar").value = ScoreSebenar.toFixed(2) ;
         total_score = document.getElementById("percentage-total").value = skor_sebenar;
-        
+        // console.log(total_score);
 
+        // total_score = total_score + skor_sebenar;
+        console.log(total_score);
       } 
-
+      total_score = total_score + skor_sebenar;
+      console.log(total_score);
     }
 
       // CONDITION TWO
@@ -76,6 +97,7 @@ function masterClac() {
         skor_KPI = document.getElementById("skor_KPI").value = 30 ;
         skor_sebenar = document.getElementById("skor_sebenar").value = ScoreSebenar ;
         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        // console.log(total_score);
 
       }
 
@@ -85,6 +107,7 @@ function masterClac() {
         skor_KPI = document.getElementById("skor_KPI").value = 0 ;
         skor_sebenar = document.getElementById("skor_sebenar").value = 0;
         total_score = document.getElementById("percentage-total").value = skor_sebenar;
+        // console.log(total_score);
 
       }
 
@@ -92,6 +115,16 @@ function masterClac() {
       gradeClass();
       percentageValid();
 
+      // let totalperatus = 0;
+      // totalperatus = totalperatus + peratus;
+      // // console.log(totalperatus);
+      // if (totalperatus > 100) {
+      //   alert("Maaf, anda telah melebihi had KPI iaitu 100 peratus sahaja");
+      // }
+      // if (totalperatus < 100) {
+      //   alert("Maaf, KPI anda tidak mencukupi 100 peratus");
+      // }
+      // console.log(totalperatus);
 }
 
 // GRADE CLASS

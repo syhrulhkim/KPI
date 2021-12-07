@@ -30,12 +30,11 @@ class UserManagementFormWire extends Component
         $this->password = $user->password;
         $this->role = $user->role;
         // $this->created_at = $user->created_at;
-
     }
 
     public function store()
     {
-        
+        dd($this->model_id);
         if($this->model_id)
         {
             $this->validate([
@@ -78,6 +77,7 @@ class UserManagementFormWire extends Component
             $add->email = $this->email;
             $add->password = Hash::make($this->password);
             $add->role = $this->role;
+            // $add->status = 'Not Submitted';
             $add->save();
     
             session()->flash('message', 'New user successfully added');

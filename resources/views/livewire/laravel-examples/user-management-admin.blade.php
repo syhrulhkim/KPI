@@ -4,7 +4,7 @@
         {{-- <div class="alert alert-secondary mx-4" role="alert">
             <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
                 <strong>PRO</strong> feature!
-                Click <strong><a href="https://demos.creative-tim.com/soft-ui-dashboard-laravel-pro/dashboard-default" target="_blank"
+                Click <strong><a href="https://momentuminternet.com/" target="_blank"
                         class="text-white">here</a></strong>
                 to see the PRO
                 product!</span>
@@ -63,7 +63,7 @@
                                         </td>
                                         <td>
                                             {{-- <div>
-                                                <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                                <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3">
                                             </div> --}}
                                         
                                              <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->name}}</p>
@@ -92,7 +92,7 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$user->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$user->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
                                                         <button type="button" wire:click="selectItem({{$user->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$user->id}}"><i class="fas fa-trash-alt"></i></button>
@@ -304,7 +304,7 @@
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
-                                                        <button type="button" wire:click="selectItem({{$employee->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-warning"> <i class="fas fa-user-edit text-secondary"></i></button>
+                                                        <button type="button" wire:click="selectItem({{$employee->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit User</button>
                                                     </td>
                                                     <td style="border:none">
                                                         <button type="button" wire:click="selectItem({{$employee->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$employee->id}}"><i class="fas fa-trash-alt"></i></button>

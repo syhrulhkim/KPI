@@ -41,7 +41,8 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="control-label" style="font-weight:500">Role</label>
-                                <select wire:model="role" name="role" id="role" class="form-control custom-select" data-placeholder="Choose a Role" tabindex="1">
+                                {{-- <select class="form-select form-select-sm" id="department" name="department"> --}}
+                                <select wire:model="role" name="role" id="role" class="form-select custom-select" data-placeholder="Choose a Role" tabindex="1">
                                     <option value="">-- Choose a Role --</option>
                                     {{-- <option value="admin">Admin</option> --}}
                                     <option value="manager">Moderator</option>
@@ -62,9 +63,10 @@
                                 {{ session('message') }}
                                 
                             @endif
-                            <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                            {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                 Save
-                            </button>
+                            </button> --}}
+                            <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                         </div>
                     </div>
                 </div>
