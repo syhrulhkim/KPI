@@ -55,7 +55,7 @@ class KPI extends Component
                 'updated_at'=> Carbon::now(),
             ]);
         }
-        return redirect()->back()->with('message', 'Kpi Deleted Successfully');
+        return redirect()->back()->with('message', 'Kpi deleted successfully');
     }
 
     // public $fungsi = '';
@@ -521,44 +521,44 @@ class KPI extends Component
         foreach ($kolaborasi as $key => $kpi8) {
             $total_percent8 = $total_percent8 + $kpi8->peratus;
         }
-
+        
         if($request->fungsi == 'Kad Skor Korporat'){
-        if ($total_percent1 > 99.99999) {
+        if (($total_percent1 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kad Skor Korporat which is 100 percent only');
             }
         }
         if($request->fungsi == 'Kewangan'){
-        if ($total_percent2 > 99.99999) {
+        if (($total_percent2 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
         }
         }
         if($request->fungsi == 'Pelanggan (Internal)'){
-        if ($total_percent3 > 99.99999) {
+        if (($total_percent3 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Pelanggan (Internal) which is 100 percent only');
             }
         }
         if($request->fungsi == 'Pelanggan (Outer)'){
-        if ($total_percent4 > 99.99999) {
+        if (($total_percent4 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Pelanggan (Outer) which is 100 percent only');
             }
         }
         if($request->fungsi == 'Kecemerlangan Operasi'){
-        if ($total_percent5 > 99.99999) {
+        if (($total_percent5 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kecemerlangan Operasi which is 100 percent only');
             }
         }
         if($request->fungsi == 'Manusia & Proses (Training)'){
-        if ($total_percent6 > 99.99999) {
+        if (($total_percent6 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Manusia & Proses (Training) which is 100 percent only');
             }
         }
         if($request->fungsi == 'Manusia & Proses (NCROFI)'){
-        if ($total_percent7 > 99.99999) {
+        if (($total_percent7 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Manusia & Proses (NCROFI) which is 100 percent only');
             }
         }
         if($request->fungsi == 'Kolaborasi'){
-        if ($total_percent8 > 99.99999) {
+        if (($total_percent8 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kolaborasi which is 100 percent only');
             }
         }
@@ -1030,7 +1030,7 @@ class KPI extends Component
 
     //     $delete = KPI_::find($id)->forceDelete();
 
-    //     return redirect()->back()->with('message', 'KPI Deleted Successfully');
+    //     return redirect()->back()->with('message', 'KPI deleted successfully');
     // }
 
     // public function bukti_main($id) {
@@ -1121,8 +1121,6 @@ class KPI extends Component
     
     public function add_kpi($date_id, $user_id, $year, $month) {
 
-        $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('weightage_master');
-
         $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
@@ -1150,10 +1148,22 @@ class KPI extends Component
         $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $kolaborasimaster = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
 
+        $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('weightage_master');
+        $weightage_kadskor = $kadskor->sum('peratus');
+        $weightage_kewangan = $kewangan->sum('peratus');
+        $weightage_pelangganI = $pelangganI->sum('peratus');
+        $weightage_pelangganII = $pelangganII->sum('peratus');
+        $weightage_kecemerlangan = $kecemerlangan->sum('peratus');
+        $weightage_training = $training->sum('peratus');
+        $weightage_ncr = $ncr->sum('peratus');
+        $weightage_kolaborasi = $kolaborasi->sum('peratus');
+
         return view('livewire.kpi', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
         'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 
         'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
-        'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id'));
+        'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id',
+        'weightage_kadskor', 'weightage_kewangan', 'weightage_pelangganI', 'weightage_pelangganII', 'weightage_kecemerlangan',
+        'weightage_training', 'weightage_ncr', 'weightage_kolaborasi'));
     }
 
         public function render()

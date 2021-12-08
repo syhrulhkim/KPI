@@ -70,14 +70,14 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 // Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
 Route::post('/employee/save/kpi/{year}/{month}',[KPI::class, 'kpi_save']);
 
-Route::post('/employee/save/kpimaster1/{year}/{month}',[KPI::class, 'kpi_master_save1']);
-Route::post('/employee/save/kpimaster2/{year}/{month}',[KPI::class, 'kpi_master_save2']);
-Route::post('/employee/save/kpimaster3/{year}/{month}',[KPI::class, 'kpi_master_save3']);
-Route::post('/employee/save/kpimaster4/{year}/{month}',[KPI::class, 'kpi_master_save4']);
-Route::post('/employee/save/kpimaster5/{year}/{month}',[KPI::class, 'kpi_master_save5']);
-Route::post('/employee/save/kpimaster6/{year}/{month}',[KPI::class, 'kpi_master_save6']);
-Route::post('/employee/save/kpimaster7/{year}/{month}',[KPI::class, 'kpi_master_save7']);
-Route::post('/employee/save/kpimaster8/{year}/{month}',[KPI::class, 'kpi_master_save8']);
+// Route::post('/employee/save/kpimaster1/{year}/{month}',[KPI::class, 'kpi_master_save1']);
+// Route::post('/employee/save/kpimaster2/{year}/{month}',[KPI::class, 'kpi_master_save2']);
+// Route::post('/employee/save/kpimaster3/{year}/{month}',[KPI::class, 'kpi_master_save3']);
+// Route::post('/employee/save/kpimaster4/{year}/{month}',[KPI::class, 'kpi_master_save4']);
+// Route::post('/employee/save/kpimaster5/{year}/{month}',[KPI::class, 'kpi_master_save5']);
+// Route::post('/employee/save/kpimaster6/{year}/{month}',[KPI::class, 'kpi_master_save6']);
+// Route::post('/employee/save/kpimaster7/{year}/{month}',[KPI::class, 'kpi_master_save7']);
+// Route::post('/employee/save/kpimaster8/{year}/{month}',[KPI::class, 'kpi_master_save8']);
 
 Route::get('/employee/edit/kpimaster1/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_edit1']);
 Route::get('/employee/edit/kpimaster2/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_edit2']);
