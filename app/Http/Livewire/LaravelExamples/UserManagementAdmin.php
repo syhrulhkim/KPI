@@ -6,7 +6,6 @@ use Livewire\Component;
 
 class UserManagementAdmin extends Component
 {
-    
     public $id_user;
     public $action;
 
@@ -17,18 +16,14 @@ class UserManagementAdmin extends Component
 
     public function selectItem($id_user , $action)
     {
-        
         $this->id_user = $id_user;
         // dd($this->id_user);
-       
         $this->action = $action;
         // dd($this->action);
-      
         if($action == "update")
         {
             $this->emit('getModelId' , $this->id_user);
         }
-        
     }
 
     public function delete()

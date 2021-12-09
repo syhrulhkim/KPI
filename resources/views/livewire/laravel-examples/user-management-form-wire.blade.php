@@ -1,16 +1,12 @@
-
 <div>
     {{-- START SECTION - USER FORM  --}}
     <div class="row">
         <div class="col-lg-4">
             <h3 style="color:black">User Details</h3>
-       
             <p class="text-muted">Create a new user by fill up all required field.</p>
         </div>
         <div class="col-lg-12">
-    
             <form wire:submit.prevent="store">
-    
             <div class="card" style="box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;border-radius: 5px;">
                 <div class="card-body">
                     <div class="row">
@@ -70,11 +66,9 @@
                         </div>
                     </div>
                 </div>
-    
+
             </div>
-    
-        </form>
-    
+            </form>
         </div>
     </div>
     {{-- END SECTION - USER FORM  --}}

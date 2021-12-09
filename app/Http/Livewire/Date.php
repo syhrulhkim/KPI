@@ -98,14 +98,12 @@ class Date extends Component
                 'year' => ['required'],
                 'month' => ['required'],
             ]);
-
             $add = New Date_;
             $add->year = $request->year;
             $add->month = $request->month;
             $add->user_id= Auth::user()->id;
             $add->status= 'Not Submitted';
             $add->save();
-
             return redirect()->back()->with('message', 'Date has been successfully inserted!');
         }else
         {
@@ -133,11 +131,8 @@ class Date extends Component
     {
         // $coursefiles = CourseFile::all();
         // dd($kpi);
-     
             $date = Date_::where('user_id', '=', auth()->user()->id)->orderBy('year','desc')->orderBy('month','desc')->get();
             $kpi = KPI_::where('user_id', '=', auth()->user()->id)->get();
-
-
         return view('livewire.date', compact('date', 'kpi'));
     }
 }

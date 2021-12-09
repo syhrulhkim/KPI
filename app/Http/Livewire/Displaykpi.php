@@ -21,18 +21,17 @@ class Displaykpi extends Component
     public function changeup($date_id)
     {
         // dd('john');
-    Date_::find($date_id)->update([
-        'status'=> 'Submitted',
+        Date_::find($date_id)->update([
+            'status'=> 'Submitted',
         ]);
-
         return redirect()->back()->with('message', 'The kpi has been submitted kpi!');
     }
 
     public function changedown($date_id)
     {
         // dd('johndown');
-    Date_::find($date_id)->update([
-        'status'=> 'Not Submitted',
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
         ]);
         return redirect()->back()->with('message', 'You have undo the submitted kpi!');
     }
@@ -93,34 +92,30 @@ class Displaykpi extends Component
         public function render()
     {
         // dd($year);
-        $displaykpi = Displaykpi_::latest()->get();
-
         // 'user_id'=> Auth::user()->id,
         // 'created_at'=> Carbon::now(),
         // 'updated_at'=> Carbon::now(),
-
         // 'grade'=> $request->grade,
         // 'weightage'=> $request->weightage,
-
         // 'total_score'=> $request->total_score,
         // 'year'=> $request->year,
         // 'month'=> $request->month,
-
         // 'fungsi'=> $request->fungsi,
         // 'objektif'=> $request->objektif,
-        
         // 'bukti'=> $request->bukti,
         // 'ukuran'=> $request->ukuran,
-
         // 'peratus'=> $request->peratus,
         // 'threshold'=> $request->threshold,
-
         // 'base'=> $request->base,
         // 'stretch'=> $request->stretch,
- 
         // 'pencapaian'=> $request->pencapaian,
         // 'skor_KPI'=> $request->skor_KPI,
         // 'skor_sebenar'=> $request->skor_sebenar,
+        // $kpifungsi = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->orderBy('created_at','desc')->get();
+        // $kecekapanall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        // $nilaiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        // $skorakhir = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        // return view('livewire.display-kpi', compact('displaykpi'));
 
         $kadskor = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->orderBy('bukti','asc')->get();
         $kewangan = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan')->orderBy('bukti','asc')->get();
@@ -139,13 +134,11 @@ class Displaykpi extends Component
         $trainingcount = $training->count();
         $ncrcount = $ncr->count();
         $kolaborasicount = $kolaborasi->count();
-
-        // $kpifungsi = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->orderBy('created_at','desc')->get();
+       
         $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
         $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
         $user = User::where('id', '=', auth()->user()->id)->get();
         $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-
         $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
         $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
@@ -168,13 +161,8 @@ class Displaykpi extends Component
 
         $kpiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
         $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->value('weightage_master');
-        // $kecekapanall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
-        // $nilaiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
-        // $skorakhir = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
+        $displaykpi = Displaykpi_::latest()->get();
 
         return view('livewire.display-kpi', compact('kadskor', 'users', 'hrs', 'kecekapan', 'nilai', 'displaykpi', 'user', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount', 'ncrcount', 'kolaborasicount', 'kpiall', 'weightage_master'));
-
-
-        // return view('livewire.display-kpi', compact('displaykpi'));
     }
 }

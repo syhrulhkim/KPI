@@ -21,19 +21,16 @@ class UserManagementAdminFormWire extends Component
     public function getModelId($model_id)
     {
         $user = User::find($model_id);
-
         $this->model_id = $user->id;
         $this->name = $user->name;
         $this->email = $user->email;
         $this->password = $user->password;
         $this->role = $user->role;
         // $this->created_at = $user->created_at;
-
     }
 
     public function store()
-    {
-        
+    { 
         if($this->model_id)
         {
             $this->validate([
@@ -41,11 +38,9 @@ class UserManagementAdminFormWire extends Component
                 'email' => 'required|string|email|max:255',
                 'role' => 'required',
             ]);
-            
             $update = User::find($this->model_id);
             $update->name = $this->name;
             $update->email = $this->email;
-
             if(($this->password != null) || ($this->password != ''))
             {
                 $this->validate([
@@ -53,13 +48,10 @@ class UserManagementAdminFormWire extends Component
                     'password' => 'required|string|min:6',
                     
                 ]);
-
                 $update->password = Hash::make($this->password);
             }
-
             $update->role = $this->role;
             $update->save();
-    
             session()->flash('message', 'User successfully updated');
         }
         else
@@ -70,7 +62,6 @@ class UserManagementAdminFormWire extends Component
                 'password' => 'required|string|min:6',
                 'role' => 'required',
             ]);
-
             $add = New User;
             $add->name = $this->name;
             $add->email = $this->email;
@@ -78,12 +69,9 @@ class UserManagementAdminFormWire extends Component
             $add->role = $this->role;
             // $add->status = 'Not Submitted';
             $add->save();
-    
             session()->flash('message', 'New user successfully added');
         }
-       
         $this->emit('refreshParent');
-
     }
     
     public function render()

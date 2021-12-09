@@ -8,12 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class KPIMaster_ extends Model
 {
     use HasFactory;
-
     protected $table = 'kpi_master';
     // public $incrementing = false;
-
     protected $fillable = [
-
         'fungsi',
         'percent_master',
         'link',
@@ -24,17 +21,17 @@ class KPIMaster_ extends Model
         'total_score',
         'grade',
         'weightage',
-         
         'user_id',
         'kpiall_id',
-        
         'year',
         'month',
     ];
-        public function kpi() {
+
+    public function kpi() {
         return $this->hasMany('App\Models\KPI_', 'kpimaster_id', 'id');
     }
-        public function kpiall() {
+
+    public function kpiall() {
         return $this->hasOne('App\Models\KPIAll_', 'id', 'kpiall_id');
     }
 }

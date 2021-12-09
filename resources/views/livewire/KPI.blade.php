@@ -304,7 +304,7 @@
               <form action="{{ url('/employee/save/kpimaster1/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive">
-                <table class="table table-bordered align-items-center mb-0">
+                <table class="table table-bordered border-dark align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>

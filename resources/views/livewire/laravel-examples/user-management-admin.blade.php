@@ -1,6 +1,7 @@
 <div>
     @livewire('laravel-examples.user-management-admin-form-wire')
     <div>
+
         {{-- <div class="alert alert-secondary mx-4" role="alert">
             <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
                 <strong>PRO</strong> feature!
@@ -56,39 +57,28 @@
                                 <tbody>
                                     <tr>
                                         <td class="ps-4">
-                                           
                                             {{-- questions.push('Q{{$key + 1}}'); --}}
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
                                             {{-- <div>
                                                 <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3">
                                             </div> --}}
-                                        
                                              <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->name}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->email}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->role}}</p>
-                                 
                                         </td>
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->created_at}}</p>
-                                       
                                         </td>
                                         {{-- <td class="text-center">
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td> --}}
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -99,7 +89,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     {{-- <tr>

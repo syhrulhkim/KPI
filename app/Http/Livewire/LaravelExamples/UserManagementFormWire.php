@@ -15,15 +15,12 @@ class UserManagementFormWire extends Component
     public $password;
     public $model_id;
     public $action;
-
     protected $listeners = [
         'getModelId'
     ];
-
     public function getModelId($model_id)
     {
         $user = User::find($model_id);
-
         $this->model_id = $user->id;
         $this->name = $user->name;
         $this->email = $user->email;
@@ -34,7 +31,6 @@ class UserManagementFormWire extends Component
 
     public function store()
     {
-        dd($this->model_id);
         if($this->model_id)
         {
             $this->validate([
@@ -42,11 +38,9 @@ class UserManagementFormWire extends Component
                 'email' => 'required|string|email|max:255',
                 'role' => 'required',
             ]);
-            
             $update = User::find($this->model_id);
             $update->name = $this->name;
             $update->email = $this->email;
-
             if(($this->password != null) || ($this->password != ''))
             {
                 $this->validate([
@@ -54,13 +48,10 @@ class UserManagementFormWire extends Component
                     'password' => 'required|string|min:6',
                     
                 ]);
-
                 $update->password = Hash::make($this->password);
             }
-
             $update->role = $this->role;
             $update->save();
-    
             session()->flash('message', 'User successfully updated');
         }
         else
@@ -71,7 +62,6 @@ class UserManagementFormWire extends Component
                 'password' => 'required|string|min:6',
                 'role' => 'required',
             ]);
-
             $add = New User;
             $add->name = $this->name;
             $add->email = $this->email;
@@ -79,12 +69,9 @@ class UserManagementFormWire extends Component
             $add->role = $this->role;
             // $add->status = 'Not Submitted';
             $add->save();
-    
             session()->flash('message', 'New user successfully added');
         }
-       
         $this->emit('refreshParent');
-
     }
     
     public function render()
