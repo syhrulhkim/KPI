@@ -304,7 +304,7 @@
               <form action="{{ url('/employee/save/kpimaster1/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -476,7 +476,7 @@
                 <form action="{{ url('/employee/save/kpimaster2/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -604,7 +604,7 @@
                 <form action="{{ url('/employee/save/kpimaster3/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -730,7 +730,7 @@
                 <form action="{{ url('/employee/save/kpimaster4/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -857,7 +857,7 @@
                 <form action="{{ url('/employee/save/kpimaster5/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -984,7 +984,7 @@
                 <form action="{{ url('/employee/save/kpimaster6/'.$year.'/'.$month) }}" method="post">  
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -1112,7 +1112,7 @@
                 <form action="{{ url('/employee/save/kpimaster7/'.$year.'/'.$month) }}" method="post">  
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -1246,7 +1246,7 @@
                 <form action="{{ url('/employee/save/kpimaster8/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>

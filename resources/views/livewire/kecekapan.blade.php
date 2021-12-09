@@ -490,7 +490,8 @@
                               {{-- <button type="button" wire:click="selectItem({{$kecekapans->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                             </td> --}}
                             <td class="align-middle text-center">
-                              <button type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                              {{-- <button type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button> --}}
+                              <button onclick="window.livewire.emit('delete')" type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                               {{-- {{dd($kecekapans->id)}} --}}
                             </td>
                           </tr>
