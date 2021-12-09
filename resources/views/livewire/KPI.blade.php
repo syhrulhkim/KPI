@@ -4,7 +4,9 @@
 {{-- {{dd($month)}} --}}
 
 <div>
-  
+  <style>
+.solid {border-style: solid;}
+  </style>  
 {{-- @extends('layouts/employee_template') --}}
 {{-- @section('title','Staff | Master') --}}
 
@@ -59,7 +61,7 @@
                       @if ($weightage_master == 0 || $weightage_master == NULL)
                       <h6>KAD SKOR 2021 - KPI</h6>
                       @else
-                      <h6>KAD SKOR 2021 - KPI (Current weightage = {{$weightage_master}})</h6>
+                      <h6>KAD SKOR 2021 - KPI (Current total weightage = {{$weightage_master}})</h6>
                       @endif
                       
                     </div>
@@ -151,7 +153,7 @@
                                 <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
                                       <label class="font-weight-bold " >Metrik / Bukti</label>
-                                      <br><textarea name="bukti" id="bukti" cols="30" rows="10"></textarea>
+                                      <br><textarea name="bukti" id="bukti" cols="60" rows="10"></textarea>
                                       @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                                   </div>
                                 </div>
@@ -281,11 +283,15 @@
     {{-- {{dd($kadskor)}} --}}
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              @if ($weightage_kadskor == 0 || $weightage_kadskor == NULL)
               <h6>KAD SKOR KORPORAT</h6>
+              @else
+              <h6>KAD SKOR KORPORAT (Current weightage = {{$weightage_kadskor}})</h6>
+              @endif
               @foreach ($kadskor as $key => $kadskors)
               {{-- <h6>Total Score = {{round($kadskors -> skor_sebenar,2)}}</h6> --}}
               @endforeach
@@ -294,10 +300,11 @@
               {{-- <form action="{{ url('kpi_master_save1'.$kadskormaster->id) }}" method="post">  
                 @csrf --}}
               {{-- <form action="{{ route('kpi_master_save1') }}" method="post">   --}}
-                <form action="{{ url('/employee/save/kpimaster1/'.$year.'/'.$month) }}" method="post">
+              
+              <form action="{{ url('/employee/save/kpimaster1/'.$year.'/'.$month) }}" method="post">
                 @csrf
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+              <div class="table-responsive">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -380,37 +387,63 @@
                 </table>
 
                 @foreach ($kadskormaster as $kadskormasters)
-                <div class="row pl-4 ml-4">
-                  <div class="col-sm-4 pt-3 pl-4 ml-4 " >
-                    <div class="mb-4 pl-4 ml-4">
+                <div class="col-md-10">
+                  <table class="table table-responsive pl-5 table-bordered align-center">
+                    <tr>
+                      <th class="font-weight-bold text-xs text-right ">Percentage KPI Master:</th>
+                      <td class="text-secondary text-xs font-weight-bold">{{ $kadskormasters -> percent_master }}</td>
+        
+                    </tr>
+  
+                    <tr>
+                      <th class="font-weight-bold text-xs  text-right ">Link Bukti: </th>
+                      {{-- <td class="text-secondary text-xs font-weight-bold">{{ $kadskormasters -> link }}</td> --}}
+                      <td class="text-secondary text-xs font-weight-bold">
+                      @if ($kadskormasters->link == '')
+                      <a href=" {{ $kadskormasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kadskormasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kadskormasters -> link }}</a>
+                      @endif
+                      </td>
+                      <td rowspan="3" class="float-end"><a href="{{ url('employee/edit/kpimaster1/'.$kadskormasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a></td>
+                    </tr>
+  
+                    <tr>
+                      <th class="font-weight-bold text-xs  text-right">Objektif KPI: </th>
+                      <td class="text-secondary text-xs font-weight-bold">{{ $kadskormasters -> objektif }}</td>
+                      
+                    </tr>
+
+                  </table>
+                </div>
+                
+                {{-- <div class="row">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskormasters -> percent_master }}">{{ $kadskormasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskormasters -> link }}">{{ $kadskormasters -> link }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kadskormasters -> objektif }}">{{ $kadskormasters -> objektif }}</span>
-                    </div>
-                  </div> 
-                </div>
+                  </div>
+                  <div class="col-2 pt-3 mb-4" >
+                    @foreach ($kadskormaster as $kadskormasters)
+                    <a href="{{ url('employee/edit/kpimaster1/'.$kadskormasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach 
+                  </div>
+                </div> --}}
                 @endforeach
 
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>   --}}
-                  {{-- <button type="submit" href="{{ url('employee/edit/kpimaster/'.$kadskormasters->id) }}" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
-                  {{-- {{dd($kadskormasters)}} --}}
-                  {{-- {{dd($kadskormasters)}} --}}
+                {{-- <div class="p-3" style="text-align: right">
+
                   @foreach ($kadskormaster as $kadskormasters)
                   <a href="{{ url('employee/edit/kpimaster1/'.$kadskormasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                     
-                </div>
+                </div> --}}
                 
               </div>
             </form>
@@ -431,14 +464,19 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              {{-- <h6>KEWANGAN</h6> --}}
+              @if ($weightage_kewangan == 0 || $weightage_kewangan == NULL)
               <h6>KEWANGAN</h6>
+              @else
+              <h6>KEWANGAN (Current weightage = {{$weightage_kewangan}})</h6>
+              @endif
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ route('kpi_master_save2') }}" method="post">   --}}
                 <form action="{{ url('/employee/save/kpimaster2/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -512,34 +550,31 @@
 
                 @foreach ($kewanganmaster as $kewanganmasters)
                 <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kewanganmasters -> percent_master }}">{{ $kewanganmasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kewanganmasters -> link }}">{{ $kewanganmasters -> link }}</span>
-                    </div>
+                        {{-- {{dd($kewanganmasters->link)}} --}}
+                        @if ($kewanganmasters->link == '')
+                        <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        @else
+                        <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                        @endif
+                        {{-- <span class="text-secondary text-xs font-weight-bold" value="{{ $kewanganmasters -> link }}">{{ $kewanganmasters -> link }}</span> --}}
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kewanganmasters -> objektif }}">{{ $kewanganmasters -> objektif }}</span>
-                    </div>
                   </div> 
+                  <div class="col-2 pt-3 mb-4" >
+                    @foreach ($kewanganmaster as $kewanganmasters)
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach  
+                  </div>
                 </div>
                 @endforeach
-
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
-                  @foreach ($kewanganmaster as $kewanganmasters)
-                  <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
-                  @endforeach                          
-                </div>
-
               </div>
             </form>
             </div>
@@ -557,14 +592,19 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              {{-- <h6>PELANGGAN (INTERNAL)</h6> --}}
+              @if ($weightage_pelangganI == 0 || $weightage_pelangganI == NULL)
               <h6>PELANGGAN (INTERNAL)</h6>
+              @else
+              <h6>PELANGGAN (INTERNAL) (Current weightage = {{$weightage_pelangganI}})</h6>
+              @endif
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ route('kpi_master_save3') }}" method="post">   --}}
                 <form action="{{ url('/employee/save/kpimaster3/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -637,34 +677,30 @@
 
                 @foreach ($pelangganImaster as $pelangganImasters)
                 <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganImasters -> percent_master }}">{{ $pelangganImasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganImasters -> link }}">{{ $pelangganImasters -> link }}</span>
-                    </div>
+                        {{-- <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganImasters -> link }}">{{ $pelangganImasters -> link }}</span> --}}
+                        @if ($pelangganImasters->link == '')
+                        <a href=" {{ $pelangganImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        @else
+                        <a href=" {{ $pelangganImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $pelangganImasters -> link }}</a>
+                        @endif
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganImasters -> objektif }}">{{ $pelangganImasters -> objektif }}</span>
-                    </div>
                   </div> 
+                  <div class="col-2 pt-3 mb-4" >
+                    @foreach ($pelangganImaster as $pelangganImasters)
+                    <a href="{{ url('employee/edit/kpimaster3/'.$pelangganImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach 
+                  </div>
                 </div>
                 @endforeach
-
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
-                  {{-- {{dd($pelangganImasters)}} --}}
-                  @foreach ($pelangganImaster as $pelangganImasters)
-                  <a href="{{ url('employee/edit/kpimaster3/'.$pelangganImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
-                  @endforeach                         
-                </div>
               </div>
             </form>
             </div>
@@ -682,14 +718,19 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              {{-- <h6>PELANGGAN (OUTER)</h6> --}}
+              @if ($weightage_pelangganII == 0 || $weightage_pelangganII == NULL)
               <h6>PELANGGAN (OUTER)</h6>
+              @else
+              <h6>PELANGGAN (OUTER) (Current weightage = {{$weightage_pelangganII}})</h6>
+              @endif
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ route('kpi_master_save4') }}" method="post">   --}}
                 <form action="{{ url('/employee/save/kpimaster4/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -763,33 +804,30 @@
 
                 @foreach ($pelangganIImaster as $pelangganIImasters)
                 <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIImasters -> percent_master }}">{{ $pelangganIImasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIImasters -> link }}">{{ $pelangganIImasters -> link }}</span>
-                    </div>
+                        {{-- <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIImasters -> link }}">{{ $pelangganIImasters -> link }}</span> --}}
+                        @if ($pelangganIImasters->link == '')
+                        <a href=" {{ $pelangganIImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        @else
+                        <a href=" {{ $pelangganIImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $pelangganIImasters -> link }}</a>
+                        @endif
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $pelangganIImasters -> objektif }}">{{ $pelangganIImasters -> objektif }}</span>
-                    </div>
                   </div> 
+                  <div class="col-2 pt-3 mb-4" >
+                    @foreach ($pelangganIImaster as $pelangganIImasters)
+                    <a href="{{ url('employee/edit/kpimaster4/'.$pelangganIImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach   
+                  </div>   
                 </div>
                 @endforeach
-
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>   --}}
-                  @foreach ($pelangganIImaster as $pelangganIImasters)
-                  <a href="{{ url('employee/edit/kpimaster4/'.$pelangganIImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
-                  @endforeach                           
-                </div>
               </div>
             </form>
             </div>
@@ -807,14 +845,19 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              {{-- <h6>KECEMERLANGAN OPERASI</h6> --}}
+              @if ($weightage_kecemerlangan == 0 || $weightage_kecemerlangan == NULL)
               <h6>KECEMERLANGAN OPERASI</h6>
+              @else
+              <h6>KECEMERLANGAN OPERASI (Current weightage = {{$weightage_kecemerlangan}})</h6>
+              @endif
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ route('kpi_master_save5') }}" method="post">   --}}
                 <form action="{{ url('/employee/save/kpimaster5/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -888,33 +931,30 @@
 
                 @foreach ($kecemerlanganmaster as $kecemerlanganmasters)
                 <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlanganmasters -> percent_master }}">{{ $kecemerlanganmasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlanganmasters -> link }}">{{ $kecemerlanganmasters -> link }}</span>
-                    </div>
+                        {{-- <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlanganmasters -> link }}">{{ $kecemerlanganmasters -> link }}</span> --}}
+                        @if ($kecemerlanganmasters->link == '')
+                        <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        @else
+                        <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kecemerlanganmasters -> link }}</a>
+                        @endif
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kecemerlanganmasters -> objektif }}">{{ $kecemerlanganmasters -> objektif }}</span>
-                    </div>
                   </div> 
+                  <div class="col-2 pt-3 mb-4" >
+                    @foreach ($kecemerlanganmaster as $kecemerlanganmasters)
+                    <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach    
+                  </div>
                 </div>
                 @endforeach
-
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>    --}}
-                  @foreach ($kecemerlanganmaster as $kecemerlanganmasters)
-                  <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
-                  @endforeach                     
-                </div>
               </div>
             </form>
             </div>
@@ -932,14 +972,19 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              {{-- <h6>MANUSIA & PROCESS (TRAINING)</h6> --}}
+              @if ($weightage_training == 0 || $weightage_training == NULL)
               <h6>MANUSIA & PROCESS (TRAINING)</h6>
+              @else
+              <h6>MANUSIA & PROCESS (TRAINING) (Current weightage = {{$weightage_training}})</h6>
+              @endif
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ route('kpi_master_save6') }}" method="post"> --}}
                 <form action="{{ url('/employee/save/kpimaster6/'.$year.'/'.$month) }}" method="post">  
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -1014,33 +1059,30 @@
 
                 @foreach ($trainingmaster as $trainingmasters)
                 <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $trainingmasters -> percent_master }}">{{ $trainingmasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $trainingmasters -> link }}">{{ $trainingmasters -> link }}</span>
-                    </div>
+                        {{-- <span class="text-secondary text-xs font-weight-bold" value="{{ $trainingmasters -> link }}">{{ $trainingmasters -> link }}</span> --}}
+                        @if ($trainingmasters->link == '')
+                        <a href=" {{ $trainingmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        @else
+                        <a href=" {{ $trainingmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $trainingmasters -> link }}</a>
+                        @endif
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $trainingmasters -> objektif }}">{{ $trainingmasters -> objektif }}</span>
-                    </div>
                   </div> 
+                  <div class="col-2 pt-3 mb-4" >
+                    @foreach ($trainingmaster as $trainingmasters)
+                    <a href="{{ url('employee/edit/kpimaster6/'.$trainingmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach     
+                  </div>  
                 </div>
                 @endforeach
-
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
-                  @foreach ($trainingmaster as $trainingmasters)
-                  <a href="{{ url('employee/edit/kpimaster6/'.$trainingmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
-                  @endforeach                       
-                </div>
               </div>
             </form>
             </div>
@@ -1058,14 +1100,19 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              {{-- <h6>MANUSIA & PROCESS (NCROFI)</h6> --}}
+              @if ($weightage_ncr == 0 || $weightage_ncr == NULL)
               <h6>MANUSIA & PROCESS (NCROFI)</h6>
+              @else
+              <h6>MANUSIA & PROCESS (NCROFI) (Current weightage = {{$weightage_ncr}})</h6>
+              @endif
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ route('kpi_master_save7') }}" method="post"> --}}
                 <form action="{{ url('/employee/save/kpimaster7/'.$year.'/'.$month) }}" method="post">  
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -1140,33 +1187,36 @@
 
                 @foreach ($ncrmaster as $ncrmasters)
                 <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrmasters -> percent_master }}">{{ $ncrmasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrmasters -> link }}">{{ $ncrmasters -> link }}</span>
-                    </div>
+                        {{-- <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrmasters -> link }}">{{ $ncrmasters -> link }}</span> --}}
+                        @if ($ncrmasters->link == '')
+                        <a href=" {{ $ncrmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        @else
+                        <a href=" {{ $ncrmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $ncrmasters -> link }}</a>
+                        @endif
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $ncrmasters -> objektif }}">{{ $ncrmasters -> objektif }}</span>
-                    </div>
+                  </div> 
+                  <div class="col-2 pt-3 mb-4" >
+                    @foreach ($ncrmaster as $ncrmasters)
+                    <a href="{{ url('employee/edit/kpimaster7/'.$ncrmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach    
                   </div> 
                 </div>
                 @endforeach
                 
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>    --}}
+                {{-- <div class="p-3" style="text-align: right">
                   @foreach ($ncrmaster as $ncrmasters)
                   <a href="{{ url('employee/edit/kpimaster7/'.$ncrmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
                   @endforeach                        
-                </div>
+                </div> --}}
               </div>
             </form>
             </div>
@@ -1184,14 +1234,19 @@
           <div class="card mb-4">
             <div class="card-header pb-0">
               {{-- <h6>KAD SKOR 2021 - KPI</h6> --}}
+              {{-- <h6>KOLABORASI</h6> --}}
+              @if ($weightage_kolaborasi == 0 || $weightage_kolaborasi == NULL)
               <h6>KOLABORASI</h6>
+              @else
+              <h6>KOLABORASI (Current weightage = {{$weightage_kolaborasi}})</h6>
+              @endif
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               {{-- <form action="{{ route('kpi_master_save8') }}" method="post">   --}}
                 <form action="{{ url('/employee/save/kpimaster8/'.$year.'/'.$month) }}" method="post">
                 @csrf
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table table-bordered align-items-center mb-0">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
@@ -1223,7 +1278,7 @@
                           <p class="text-xs font-weight-bold mb-0" value="{{ $kolaborasis -> fungsi }}">{{ $kolaborasis -> fungsi }}</p>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasis -> bukti }}}">{{ $kolaborasis -> bukti }}</span>
+                          <span style="width:20" class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasis -> bukti }}}">{{ $kolaborasis -> bukti }}</span>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasis -> peratus }}">{{ $kolaborasis -> peratus }}</span>
@@ -1264,33 +1319,30 @@
 
                 @foreach ($kolaborasimaster as $kolaborasimasters)
                 <div class="row">
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-2 pt-3 mb-4" >
                         <label class="font-weight-bold " >Percentage KPI Master: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasimasters -> percent_master }}">{{ $kolaborasimasters -> percent_master }}</span>
-                    </div>
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Link Bukti: </label>
-                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasimasters -> link }}">{{ $kolaborasimasters -> link }}</span>
-                    </div>
+                        {{-- <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasimasters -> link }}">{{ $kolaborasimasters -> link }}</span> --}}
+                        @if ($kolaborasimasters->link == '')
+                        <a href=" {{ $kolaborasimasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        @else
+                        <a href=" {{ $kolaborasimasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kolaborasimasters -> link }}</a>
+                        @endif
                   </div> 
-                  <div class="col-sm-4 pt-3 " >
-                    <div class="mb-4">
+                  <div class="col-4 pt-3 mb-4" >
                         <label class="font-weight-bold " >Objektif KPI: </label>
                         <span class="text-secondary text-xs font-weight-bold" value="{{ $kolaborasimasters -> objektif }}">{{ $kolaborasimasters -> objektif }}</span>
-                    </div>
-                  </div> 
+                  </div>
+                  <div class="col-2 pt-3 mb-4" > 
+                    @foreach ($kolaborasimaster as $kolaborasimasters)
+                    <a href="{{ url('employee/edit/kpimaster8/'.$kolaborasimasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
+                    @endforeach   
+                  </div>
                 </div>
                 @endforeach
-
-                <div class="p-3" style="text-align: right">
-                  {{-- <button type="submit" class="btn btn-sm btn-success" ><i class="fas fa-save"></i> Save</button>  --}}
-                  @foreach ($kolaborasimaster as $kolaborasimasters)
-                  <a href="{{ url('employee/edit/kpimaster8/'.$kolaborasimasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit KPI Master</a>
-                  @endforeach                          
-                </div>
               </div>
             </form>
             </div>

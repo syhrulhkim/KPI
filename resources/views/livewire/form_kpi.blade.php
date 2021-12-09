@@ -163,7 +163,7 @@
                                     <div class="col-sm-4 pt-3 " >
                                       <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
                                           <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
-                                          <textarea name="bukti" id="bukti" cols="30" rows="10">{{ $kpi->bukti }}</textarea>
+                                          <textarea name="bukti" id="bukti" cols="60" rows="10">{{ $kpi->bukti }}</textarea>
                                           @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                                       </div>
                                     </div>

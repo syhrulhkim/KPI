@@ -216,7 +216,7 @@ class Kecekapan extends Component
 
     //     $delete = Kecekapan_::find($id)->forceDelete();
 
-    //     return redirect()->back()->with('message', 'Kecekapan Deleted Successfully');
+    //     return redirect()->back()->with('message', 'Kecekapan deleted successfully');
     // }
 
     public function selectItem($id_kecekapan , $action)
@@ -232,7 +232,7 @@ class Kecekapan extends Component
         // dd('john');
         $kecekapan = Kecekapan_::find($this->id_kecekapan);
         $kecekapan->delete();
-        return redirect()->back()->with('message', 'Kecekapan Deleted Successfully');
+        return redirect()->back()->with('message', 'Kecekapan deleted successfully');
     }
 
     public function add_kecekapan($date_id, $user_id, $year, $month) {

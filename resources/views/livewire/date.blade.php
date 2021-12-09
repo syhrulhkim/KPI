@@ -52,7 +52,7 @@
                                             {{-- <input wire:model="year" type="text" id="year" name="year" class="form-control" > --}}
                                             <td style="word-break: break-all;" class="border-dark">
                                               {{-- <select class="form-select form-select-sm" id="year" name="year"> --}}
-                                              <select wire:model="year" name="year" id="year" class="form-select custom-select" data-placeholder="Choose a Year" tabindex="1">
+                                              <select class="form-select form-select-sm" wire:model="year" name="year" id="year" class="form-select custom-select" data-placeholder="Choose a Year" tabindex="1">
                                                 <option selected value="">-- Please Choose --</option>
                                                 <?php
                                                     foreach ($yearArray as $year) {
@@ -72,7 +72,7 @@
                                               {{-- <input wire:model="month" type="text" id="month" name="month" class="form-control" > --}}
                                               <td style="word-break: break-all;" class="border-dark">
                                                 {{-- <select class="form-select form-select-sm" id="month" name="month"> --}}
-                                                <select wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
+                                                <select class="form-select form-select-sm" wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
                                                   <option selected value="">-- Please Choose --</option>
                                                   <option value="January" >January</option>
                                                   <option value="February" >February</option> 

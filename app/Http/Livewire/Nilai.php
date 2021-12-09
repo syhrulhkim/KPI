@@ -175,7 +175,7 @@ class Nilai extends Component
         // dd('john');
         $nilai = Nilai_::find($this->id_nilai);
         $nilai->delete();
-        return redirect()->back()->with('message', 'Nilai Deleted Successfully');
+        return redirect()->back()->with('message', 'Nilai deleted successfully');
     }
 
     public function add_nilai($date_id, $user_id, $year, $month) {
@@ -187,7 +187,7 @@ class Nilai extends Component
 
     //     $delete = Nilai_::find($id)->forceDelete();
 
-    //     return redirect()->back()->with('message', 'Nilai Deleted Successfully');
+    //     return redirect()->back()->with('message', 'Nilai deleted successfully');
     // }
 
         public function render()
