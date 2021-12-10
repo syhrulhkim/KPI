@@ -8,7 +8,6 @@
 {{-- @section('content') --}}
 
 <body>
-
   <div class="wrapper">
       <!-- Page Content  -->
       <div id="content">
@@ -28,13 +27,10 @@
                       <a class="nav-link font-weight-bold" style="text-transform:uppercase" >{{ Auth::user()->name }}</a>
                     </li>
                   </ul>
-
-
               </div>
           </nav> --}}
           
           <br>
-
           <div class="m-3">
 
             @if (session('message'))
@@ -51,28 +47,22 @@
 
           </div>
           
-
           <!-- Pencapaian Content  -->
-        
           <div class="col-md-auto">
             <div class="card shadow rounded">
               <div class="card-header pb-0">
                 <h6>KAD SKOR 2021 - KECEKAPAN TERAS</h6>
               </div>
-
                 <div class="col-sm-auto p-3">
                     <div class="card">
                         <div class="m-3">
-
                         {{-- <form action="{{ route('kecekapan_save') }}" method="post">  --}}
                           <form action="{{ url('employee/save/kecekapan/'.$year.'/'.$month) }}" method="post">   
                                 @csrf
-
                             <?php
                                 // set start and end year range
                                 $yearArray = range(2021, 2050);
                             ?>              
-
                             <div class="row">
 
                                 {{-- <div class="col-sm-4 pt-3 " >
@@ -127,7 +117,6 @@
                           
                             <div class="row m-auto">
                             
-                            
                               {{-- Score KPI --}}
                                 {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                   <tr>
@@ -142,6 +131,7 @@
                                       </th>
                                   </tr>
                               </table> --}}
+
                               <div class="table-responsive">
                                 <table class="table table-bordered text-center">
                                     <thead class="thead-dark">
@@ -158,13 +148,11 @@
                                             <th rowspan="2">Skor Penyelia</th>
                                             @else
                                             @endif
-
                                             <th rowspan="2">Skor Sebenar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-
                                           <td class="font-weight-bold border-dark">
                                             {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
                                             <input type="text"  class="form-control" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
@@ -226,7 +214,6 @@
                                             <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="0" readonly>
                                           </td>
 
-
                                         </tr>
                                     </tbody>
                                 </table>
@@ -237,16 +224,12 @@
                             </button>                         --}}
                             <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                             </div>
-
                           </div>
-
                       </form>
-
                     </div>
                 </div>
             </div>     
         </div>
-
         <br>
           
         {{-- <div class="card m-3">
@@ -662,8 +645,6 @@
   {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
   <script>
     document.addEventListener('livewire:load', function () {
-  
-  
       $(document).on("click", ".data-delete", function (e) 
           {
               e.preventDefault();
@@ -684,7 +665,6 @@
     })
   </script>
   {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
-  
   @endpush
  <!-- Master Pencapaian JS -->
 <script src="{{asset('assets/js/kecekapan.js')}}"></script>
@@ -692,6 +672,5 @@
 
 </body>
 {{-- @endsection --}}
-</div>
 </div>
 @endsection

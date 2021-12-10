@@ -10,7 +10,7 @@
                             <p>
                         </div>
                         <div class="card-body">
-
+                            
                             <form wire:submit.prevent="resetPassword" action="#" method="POST" role="form text-left">
                                 <div>
                                     <label for="email">{{ __('Email') }}</label>

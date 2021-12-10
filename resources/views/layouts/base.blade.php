@@ -71,7 +71,6 @@
     </title>
     
     @livewireStyles
-
     <!-- Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -92,11 +91,9 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-
     {{ $slot }}
 
     @livewireScripts
-
     <!--   Core JS Files   -->
     <script src="{{url('assets/js/core/popper.min.js')}}"></script>
     <script src="{{url('assets/js/core/bootstrap.min.js')}}"></script>
@@ -117,5 +114,4 @@
     <script src="{{url('assets/js/soft-ui-dashboard.min.js?v=1.0.2')}}"></script>
  
 </body>
-
 </html>

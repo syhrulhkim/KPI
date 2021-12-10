@@ -263,33 +263,21 @@
                                 <tbody>
                                     <tr>
                                         <td class="ps-4">
-                                        
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
-
-                                         <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->name}}</p>
-                                      
+                                            <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->name}}</p>
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->email}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->role}}</p>
-                                 
                                         </td>
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->created_at}}</p>
-                                       
                                         </td>
-
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -299,10 +287,8 @@
                                                         <button type="button" wire:click="selectItem({{$employee->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$employee->id}}"><i class="fas fa-trash-alt"></i></button>
                                                         {{-- {{dd($employee->id)}}; --}}
                                                     </td>
-                                                    
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     @endforeach
@@ -313,7 +299,6 @@
                 </div>
             </div>
         </div>
-    
     </div>
     @push('scripts')
     
@@ -321,8 +306,6 @@
     <script>
         // console.log('john');
       document.addEventListener('livewire:load', function () {
-    
-    
         $(document).on("click", ".data-delete", function (e) 
             {
                 e.preventDefault();
@@ -340,10 +323,8 @@
                 } 
                 });
             });
-    
       })
     </script>
     {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
-    
     @endpush
-    </div>
+</div>

@@ -7,33 +7,26 @@
 {{-- @section('content') --}}
 
 <body>
-
   <div class="wrapper">
       <!-- Page Content  -->
       <div id="content">
-
           {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <div class="container-fluid ">
-
                  <!-- Board Score -->
                   <button type="button" id="sidebarCollapse" class="btn btn-dark">
                       <i class="fas fa-align-left"></i>
                       <span>Menu</span>
                   </button>
-                 
                    <!-- User -->
                   <ul class="nav navbar-nav ml-4">
                     <li class="nav-item active">
                       <a class="nav-link font-weight-bold" style="text-transform:uppercase" >{{ Auth::user()->name }}</a>
                     </li>
                   </ul>
-
-
               </div>
           </nav> --}}
           
           <br>
-
           <div class="m-3">
 
             @if (session('message'))
@@ -49,30 +42,24 @@
             @endif
 
           </div>
-          
 
           <!-- Pencapaian Content  -->
-        
           <div class="col-md-auto">
             <div class="card shadow rounded">
                 {{-- <div class="card-header font-weight-bold" style="text-transform:uppercase" >KAD SKOR 2021 - Nilai Teras</div> --}}
                 <div class="card-header pb-0">
                   <h6>KAD SKOR 2021 - NILAI TERAS</h6>
                 </div>
-
                 <div class="col-sm-auto p-3">
                     <div class="card">
                         <div class="m-3">
-
                         {{-- <form action="{{ route('nilai_save') }}" method="post">   --}}
                           <form action="{{ url('employee/save/nilai/'.$year.'/'.$month) }}" method="post">
                                 @csrf
-
                             <?php
                                 // set start and end year range
                                 $yearArray = range(2021, 2050);
                             ?>              
-
                             <div class="row">
 
                                 {{-- <div class="col-sm-4 pt-3 " >
@@ -115,7 +102,6 @@
                                       <input type="text" class="form-control form-control-sm" id="jangkaan_hasil" name="jangkaan_hasil">
                                   </div>
                                 </div> --}}
-                                
                                 {{-- <div class="col-sm-4 pt-3 " >
                                   <div class="mb-4">
                                       <label class="font-weight-bold " >Objektif KPI</label>
@@ -124,11 +110,7 @@
                                 </div>   --}}
                                 
                             </div>
-
-                            
-                          
                             <div class="row m-auto">
-                            
                             
                               {{-- Score KPI --}}
                                 {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
@@ -144,6 +126,7 @@
                                       </th>
                                   </tr>
                               </table> --}}
+
                               <div class="table-responsive">
                                 <table class="table table-bordered text-center">
                                     <thead class="thead-dark">
@@ -237,7 +220,6 @@
                                             <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="0" readonly>
                                           </td>
 
-
                                         </tr>
                                     </tbody>
                                 </table>
@@ -248,11 +230,8 @@
                             </button>                        --}}
                             <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                             </div>
-
                           </div>
-
                       </form>
-
                     </div>
                 </div>
             </div>     
@@ -300,7 +279,7 @@
                             <td>
                               <p class="text-xs font-weight-bold mb-0" value="{{ $nilais -> nilai_teras }}">{{ $nilais -> nilai_teras }}</p>
                             </td>
-                            
+
                             @if ($nilais -> nilai_teras == "Kepimpinan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -311,11 +290,10 @@
                                 3. Kami melaksanakan setiap apa yang diperkatakan.
                                 <br>
                                 4. Kami menjadi inspirasi untuk berubah lebih baik.</span>
-  
                             </td>
                             @else
                             @endif
-  
+
                             @if ($nilais -> nilai_teras == "Perkembangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -326,11 +304,10 @@
                                 3. Kami memupuk sikap ingin sentiasa berjaya.
                                 <br>
                                 4. Kami sentiasa memperbaiki dan memajukan diri di setiap saat.</span>
-  
                             </td>
                             @else
                             @endif
-  
+
                             @if ($nilais -> nilai_teras == "Keputusan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -341,11 +318,10 @@
                                 3. Kami komited dengan hasil usaha yang dilakukan.
                                 <br>
                                 4. Kami berusaha untuk memberikan yang terbaik.</span>
-  
                             </td>
                             @else
                             @endif
-  
+
                             @if ($nilais -> nilai_teras == "Sumbangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -356,11 +332,10 @@
                                 3. Kami komited untuk memberi manfaat dan menyebarkan kebaikan.
                                 <br>
                                 4. Kami bertanggungjawab dengan orang sekeliling dan persekitaran.</span>
-  
                             </td>
                             @else
                             @endif
-  
+
                             @if ($nilais -> nilai_teras == "Rohani")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -371,11 +346,10 @@
                                 3. Kami bangkit berjaya dengan memajukan orang lain.
                                 <br>
                                 4. Kami sentiasa beriman dan percaya dengan Qada’ dan Qadar.</span>
-  
                             </td>
                             @else
                             @endif
-  
+
                             @if ($nilais -> nilai_teras == "Keluarga")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -386,7 +360,6 @@
                                 3. Kami tidak akan mengabaikan keluarga kami.
                                 <br>
                                 4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
-  
                             </td>
                             @else
                             @endif
@@ -409,9 +382,11 @@
                             <td class="align-middle text-center">
                               <a href="{{ url('employee/edit/nilai/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
+
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                             </td> --}}
+
                             <td style="border:none">
                               <button type="button" wire:click="selectItem({{$nilais->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$nilais->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                           </td>
@@ -479,7 +454,6 @@
                                 3. Kami melaksanakan setiap apa yang diperkatakan.
                                 <br>
                                 4. Kami menjadi inspirasi untuk berubah lebih baik.</span>
-  
                             </td>
                             @else
                             @endif
@@ -494,7 +468,6 @@
                                 3. Kami memupuk sikap ingin sentiasa berjaya.
                                 <br>
                                 4. Kami sentiasa memperbaiki dan memajukan diri di setiap saat.</span>
-  
                             </td>
                             @else
                             @endif
@@ -509,7 +482,6 @@
                                 3. Kami komited dengan hasil usaha yang dilakukan.
                                 <br>
                                 4. Kami berusaha untuk memberikan yang terbaik.</span>
-  
                             </td>
                             @else
                             @endif
@@ -524,7 +496,6 @@
                                 3. Kami komited untuk memberi manfaat dan menyebarkan kebaikan.
                                 <br>
                                 4. Kami bertanggungjawab dengan orang sekeliling dan persekitaran.</span>
-  
                             </td>
                             @else
                             @endif
@@ -539,7 +510,6 @@
                                 3. Kami bangkit berjaya dengan memajukan orang lain.
                                 <br>
                                 4. Kami sentiasa beriman dan percaya dengan Qada’ dan Qadar.</span>
-  
                             </td>
                             @else
                             @endif
@@ -554,7 +524,6 @@
                                 3. Kami tidak akan mengabaikan keluarga kami.
                                 <br>
                                 4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
-  
                             </td>
                             @else
                             @endif
@@ -577,9 +546,11 @@
                             <td class="align-middle text-center">
                               <a href="{{ url('employee/edit/nilai/'.$userss->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
+
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/delete/nilai/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a>
                             </td> --}}
+                            
                             <td style="border:none">
                               <button type="button" wire:click="selectItem({{$userss->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>Delete</button>
                           </td>

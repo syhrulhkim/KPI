@@ -2,8 +2,6 @@
 {{-- @section('title','Staff | Pencapaian') --}}
 
 @section('content')
-
-
   @extends('layouts.app')
   {{-- @extends('layouts.base') --}}
   {{-- @extends('layouts.navbars.auth.nav-profile')
@@ -16,14 +14,12 @@
   @extends('layouts.footers.guest.description')
   @extends('layouts.footers.auth.footer') --}}
 
-
     <div class="wrapper">
         <!-- Page Content  -->
         <div id="content">
 
             {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-
                     <button type="button" id="sidebarCollapse" class="btn btn-dark">
                       <i class="fas fa-align-left"></i>
                         <span>Menu</span>
@@ -34,8 +30,6 @@
                         <a class="nav-link font-weight-bold" style="text-transform:uppercase" >{{ Auth::user()->name }}</a>
                       </li>
                   </ul>
-
-
                 </div>
             </nav> --}}
            
@@ -53,20 +47,15 @@
             </div>
             @enderror
 
-
              <!-- Pencapaian Content  -->
-
             <div class="col-md-auto">
                 <div class="card shadow rounded">
                     <div class="card-header font-weight-bold" style="text-transform:uppercase" >Performance Form</div>
-  
                     <div class="col-sm-auto p-3">
                         <div class="card">
                             <div class="m-3">
-  
                             <form action="{{ url('employee/update/kpi/'.$kpi->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">  
                                     @csrf
-  
                                 <?php
                                     // set start and end year range
                                     $yearArray = range(2021, 2050);
@@ -74,12 +63,10 @@
                                     <!-- List Dropdown -->
                                   <label for="year" class="col-form-label font-weight-bold" style="font-size: 1rem;">Year :</label>
                                   <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="year" name="year" value="{{ $kpi->year }}" readonly>
-
                                   &nbsp;
                                   <label for="month" class="col-form-label font-weight-bold" style="font-size: 1rem;">Month :</label>
                                   <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="month" name="month" value="{{ $kpi->month }}" readonly>
     
-  
                                 <div class="row">
   
                                     {{-- <div class="col-sm-4 pt-3 " >
@@ -176,9 +163,7 @@
                                     </div> --}}
   
                                 </div>
-                              
                                 <div class="row m-auto">
-                                
                                 
                                   {{-- Score KPI --}}
                                     {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
@@ -194,13 +179,13 @@
                                           </th>
                                       </tr>
                                   </table> --}}
+
                                   <div class="table-responsive">
                                     <table class="table table-bordered text-center">
                                         <thead class="thead-dark">
                                             <tr>
                                               <th rowspan="2">(%)</th>
                                                 <th rowspan="2">Ukuran</th>
-                                               
                                                 <th colspan="3">KPI Targets</th>
                                                 <th rowspan="2">Pencapaian</th>
                                                 <th rowspan="2">Skor KPI</th>
@@ -214,7 +199,6 @@
                                         </thead>
                                         <tbody>
                                           <tr>
-
                                             <td class="font-weight-bold border-dark"  class="@error('peratus') border border-danger rounded-3 @enderror">
                                               <input type="text" pattern="[0-9]+" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $kpi->peratus }}" min="0"  >
                                               @error('peratus') <div class="text-danger">{{ $message }}</div> @enderror
@@ -239,8 +223,6 @@
                                               </select>
                                               @error('ukuran') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
-
-
 
                                             <td class="border-dark" class="@error('threshold') border border-danger rounded-3 @enderror">
                                               <input type="text" pattern="[0-9]+" maxlength="3" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" value="{{ $kpi->threshold }}" min="0" >
@@ -272,7 +254,6 @@
                                               @error('skor_sebenar') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
 
-
                                           </tr>
                                       </tbody>
                                     </table>
@@ -292,9 +273,6 @@
                                 </div>
                               </form>
                               </div>
-  
-                          
-  
                         </div>
                     </div>
                 </div>     

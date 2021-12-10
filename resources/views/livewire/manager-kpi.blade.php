@@ -1,7 +1,7 @@
 @section('content')
 <div>
   @extends('layouts.app')
-<style>
+  <style>
   .table-responsive {
     // Other values...
     overflow-x: hidden;
@@ -158,13 +158,13 @@
                           </td>
                           @endif
   
-  
                           {{-- <td class="align-middle text-center">
                             <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
                           </td>
                           <td class="align-middle text-center">
                             <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                           </td> --}}
+
                         </tr>
                       @endforeach
                       @foreach ($kewangan as $key => $kpis)
@@ -822,7 +822,6 @@
               <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
             </td>
             @endif
-  
           </tr>
         @endforeach
                     </tbody>
@@ -1017,11 +1016,9 @@
                                 3. Kami melaksanakan setiap apa yang diperkatakan.
                                 <br>
                                 4. Kami menjadi inspirasi untuk berubah lebih baik.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Perkembangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1032,11 +1029,9 @@
                                 3. Kami memupuk sikap ingin sentiasa berjaya.
                                 <br>
                                 4. Kami sentiasa memperbaiki dan memajukan diri di setiap saat.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Keputusan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1047,11 +1042,9 @@
                                 3. Kami komited dengan hasil usaha yang dilakukan.
                                 <br>
                                 4. Kami berusaha untuk memberikan yang terbaik.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Sumbangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1062,11 +1055,9 @@
                                 3. Kami komited untuk memberi manfaat dan menyebarkan kebaikan.
                                 <br>
                                 4. Kami bertanggungjawab dengan orang sekeliling dan persekitaran.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Rohani")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1077,11 +1068,9 @@
                                 3. Kami bangkit berjaya dengan memajukan orang lain.
                                 <br>
                                 4. Kami sentiasa beriman dan percaya dengan Qada’ dan Qadar.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Keluarga")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1092,7 +1081,6 @@
                                 3. Kami tidak akan mengabaikan keluarga kami.
                                 <br>
                                 4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
-  
                             </td>
                             @else
                             @endif
@@ -1117,9 +1105,11 @@
                             </td>
                             @else 
                             @endif
+
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('manager/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                             </td> --}}
+
                           </tr>
                         @endforeach
                       </tbody>
@@ -1134,40 +1124,30 @@
                     <div class="table-responsive p-0">
                       <table style="width:100%" class="table align-items-center mb-0">
                         <tr>
-  
                           <td>KPI</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td>{{ $kpialls -> total_score_master }}%</td>
                           @endforeach
-  
                           <td rowspan="2">SKOR AKHIR :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td rowspan="2">{{ round($kpialls -> total_score_all,2) }}%</td>
                           @endforeach
-  
-  
-  
                         </tr>
                         <tr>
-  
                           <td>KECEKAPAN TERAS :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td>{{ $kpialls -> total_score_kecekapan }}%</td>
                           @endforeach
-  
                         </tr>
                         <tr>
-  
                           <td>NILAI TERAS :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td>{{ $kpialls -> total_score_nilai }}%</td>
                           @endforeach
-  
                           <td rowspan="1">GRADE :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td rowspan="1">{{ $kpialls -> grade_all }}</td>
                           @endforeach
-  
                         </tr>
                     </table>
                   </div>

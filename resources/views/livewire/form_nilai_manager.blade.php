@@ -5,7 +5,6 @@
 <div>
   @extends('layouts.app')
 <body>
-
     <div class="wrapper">
         <!-- Page Content  -->
         <div id="content">
@@ -42,24 +41,20 @@
             </div>
             @enderror
 
-
              <!-- Pencapaian Content  -->
-
             <div class="col-md-auto">
                 <div class="card shadow rounded">
                     <div class="card-header font-weight-bold" style="text-transform:uppercase" >Borang Pencapaian</div>
-  
                     <div class="col-sm-auto p-3">
                         <div class="card">
                             <div class="m-3">
-  
                             <form action="{{ url('/manager/update/nilai/'.$user->id.'/'.$nilai->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">  
                                     @csrf
-  
                                 <?php
                                     // set start and end year range
                                     $yearArray = range(2021, 2050);
                                 ?>
+
                                     <!-- List Dropdown -->
                                   {{-- <label for="year" class="col-form-label font-weight-bold" style="font-size: 1rem;">Year :</label>
                                   <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="year" name="year" value="{{ $kecekapan->year }}" readonly>
@@ -67,10 +62,8 @@
                                   &nbsp;
                                   <label for="month" class="col-form-label font-weight-bold" style="font-size: 1rem;">Month :</label>
                                   <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="month" name="month" value="{{ $kecekapan->month }}" readonly> --}}
-    
                                 
                                 <div class="row">
-  
                                   <div class="col-sm-4 pt-3 " >
                                     <div class="mb-4">
                                       <td class="font-weight-bold border-dark">
@@ -88,9 +81,7 @@
                                       </div> --}}
   
                                 </div>
-                              
                                 <div class="row m-auto">
-                                
                                 
                                   {{-- Score KPI --}}
                                     {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
@@ -106,6 +97,7 @@
                                           </th>
                                       </tr>
                                   </table> --}}
+
                                   <div class="table-responsive">
                                     <table class="table table-bordered text-center">
                                         <thead class="thead-dark">
@@ -126,25 +118,20 @@
                                         </thead>
                                         <tbody>
                                           <tr>
-
                                             <div class="mb-4">
                                               <td class="font-weight-bold border-dark">
                                                 <input type="text" class="form-control " id="peratus" name="peratus" value="{{ $nilai->peratus }}" readonly>
                                               </td>
                                             </div>
-
                                             <div class="mb-4">
                                               <td class="font-weight-bold border-dark">
                                                 <input type="text" class="form-control " id="ukuran" name="ukuran" value="{{ $nilai->ukuran }}" readonly>
                                               </td>
                                             </div>
 
-                                            
-                                      
                                             {{-- <td class="font-weight-bold border-dark">
                                               <input type="text" maxlength="4"  class="input_pencapaian w-75" id="ukuran" name="ukuran" onkeyup="masterClac();" value="{{ $kecekapan->ukuran }}" min="0" >
                                             </td> --}}
-                                      
   
                                               <td class="font-weight-bold border-dark">
                                                 <input type="text"  pattern="[0-4]+" maxlength="1"  class="input_base w-75" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $nilai->skor_penyelia }}" min="0" >
@@ -154,13 +141,11 @@
                                               <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $nilai->skor_sebenar }}" readonly>
                                             </td>
 
-
                                           </tr>
                                       </tbody>
                                     </table>
                                 </div>    
                                 </div>
-  
                                 <div class="p-3" style="text-align: right">
                                   {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                     Save
@@ -171,11 +156,8 @@
                                 {{-- <button type="button" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150"><a style="color:white" href="{{ route('dashboard-manager') }}">
                                   Back </a>
                               </button> --}}
-  
                               </div>
-  
                           </form>
-  
                         </div>
                     </div>
                 </div>     
@@ -190,4 +172,4 @@
   </body>
 
 </div>
-  @endsection
+@endsection

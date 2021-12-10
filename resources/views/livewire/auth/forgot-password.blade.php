@@ -6,6 +6,7 @@
                 <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                     <div class="card card-plain mt-8">
                         <div class="card-header pb-0 text-left bg-transparent">
+
                             @if ($showDemoNotification)
                                 <div wire:model="showDemoNotification"
                                     class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
@@ -17,6 +18,7 @@
                                     </button>
                                 </div>
                             @endif
+                            
                             <h4 class="mb-0">{{ __('Forgot your password? Enter your email here') }}</h4>
                         </div>
                         <div class="card-body">
@@ -35,6 +37,7 @@
                                     password') }}</button>
                                 </div>
                             </form>
+
                             @if ($showSuccesNotification)
                                 <div wire:model="showSuccesNotification"
                                     class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">

@@ -9,86 +9,184 @@
 @section('content')
   @extends('layouts.app')
 
-<style>
-.table-responsive {
-  // Other values...
-  overflow-x: hidden;
-  overflow-y: hidden;
-  // Other values...
-}
-</style>
+  <style>
+  .table-responsive {
+    // Other values...
+    overflow-x: hidden;
+    overflow-y: hidden;
+    // Other values...
+  }
+  </style>
 
-<body>
-  <div class="m-3">
-    @if (session('message'))
+  <body>
+    <div class="m-3">
+      @if (session('message'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>{{ session('message') }}</strong>
       </div>	
-    @endif
+      @endif
 
-    @if (session('fail'))
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>{{ session('fail') }}</strong>
-    </div>	
-    @endif
+      @if (session('fail'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('fail') }}</strong>
+      </div>	
+      @endif
 
-    @if (session('fail2'))
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>{{ session('fail2') }}</strong>
-    </div>	
-    @endif
-  </div>
-    <div class="container-fluid py-4">
-
-
-
-      <div class="row">
-        <div class="col-12">
-          @if ($weightage_master > 100) 
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>{{ session('fail2') }}Your Percentage for KPI Master exceed 100%. Please check back.</strong>
-          </div>
-        @else
-        @endif
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h6>KAD SKOR 2021 - KPI</h6>
+      @if (session('fail2'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('fail2') }}</strong>
+      </div>	
+      @endif
+    </div>
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-12">
+            @if ($weightage_master > 100) 
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>{{ session('fail2') }}Your Percentage for KPI Master exceed 100%. Please check back.</strong>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Base</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stretch</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pencapaian</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor KPI</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
-                      {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @php($i = 1)
-
-                    @foreach ($kadskor as $key => $kpis)
+            @else
+            @endif
+            <div class="card mb-4">
+              <div class="card-header pb-0">
+                <h6>KAD SKOR 2021 - KPI</h6>
+              </div>
+              <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fungsi</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objektif KPI</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Metrik/Bukti</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link Bukti</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Treshold</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Base</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Stretch</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pencapaian</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor KPI</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                        {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @php($i = 1)
+                      @foreach ($kadskor as $key => $kpis)
+                        <tr>
+                          @if ($key == 0)
+                          {{-- <td class="border-dark">{{ $i++  }}</td> --}}
+                          {{-- <td>    
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
+                              </div>
+                            </div>
+                          </td> --}}
+                          <td>    
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
+                          </td>
+                          <td class="text-xs font-weight-bold mb-0">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{ $kpis->kpimasters -> objektif }}</span>
+                          </td>
+                          @else
+                          <td>    
+                            <div class="d-flex px-2 py-1">
+                              <div class="d-flex flex-column justify-content-center">
+                                <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                          </td>
+                          <td class="text-xs font-weight-bold mb-0">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{  NULL }}</span>
+                          </td>
+                          @endif
+                          {{-- <td class="align-middle text-center text-sm">
+                            <span class="badge badge-sm bg-gradient-success" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
+                          </td> --}}
+                          <td class="text-xs font-weight-bold mb-0">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                          </td>
+                          @if ($key == 0)
+                          <td class="align-middle text-center">
+                            <a href=" {{ $kpis->kpimasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">30</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">65</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">100</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ round($kpis->kpimasters -> skor_sebenar,2) }} %</span>
+                          </td>
+                          @else
+                          <td class="align-middle text-center">
+                            <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value=""></span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ NULL }}</span>
+                          </td>
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
+                          </td>
+                          @endif
+                          {{-- <td class="align-middle text-center">
+                            <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
+                          </td>
+                          <td class="align-middle text-center">
+                            <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
+                          </td> --}}
+                        </tr>
+                      @endforeach
+                      @foreach ($kewangan as $key => $kpis)
                       <tr>
                         @if ($key == 0)
-                        {{-- <td class="border-dark">{{ $i++  }}</td> --}}
-                        {{-- <td>    
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
-                              <p class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</p>
-                            </div>
-                          </div>
-                        </td> --}}
                         <td>    
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
@@ -117,9 +215,6 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{  NULL }}</span>
                         </td>
                         @endif
-                        {{-- <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-success" value="{{ $kpis -> objektif }}">{{ $kpis -> objektif }}</span>
-                        </td> --}}
                         <td class="text-xs font-weight-bold mb-0">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
                         </td>
@@ -180,17 +275,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
                         </td>
                         @endif
-
-
-                        {{-- <td class="align-middle text-center">
-                          <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
-                        </td>
-                        <td class="align-middle text-center">
-                          <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
-                        </td> --}}
                       </tr>
                     @endforeach
-                    @foreach ($kewangan as $key => $kpis)
+                    @foreach ($pelangganI as $key => $kpis)
                     <tr>
                       @if ($key == 0)
                       <td>    
@@ -281,10 +368,9 @@
                         <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
                       </td>
                       @endif
-
                     </tr>
                   @endforeach
-                  @foreach ($pelangganI as $key => $kpis)
+                  @foreach ($pelangganII as $key => $kpis)
                   <tr>
                     @if ($key == 0)
                     <td>    
@@ -375,10 +461,9 @@
                       <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
                     </td>
                     @endif
-
                   </tr>
                 @endforeach
-                @foreach ($pelangganII as $key => $kpis)
+                @foreach ($kecemerlangan as $key => $kpis)
                 <tr>
                   @if ($key == 0)
                   <td>    
@@ -469,10 +554,9 @@
                     <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
                   </td>
                   @endif
-
                 </tr>
               @endforeach
-              @foreach ($kecemerlangan as $key => $kpis)
+              @foreach ($training as $key => $kpis)
               <tr>
                 @if ($key == 0)
                 <td>    
@@ -563,10 +647,9 @@
                   <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
                 </td>
                 @endif
-
               </tr>
             @endforeach
-            @foreach ($training as $key => $kpis)
+            @foreach ($ncr as $key => $kpis)
             <tr>
               @if ($key == 0)
               <td>    
@@ -657,10 +740,9 @@
                 <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
               </td>
               @endif
-
             </tr>
           @endforeach
-          @foreach ($ncr as $key => $kpis)
+          @foreach ($kolaborasi as $key => $kpis)
           <tr>
             @if ($key == 0)
             <td>    
@@ -751,109 +833,15 @@
               <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
             </td>
             @endif
-
           </tr>
-        @endforeach
-        @foreach ($kolaborasi as $key => $kpis)
-        <tr>
-          @if ($key == 0)
-          <td>    
-            <div class="d-flex px-2 py-1">
-              <div class="d-flex flex-column justify-content-center">
-                <h6 class="mb-0 text-sm">{{ $i++  }}</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ $kpis -> fungsi }}</p>
-          </td>
-          <td class="text-xs font-weight-bold mb-0">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{ $kpis->kpimasters -> objektif }}</span>
-          </td>
-          @else
-          <td>    
-            <div class="d-flex px-2 py-1">
-              <div class="d-flex flex-column justify-content-center">
-                <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
-          </td>
-          <td class="text-xs font-weight-bold mb-0">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{  NULL }}</span>
-          </td>
-          @endif
-          <td class="text-xs font-weight-bold mb-0">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
-          </td>
-          @if ($key == 0)
-          <td class="align-middle text-center">
-            <a href=" {{ $kpis->kpimasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="">30</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="">65</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="">100</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ round($kpis->kpimasters -> skor_sebenar,2) }} %</span>
-          </td>
-          @else
-          <td class="align-middle text-center">
-            <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ NULL }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value=""></span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ NULL }}</span>
-          </td>
-          <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
-          </td>
-          @endif
-
-        </tr>
-      @endforeach
-                  </tbody>
-                </table>
+          @endforeach
+                      </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
           <div class="col-12">
             <div class="card mb-4">
               <div class="card-header pb-0">
@@ -988,6 +976,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-12">
             <div class="card mb-4">
               <div class="card-header pb-0">
@@ -1029,7 +1018,6 @@
                               2. Kami memberikan contoh yang baik
                               3. Kami melaksanakan setiap apa yang diperkatakan
                               4. Kami menjadi inspirasi untuk berubah lebih baik</pre>
-
                           </td>
                           @else
                           @endif  --}}
@@ -1044,7 +1032,6 @@
                               3. Kami melaksanakan setiap apa yang diperkatakan.
                               <br>
                               4. Kami menjadi inspirasi untuk berubah lebih baik.</span>
-
                           </td>
                           @else
                           @endif
@@ -1059,7 +1046,6 @@
                               3. Kami memupuk sikap ingin sentiasa berjaya.
                               <br>
                               4. Kami sentiasa memperbaiki dan memajukan diri di setiap saat.</span>
-
                           </td>
                           @else
                           @endif
@@ -1074,7 +1060,6 @@
                               3. Kami komited dengan hasil usaha yang dilakukan.
                               <br>
                               4. Kami berusaha untuk memberikan yang terbaik.</span>
-
                           </td>
                           @else
                           @endif
@@ -1089,7 +1074,6 @@
                               3. Kami komited untuk memberi manfaat dan menyebarkan kebaikan.
                               <br>
                               4. Kami bertanggungjawab dengan orang sekeliling dan persekitaran.</span>
-
                           </td>
                           @else
                           @endif
@@ -1104,7 +1088,6 @@
                               3. Kami bangkit berjaya dengan memajukan orang lain.
                               <br>
                               4. Kami sentiasa beriman dan percaya dengan Qada’ dan Qadar.</span>
-
                           </td>
                           @else
                           @endif
@@ -1119,7 +1102,6 @@
                               3. Kami tidak akan mengabaikan keluarga kami.
                               <br>
                               4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
-
                           </td>
                           @else
                           @endif
@@ -1194,6 +1176,7 @@
                           <td class="align-middle text-center">
                             <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_sebenar }}">{{ $nilais -> skor_sebenar }}</span>
                           </td>
+
                           {{-- <td class="align-middle text-center">
                             <a href="{{ url('employee/edit/nilai/'.$nilais->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Pencapaian</a>
                           </td>
@@ -1314,47 +1297,36 @@
                   <div class="table-responsive p-0">
                     <table style="width:100%" class="table align-items-center mb-0">
                       <tr>
-
                         <td>KPI</td>
                         @foreach ($kpiall as $key => $kpialls)
                         <td>{{ $kpialls -> total_score_master }}%</td>
                         @endforeach
-
                         <td rowspan="2">SKOR AKHIR :</td>
                         @foreach ($kpiall as $key => $kpialls)
                         <td rowspan="2">{{ round($kpialls -> total_score_all,2) }}%</td>
                         @endforeach
-
-
-
                       </tr>
                       <tr>
-
                         <td>KECEKAPAN TERAS :</td>
                         @foreach ($kpiall as $key => $kpialls)
                         <td>{{ $kpialls -> total_score_kecekapan }}%</td>
                         @endforeach
-
                       </tr>
                       <tr>
-
                         <td>NILAI TERAS :</td>
                         @foreach ($kpiall as $key => $kpialls)
                         <td>{{ $kpialls -> total_score_nilai }}%</td>
                         @endforeach
-
                         <td rowspan="1">GRADE :</td>
                         @foreach ($kpiall as $key => $kpialls)
                         <td rowspan="1">{{ $kpialls -> grade_all }}</td>
                         @endforeach
-
                       </tr>
                   </table>
                 </div>
               </div>
             </div>
           </div>
-
             @foreach ($date as $dates)
               @if ($dates->status == 'Not Submitted' || $dates->status == 'Submitted')
                 <a href="{{ url('employee/changeup/kpi/'.$dates->id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Submit</a>
@@ -1366,17 +1338,11 @@
             @endforeach
           </div>
         </div>
-
-
-     
     </body>
-  </div>
-
   
    <!-- Master Pencapaian JS -->
   <script src="{{asset('assets/js/master.js')}}"></script>
   <script src="{{asset('assets/js/kecekapan.js')}}"></script>
   <script src="{{asset('assets/js/nilai.js')}}"></script>
   
- 
-  @endsection
+@endsection
