@@ -82,6 +82,8 @@ Route::get('/employee/kecekapan/{date_id}/{user_id}/{year}/{month}', Kecekapan::
 // Route::get('/employee/nilai/{date_id}/{user_id}/{year}/{month}', [Nilai::class, 'add_nilai']);
 Route::get('/employee/nilai/{date_id}/{user_id}/{year}/{month}', Nilai::class);
 Route::get('/employee/displaykpi/{date_id}/{user_id}/{year}/{month}', [Displaykpi::class, 'view_all']);
+Route::get('/employee/edit/date/{date_id}/{user_id}/{year}/{month}', [Date::class, 'date_edit']);
+Route::post('/employee/update/date/{date_id}/{user_id}/{year}/{month}', [Date::class, 'date_update']);
 
 //Manager Route
 Route::get('/manager/edit/kecekapan/{id_user}/{id}/{date_id}/{user_id}/{year}/{month}', [KecekapanManager::class, 'kecekapan_edit']);

@@ -177,7 +177,8 @@
                           </td>
 
                           <td style="border:none">
-                            <button type="button" wire:click="selectItem({{$dates->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit Date</button>
+                            <a href="{{ url('employee/edit/date/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Date</a>
+                            {{-- <button type="button" wire:click="selectItem({{$dates->id}} , 'update' )" class="btn btn-sm waves-effect waves-light btn-dark" style="font-size: 10px"><i class="fa fa-edit"></i> Edit Date</button> --}}
                           </td>
 
                           <td class="align-middle text-center">
