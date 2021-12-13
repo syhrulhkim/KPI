@@ -18,6 +18,30 @@ class Nilai extends Component
     protected $listeners = [
         'delete'
     ];
+
+    public function selectItem($id_nilai)
+    {
+        // dd('john');
+        $this->id_nilai = $id_nilai;
+        // dd($this->id_kecekapan);
+    }
+
+    public function delete()
+    {
+        // dd('john');
+        $nilai = Nilai_::find($this->id_nilai);
+        $nilai->delete();
+        return redirect()->back()->with('message', 'Nilai deleted successfully');
+    }
+
+    public function mount($date_id, $user_id, $year, $month)
+    { 
+        $this->date_id = $date_id;
+        $this->user_id = $user_id;
+        $this->year = $year;
+        $this->month = $month;
+        // $this->questions = Question::find($this->id_questions);
+    }
     
     // public function kecekapan() {
     //     $kecekapan = Kecekapan_::latest()->get();
@@ -26,10 +50,10 @@ class Nilai extends Component
     //     return view('livewire.create-kpi', compact('kecekapan') );
     // }
 
-    public function nilai() {
-        $nilai = Nilai_::latest()->get();
-        return view('livewire.add-nilai', compact('nilai') );
-    }
+    // public function nilai() {
+    //     $nilai = Nilai_::latest()->get();
+    //     return view('livewire.add-nilai', compact('nilai') );
+    // }
 
     public function nilai_save(Request $request, $year, $month){
         //check kat sini 
@@ -128,28 +152,28 @@ class Nilai extends Component
         return redirect('employee/nilai/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'Nilai Updated Successfully');
     }
 
-    public function selectItem($id_nilai , $action)
-    {
-        // dd($id_nilai);
-        $this->id_nilai = $id_nilai;
-        // dd($this->id_nilai);
-        $this->action = $action;
-        // dd($this->action);
-        // $this->emit('refreshParent');
-    }
+    // public function selectItem($id_nilai , $action)
+    // {
+    //     // dd($id_nilai);
+    //     $this->id_nilai = $id_nilai;
+    //     // dd($this->id_nilai);
+    //     $this->action = $action;
+    //     // dd($this->action);
+    //     // $this->emit('refreshParent');
+    // }
 
-    public function delete()
-    {
-        // dd('john');
-        $nilai = Nilai_::find($this->id_nilai);
-        $nilai->delete();
-        return redirect()->back()->with('message', 'Nilai deleted successfully');
-    }
+    // public function delete()
+    // {
+    //     // dd('john');
+    //     $nilai = Nilai_::find($this->id_nilai);
+    //     $nilai->delete();
+    //     return redirect()->back()->with('message', 'Nilai deleted successfully');
+    // }
 
-    public function add_nilai($date_id, $user_id, $year, $month) {
-        $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('nilai_teras')->get();
-        return view('livewire.nilai', compact('nilai', 'date_id', 'user_id', 'year', 'month'));
-    }
+    // public function add_nilai($date_id, $user_id, $year, $month) {
+    //     $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('nilai_teras')->get();
+    //     return view('livewire.nilai', compact('nilai', 'date_id', 'user_id', 'year', 'month'));
+    // }
 
     // public function nilai_delete($id) {
     //     $delete = Nilai_::find($id)->forceDelete();
@@ -158,8 +182,12 @@ class Nilai extends Component
 
         public function render()
     {
+        $date_id = $this->date_id;
+        $user_id = $this->user_id;
+        $year = $this->year;
+        $month = $this->month;
         $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('nilai_teras')->get();
-        return view('livewire.nilai', compact('nilai'));
+        return view('livewire.nilai', compact('nilai', 'date_id', 'user_id', 'year', 'month'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
     }
 }

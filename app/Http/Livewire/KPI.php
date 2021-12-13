@@ -38,6 +38,10 @@ class KPI extends Component
 
     public function delete()
     {
+        $date_id = $this->date_id;
+        $user_id = $this->user_id;
+        $year = $this->year;
+        $month = $this->month;
         // dd('john123');
         $kpi = KPI_::find($this->id_kpi);
         $fungsi = KPI_::find($this->id_kpi)->value('fungsi');
@@ -55,6 +59,14 @@ class KPI extends Component
             ]);
         }
         return redirect()->back()->with('message', 'Kpi deleted successfully');
+    }
+
+    public function mount($date_id, $user_id, $year, $month)
+    { 
+        $this->date_id = $date_id;
+        $this->user_id = $user_id;
+        $this->year = $year;
+        $this->month = $month;
     }
 
     // public $fungsi = '';
@@ -1100,52 +1112,57 @@ class KPI extends Component
 
         public function render()
     {
+        $date_id = $this->date_id;
+        $user_id = $this->user_id;
+        $year = $this->year;
+        $month = $this->month;
+
         // dd($id);
-        $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
         // $bukti = Bukti::where([[ 'kpi_id', '=', '30' ]])->get();
         // $bukti = KPI_::where('user_id', '=', auth()->user()->id)->Where('role' , 'employee')->orderBy('created_at','desc')->get();
         // $kpi = KPI_::where('user_id', '=', auth()->user()->id)->orderBy('fungsi')->get();
         // $questions = Question::where([[ 'kpi_id', '=', '19' ]])->get();
         // $kpi2 = KPI_::where('user_id', '=', auth()->user()->id);
-        $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
-        $hrs = User::Where('department' , 'Human Resource (HR) & Administration')->orWhere('role' , 'admin')->get();
-        $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->value('weightage_master');
+        // $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
+        // $hrs = User::Where('department' , 'Human Resource (HR) & Administration')->orWhere('role' , 'admin')->get();
+        // $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->value('weightage_master');
 
-        $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $pelangganII = KPI_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $kecemerlangan = KPI_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $training = KPI_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $ncr = KPI_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $kolaborasi = KPI_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $pelangganII = KPI_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $kecemerlangan = KPI_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $training = KPI_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $ncr = KPI_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $kolaborasi = KPI_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
 
-        $kadskorcount = $kadskor->count();
-        $kewangancount = $kewangan->count();
-        $pelangganIcount = $pelangganI->count();
-        $pelangganIIcount = $pelangganII->count();
-        $kecemerlangancount = $kecemerlangan->count();
-        $trainingcount = $training->count();
-        $ncrcount = $ncr->count();
-        $kolaborasicount = $kolaborasi->count();
+        // $kadskorcount = $kadskor->count();
+        // $kewangancount = $kewangan->count();
+        // $pelangganIcount = $pelangganI->count();
+        // $pelangganIIcount = $pelangganII->count();
+        // $kecemerlangancount = $kecemerlangan->count();
+        // $trainingcount = $training->count();
+        // $ncrcount = $ncr->count();
+        // $kolaborasicount = $kolaborasi->count();
 
-        $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $kewanganmaster = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $pelangganImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $kecemerlanganmaster = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $trainingmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
-        $kolaborasimaster = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $kewanganmaster = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $pelangganImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $kecemerlanganmaster = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $trainingmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
+        // $kolaborasimaster = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->get();
 
-        $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
-        $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
+        // $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->orderBy('created_at','desc')->count();
 
         // $userscount = User::where('role', '=', 'employee')->count();
 
@@ -1162,11 +1179,55 @@ class KPI extends Component
         // dd($kpi);
         // $courses = Course::orderBy('created_at','desc')->get();
 
-        return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
+        // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
+        // 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 
+        // 'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
+        // 'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' ,'kadskormastercount', 'kewanganmastercount', 'pelangganImastercount', 
+        // 'pelangganIImastercount', 'kecemerlanganmastercount', 'trainingmastercount', 'ncrmastercount', 'kolaborasimastercount', 'weightage_master'));
+        // return view('livewire.kpi');
+
+        $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $pelangganII = KPI_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kecemerlangan = KPI_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $training = KPI_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $ncr = KPI_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kolaborasi = KPI_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+
+        $kadskorcount = $kadskor->count();
+        $kewangancount = $kewangan->count();
+        $pelangganIcount = $pelangganI->count();
+        $pelangganIIcount = $pelangganII->count();
+        $kecemerlangancount = $kecemerlangan->count();
+        $trainingcount = $training->count();
+        $ncrcount = $ncr->count();
+        $kolaborasicount = $kolaborasi->count();
+
+        $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewanganmaster = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $pelangganImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kecemerlanganmaster = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $trainingmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $ncrmaster = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kolaborasimaster = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+
+        $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('weightage_master');
+        $weightage_kadskor = $kadskor->sum('peratus');
+        $weightage_kewangan = $kewangan->sum('peratus');
+        $weightage_pelangganI = $pelangganI->sum('peratus');
+        $weightage_pelangganII = $pelangganII->sum('peratus');
+        $weightage_kecemerlangan = $kecemerlangan->sum('peratus');
+        $weightage_training = $training->sum('peratus');
+        $weightage_ncr = $ncr->sum('peratus');
+        $weightage_kolaborasi = $kolaborasi->sum('peratus');
+
+        return view('livewire.kpi', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
         'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 
         'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
-        'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' ,'kadskormastercount', 'kewanganmastercount', 'pelangganImastercount', 
-        'pelangganIImastercount', 'kecemerlanganmastercount', 'trainingmastercount', 'ncrmastercount', 'kolaborasimastercount', 'weightage_master'));
-        // return view('livewire.kpi');
+        'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id',
+        'weightage_kadskor', 'weightage_kewangan', 'weightage_pelangganI', 'weightage_pelangganII', 'weightage_kecemerlangan',
+        'weightage_training', 'weightage_ncr', 'weightage_kolaborasi'));
     }
 }

@@ -1,5 +1,5 @@
-@section('content')
-@extends('layouts.app')
+{{-- @section('content')
+@extends('layouts.app') --}}
 <div>
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Master') --}}
@@ -388,7 +388,7 @@
                             </td> --}}
 
                             <td style="border:none">
-                              <button type="button" wire:click="selectItem({{$nilais->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$nilais->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                              <button type="button" wire:click="selectItem({{$nilais->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$nilais->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                           </td>
                           </tr>
                         @endforeach
@@ -552,7 +552,7 @@
                             </td> --}}
                             
                             <td style="border:none">
-                              <button type="button" wire:click="selectItem({{$userss->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>Delete</button>
+                              <button type="button" wire:click="selectItem({{$userss->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                           </td>
                           </tr>
                         @endforeach
@@ -605,4 +605,4 @@
 </body>
 {{-- @endsection --}}
 </div>
-@endsection
+{{-- @endsection --}}

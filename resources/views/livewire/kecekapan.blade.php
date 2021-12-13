@@ -1,6 +1,7 @@
 {{-- {{dd($year)}} --}}
-@section('content')
-@extends('layouts.app')
+{{-- <div>
+@section('content') --}}
+{{-- @extends('layouts.app') --}}
 <div>
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Master') --}}
@@ -473,8 +474,8 @@
                               {{-- <button type="button" wire:click="selectItem({{$kecekapans->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                             </td> --}}
                             <td class="align-middle text-center">
-                              {{-- <button type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button> --}}
-                              <button onclick="window.livewire.emit('delete')" type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                              <button type="button" wire:click="selectItem({{$kecekapans->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                              {{-- <button onclick="window.livewire.emit('delete')" type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button> --}}
                               {{-- {{dd($kecekapans->id)}} --}}
                             </td>
                           </tr>
@@ -622,7 +623,7 @@
                             </td>
                             <td class="align-middle text-center">
                               {{-- <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
-                              <button type="button" wire:click="selectItem({{$userss->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>Delete</button>
+                              <button type="button" wire:click="selectItem({{$userss->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                             </td>
                           </tr>
                         @endforeach
@@ -673,4 +674,5 @@
 </body>
 {{-- @endsection --}}
 </div>
-@endsection
+{{-- @endsection
+</div> --}}

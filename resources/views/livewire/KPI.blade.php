@@ -1,6 +1,6 @@
 {{-- {{dd($user_id)}} --}}
-@section('content')
-@extends('layouts.app')
+{{-- @section('content')
+@extends('layouts.app') --}}
 {{-- {{dd($month)}} --}}
 
 <div>
@@ -1394,4 +1394,4 @@
 </body>
 {{-- @endsection --}}
 </div>
-@endsection
+{{-- @endsection --}}

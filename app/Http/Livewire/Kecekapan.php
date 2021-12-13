@@ -3,12 +3,13 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\KPI_;
 use App\Models\Date_;
-use App\Models\KPIMaster_;
-use App\Models\Kecekapan_;
 use App\Models\KpiAll_;
+use App\Models\KPIMaster_;
+use App\Models\KPI_;
+use App\Models\Kecekapan_;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
@@ -17,17 +18,42 @@ use Illuminate\Support\Facades\Hash;
 class Kecekapan extends Component
 {
     public $id_kecekapan;
-    public $action;
     public $id_date;
     public $year;
     public $month;
     public $date_id;
     public $user_id;
+    public $model_id;
+    public $action;
 
     protected $listeners = [
         'delete',
         // "dd('john')"
     ];
+
+    public function selectItem($id_kecekapan)
+    {
+        // dd('john');
+        $this->id_kecekapan = $id_kecekapan;
+        // dd($this->id_kecekapan);
+    }
+
+    public function delete()
+    {
+        // dd('john');
+        $kecekapan = Kecekapan_::find($this->id_kecekapan);
+        $kecekapan->delete();
+        return redirect()->back()->with('message', 'Kecekapan deleted successfully');
+    }
+
+    public function mount($date_id, $user_id, $year, $month)
+    { 
+        $this->date_id = $date_id;
+        $this->user_id = $user_id;
+        $this->year = $year;
+        $this->month = $month;
+        // $this->questions = Question::find($this->id_questions);
+    }
 
     // public function kecekapan() {
     //     $kecekapan = Kecekapan_::latest()->get();
@@ -185,37 +211,22 @@ class Kecekapan extends Component
     //     return redirect()->back()->with('message', 'Kecekapan deleted successfully');
     // }
 
-    public function selectItem($id_kecekapan , $action)
-    {
-        // dd('john');
-        $this->id_kecekapan = $id_kecekapan;
-        $this->action = $action;
-        // dd($this->id_kecekapan);
-    }
 
-    public function delete()
-    {
-        // dd('john');
-        $kecekapan = Kecekapan_::find($this->id_kecekapan);
-        $kecekapan->delete();
-        return redirect()->back()->with('message', 'Kecekapan deleted successfully');
-    }
 
-    public function add_kecekapan($date_id, $user_id, $year, $month) {
-        // dd($year);
-        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
-        return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month'));
-    }
+    // public function add_kecekapan($date_id, $user_id, $year, $month) {
+    //     // dd($year);
+    //     $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
+    //     return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month'));
+    // }
 
     public function render()
     {
-        // dd($year);
-        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('kecekapan_teras')->get();
-        $userdepartment = auth()->user()->department;
-        $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
-        // dd($users);
-        // $kecekapanemployee = Kecekapan_::where('user_id', '=', $users->id)->orderBy('created_at','desc')->get();
-        return view('livewire.kecekapan', compact('kecekapan', 'users'));
-        // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
+        // dd($this->date_id);
+        $date_id = $this->date_id;
+        $user_id = $this->user_id;
+        $year = $this->year;
+        $month = $this->month;
+        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
+        return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month'));
     }
 }
