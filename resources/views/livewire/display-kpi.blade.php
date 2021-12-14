@@ -773,8 +773,8 @@
               <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{  NULL }}</span>
             </td>
             @endif
-            <td class="text-xs font-weight-bold mb-0">
-              <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+            <td class="text-break text-xs font-weight-bold mb-0">
+              <span class="text-break text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
             </td>
             @if ($key == 0)
             <td class="align-middle text-center">
