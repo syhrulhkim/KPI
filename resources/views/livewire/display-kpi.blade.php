@@ -11,31 +11,36 @@
   .solid {
     border-style: solid;
   }
+  .box {
+  width: 250px;
+  }
+  .box2 {
+  width: 100px;
+  }
   </style>
 
   <body>
-    <div class="m-3">
-      @if (session('message'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{ session('message') }}</strong>
-      </div>	
-      @endif
 
-      @if (session('fail'))
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{ session('fail') }}</strong>
-      </div>	
-      @endif
-
-      @if (session('fail2'))
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{ session('fail2') }}</strong>
-      </div>	
-      @endif
-    </div>
 
 {{------------------------------------------- Start Testing ---------------------------------------}}  
-  <div class="container-fluid py-4">  
+  <div class="container-fluid py-4">
+    @if (session('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{ session('message') }}</strong>
+    </div>	
+    @endif
+
+    @if (session('fail'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{ session('fail') }}</strong>
+    </div>	
+    @endif
+
+    @if (session('fail2'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{ session('fail2') }}</strong>
+    </div>	
+    @endif
     <div class="row">
       <div class="col-12">
         <div class="card mb-4">
@@ -56,7 +61,6 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-5">KPI Target</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Skor KPI</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Skor Sebenar</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -164,15 +168,6 @@
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
@@ -291,15 +286,6 @@
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
@@ -414,16 +400,7 @@
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
+                        </td>  
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
                         </td>
@@ -541,15 +518,6 @@
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
@@ -571,18 +539,11 @@
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{ $kpis->kpimasters -> objektif }}</span>
                         </td>
                       @else
-                        <td>    
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
-                              <p class="mb-0 text-sm" value="{{$key + 1}}">{{NULL}}</p>
-                            </div>
-                          </div>
-                        </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}">{{ NULL }}</p>
+                          <p class="text-xs font-weight-bold mb-0" value="{{ $kpis -> fungsi }}"></p>
                         </td>
                         <td class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}">{{  NULL }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> objektif }}"></span>
                         </td>
                       @endif
                         <td class="text-xs font-weight-bold mb-0">
@@ -660,28 +621,19 @@
                           <a href="" style="color:blue;text-decoration:underline;font-size:13.5px"; ></a>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}"></span>
+                        </td>  
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}"></span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}"></span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}"></span>
                         </td>
                       @endif
                     </tr>
@@ -789,15 +741,6 @@
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
@@ -916,15 +859,6 @@
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
@@ -1041,15 +975,6 @@
                           <span class="text-secondary text-xs font-weight-bold" value=""></span>
                         </td>
                         <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold" value="">{{ NULL }}</span>
-                        </td>
-                        <td class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> pencapaian }}">{{ NULL }}</span>
                         </td>
                         <td class="align-middle text-center">
@@ -1070,6 +995,143 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>KAD SKOR 2021 - Kecekapan Teras</h6>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kecekapan Teras</th>
+                    <th class="text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Jangkaan Hasil</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-12">&</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Skor Pekerja</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Skor Penyelia</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Skor Sebenar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($kecekapan as $key => $kecekapans)
+                    <tr>
+                      <td>
+                        <div class="d-flex px-3 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="mb-0 text-sm box" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans->kecekapan_teras }}</p>
+                          </div>
+                        </div>
+                      </td>
+
+                      @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
+                      <td>
+                        <p class="text-xs text-secondary mb-0">
+                          Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
+                          <br>
+                          Pemimpin yang bertindak selaras dengan strategi organisasi
+                          <br>
+                          Pengurus yang dapat mengembangkan dan memperkasakan pekerja bawahannya
+                          <br>
+                          Budaya organisasi yang mencerminkan nilainya
+                          <br>
+                          Pemimpin yang bertindak selaras dengan strategi organisasi
+                        </p>
+                      </td>
+                      @else
+                      @endif
+
+                      @if ($kecekapans -> kecekapan_teras == "Keupayaan Inovatif")
+                      <td>
+                        <p class="text-xs text-secondary mb-0">
+                          Pekerja yang berupaya memberi idea dan memberi penyelesaian untuk menyelesaikan masalah
+                          <br>
+                          Amalan kerja yang dikemas kini lebih sesuai dengan jangkaan masa kini
+                          <br>
+                          Penerimaan untuk organisasi, dan semua bahagiannya, perlu berubah dan terus meningkat
+                          <br>
+                          Pemimpin yang bertindak selaras dengan strategi organisasi
+                        </p>
+                      </td>
+                      @else
+                      @endif
+
+                      @if ($kecekapans -> kecekapan_teras == "Pengurusan Pelanggan")
+                      <td>
+                        <p class="text-xs text-secondary mb-0">
+                          Amalan organisasi yang lebih sesuai dengan keperluan pelanggan moden
+                          <br>
+                          Pekerja yang memahami dan bertindak mengikut kehendak pelanggan tepat pada masanya
+                          <br>
+                          Penciptaan produk dan perkhidmatan masa depan yang lebih mencerminkan keperluan pelanggan
+                          <br>
+                          Pemimpin yang bertindak selaras dengan strategi organisasi
+                        </p>
+                      </td>
+                      @else
+                      @endif
+
+                      @if ($kecekapans -> kecekapan_teras == "Pengurusan Pemegang Berkepentingan")
+                      <td>
+                        <p class="text-xs text-secondary mb-0">
+                          Pekerja yang lebih empati dengan pihak berkepentingan mereka
+                          <br>
+                          Pembinaan hubungan positif dengan pihak berkepentingan
+                          <br>
+                          Pembentukan perkongsian strategik yang membantu mencapai objektif organisasi
+                          <br>
+                          Pengurus yang mendorong pekerja bawahan mereka membina rangkaian profesional mereka sendiri
+                          <br>
+                          Pemimpin yang bertindak selaras dengan strategi organisasi
+                        </p>
+                      </td>
+                      @else
+                      @endif
+
+                      @if ($kecekapans -> kecekapan_teras == "Ketangkasan Dalam Organisasi")
+                      <td>
+                        <p class="text-xs text-secondary mb-0">
+                          Pekerja yang berpengetahuan dan serba boleh
+                          <br>
+                          Penghargaan dan penerapan budaya bimbingan dalam organisasi
+                          <br>
+                          Amalan organisasi yang boleh menyesuaikan diri dengan masalah di pasaran
+                          <br>
+                          Organisasi yang menekankan dan mendorong pembelajaran dan perkembangan berterusan
+                          <br>
+                          Pemimpin yang bertindak selaras dengan strategi organisasi
+                        </p>
+                      </td>
+                      @else
+                      @endif
+
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold ps-11" value="{{  '20%' }}">{{  '20%' }}</span>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold mr-2" value="{{ 'Percentage (%)' }}">{{ 'Percentage (%)' }}</span>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_pekerja }}">{{ $kecekapans -> skor_pekerja }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_penyelia }}">{{ $kecekapans -> skor_penyelia }}</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
+                      </td>
+                    </tr>
+                  @endforeach  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-12">
         <div class="card mb-4">
@@ -1094,7 +1156,7 @@
                   @foreach ($kecekapan as $key => $kecekapans)
                     <tr>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"  value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
+                        <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
                       </td>
 
                       @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
@@ -1362,8 +1424,15 @@
                 </div>
                 <div class="ms-auto text-end">
                   <div class="col-12 text-end">
-                    <a class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;SIGN & SUBMIT</a>
-                    <a class="btn bg-gradient-warning mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;UNDO</a>
+                    @foreach ($date as $dates)
+                      {{-- @if ($dates->status == 'Not Submitted' || $dates->status == 'Submitted') --}}
+                      @if ($dates->status == 'Not Submitted')
+                        <a class="btn bg-gradient-info mb-0" href="{{ url('employee/changeup/kpi/'.$dates->id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Submit</a>
+                      @elseif ($dates->status == 'Submitted')
+                        <a class="btn bg-gradient-danger mb-0" href="{{ url('employee/changedown/kpi/'.$dates->id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Submit</a>
+                      @else
+                      @endif
+                    @endforeach
                   </div>
                   {{-- <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Delete</a>
                   <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a> --}}

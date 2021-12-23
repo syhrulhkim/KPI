@@ -1190,22 +1190,119 @@
 
             @if (Auth::user()->role == "manager")
               @foreach ($date as $dates)
-                @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager')
-                  <a href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraised</a>
-                  <a href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Appraised</a>
-                @else
-                @endif
+                {{-- @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager') --}}
+                  {{-- <a href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraised</a>
+                  <a href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Appraised</a> --}}
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="card">
+                        <div class="card-body pt-4 p-3">
+                          <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                              <div class="d-flex flex-column">
+                                <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                                <span class="mb-2 text-xs">KPI : 
+                                @foreach ($kpiall as $key => $kpialls)
+                                <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Skor Akhir:
+                                @foreach ($kpiall as $key => $kpialls) 
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Kecekapan Teras:
+                                @foreach ($kpiall as $key => $kpialls) 
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Nilai Teras: 
+                                @foreach ($kpiall as $key => $kpialls)  
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
+                                @endforeach
+                                <span class="text-xs">Grade: 
+                                @foreach ($kpiall as $key => $kpialls)   
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
+                                @endforeach
+                              </div>
+                              <div class="ms-auto text-end">
+                                <div class="col-12 text-end">
+                                  @foreach ($date as $dates)
+                                    {{-- @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager') --}}
+                                    @if ($dates->status == 'Submitted')
+                                      <a class="btn bg-gradient-info mb-0" href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraised</a>
+                                    @elseif ($dates->status == 'Signed By Manager')
+                                      <a class="btn bg-gradient-danger mb-0" href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Appraised</a>
+                                    @else
+                                    @endif
+                                  @endforeach
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {{-- @else
+                @endif --}}
               @endforeach
             @else
             @endif 
 
             @if (Auth::user()->role == "hr")
               @foreach ($date as $dates)
-              @if ($dates->status == 'Signed By Manager' || $dates->status == 'Completed')
+              {{-- @if ($dates->status == 'Signed By Manager' || $dates->status == 'Completed')
                 <a href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Complete</a>
                 <a href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Complete</a>
               @else
-              @endif
+              @endif --}}
+
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="card">
+                    <div class="card-body pt-4 p-3">
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                          <div class="d-flex flex-column">
+                            <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                            <span class="mb-2 text-xs">KPI : 
+                            @foreach ($kpiall as $key => $kpialls)
+                            <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
+                            @endforeach
+                            <span class="mb-2 text-xs">Skor Akhir:
+                            @foreach ($kpiall as $key => $kpialls) 
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
+                            @endforeach
+                            <span class="mb-2 text-xs">Kecekapan Teras:
+                            @foreach ($kpiall as $key => $kpialls) 
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
+                            @endforeach
+                            <span class="mb-2 text-xs">Nilai Teras: 
+                            @foreach ($kpiall as $key => $kpialls)  
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
+                            @endforeach
+                            <span class="text-xs">Grade: 
+                            @foreach ($kpiall as $key => $kpialls)   
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
+                            @endforeach
+                          </div>
+                          <div class="ms-auto text-end">
+                            <div class="col-12 text-end">
+                              @foreach ($date as $dates)
+                                {{-- @if ($dates->status == 'Signed By Manager' || $dates->status == 'Completed') --}}
+                                  @if ($dates->status == 'Signed By Manager')
+                                    <a class="btn bg-gradient-info mb-0" href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Complete</a>
+                                  @elseif ($dates->status == 'Completed')
+                                    <a class="btn bg-gradient-danger mb-0" href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Complete</a>
+                                  @else
+                                  @endif
+                              @endforeach
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
               @endforeach
             @else
             @endif 
