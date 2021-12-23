@@ -849,7 +849,8 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
                           @if (Auth::user()->role == "manager")
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
+                          <th></th>
                           @else 
                           @endif
                         </tr>
@@ -952,15 +953,30 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
                             </td>
-                            @if (Auth::user()->role == "manager")
+                            {{-- @if (Auth::user()->role == "manager")
                             <td class="align-middle text-center">
                               <a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             @else 
-                            @endif
+                            @endif --}}
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('manager/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                             </td> --}}
+                            @if (Auth::user()->role == "manager")
+                            <td class="align-middle">
+                              <div class="col-lg-6 col-5 my-auto text-middle">
+                                <div class="dropdown float-lg-start pe-4">
+                                  <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                                  </a>
+                                  <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                                    <li><a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </td>
+                            @else 
+                            @endif
                           </tr>
                         @endforeach
                       </tbody>
@@ -988,7 +1004,8 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
                           @if (Auth::user()->role == "manager")
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
+                          <th></th>
                           @else 
                           @endif
                         </tr>
@@ -1099,16 +1116,32 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_sebenar }}">{{ $nilais -> skor_sebenar }}</span>
                             </td>
-                            @if (Auth::user()->role == "manager")
+                            {{-- @if (Auth::user()->role == "manager")
                             <td class="align-middle text-center">
                               <a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             @else 
-                            @endif
+                            @endif --}}
 
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('manager/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                             </td> --}}
+
+                            @if (Auth::user()->role == "manager")
+                            <td class="align-middle">
+                              <div class="col-lg-6 col-5 my-auto text-middle">
+                                <div class="dropdown float-lg-start pe-4">
+                                  <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                                  </a>
+                                  <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                                    <li><a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </td>
+                            @else 
+                            @endif
 
                           </tr>
                         @endforeach

@@ -207,40 +207,37 @@
                                             <td style="word-break: break-all;" class="border-dark" class="@error('peratus') border border-danger rounded-3 @enderror">
                                               <select class="form-select form-select-sm" id="ukuran" name="ukuran">
                                                 <option selected readonly value="{{ $kpi->ukuran }}">{{ $kpi->ukuran }}</option>
-                                                <option value="N/A">N/A</option>
+                                                <option value="Unit">Unit</option>
                                                 <option value="Quantity" >Quantity</option>
                                                 <option value="Ratio" >Ratio</option>
                                                 <option value="Rating" >Rating</option>
                                                 <option value="Percentage (%)" >Percentage(%)</option>  
-                                                <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
-                                                <option value="Month/Year"  >Month/Year</option> 
-                                                <option value="Quarter"  >Quarter</option>
+                                                <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option>
                                                 <option value="Hours" >Hours</option> 
                                                 <option value="RM (billion)" >RM (billion)</option>
                                                 <option value="RM (million)" >RM (million)</option> 
                                                 <option value="RM (*000)" >RM (*000)</option>
-                                                <option value="KM/Miles" >KM/Miles</option>
                                               </select>
                                               @error('ukuran') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
 
                                             <td class="border-dark" class="@error('threshold') border border-danger rounded-3 @enderror">
-                                              <input type="text" pattern="[0-9]+" maxlength="3" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" value="{{ $kpi->threshold }}" min="0" >
+                                              <input type="text" pattern="[0-9]+" maxlength="6" class="input_threshold w-75" id="threshold" name="threshold" onkeyup="masterClac();" value="{{ $kpi->threshold }}" min="0" >
                                               @error('threshold') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
                                             <td class="border-dark" class="@error('base') border border-danger rounded-3 @enderror">
-                                              <input type="text" pattern="[0-9]+" maxlength="3" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" value="{{ $kpi->base }}" min="0" >
+                                              <input type="text" pattern="[0-9]+" maxlength="6" class="input_base w-75" id="base" name="base" onkeyup="masterClac();" value="{{ $kpi->base }}" min="0" >
                                               @error('base') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
                                             <td class="border-dark" class="@error('stretch') border border-danger rounded-3 @enderror">
-                                              <input type="text" pattern="[0-9]+" maxlength="3" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" value="{{ $kpi->stretch }}" min="0" >
+                                              <input type="text" pattern="[0-9]+" maxlength="6" class="input_stretch w-75" id="stretch" name="stretch" onkeyup="masterClac();" value="{{ $kpi->stretch }}" min="0" >
                                               @error('stretch') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       
                                             <td class="border-dark" class="@error('stretch') border border-danger rounded-3 @enderror">
-                                              <input type="text" pattern="^\d*(\.\d{0,2})?$" maxlength="4" class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" value="{{ $kpi->pencapaian }}" min="0" >
+                                              <input type="text" pattern="^\d*(\.\d{0,2})?$" maxlength="7" class="input_pencapaian w-75" id="pencapaian" name="pencapaian" onkeyup="masterClac();" value="{{ $kpi->pencapaian }}" min="0" >
                                               @error('pencapaian') <div class="text-danger">{{ $message }}</div> @enderror
                                             </td>
                                       

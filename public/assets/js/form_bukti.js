@@ -19,13 +19,10 @@ $(document).ready(function(){
           html += '<option value="Rating" >Rating</option>';
           html += '<option value="Percentage (%)" >Percentage(%)</option>';
           html += '<option value="Date (dd/mm/yyyy)">Date (dd/mm/yyyy)</option>';
-          html += '<option value="Month/Year" >Month/Year</option> ';
-          html += '<option value="Quarter" >Quarter</option>';
           html += '<option value="Hours" >Hours</option>';
           html += '<option value="RM (billion)" >RM (billion)</option>';
           html += '<option value="RM (million)" >RM (million)</option>';
           html += '<option value="RM (*000)" >RM (*000)</option>';
-          html += '<option value="KM/Miles" >KM/Miles</option>';
           html += '</select>';
           html += '</td>';
   
