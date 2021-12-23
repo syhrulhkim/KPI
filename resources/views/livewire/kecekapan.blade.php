@@ -1,6 +1,7 @@
 {{-- {{dd($year)}} --}}
-@section('content')
-@extends('layouts.app')
+{{-- <div>
+@section('content') --}}
+{{-- @extends('layouts.app') --}}
 <div>
 {{-- @extends('staff/layout/staff_template') --}}
 {{-- @section('title','Staff | Master') --}}
@@ -8,7 +9,6 @@
 {{-- @section('content') --}}
 
 <body>
-
   <div class="wrapper">
       <!-- Page Content  -->
       <div id="content">
@@ -28,13 +28,10 @@
                       <a class="nav-link font-weight-bold" style="text-transform:uppercase" >{{ Auth::user()->name }}</a>
                     </li>
                   </ul>
-
-
               </div>
           </nav> --}}
           
           <br>
-
           <div class="m-3">
 
             @if (session('message'))
@@ -51,28 +48,22 @@
 
           </div>
           
-
           <!-- Pencapaian Content  -->
-        
           <div class="col-md-auto">
             <div class="card shadow rounded">
               <div class="card-header pb-0">
                 <h6>KAD SKOR 2021 - KECEKAPAN TERAS</h6>
               </div>
-
                 <div class="col-sm-auto p-3">
                     <div class="card">
                         <div class="m-3">
-
                         {{-- <form action="{{ route('kecekapan_save') }}" method="post">  --}}
                           <form action="{{ url('employee/save/kecekapan/'.$year.'/'.$month) }}" method="post">   
                                 @csrf
-
                             <?php
                                 // set start and end year range
                                 $yearArray = range(2021, 2050);
                             ?>              
-
                             <div class="row">
 
                                 {{-- <div class="col-sm-4 pt-3 " >
@@ -127,7 +118,6 @@
                           
                             <div class="row m-auto">
                             
-                            
                               {{-- Score KPI --}}
                                 {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                   <tr>
@@ -142,6 +132,7 @@
                                       </th>
                                   </tr>
                               </table> --}}
+
                               <div class="table-responsive">
                                 <table class="table table-bordered text-center">
                                     <thead class="thead-dark">
@@ -158,13 +149,11 @@
                                             <th rowspan="2">Skor Penyelia</th>
                                             @else
                                             @endif
-
                                             <th rowspan="2">Skor Sebenar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-
                                           <td class="font-weight-bold border-dark">
                                             {{-- <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" min="0"  > --}}
                                             <input type="text"  class="form-control" id="peratus" name="peratus" value="20" onkeyup="masterClac();" min="0" selected readonly>
@@ -177,19 +166,16 @@
                                           {{-- <td style="word-break: break-all;" class="border-dark">
                                             <select class="form-select form-select-sm" id="ukuran" name="ukuran">
                                               <option selected disabled value=""></option>
-                                              <option value="N/A">N/A</option>
+                                              <option value="Unit">Unit</option>
                                               <option value="Quantity" >Quantity</option>
                                               <option value="Ratio" >Ratio</option>
                                               <option value="Rating" >Rating</option>
                                               <option value="Percentage (%)" >Percentage(%)</option>  
                                               <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
-                                              <option value="Month/Year"  >Month/Year</option> 
-                                              <option value="Quarter"  >Quarter</option>
                                               <option value="Hours" >Hours</option> 
                                               <option value="RM (billion)" >RM (billion)</option>
                                               <option value="RM (million)" >RM (million)</option> 
                                               <option value="RM (*000)" >RM (*000)</option>
-                                              <option value="KM/Miles" >KM/Miles</option>
                                               <option value="Percentage" selected>Percentage </option>
                                             </select>
                                           </td> --}}
@@ -226,7 +212,6 @@
                                             <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="0" readonly>
                                           </td>
 
-
                                         </tr>
                                     </tbody>
                                 </table>
@@ -237,16 +222,12 @@
                             </button>                         --}}
                             <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
                             </div>
-
                           </div>
-
                       </form>
-
                     </div>
                 </div>
             </div>     
         </div>
-
         <br>
           
         {{-- <div class="card m-3">
@@ -376,8 +357,9 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+                          <th></th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th> --}}
                         </tr>
                       </thead>
                       <tbody>
@@ -481,18 +463,29 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
                             </td>
-                            <td class="align-middle text-center">
+                            {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
-                            </td>
+                            </td> --}}
                             {{-- Route::get('/employee/edit/kecekapan/{id}/{date_id}/{user_id}/{year}/{month}', [Kecekapan::class, 'kecekapan_edit']); --}}
                             {{-- <td class="align-middle text-center"> --}}
                               {{-- <a href="{{ url('employee/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
                               {{-- <button type="button" wire:click="selectItem({{$kecekapans->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
                             </td> --}}
-                            <td class="align-middle text-center">
-                              {{-- <button type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button> --}}
-                              <button onclick="window.livewire.emit('delete')" type="button" wire:click="selectItem({{$kecekapans->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
-                              {{-- {{dd($kecekapans->id)}} --}}
+                            {{-- <td class="align-middle text-center">
+                              <button type="button" wire:click="selectItem({{$kecekapans->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$kecekapans->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                            </td> --}}
+                            <td class="align-middle">
+                              <div class="col-lg-6 col-5 my-auto text-middle">
+                                <div class="dropdown float-lg-start pe-4">
+                                  <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                                  </a>
+                                  <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                                    <li><a href="{{ url('employee/edit/kecekapan/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                                    <li><button type="button" wire:click="selectItem({{$kecekapans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kecekapans->id}}">Delete</button></li>
+                                  </ul>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         @endforeach
@@ -529,8 +522,9 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+                          <th></th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th> --}}
                         </tr>
                       </thead>
                       <tbody>
@@ -634,12 +628,24 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $userss -> skor_sebenar }}">{{ $userss -> skor_sebenar }}</span>
                             </td>
-                            <td class="align-middle text-center">
+                            {{-- <td class="align-middle text-center">
                               <a href="{{ url('employee/edit/kecekapan/'.$userss->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             <td class="align-middle text-center">
-                              {{-- <a href="{{ url('employee/delete/kecekapan/'.$userss->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i>&nbsp;Delete</a> --}}
-                              <button type="button" wire:click="selectItem({{$userss->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>Delete</button>
+                              <button type="button" wire:click="selectItem({{$userss->id}})" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$userss->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                            </td> --}}
+                            <td class="align-middle">
+                              <div class="col-lg-6 col-5 my-auto text-middle">
+                                <div class="dropdown float-lg-start pe-4">
+                                  <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                                  </a>
+                                  <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                                    <li><a href="{{ url('employee/edit/kecekapan/'.$userss->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                                    <li><button type="button" wire:click="selectItem({{$userss->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$userss->id}}">Delete</button></li>
+                                  </ul>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         @endforeach
@@ -662,8 +668,6 @@
   {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
   <script>
     document.addEventListener('livewire:load', function () {
-  
-  
       $(document).on("click", ".data-delete", function (e) 
           {
               e.preventDefault();
@@ -684,7 +688,6 @@
     })
   </script>
   {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
-  
   @endpush
  <!-- Master Pencapaian JS -->
 <script src="{{asset('assets/js/kecekapan.js')}}"></script>
@@ -693,5 +696,5 @@
 </body>
 {{-- @endsection --}}
 </div>
-</div>
-@endsection
+{{-- @endsection
+</div> --}}

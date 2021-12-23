@@ -14,7 +14,6 @@
             @if (isset($slot))
                 {{ $slot }} 
             @endif
-           
             @yield('content')
             <main>
                 <div class="container-fluid">
@@ -55,7 +54,6 @@
             <div class="mt-5">
                 @include('layouts.footers.guest.with-socials')
             </div>
-
             {{-- If the user is on the sign up page --}}
         @elseif (!auth()->check() && in_array(request()->route()->getName(),['sign-up'],))
             <div>

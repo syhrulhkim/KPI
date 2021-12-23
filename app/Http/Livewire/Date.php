@@ -21,20 +21,21 @@ class Date extends Component
     public $action;
 
     protected $listeners = [
-        'getModelId',
+        // 'getModelId',
         'delete',
+        // 'date_save',
         // 'dd("date_save")'
     ];
     
-    public function selectItem($id_date, $action)
+    public function selectItem($model_id, $action)
     {
-        $this->id_date = $id_date;
+        $this->id_date = $model_id;
         $this->action = $action;
-        if($action == "update")
-        {
-            $this->emit('getModelId' , $this->id_date);
-        }
-        // dd("john");
+        // if($action == "update")
+        // {
+        //     $this->emit('getModelId' , $this->id_date);
+        // }
+        // // dd("john");
     }
 
     public function delete()
@@ -44,16 +45,17 @@ class Date extends Component
         return redirect()->back()->with('message', 'Date deleted successfully');
     }
 
-    public function getModelId($model_id)
-    {
-        // dd($model_id);
-        $date = Date_::find($model_id);
-        $this->model_id = $date->id;
-        $this->year = $date->year;
-        $this->month = $date->month;
-        // $this->emit('date_save' , $this->model_id);
-        // dd($this->model_id);
-    }
+    // public function getModelId($model_id)
+    // {
+    //     // dd($model_id);
+    //     $date = Date_::find($model_id);
+
+    //     $this->year = $date->year;
+    //     $this->month = $date->month;
+    //     $this->model_id = $date->id;
+    //     // $this->emit('date_save' , $this->model_id);
+    //     // dd($this->model_id);
+    // }
 
     // public function date_save(Request $request) {
 
@@ -76,42 +78,58 @@ class Date extends Component
         $count_date = Date_::where('year', '=', $request->year)->where('month', '=', $request->month)->where('user_id', '=', auth()->user()->id)->count();
         // dd($count_date);
         // dd($this->model_id);
-        if($this->model_id && $count_date == 0)
-        {
-            // dd('john1');
-            $validatedData = $request->validate([
-                'year' => ['required'],
-                'month' => ['required'],
-            ]);
+        // if($this->model_id && $count_date == 0)
+        // {
+        //     // dd('john1');
+        //     // $validatedData = $request->validate([
+        //     //     'year' => ['required'],
+        //     //     'month' => ['required'],
+        //     // ]);
             
-            $update = Date_::find($this->model_id);
-            $update->year = $request->year;
-            $update->month = $request->month;
-            $update->save();
-    
-            return redirect()->back()->with('message', 'Date has been successfully updated!');
-        }
-        elseif ($count_date == 0)
+        //     $update = Date_::find($this->model_id);
+        //     $update->year = $request->year;
+        //     $update->month = $request->month;
+        //     $update->save();
+        //     // dd('john10');
+        //     return redirect()->back()->with('message', 'Date has been successfully updated!');
+        // }
+        if ($count_date == 0)
         {
             // dd('john2');
             $validatedData = $request->validate([
                 'year' => ['required'],
                 'month' => ['required'],
             ]);
-
             $add = New Date_;
             $add->year = $request->year;
             $add->month = $request->month;
             $add->user_id= Auth::user()->id;
             $add->status= 'Not Submitted';
             $add->save();
-
             return redirect()->back()->with('message', 'Date has been successfully inserted!');
         }else
         {
             return redirect()->back()->with('fail', 'Date has already exists!');
         }
         // $this->emit('refreshParent');
+    }
+
+    public function date_edit($date_id, $user_id, $year, $month) {
+        $date = Date_::find($date_id);
+        return view('livewire.form_date' , compact('date', 'date_id', 'user_id', 'year', 'month'));
+    }
+
+    public function date_update(Request $request, $date_id, $user_id, $year, $month) {
+        $validatedData = $request->validate([
+            'year' => ['required'],
+            'month' => ['required'],
+        ]);
+
+        $update = Date_::find($date_id)->update([
+            'year'=> $request->year,
+            'month'=> $request->month,
+        ]);
+        return redirect('/add-date')->with('message', 'Date Updated Successfully');
     }
 
     public function create_date($user_id)
@@ -133,11 +151,8 @@ class Date extends Component
     {
         // $coursefiles = CourseFile::all();
         // dd($kpi);
-     
             $date = Date_::where('user_id', '=', auth()->user()->id)->orderBy('year','desc')->orderBy('month','desc')->get();
             $kpi = KPI_::where('user_id', '=', auth()->user()->id)->get();
-
-
         return view('livewire.date', compact('date', 'kpi'));
     }
 }

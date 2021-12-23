@@ -8,11 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Displaykpi_ extends Model
 {
     use HasFactory;
-
     protected $table = 'kpi';
-
     protected $fillable = [
-
         'fungsi',
         'objektif',
         'bukti',
@@ -24,11 +21,9 @@ class Displaykpi_ extends Model
         'pencapaian',
         'skor_KPI', 
         'skor_sebenar',
-
         'grade',
         'total_score',
         'weightage',
-         
         'user_id',
         'year',
         'month',

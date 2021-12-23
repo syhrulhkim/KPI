@@ -5,11 +5,9 @@
 <div>
   @extends('layouts.app')
 <body>
-
     <div class="wrapper">
         <!-- Page Content  -->
         <div id="content">
-
             {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
@@ -23,8 +21,6 @@
                         <a class="nav-link font-weight-bold" style="text-transform:uppercase" >{{ Auth::user()->name }}</a>
                       </li>
                   </ul>
-
-
                 </div>
             </nav> --}}
            
@@ -42,20 +38,15 @@
             </div>
             @enderror
 
-
              <!-- Pencapaian Content  -->
-
             <div class="col-md-auto">
                 <div class="card shadow rounded">
                     <div class="card-header font-weight-bold" style="text-transform:uppercase" >Performance Form</div>
-  
                     <div class="col-sm-auto p-3">
                         <div class="card">
                             <div class="m-3">
-  
                               <form action="{{ url('/manager/update/kecekapan/'.$user->id.'/'.$kecekapan->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">  
                                     @csrf
-  
                                 <?php
                                     // set start and end year range
                                     $yearArray = range(2021, 2050);
@@ -63,14 +54,11 @@
                                     <!-- List Dropdown -->
                                   {{-- <label for="year" class="col-form-label font-weight-bold" style="font-size: 1rem;">Year :</label>
                                   <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="year" name="year" value="{{ $kecekapan->year }}" readonly>
-
                                   &nbsp;
                                   <label for="month" class="col-form-label font-weight-bold" style="font-size: 1rem;">Month :</label>
                                   <input class="font-weight-bold btn-sm btn btn-outline-secondary ml-2" style="width: 100px" id="month" name="month" value="{{ $kecekapan->month }}" readonly> --}}
-    
                                 
                                 <div class="row">
-  
                                     <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4">
                                           <td class="font-weight-bold border-dark">
@@ -79,14 +67,9 @@
                                           </td>
                                         </div>
                                       </div>
-
-
-  
                                 </div>
                               
                                 <div class="row m-auto">
-                                
-                                
                                   {{-- Score KPI --}}
                                     {{-- <table class="table table-bordered sticky-top bg-light bg-gradient text-dark">
                                       <tr>
@@ -122,11 +105,9 @@
                                         <tbody>
                                          
                                           <tr>
-
                                             {{-- <td class="font-weight-bold border-dark">
                                               <input type="text" maxlength="3" class="input_ukuran w-75" id="peratus" name="peratus" onkeyup="masterClac();" value="{{ $kecekapan->peratus }}" min="0"  >
                                             </td> --}}
-
 
                                               <div class="mb-4">
                                                 <td class="font-weight-bold border-dark">
@@ -134,26 +115,21 @@
                                                 </td>
                                               </div>
 
-
                                             {{-- <td style="word-break: break-all;" class="border-dark">
                                               <select class="form-select form-select-sm" id="ukuran" name="ukuran">
                                                 <option selected readonly value="{{ $kecekapan->ukuran }}">{{ $kecekapan->ukuran }}</option>
-                                                <option value="N/A">N/A</option>
+                                                <option value="Unit">Unit</option>
                                                 <option value="Quantity" >Quantity</option>
                                                 <option value="Ratio" >Ratio</option>
                                                 <option value="Rating" >Rating</option>
                                                 <option value="Percentage (%)" >Percentage(%)</option>  
                                                 <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
-                                                <option value="Month/Year"  >Month/Year</option> 
-                                                <option value="Quarter"  >Quarter</option>
                                                 <option value="Hours" >Hours</option> 
                                                 <option value="RM (billion)" >RM (billion)</option>
                                                 <option value="RM (million)" >RM (million)</option> 
                                                 <option value="RM (*000)" >RM (*000)</option>
-                                                <option value="KM/Miles" >KM/Miles</option>
                                               </select>
                                             </td> --}}
-
 
                                               <div class="mb-4">
                                                 <td class="font-weight-bold border-dark">
@@ -161,14 +137,10 @@
                                                 </td>
                                               </div>
 
-
-                                            
-                                      
                                             {{-- <td class="font-weight-bold border-dark">
                                               <input type="text" maxlength="4"  class="input_pencapaian w-75" id="ukuran" name="ukuran" onkeyup="masterClac();" value="{{ $kecekapan->ukuran }}" min="0" >
                                             </td> --}}
                                       
-  
                                               <td class="font-weight-bold border-dark">
                                                 <input type="text"  pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" value="{{ $kecekapan->skor_penyelia }}" min="0" >
                                               </td>
@@ -176,7 +148,6 @@
                                             <td class="font-weight-bold border-dark">
                                               <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $kecekapan->skor_sebenar }}" readonly>
                                             </td>
-
 
                                           </tr>
                                       </tbody>
@@ -196,23 +167,19 @@
                                     Back </a>
                                 </button>                  --}}
                                 </div>
-  
                               </div>
-  
                           </form>
-  
                         </div>
                     </div>
                 </div>     
             </div>
         </div>
     </div>
-
 </form>
    <!-- Calculation JS -->
 <script src="{{asset('assets/js/kecekapan.js')}}"></script>
 
-  </body>
+</body>
 
 </div>
-  @endsection
+@endsection

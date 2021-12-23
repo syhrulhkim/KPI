@@ -1,6 +1,7 @@
 <div>
     @livewire('laravel-examples.user-management-admin-form-wire')
     <div>
+
         {{-- <div class="alert alert-secondary mx-4" role="alert">
             <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
                 <strong>PRO</strong> feature!
@@ -56,39 +57,28 @@
                                 <tbody>
                                     <tr>
                                         <td class="ps-4">
-                                           
                                             {{-- questions.push('Q{{$key + 1}}'); --}}
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
                                             {{-- <div>
                                                 <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3">
                                             </div> --}}
-                                        
                                              <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->name}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->email}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->role}}</p>
-                                 
                                         </td>
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$user->id}}">{{$user->created_at}}</p>
-                                       
                                         </td>
                                         {{-- <td class="text-center">
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td> --}}
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -99,7 +89,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     {{-- <tr>
@@ -274,33 +263,21 @@
                                 <tbody>
                                     <tr>
                                         <td class="ps-4">
-                                        
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
-
-                                         <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->name}}</p>
-                                      
+                                            <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->name}}</p>
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->email}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->role}}</p>
-                                 
                                         </td>
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employee->id}}">{{$employee->created_at}}</p>
-                                       
                                         </td>
-
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -310,10 +287,8 @@
                                                         <button type="button" wire:click="selectItem({{$employee->id}} , 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" data-form="{{$employee->id}}"><i class="fas fa-trash-alt"></i></button>
                                                         {{-- {{dd($employee->id)}}; --}}
                                                     </td>
-                                                    
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     @endforeach
@@ -324,7 +299,6 @@
                 </div>
             </div>
         </div>
-    
     </div>
     @push('scripts')
     
@@ -332,8 +306,6 @@
     <script>
         // console.log('john');
       document.addEventListener('livewire:load', function () {
-    
-    
         $(document).on("click", ".data-delete", function (e) 
             {
                 e.preventDefault();
@@ -351,10 +323,8 @@
                 } 
                 });
             });
-    
       })
     </script>
     {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
-    
     @endpush
-    </div>
+</div>

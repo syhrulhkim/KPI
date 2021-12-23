@@ -17,9 +17,7 @@ class Dashboard extends Component
         $operationemp = User::where([['department', '=', 'Operation'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
         $hremp = User::where([['department', '=', 'Human Resource (HR) & Administration'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
         $afemp = User::where([['department', '=', 'Account & Finance (A&F)'] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
-
         $userscount = User::where('role', '=', 'employee')->count();
-
         $marketingempcount = User::where([['department', '=', 'Marketing'] , ['role', '=', 'employee']])->count();
         $salesempcount = User::where([['department', '=', 'Sales'] , ['role', '=', 'employee']])->count();
         $ceoempcount = User::where([['department', '=', 'CEO Office'] , ['role', '=', 'employee']])->count();

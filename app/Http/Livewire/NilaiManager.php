@@ -16,23 +16,18 @@ use Illuminate\Support\Carbon;
 class NilaiManager extends Component
 {
     // public function kecekapan() {
-
     //     $kecekapan = Kecekapan_::latest()->get();
-
     //     return view('livewire.create-kecekapan', compact('kecekapan') );
     // }
 
     public function nilai_save(Request $request){
-
         $validatedData = $request->validate([
             'skor_penyelia' => ['required'],
         ]);
-
         Nilai_::insert([
         'skor_penyelia'=> $request->skor_penyelia,
         'skor_sebenar' => $request->skor_sebenar,
         ]);
-
         return redirect()->back()->with('message', 'Skor penyelia has been successfully inserted');
     } 
        
@@ -46,24 +41,19 @@ class NilaiManager extends Component
         $validatedData = $request->validate([
             'skor_penyelia' => ['required'],
         ]);
-
         $update = Nilai_::find($id)->update([
             'skor_penyelia'=> $request->skor_penyelia,
             'skor_sebenar' => $request->skor_sebenar,
         ]);
-
         // dd($id_user);
         if (KPIAll_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->count() == 1) {
             $kpiall = KPIAll_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->get();
             $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
-
             $total_score_kecekapan = Kecekapan_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
             $total_score_nilai = Nilai_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
             $total_score_kpi = KPIMaster_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
             $total_score_all = ($total_score_kecekapan*0.1) + (($total_score_nilai/1.2)*0.1) + ($total_score_kpi*0.8);
-
             $weightage = Nilai_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->sum('peratus');
-
             $grade_all = '';
             if ($total_score_all >= 80 ) {
                 $grade_all = 'PLATINUM';
@@ -89,7 +79,6 @@ class NilaiManager extends Component
             else {
                 $grade_all = 'NO GRED';
             }
-
             KPIAll_::find($kpiall_id)->update([
                 'total_score_all'=>  $total_score_all,
                 'grade_all'=>  $grade_all,

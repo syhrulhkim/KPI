@@ -11,7 +11,6 @@ class Firstpage extends Component
     {
         $users = User::orderBy('created_at','desc')->get();
         $userscount = $users->count();
-
         return view('livewire.firstpage')->with(compact('users', 'userscount'));
     }
 }

@@ -35,13 +35,10 @@ addButtonUI.addEventListener('click', () => {
             <option value="Rating" >Rating</option>
             <option value="Percentage (%)" >Percentage(%)</option>  
             <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option> 
-            <option value="Month/Year"  >Month/Year</option> 
-            <option value="Quarter"  >Quarter</option>
             <option value="Hours" >Hours</option> 
             <option value="RM (billion)" >RM (billion)</option>
             <option value="RM (million)" >RM (million)</option> 
             <option value="RM (*000)" >RM (*000)</option>
-            <option value="KM/Miles" >KM/Miles</option>
           </select>
         </td>
   

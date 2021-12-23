@@ -1,6 +1,7 @@
 <div>
     @livewire('laravel-examples.user-management-form-wire')
     <div>
+
         {{-- <div class="alert alert-secondary mx-4" role="alert">
             <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
                 <strong>PRO</strong> feature!
@@ -55,40 +56,29 @@
                                 @foreach ($moderator as $key => $moderators)
                                 <tbody>
                                     <tr>
-                                        <td class="ps-4">
-                                           
+                                        <td class="ps-4">  
                                             {{-- questions.push('Q{{$key + 1}}'); --}}
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
                                             {{-- <div>
                                                 <img src="../assets/img/profileavatar.png" class="avatar avatar-sm me-3">
                                             </div> --}}
-                                        
                                              <p class="text-xs font-weight-bold mb-0" value="{{$moderators->id}}">{{$moderators->name}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$moderators->id}}">{{$moderators->email}}</p>
-                                      
                                         </td>
                                         {{-- <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$moderators->id}}">{{$moderators->role}}</p>
-                                 
                                         </td> --}}
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$moderators->id}}">{{$moderators->created_at}}</p>
-                                       
                                         </td>
                                         {{-- <td class="text-center">
                                             <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
                                         </td> --}}
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -99,7 +89,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     {{-- <tr>
@@ -226,17 +215,14 @@
                                             </span>
                                         </td>
                                     </tr> --}}
-                                </tbody>
+                                    </tbody>
                                     @endforeach
-                               
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
      
-
-
             <div class="col-12">
                 <div class="card mb-4 mx-4">
                     <div class="card-header pb-0">
@@ -275,33 +261,21 @@
                                 <tbody>
                                     <tr>
                                         <td class="ps-4">
-                                        
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
-
                                          <p class="text-xs font-weight-bold mb-0" value="{{$hrs->id}}">{{$hrs->name}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$hrs->id}}">{{$hrs->email}}</p>
-                                      
                                         </td>
                                         {{-- <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$hrs->id}}">{{$hrs->role}}</p>
-                                 
                                         </td> --}}
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$hrs->id}}">{{$hrs->created_at}}</p>
-                                       
                                         </td>
-
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -312,7 +286,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     @endforeach
@@ -322,8 +295,6 @@
                     </div>
                 </div>
             </div>
-     
-
 
             <div class="col-12">
                 <div class="card mb-4 mx-4">
@@ -363,33 +334,21 @@
                                 <tbody>
                                     <tr>
                                         <td class="ps-4">
-                                        
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
-
                                          <p class="text-xs font-weight-bold mb-0" value="{{$managers->id}}">{{$managers->name}}</p>
-                                      
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$managers->id}}">{{$managers->email}}</p>
-                                      
                                         </td>
                                         {{-- <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$managers->id}}">{{$managers->role}}</p>
-                                 
                                         </td> --}}
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$managers->id}}">{{$managers->created_at}}</p>
-                                       
                                         </td>
-
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -400,7 +359,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     @endforeach
@@ -410,8 +368,6 @@
                     </div>
                 </div>
             </div>
-     
-
      
             <div class="col-12">
                 <div class="card mb-4 mx-4">
@@ -451,33 +407,21 @@
                                 <tbody>
                                     <tr>
                                         <td class="ps-4">
-                                        
                                             <p class="text-xs font-weight-bold mb-0">{{$key+1}}</p>
-                                           
                                         </td>
                                         <td>
-
-                                         <p class="text-xs font-weight-bold mb-0" value="{{$employees->id}}">{{$employees->name}}</p>
-                                      
+                                            <p class="text-xs font-weight-bold mb-0" value="{{$employees->id}}">{{$employees->name}}</p>
                                         </td>
                                         <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employees->id}}">{{$employees->email}}</p>
-                                      
                                         </td>
                                         {{-- <td class="text-center">
-                                          
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employees->id}}">{{$employees->role}}</p>
-                                 
                                         </td> --}}
                                         <td class="text-center">
-                                       
                                             <p class="text-xs font-weight-bold mb-0" value="{{$employees->id}}">{{$employees->created_at}}</p>
-                                       
                                         </td>
-
                                         <td class="text-center">
-                                     
                                             <table style="border:none">
                                                 <tr>
                                                     <td style="border:none">
@@ -488,7 +432,6 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                       
                                         </td>
                                     </tr>
                                     @endforeach
@@ -499,15 +442,12 @@
                 </div>
             </div>
         </div>
-    
     </div>
+
     @push('scripts')
-    
     {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}
     <script>
       document.addEventListener('livewire:load', function () {
-    
-    
         $(document).on("click", ".data-delete", function (e) 
             {
                 e.preventDefault();
@@ -525,10 +465,9 @@
                 } 
                 });
             });
-    
       })
     </script>
     {{-- END SECTION - SCRIPT FOR DELETE BUTTON  --}}
-    
     @endpush
-    </div>
+
+</div>

@@ -103,7 +103,7 @@
       </div>
     </div>
   </div>
-
+</div>
 <!--   Core JS Files   -->
 <script src="../assets/js/plugins/chartjs.min.js"></script>
 <script src="../assets/js/plugins/Chart.extension.js"></script>

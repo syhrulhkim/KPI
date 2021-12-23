@@ -1,3 +1,4 @@
+<div>
 <div class="container-fluid py-4">
   <div class="row">
     <div class="col-12">
@@ -135,8 +136,10 @@
                           <i class="fa fa-ellipsis-v text-secondary"></i>
                         </a>
                         <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
-                          <li><button type="button" wire:click="selectItem({{$dates->id}} , 'update' )" class="dropdown-item border-radius-md" href="javascript:;">Edit</button></li>
-                          <li><button type="button" wire:click="selectItem({{$dates->id}}, 'delete' )" data-form="{{$dates->id}}" class="dropdown-item border-radius-md" style="color: red;" href="javascript:;">Delete</button></li>
+                          {{-- <li><a href="{{ url('employee/edit/date/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Date</a></li> --}}
+                          {{-- <li><button type="button" wire:click="selectItem({{$dates->id}}, 'delete' )" class="btn btn-sm waves-effect waves-light btn-danger data-delete" style="font-size: 10px" data-form="{{$dates->id}}"><i class="fas fa-trash-alt"></i>&nbsp;Delete</button></li> --}}
+                          <li><a href="{{ url('employee/edit/date/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$dates->id}}, 'delete' )" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$dates->id}}">Delete</button></li>
                         </ul>
                       </div>
                     </div>

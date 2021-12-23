@@ -26,7 +26,6 @@ class DashboardManager extends Component
         // $users = User::where('role', 'manager')->orWhere('role', 'hr')->orWhere('role', 'moderaor')->get();
         $userscount = $users->count();
         // $kpiall = KPIAll_::all();
-
         return view('livewire.dashboard-manager')->with(compact('users', 'userscount', 'userdepartment'));
     }
 }

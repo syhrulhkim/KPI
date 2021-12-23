@@ -1,7 +1,7 @@
 @section('content')
 <div>
   @extends('layouts.app')
-<style>
+  <style>
   .table-responsive {
     // Other values...
     overflow-x: hidden;
@@ -158,13 +158,13 @@
                           </td>
                           @endif
   
-  
                           {{-- <td class="align-middle text-center">
                             <a href="{{ url('employee/edit/kpi/'.$kpis->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit Pencapaian</a>
                           </td>
                           <td class="align-middle text-center">
                             <a href="{{ url('employee/delete/kpi/'.$kpis->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                           </td> --}}
+
                         </tr>
                       @endforeach
                       @foreach ($kewangan as $key => $kpis)
@@ -822,7 +822,6 @@
               <span class="text-secondary text-xs font-weight-bold" value="{{ round($kpis->kpimasters -> skor_sebenar,2) }}">{{ NULL }}</span>
             </td>
             @endif
-  
           </tr>
         @endforeach
                     </tbody>
@@ -850,7 +849,8 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
                           @if (Auth::user()->role == "manager")
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
+                          <th></th>
                           @else 
                           @endif
                         </tr>
@@ -953,15 +953,30 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $kecekapans -> skor_sebenar }}">{{ $kecekapans -> skor_sebenar }}</span>
                             </td>
-                            @if (Auth::user()->role == "manager")
+                            {{-- @if (Auth::user()->role == "manager")
                             <td class="align-middle text-center">
                               <a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             @else 
-                            @endif
+                            @endif --}}
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('manager/delete/kecekapan/'.$kecekapans->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                             </td> --}}
+                            @if (Auth::user()->role == "manager")
+                            <td class="align-middle">
+                              <div class="col-lg-6 col-5 my-auto text-middle">
+                                <div class="dropdown float-lg-start pe-4">
+                                  <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                                  </a>
+                                  <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                                    <li><a href="{{ url('manager/edit/kecekapan/'.$id.'/'.$kecekapans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </td>
+                            @else 
+                            @endif
                           </tr>
                         @endforeach
                       </tbody>
@@ -989,7 +1004,8 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
                           @if (Auth::user()->role == "manager")
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
+                          <th></th>
                           @else 
                           @endif
                         </tr>
@@ -1017,11 +1033,9 @@
                                 3. Kami melaksanakan setiap apa yang diperkatakan.
                                 <br>
                                 4. Kami menjadi inspirasi untuk berubah lebih baik.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Perkembangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1032,11 +1046,9 @@
                                 3. Kami memupuk sikap ingin sentiasa berjaya.
                                 <br>
                                 4. Kami sentiasa memperbaiki dan memajukan diri di setiap saat.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Keputusan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1047,11 +1059,9 @@
                                 3. Kami komited dengan hasil usaha yang dilakukan.
                                 <br>
                                 4. Kami berusaha untuk memberikan yang terbaik.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Sumbangan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1062,11 +1072,9 @@
                                 3. Kami komited untuk memberi manfaat dan menyebarkan kebaikan.
                                 <br>
                                 4. Kami bertanggungjawab dengan orang sekeliling dan persekitaran.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Rohani")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1077,11 +1085,9 @@
                                 3. Kami bangkit berjaya dengan memajukan orang lain.
                                 <br>
                                 4. Kami sentiasa beriman dan percaya dengan Qada’ dan Qadar.</span>
-  
                             </td>
                             @else
                             @endif
-  
                             @if ($nilais -> nilai_teras == "Keluarga")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
@@ -1092,7 +1098,6 @@
                                 3. Kami tidak akan mengabaikan keluarga kami.
                                 <br>
                                 4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
-  
                             </td>
                             @else
                             @endif
@@ -1111,15 +1116,33 @@
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ $nilais -> skor_sebenar }}">{{ $nilais -> skor_sebenar }}</span>
                             </td>
-                            @if (Auth::user()->role == "manager")
+                            {{-- @if (Auth::user()->role == "manager")
                             <td class="align-middle text-center">
                               <a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                             </td>
                             @else 
-                            @endif
+                            @endif --}}
+
                             {{-- <td class="align-middle text-center">
                               <a href="{{ url('manager/delete/nilai/'.$nilais->id) }}" class="btn btn-danger btn-sm"  style="font-size: 10px" role="button"><i class="fa fa-trash"></i></a>
                             </td> --}}
+
+                            @if (Auth::user()->role == "manager")
+                            <td class="align-middle">
+                              <div class="col-lg-6 col-5 my-auto text-middle">
+                                <div class="dropdown float-lg-start pe-4">
+                                  <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                                  </a>
+                                  <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                                    <li><a href="{{ url('manager/edit/nilai/'.$id.'/'.$nilais->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </td>
+                            @else 
+                            @endif
+
                           </tr>
                         @endforeach
                       </tbody>
@@ -1134,40 +1157,30 @@
                     <div class="table-responsive p-0">
                       <table style="width:100%" class="table align-items-center mb-0">
                         <tr>
-  
                           <td>KPI</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td>{{ $kpialls -> total_score_master }}%</td>
                           @endforeach
-  
                           <td rowspan="2">SKOR AKHIR :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td rowspan="2">{{ round($kpialls -> total_score_all,2) }}%</td>
                           @endforeach
-  
-  
-  
                         </tr>
                         <tr>
-  
                           <td>KECEKAPAN TERAS :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td>{{ $kpialls -> total_score_kecekapan }}%</td>
                           @endforeach
-  
                         </tr>
                         <tr>
-  
                           <td>NILAI TERAS :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td>{{ $kpialls -> total_score_nilai }}%</td>
                           @endforeach
-  
                           <td rowspan="1">GRADE :</td>
                           @foreach ($kpiall as $key => $kpialls)
                           <td rowspan="1">{{ $kpialls -> grade_all }}</td>
                           @endforeach
-  
                         </tr>
                     </table>
                   </div>
@@ -1177,22 +1190,119 @@
 
             @if (Auth::user()->role == "manager")
               @foreach ($date as $dates)
-                @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager')
-                  <a href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraised</a>
-                  <a href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Appraised</a>
-                @else
-                @endif
+                {{-- @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager') --}}
+                  {{-- <a href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraised</a>
+                  <a href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Appraised</a> --}}
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="card">
+                        <div class="card-body pt-4 p-3">
+                          <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                              <div class="d-flex flex-column">
+                                <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                                <span class="mb-2 text-xs">KPI : 
+                                @foreach ($kpiall as $key => $kpialls)
+                                <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Skor Akhir:
+                                @foreach ($kpiall as $key => $kpialls) 
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Kecekapan Teras:
+                                @foreach ($kpiall as $key => $kpialls) 
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Nilai Teras: 
+                                @foreach ($kpiall as $key => $kpialls)  
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
+                                @endforeach
+                                <span class="text-xs">Grade: 
+                                @foreach ($kpiall as $key => $kpialls)   
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
+                                @endforeach
+                              </div>
+                              <div class="ms-auto text-end">
+                                <div class="col-12 text-end">
+                                  @foreach ($date as $dates)
+                                    {{-- @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager') --}}
+                                    @if ($dates->status == 'Submitted')
+                                      <a class="btn bg-gradient-info mb-0" href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraised</a>
+                                    @elseif ($dates->status == 'Signed By Manager')
+                                      <a class="btn bg-gradient-danger mb-0" href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Appraised</a>
+                                    @else
+                                    @endif
+                                  @endforeach
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {{-- @else
+                @endif --}}
               @endforeach
             @else
             @endif 
 
             @if (Auth::user()->role == "hr")
               @foreach ($date as $dates)
-              @if ($dates->status == 'Signed By Manager' || $dates->status == 'Completed')
+              {{-- @if ($dates->status == 'Signed By Manager' || $dates->status == 'Completed')
                 <a href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Complete</a>
                 <a href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Complete</a>
               @else
-              @endif
+              @endif --}}
+
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="card">
+                    <div class="card-body pt-4 p-3">
+                      <ul class="list-group">
+                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                          <div class="d-flex flex-column">
+                            <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                            <span class="mb-2 text-xs">KPI : 
+                            @foreach ($kpiall as $key => $kpialls)
+                            <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
+                            @endforeach
+                            <span class="mb-2 text-xs">Skor Akhir:
+                            @foreach ($kpiall as $key => $kpialls) 
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
+                            @endforeach
+                            <span class="mb-2 text-xs">Kecekapan Teras:
+                            @foreach ($kpiall as $key => $kpialls) 
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
+                            @endforeach
+                            <span class="mb-2 text-xs">Nilai Teras: 
+                            @foreach ($kpiall as $key => $kpialls)  
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
+                            @endforeach
+                            <span class="text-xs">Grade: 
+                            @foreach ($kpiall as $key => $kpialls)   
+                            <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
+                            @endforeach
+                          </div>
+                          <div class="ms-auto text-end">
+                            <div class="col-12 text-end">
+                              @foreach ($date as $dates)
+                                {{-- @if ($dates->status == 'Signed By Manager' || $dates->status == 'Completed') --}}
+                                  @if ($dates->status == 'Signed By Manager')
+                                    <a class="btn bg-gradient-info mb-0" href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Complete</a>
+                                  @elseif ($dates->status == 'Completed')
+                                    <a class="btn bg-gradient-danger mb-0" href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Complete</a>
+                                  @else
+                                  @endif
+                              @endforeach
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
               @endforeach
             @else
             @endif 

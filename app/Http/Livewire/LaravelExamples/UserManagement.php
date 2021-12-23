@@ -6,7 +6,6 @@ use Livewire\Component;
 
 class UserManagement extends Component
 {
-    
     public $id_user;
     public $action;
 
@@ -17,23 +16,18 @@ class UserManagement extends Component
 
     public function selectItem($id_user , $action)
     {
-        
         $this->id_user = $id_user;
         // dd($this->id_user);
-       
         $this->action = $action;
         // dd($this->action);
-      
         if($action == "update")
         {
             $this->emit('getModelId' , $this->id_user);
         }
-        
     }
 
     public function delete()
     {
-    
         $user = User::find($this->id_user);
         // dd($user);
         $user->delete();
@@ -47,7 +41,6 @@ class UserManagement extends Component
         $manager = User::where('role', 'manager')->get();
         $hr = User::where('role', 'hr')->get();
         $moderator = User::where('role', 'moderator')->get();
-        
         $alluser = User::all();
         // dd( $users);
         // $attemptQuizzes = AttemptQuiz::where( [[ 'id_createquizzes', '=', $this->id_createquizzes ], ['id_question', '=', $question->id], ['status_answer', '=', '1']] )->get();
