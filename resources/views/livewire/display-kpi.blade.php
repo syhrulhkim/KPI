@@ -18,7 +18,7 @@
   width: 100px;
   }
   </style>
-
+  
   <body>
 
 
@@ -1604,6 +1604,7 @@
                       @endforeach
                       @foreach ($kewangan as $key => $kpis)
                       <tr>
+
                         @if ($key == 0)
                         <td>    
                           <div class="d-flex px-2 py-1">
