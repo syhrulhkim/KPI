@@ -1,13 +1,15 @@
 <div>
     {{-- START SECTION - USER FORM  --}}
     <div class="row">
-        <div class="col-lg-4">
+
+        {{-- <div class="col-lg-4">
             <h3 style="color:black">User Details</h3>
             <p class="text-muted">Create a new user by fill up all required field.</p>
-        </div>
-        <div class="col-lg-12">
+        </div> --}}
+        <div class="col-12">
+
             <form wire:submit.prevent="store">
-            <div class="card" style="box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;border-radius: 5px;">
+                <div class="card mb-4 mx-4">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
@@ -41,7 +43,7 @@
                                 <select wire:model="role" name="role" id="role" class="form-select custom-select" data-placeholder="Choose a Role" tabindex="1">
                                     <option value="">-- Choose a Role --</option>
                                     {{-- <option value="admin">Admin</option> --}}
-                                    <option value="manager">Moderator</option>
+                                    <option value="moderator">Moderator</option>
                                     <option value="hr">HR</option>
                                     <option value="manager">Manager</option>
                                     <option value="employee">Employee</option>
