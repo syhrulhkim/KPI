@@ -128,6 +128,7 @@ class Date extends Component
         $update = Date_::find($date_id)->update([
             'year'=> $request->year,
             'month'=> $request->month,
+            'status'=> 'Not Submitted',
         ]);
         return redirect('/add-date')->with('message', 'Date Updated Successfully');
     }
