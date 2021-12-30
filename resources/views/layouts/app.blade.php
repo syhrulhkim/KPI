@@ -1,8 +1,5 @@
 
 <x-layouts.base>
-
- 
-
     {{-- If the user is authenticated --}}
     @auth()
         {{-- If the user is authenticated on the static sign up or the sign up page --}}
@@ -17,10 +14,10 @@
             @yield('content')
             <main>
                 <div class="container-fluid">
-                <div class="row">
+                    <div class="row">
                         @include('layouts.footers.auth.footer')
+                    </div>
                 </div>
-               </div>
             </main>
         @else
             @include('layouts.navbars.auth.sidebar')
@@ -43,7 +40,6 @@
 
     {{-- If the user is not authenticated (if the user is a guest) --}}
     @guest
-  
         {{-- If the user is on the login page --}}
         @if (!auth()->check() && in_array(request()->route()->getName(),['login'],))
             @include('layouts.navbars.guest.login')
@@ -69,7 +65,6 @@
 
     {{-- @livewireScripts --}}
     <!--JQuery -->
-   
     <script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap popper Core JavaScript -->
     <script src="{{ url('assets/plugins/bootstrap/js/popper.min.js') }}"></script>

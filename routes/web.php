@@ -24,18 +24,6 @@ use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
 use App\Http\Controllers\ManagerKPI;
 use App\Http\Controllers\HRKPI;
 
-// use App\Http\Livewire\LaravelExamples\ManagerKPI;
-// use App\Http\Livewire\Createkpi;
-// use App\Http\Livewire\KadSkorKorporat;
-// use App\Http\Livewire\Billing;
-// use App\Http\Livewire\Profile;
-// use App\Http\Livewire\EditProfile;
-// use App\Http\Livewire\StaticSignIn;
-// use App\Http\Livewire\StaticSignUp;
-// use App\Http\Livewire\Rtl;
-// use App\Http\Livewire\TahapKepuasanPelanggan;
-// use App\Http\Livewire\OfiNcr;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -98,48 +86,7 @@ Route::get('/manager-hr/view/kpi/{id}/{date_id}/{user_id}/{year}/{month}', [\App
 Route::get('/hr/changeup/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changeuphr']);
 Route::get('/hr/changedown/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changedownhr']);
 
-// Route::get('/employee/master',[KPI::class, 'kpi'])->name('employee_master');
-// Route::get('/employee/master',[KPI::class, 'kpi'])->name('kpi');
-// Route::get('/employee/bukti/edit/kpi/{id}',[KPI::class, 'bukti_main']);
-// Route::post('/employee/bukti/save/kpi',[KPI::class, 'bukti_save'])->name('bukti_save');
-// Route::post('/employee/bukti/update/kpi/{id}',[KPI::class, 'bukti_update']);
-// Route::post('/employee/save/kpi',[KPI::class, 'kpi_save'])->name('kpi_save');
-// Route::post('/employee/save/kpimaster1/{year}/{month}',[KPI::class, 'kpi_master_save1']);
-// Route::post('/employee/save/kpimaster2/{year}/{month}',[KPI::class, 'kpi_master_save2']);
-// Route::post('/employee/save/kpimaster3/{year}/{month}',[KPI::class, 'kpi_master_save3']);
-// Route::post('/employee/save/kpimaster4/{year}/{month}',[KPI::class, 'kpi_master_save4']);
-// Route::post('/employee/save/kpimaster5/{year}/{month}',[KPI::class, 'kpi_master_save5']);
-// Route::post('/employee/save/kpimaster6/{year}/{month}',[KPI::class, 'kpi_master_save6']);
-// Route::post('/employee/save/kpimaster7/{year}/{month}',[KPI::class, 'kpi_master_save7']);
-// Route::post('/employee/save/kpimaster8/{year}/{month}',[KPI::class, 'kpi_master_save8']);
-// Route::post('/employee/update/kpimaster2/{id}', [KPI::class, 'kpi_master_update2']);
-// Route::post('/employee/update/kpimaster3/{id}', [KPI::class, 'kpi_master_update3']);
-// Route::post('/employee/update/kpimaster4/{id}', [KPI::class, 'kpi_master_update4']);
-// Route::post('/employee/update/kpimaster5/{id}', [KPI::class, 'kpi_master_update5']);
-// Route::post('/employee/update/kpimaster6/{id}', [KPI::class, 'kpi_master_update6']);
-// Route::post('/employee/update/kpimaster7/{id}', [KPI::class, 'kpi_master_update7']);
-// Route::post('/employee/update/kpimaster8/{id}', [KPI::class, 'kpi_master_update8']);
-// Route::get('/employee/edit/kpi/{id}/{year}/{month}', [KPI::class, 'kpi_edit']);
-// Route::post('/employee/update/kpi/{id}/{year}/{month}', [KPI::class, 'kpi_update']);
-// Route::get('/employee/delete/kpi/{id}/{year}/{month}', [KPI::class, 'kpi_delete']);
-// Route::get('/employee/save/kpimaster/{id}', [KPI::class, 'kpi_master_save1']);
-// Route::get('/employee/delete/kecekapan/{id}/{year}/{month}', [Kecekapan::class, 'kecekapan_delete']);
-// Route::get('/employee/delete/nilai/{id}', [Nilai::class, 'nilai_delete']);
-// Route::get('/manager/delete/kecekapan/{id}', [KecekapanManager::class, 'kecekapan_delete']);
-// Route::get('/employee/changeup/kpi/{id}', [\App\Http\Controllers\Displaykpi::class, 'changeup']);
-// Route::get('/employee/changedown/kpi/{id}', [\App\Http\Controllers\Displaykpi::class, 'changedown']);
-// Route::get('/employee/kpi/{id}/{year}/{month}', KPI::class);
-// Route::get('/employee/kecekapan/{id}', Kecekapan::class);
-// Route::get('/employee/nilai/{id}', Nilai::class);
-// Route::get('/manager/view/kpi/{id}', ManagerKPI::class);
-// Route::get('/manager/view/kpi/{id}', ManagerKPI::class)->name('view-kpi');
-// Route::get('/manager/view/kpi', ManagerKPI::class);
-// Route::get('/manager/view/kpi', function() {
-//     echo 'john';
-// });
-// Route::get('/hr/view/kpi/{id}/{date_id}/{user_id}/{year}/{month}', [\App\Http\Controllers\HRKPI::class, 'index']);
-// Route::get('/hr/view/kpi/{id}', [\App\Http\Controllers\HRKPI::class, 'index']);
-// Route::get('/manager/view/kpi/{id}', [\App\Http\Controllers\ManagerKPI::class, 'index'])->name('kecekapan-manager');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
@@ -154,21 +101,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
     Route::get('/laravel-user-management-admin', UserManagementAdmin::class)->name('user-management-admin');
 
-// Route::get('/billing', Billing::class)->name('billing');
-// Route::get('/profile', Profile::class)->name('profile');
-// Route::get('/dashboard-manager', DashboardManager::class)->name('dashboard-manager');
-// Akan didelete nanti...
-// Route::get('/add-kpi', KPI::class)->name('add-kpi');
-// Route::get('/add-kecekapan', Kecekapan::class)->name('add-kecekapan');
-// Route::get('/add-nilai', Nilai::class)->name('add-nilai');
-// Route::get('/display-kpi', Displaykpi::class)->name('display-kpi');
-// Route::get('/kadskorkorporat', KadSkorKorporat::class)->name('kadskorkorporat');
-// Route::get('/kecekapan', Kecekapan::class)->name('kecekapan');
-// Route::get('/add-nilai', Nilai::class)->name('add-nilai');
-// Route::get('/delete-nilai', Nilai::class)->name('delete-nilai');
-// Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
-// Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
-// Route::get('/rtl', Rtl::class)->name('rtl');
-// Route::get('/tahap-kepuasan-pelanggan', TahapKepuasanPelanggan::class)->name('tahap-kepuasan-pelanggan');
-// Route::get('/ofi-ncr', OfiNcr::class)->name('ofi-ncr');
 });
