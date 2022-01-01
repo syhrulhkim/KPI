@@ -62,15 +62,11 @@ Route::get('/employee/edit/nilai/{id}/{date_id}/{user_id}/{year}/{month}', [Nila
 Route::post('/employee/update/nilai/{id}/{date_id}/{user_id}/{year}/{month}', [Nilai::class, 'nilai_update']);
 Route::get('/employee/changeup/kpi/{date_id}', [Displaykpi::class, 'changeup']);
 Route::get('/employee/changedown/kpi/{date_id}', [Displaykpi::class, 'changedown']);
-// Route::get('/employee/kpi/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'add_kpi']);
-Route::get('/employee/kpi/{date_id}/{user_id}/{year}/{month}', KPI::class);
-// Route::get('/employee/kecekapan/{date_id}/{user_id}/{year}/{month}', [Kecekapan::class, 'add_kecekapan']);
-Route::get('/employee/kecekapan/{date_id}/{user_id}/{year}/{month}', Kecekapan::class);
-// Route::get('/add-date', Date::class)->name('add-date');
-// Route::get('/employee/nilai/{date_id}/{user_id}/{year}/{month}', [Nilai::class, 'add_nilai']);
-Route::get('/employee/nilai/{date_id}/{user_id}/{year}/{month}', Nilai::class);
-Route::get('/employee/displaykpi/{date_id}/{user_id}/{year}/{month}', [Displaykpi::class, 'view_all']);
-Route::get('/employee/edit/date/{date_id}/{user_id}/{year}/{month}', [Date::class, 'date_edit']);
+Route::get('/employee/kpi/{date_id}/{user_id}/{year}/{month}', KPI::class)->name('Kpi');
+Route::get('/employee/kecekapan/{date_id}/{user_id}/{year}/{month}', Kecekapan::class)->name('Kecekapan');
+Route::get('/employee/nilai/{date_id}/{user_id}/{year}/{month}', Nilai::class)->name('Nilai');
+Route::get('/employee/displaykpi/{date_id}/{user_id}/{year}/{month}', [Displaykpi::class, 'view_all'])->name('Display-KPI');
+Route::get('/employee/edit/date/{date_id}/{user_id}/{year}/{month}', [Date::class, 'date_edit'])->name('Edit');
 Route::post('/employee/update/date/{date_id}/{user_id}/{year}/{month}', [Date::class, 'date_update']);
 
 //Manager Route

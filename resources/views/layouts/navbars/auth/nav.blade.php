@@ -8,6 +8,7 @@
                     @if (Route::currentRouteName() == 'view-profile' || Route::currentRouteName() == 'edit-profile')
                         <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Profile</a>
                         </li>
+
                     @else
                     @endif
 
@@ -19,6 +20,14 @@
 
                     @if (Route::currentRouteName() == 'add-date' || Route::currentRouteName() == 'add-kecekapan' || Route::currentRouteName() == 'add-nilai')
                         <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">KPI</a>
+                        </li>
+                    @else
+                    @endif
+
+                    @if (Route::currentRouteName() == 'Kpi' || Route::currentRouteName() == 'Kecekapan' || Route::currentRouteName() == 'Nilai' || Route::currentRouteName() == 'Display-KPI' || Route::currentRouteName() == 'Edit')
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">KPI</a>
+                        </li>
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Add Date</a>
                         </li>
                     @else
                     @endif
