@@ -35,7 +35,10 @@ class ViewProfile extends Component
     
     public function render()
     {
+        $year = KPIALL_::where('user_id', '=', auth()->user()->id)->orderBy('year','desc')->pluck('year')->first();
+        $month = KPIALL_::where('user_id', '=', auth()->user()->id)->orderBy('month','desc')->pluck('month')->first();
+        $kpialls = KPIAll_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $kpiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
-        return view('livewire.laravel-examples.view-profile', compact('kpiall'));
+        return view('livewire.laravel-examples.view-profile', compact('kpiall','kpialls'));
     }
 }
