@@ -780,11 +780,16 @@
                   @foreach ($kecekapan as $key => $kecekapans)
                     <tr>
                       <td>
-                        <div class="d-flex px-3 py-1">
+                        {{-- <div class="d-flex px-3 py-1">
                           <div class="d-flex flex-column justify-content-center">
                             <p class="mb-0 text-xs boxes" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans->kecekapan_teras }}</p>
                           </div>
-                        </div>
+                        </div> --}}
+                        <div class="d-flex px-3 py-1">
+                          <div class="d-flex flex-column justify-content-center"> 
+                            <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
+                          </div>
+                        </div> 
                       </td>
 
                       @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
