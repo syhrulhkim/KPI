@@ -82,7 +82,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href="{{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters->percent_master }}</span>
@@ -91,6 +94,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -140,6 +146,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                        </div>
+                      </div>
                         </td>
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
@@ -167,7 +175,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
@@ -176,6 +187,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -225,6 +239,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                          </div>
+                        </div>
                         </td>
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
@@ -252,7 +268,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
@@ -261,6 +280,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -310,6 +332,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                          </div>
+                        </div>
                         </td>
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
@@ -337,7 +361,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
@@ -346,6 +373,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -395,6 +425,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                          </div>
+                        </div>
                         </td>
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
@@ -422,7 +454,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
@@ -431,6 +466,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -480,6 +518,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                          </div>
+                        </div>
                         </td>
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
@@ -507,7 +547,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
@@ -516,6 +559,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -565,6 +611,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                          </div>
+                        </div>
                         </td>
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
@@ -592,7 +640,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
@@ -601,6 +652,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -650,6 +704,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                          </div>
+                        </div>
                         </td>
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>
@@ -677,7 +733,10 @@
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center">
+                          @if ($kpis->kpimasters->link == '')
+                          @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          @endif
                         </td>
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> percent_master }}">{{ $kpis->kpimasters -> percent_master }}</span>
@@ -686,6 +745,9 @@
                           <span class="text-secondary text-xs font-weight-bold" value="">Percentage (%)</span>
                         </td>
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center mt-2">
+                          <div class="d-flex align-items-center justify-content-center">
+                            <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
+                            <div>
                           @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
@@ -735,6 +797,8 @@
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
                           @endif
+                          </div>
+                        </div>
                         </td>
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis->kpimasters -> skor_KPI }}">{{ $kpis->kpimasters -> skor_KPI }}</span>

@@ -298,7 +298,7 @@ class KPI extends Component
     public function kpi_master_update(Request $request, $id, $fungsi, $date_id, $user_id, $year, $month) {
         $validatedData = $request->validate([
             'percent_master' => ['required'],
-            'link' => ['required'],
+            // 'link' => ['required'],
             'objektif' => ['required'],
             'updated_at'=> Carbon::now(),
         ]);
