@@ -26,7 +26,7 @@
           <div class="card-body p-3">
             <div class="row">
               <div class="col-md-6 mb-md-0 mb-4">
-                  @csrf 
+                  @csrf
                   <div class="mb-0" class="@error('year') @enderror">
                     <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="year" name="year" id="year" class="custom-select" data-placeholder="Choose a Year" tabindex="1">
                       <option selected value="">-- Choose Years --</option>
@@ -35,7 +35,7 @@
                       ?>
                       <?php
                           foreach ($yearArray as $year) {
-                              echo '<option value="'.$year.'">'.$year.'</option>';
+                            echo '<option value="'.$year.'">'.$year.'</option>';
                           }
                       ?>
                     </select>

@@ -134,7 +134,7 @@ class Displaykpi extends Component
         $trainingcount = $training->count();
         $ncrcount = $ncr->count();
         $kolaborasicount = $kolaborasi->count();
-       
+
         $users = User::whereIn('position', ['Junior Non-Executive (NE1)','Senior Non-Executive (NE2)'])->Where('role' , 'employee')->get();
         $hrs = User::Where('hr' , 'yes')->orWhere('role' , 'admin')->get();
         $user = User::where('id', '=', auth()->user()->id)->get();

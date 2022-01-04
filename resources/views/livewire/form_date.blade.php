@@ -26,90 +26,83 @@
 
     
               </div>
-            
-              <div class="col-md-auto">
-                <div class="card shadow rounded">
-                  <div class="card-header pb-0">
-                    <h6>HISTORY - DATE</h6>
-                  </div>
-    
-                    <div class="col-sm-auto p-3">
-                        <div class="card">
-                            <div class="m-3">
-
-                                <form action="{{ url('employee/update/date/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">  
-
-                                    @csrf     
-                                    
-                                    <?php
-                                    $yearArray = range(2021, 2050);
-                                    ?>  
-    
-                                <div class="row">
-    
-                                    <div class="col-sm-4 pt-3 " >
-                                      <div class="mb-4" class="@error('year') border border-danger rounded-3 @enderror">
-                                            <label class="font-weight-bold" >Year</label><br>
-                                            
-                                            <td style="word-break: break-all;" class="border-dark">
-                                              <select class="form-select form-select-sm" wire:model="year" name="year" id="year" class="form-select custom-select" data-placeholder="Choose a Year" tabindex="1">
-                                                <option selected value="">-- Please Choose --</option>
-                                                <?php
-                                                    foreach ($yearArray as $year) {
-                                                        echo '<option value="'.$year.'">'.$year.'</option>';
-                                                    }
-                                                ?>
-                                              </select>
-                                            </td>
-                                        </select>
-                                        @error('year') <div class="text-danger">{{ $message }}</div> @enderror
-                                      </div>
-                                    </div>
-  
-                                    <div class="col-sm-4 pt-3 " >
-                                        <div class="mb-4" class="@error('month') border border-danger rounded-3 @enderror">
-                                              <label class="font-weight-bold" >Month</label><br>
-                                              <td style="word-break: break-all;" class="border-dark">
-                                                <select class="form-select form-select-sm" wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
-                                                  <option selected value="">-- Please Choose --</option>
-                                                  <option value="January" >January</option>
-                                                  <option value="February" >February</option> 
-                                                  <option value="March" >March</option> 
-                                                  <option value="April" >April</option>
-                                                  <option value="May" >May</option>
-                                                  <option value="June" >June</option>
-                                                  <option value="July" >July</option>
-                                                  <option value="August" >August</option>
-                                                  <option value="September" >September</option>
-                                                  <option value="October" >October</option>
-                                                  <option value="November" >November</option>
-                                                  <option value="December" >December</option>
-                                                </select>
-                                              </td>
-                                          </select>
-                                          @error('month') <div class="text-danger">{{ $message }}</div> @enderror
-                                        </div>
-                                      </div>
-                                    
-                                </div>
-                                <div class="row m-auto">
-                                  <div class="table-responsive">
-  
-                                <div class="p-3" style="text-align: right">
-                                <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
-                                </div>
-                              </div>
-                    
-    
-                          </form>
-    
+              <div class="container-fluid py-4">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="col-md-12">
+                      @if (session('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <strong>{{ session('message') }}</strong>
+                        </div>	
+                      @endif
+              
+                      @if (session('fail'))
+                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{ session('fail') }}</strong>
+                      </div>	
+                      @endif
+                      <div class="card mt-4">
+                        <div class="card-header pb-0 p-3">
+                          <div class="row">
+                            <div class="col-12 text-end">
+                              <form action="{{ url('employee/update/date/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">  
+                              <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Update</button>
+                            </div>
+                          </div>
                         </div>
+                        <div class="card-body p-3">
+                          <div class="row">
+                            <div class="col-md-6 mb-md-0 mb-4">
+                                @csrf
+                                <div class="mb-0" class="@error('year') @enderror">
+                                  <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="year" name="year" id="year" class="custom-select" data-placeholder="Choose a Year" tabindex="1">
+                                    <option selected value="">-- Choose Years --</option>
+                                    <?php
+                                      $yearArray = range(2021, 2050);
+                                    ?>
+                                    <?php
+                                        foreach ($yearArray as $year) {
+                                          echo '<option value="'.$year.'">'.$year.'</option>';
+                                        }
+                                    ?>
+                                  </select>
+                                  @error('year') <div class="text-danger">{{ $message }}</div> @enderror
+                                  </div>
+                                </div>
+              
+                                <div class="col-md-6">
+                                  <div class="mb-4" class="@error('month') border border-danger rounded-3 @enderror">
+                                    <td style="word-break: break-all;" class="border-dark">
+                                      <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
+                                        <option selected value="">-- Choose Months --</option>
+                                        <option value="January" >January</option>
+                                        <option value="February" >February</option> 
+                                        <option value="March" >March</option> 
+                                        <option value="April" >April</option>
+                                        <option value="May" >May</option>
+                                        <option value="June" >June</option>
+                                        <option value="July" >July</option>
+                                        <option value="August" >August</option>
+                                        <option value="September" >September</option>
+                                        <option value="October" >October</option>
+                                        <option value="November" >November</option>
+                                        <option value="December" >December</option>
+                                      </select>
+                                    </td>
+                                  </select>
+                                  @error('month') <div class="text-danger">{{ $message }}</div> @enderror
+                                  </div> 
+                                </div>
+                              </form>  
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>     
+                  </div>
+                </div>
+              </div>  
             </div>
-    
-            <br>
-    
+          <br>
         </div>
       </div>
     </div>

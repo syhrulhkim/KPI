@@ -24,8 +24,8 @@
         <meta  property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/492/original/opt_sd_laravel_thumbnail.jpg" />
         <meta  property="og:description" content="Dozens of handcrafted UI components, Laravel authentication, register & profile editing, Livewire & Alpine.js" />
         <meta  property="og:site_name" content="Creative Tim" />
-      
-       <script>
+
+        <script>
             (function(a,s,y,n,c,h,i,d,e){
                 s.className+=' '+y;
                 h.start=1*new Date;
