@@ -1,5 +1,5 @@
-{{--------------------------------------------------- Start Testing ---------------------------------------------------}}
-
+@section('content')
+<body>  
 <div>
   <div>
     <div class="container-fluid">
@@ -28,20 +28,18 @@
       </div>
    </div>  
 </div>
-{{---------------------------------------------------- End Testing ----------------------------------------------------}}
-
 
 <div class="container-fluid py-4">
     <div class="row">
       <div class="col-12 col-xl-4">
-        <div class="card h-100">
+        <div class="card h-200">
           <div class="card-header pb-0 p-3">
             <div class="row">
               <div class="col-md-8 d-flex align-items-center">
                 <h6 class="mb-0">Profile Information</h6>
               </div>
               <div class="col-md-4 text-end">
-                <a href="javascript:;">
+                <a href="{{ route('edit-profile') }}">
                   <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                 </a>
               </div>
@@ -63,22 +61,32 @@
           </div>
         </div>
       </div>
+      @if ($userdata->role != "employee")
+      @else
       <div class="col-lg-5 ms-auto text-center mt-lg-0">
         <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
         <div class="position-relative d-flex align-items-center justify-content-center h-100">
-          @foreach ($kpialls as $key => $kpiall)
-          {{-- {{ dd($kpiall->grade_all) }} --}}
-            @if ($kpiall->grade_all == 'PLATINUM')
-              <img class="w-100 position-relative z-index-2" src="../assets/img/platinum.png" alt="platinum">
-            @elseif($kpiall->grade_all == 'HIGH GOLD' && $kpiall->grade_all == 'MID GOLD' && $kpiall->grade_all == 'LOW GOLD')
-              <img class="w-100 position-relative z-index-2" src="../assets/img/gold.png" alt="gold">
-            @elseif($kpiall->grade_all == 'HIGH SILVER' && $kpiall->grade_all == 'MID SILVER' && $kpiall->grade_all == 'LOW SILVER')
-              <img class="w-100 position-relative z-index-2" src="../assets/img/silver.png" alt="silver">
-            @else
-              <img class="w-100 position-relative z-index-2" src="../assets/img/bronze.png" alt="bronze">
-            @endif
-          @endforeach
-          {{-- <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/illustrations/rocket-white.png" alt="rocket"> --}}
+            @foreach ($kpialls as $key => $kpiall)
+              @if ($kpiall->grade_all == 'PLATINUM')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/platinum.png" alt="platinum">
+              @elseif($kpiall->grade_all == 'HIGH GOLD')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/gold.png" alt="gold">
+              @elseif($kpiall->grade_all == 'MID GOLD')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/gold.png" alt="gold">
+              @elseif($kpiall->grade_all == 'LOW GOLD')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/gold.png" alt="gold">
+              @elseif($kpiall->grade_all == 'HIGH SILVER')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/gold.png" alt="silver">
+              @elseif($kpiall->grade_all == 'MID SILVER')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/gold.png" alt="silver">
+              @elseif($kpiall->grade_all == 'LOW SILVER')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/silver.png" alt="silver">
+              @elseif($kpiall->grade_all == 'BRONZE')
+                <img class="w-100 position-relative z-index-2" src="../assets/img/bronze.png" alt="bronze">
+              @else
+                <img class="w-100 position-relative z-index-2" src="../assets/img/none.png" alt="none">
+              @endif
+            @endforeach
         </div>
       </div>
       <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -149,5 +157,8 @@
           </div>
         </div>
       </div>
+      @endif
     </div>
-</div>    
+</div>
+</body>
+@endsection

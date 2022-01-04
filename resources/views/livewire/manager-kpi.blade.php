@@ -1151,43 +1151,6 @@
                 </div>
               </div>
 
-              <div class="col-12">
-                <div class="card mb-4">
-                  <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0">
-                      <table style="width:100%" class="table align-items-center mb-0">
-                        <tr>
-                          <td>KPI</td>
-                          @foreach ($kpiall as $key => $kpialls)
-                          <td>{{ $kpialls -> total_score_master }}%</td>
-                          @endforeach
-                          <td rowspan="2">SKOR AKHIR :</td>
-                          @foreach ($kpiall as $key => $kpialls)
-                          <td rowspan="2">{{ round($kpialls -> total_score_all,2) }}%</td>
-                          @endforeach
-                        </tr>
-                        <tr>
-                          <td>KECEKAPAN TERAS :</td>
-                          @foreach ($kpiall as $key => $kpialls)
-                          <td>{{ $kpialls -> total_score_kecekapan }}%</td>
-                          @endforeach
-                        </tr>
-                        <tr>
-                          <td>NILAI TERAS :</td>
-                          @foreach ($kpiall as $key => $kpialls)
-                          <td>{{ $kpialls -> total_score_nilai }}%</td>
-                          @endforeach
-                          <td rowspan="1">GRADE :</td>
-                          @foreach ($kpiall as $key => $kpialls)
-                          <td rowspan="1">{{ $kpialls -> grade_all }}</td>
-                          @endforeach
-                        </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             @if (Auth::user()->role == "manager")
               @foreach ($date as $dates)
                 {{-- @if ($dates->status == 'Submitted' || $dates->status == 'Signed By Manager') --}}
