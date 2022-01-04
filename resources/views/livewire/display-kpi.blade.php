@@ -83,6 +83,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href="{{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
@@ -176,6 +177,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
@@ -269,6 +271,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
@@ -362,6 +365,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
@@ -455,6 +459,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
@@ -548,6 +553,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
@@ -641,6 +647,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
@@ -734,6 +741,7 @@
                       @if ($key == 0)
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
+                          -
                           @else
                           <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
                           @endif
