@@ -59,6 +59,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
+                    <label class="font-weight-bold" >Fungsi</label>
                         <td style="word-break: break-all;" class="border-dark">
                           <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" id="fungsi" name="fungsi">
                             <option selected value="">-- Please Choose --</option>
@@ -90,8 +91,8 @@
                 </div> --}}
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
-                      <label class="font-weight-bold " cols="60" rows="10" type="text" name="bukti" id="bukti" placeholder="Bukti">Metrik / Bukti</label>
-                      <br><textarea name="bukti" id="bukti" cols="60" rows="10"></textarea>
+                    <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
+                      <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="bukti" id="bukti" cols="60" rows="10" placeholder="Type your bukti here..."></textarea>
                       @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                 </div>
