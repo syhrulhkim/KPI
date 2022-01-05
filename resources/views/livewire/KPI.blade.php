@@ -59,6 +59,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
+                    <label class="font-weight-bold" >Fungsi</label>
                         <td style="word-break: break-all;" class="border-dark">
                           <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" id="fungsi" name="fungsi">
                             <option selected value="">-- Please Choose --</option>
@@ -82,11 +83,18 @@
                     @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                   <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
                     <input class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" cols="60" rows="10" type="text" name="bukti" id="bukti" placeholder="Bukti" >
                   </div>
                   @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
+                </div> --}}
+                <div class="col-md-6">
+                  <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
+                    <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
+                      <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="bukti" id="bukti" cols="60" rows="10" placeholder="Type your bukti here..."></textarea>
+                      @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
+                  </div>
                 </div>
               </div>
               <div class="table-responsive">
@@ -219,7 +227,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" value="{{ $kadskors -> bukti }}">{{ $kadskors -> bukti }}</p>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kadskors -> bukti }}">{{ $kadskors -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kadskors -> peratus }}">{{ $kadskors -> peratus }}</span>
@@ -377,7 +385,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</p>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
@@ -540,7 +548,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" value="{{ $pelangganIs -> bukti }}">{{ $pelangganIs -> bukti }}</p>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $pelangganIs -> bukti }}">{{ $pelangganIs -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $pelangganIs -> peratus }}">{{ $pelangganIs -> peratus }}</span>
@@ -703,7 +711,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" value="{{ $pelangganIIs -> bukti }}">{{ $pelangganIIs -> bukti }}</p>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $pelangganIIs -> bukti }}">{{ $pelangganIIs -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $pelangganIIs -> peratus }}">{{ $pelangganIIs -> peratus }}</span>
@@ -866,7 +874,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" value="{{ $kecemerlangans -> bukti }}">{{ $kecemerlangans -> bukti }}</p>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kecemerlangans -> bukti }}">{{ $kecemerlangans -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kecemerlangans -> peratus }}">{{ $kecemerlangans -> peratus }}</span>
@@ -1028,7 +1036,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" value="{{ $trainings -> bukti }}">{{$trainings -> bukti }}</p>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $trainings -> bukti }}">{{$trainings -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $trainings -> peratus }}">{{ $trainings -> peratus }}</span>
@@ -1190,7 +1198,7 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" value="{{ $ncrs -> bukti }}">{{ $ncrs -> bukti }}</p>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $ncrs -> bukti }}">{{ $ncrs -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $ncrs -> peratus }}">{{ $ncrs -> peratus }}</span>
@@ -1352,7 +1360,8 @@
                     </div>
                   </td>
                   <td>
-                    <p class="text-sm font-weight-bold mb-0" style="width: 80%;max-width: 400px;overflow: hidden;" value="{{ $kolaborasis -> bukti }}">{{ $kolaborasis -> bukti }}</p>
+                    {{-- <pre class="text-sm font-weight-bold mb-0" style="width: 80%;max-width: 400px;overflow: hidden;" value="{{ $kolaborasis -> bukti }}">{{ $kolaborasis -> bukti }}</pre> --}}
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kolaborasis -> bukti }}">{{ $kolaborasis -> bukti }}</pre>
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kolaborasis -> peratus }}">{{ $kolaborasis -> peratus }}</span>

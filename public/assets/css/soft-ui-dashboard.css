@@ -259,6 +259,8 @@ samp {
 }
 
 pre {
+  font-family: "Open Sans";
+  padding: 1.5rem;
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;

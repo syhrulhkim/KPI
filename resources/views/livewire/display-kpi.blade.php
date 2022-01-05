@@ -78,7 +78,7 @@
                       @else
                       @endif
                         <td>
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center">
@@ -172,7 +172,7 @@
                       @else
                       @endif
                         <td class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center">
@@ -266,7 +266,7 @@
                       @else
                       @endif
                         <td class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center">
@@ -360,7 +360,7 @@
                       @else
                       @endif
                         <td class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center">
@@ -454,7 +454,7 @@
                       @else
                       @endif
                         <td class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center">
@@ -548,7 +548,7 @@
                       @else
                       @endif
                         <td rowspan="{{ $trainingcount }}" class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
@@ -642,7 +642,7 @@
                       @else
                       @endif
                         <td class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
@@ -736,7 +736,7 @@
                       @else
                       @endif
                         <td class="text-xs font-weight-bold mb-0">
-                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
                         </td>
                       @if ($key == 0)
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center">
