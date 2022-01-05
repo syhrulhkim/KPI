@@ -19,6 +19,11 @@
                   <strong>{{ session('fail') }}</strong>
                 </div>	
                 @endif
+
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>Warning ! If you want to edit date, status of this KPI will set to default (Not Submitted)</strong>
+                </div>	
+
     
               </div>
               <div class="container-fluid py-4">

@@ -52,7 +52,7 @@
                                       </div>
                                       <div class="col-sm-4 pt-3 " >
                                         <div class="mb-4" class="@error('link') border border-danger rounded-3 @enderror">
-                                            <label class="font-weight-bold " >Link Bukti</label>
+                                            <label class="font-weight-bold " >Link Bukti (Leave blank if does not have any bukti)</label>
                                             <input type="text" class="form-control form-control-sm" id="link" name="link" value="{{ $kpimasters->link }}" >
                                             @error('link') <div class="text-danger">{{ $message }}</div> @enderror
                                         </div>

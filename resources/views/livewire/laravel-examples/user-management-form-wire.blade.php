@@ -2,6 +2,7 @@
     {{-- START SECTION - USER FORM  --}}
     <div class="row">
 
+
         {{-- <div class="col-lg-4">
             <h3 style="color:black">User Details</h3>
             <p class="text-muted">Create a new user by fill up all required field.</p>
@@ -10,6 +11,11 @@
 
             <form wire:submit.prevent="store">
                 <div class="card mb-4 mx-4">
+                    @if (session('message'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ session('message') }}</strong>
+                    </div>	
+                @endif
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">

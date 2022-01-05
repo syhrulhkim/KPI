@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-      @if ($userdata->role != "employee")
+      {{-- @if ($userdata->role != "employee")
       @else
       <div class="col-lg-5 ms-auto text-center mt-lg-0">
         <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
@@ -159,6 +159,6 @@
       </div>
       @endif
     </div>
-</div>
+</div> --}}
 </body>
 @endsection
