@@ -50,7 +50,16 @@ class ManagerKPI extends Controller
         $kpiall = KPIAll_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $date = Date_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
 
-        return view('livewire.manager-kpi', compact('kpi', 'kpimaster', 'user', 'kecekapan' , 'nilai', 'kpiall', 'kadskor', 'kewangan', 
+        $kadskorcount = $kadskor->count();
+        $kewangancount = $kewangan->count();
+        $pelangganIcount = $pelangganI->count();
+        $pelangganIIcount = $pelangganII->count();
+        $kecemerlangancount = $kecemerlangan->count();
+        $trainingcount = $training->count();
+        $ncrcount = $ncr->count();
+        $kolaborasicount = $kolaborasi->count();
+
+        return view('livewire.manager-kpi', compact( 'kolaborasicount','ncrcount','trainingcount','kecemerlangancount','pelangganIIcount','pelangganIcount','kewangancount', 'kadskorcount' ,'kpi', 'kpimaster', 'user', 'kecekapan' , 'nilai', 'kpiall', 'kadskor', 'kewangan', 
         'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'id', 'date_id', 'user_id', 'year', 'month', 'date'));
     }
 
