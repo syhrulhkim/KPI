@@ -22,33 +22,20 @@
             </div>	
             @endif
 
-            {{-- @if (session('fail2'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>{{ session('fail2') }}</strong>
-            </div>	
-            @endif --}}
-
-            {{-- @if (session('weightage'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Please check back your entered information</strong>{{ session('weightage') }}.
-            </div>	
-            @endif --}}
-
             @if ($weightage_master > 100) 
               <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Your Percentage for KPI Master exceed 100%. Please check back.</strong>
               </div>
             @else
             @endif
-        {{-- </div> --}}
           <div class="card mt-4">
             <div class="card-header pb-0 p-3">
               <div class="row">
                 <div class="col-6 d-flex align-items-center">
                   @if ($weightage_master == 0 || $weightage_master == NULL)
-                  <h6>KAD SKOR 2021 - KPI</h6>
+                  <h6>KAD SKOR - KPI</h6>
                   @else
-                  <h6>KAD SKOR 2021 - KPI (Current total weightage = {{$weightage_master}})</h6>
+                  <h6>KAD SKOR - KPI (Current total weightage = {{$weightage_master}})</h6>
                   @endif
                 </div>
               </div>
@@ -83,12 +70,6 @@
                     @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                 </div>
-                {{-- <div class="col-md-6">
-                  <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
-                    <input class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" cols="60" rows="10" type="text" name="bukti" id="bukti" placeholder="Bukti" >
-                  </div>
-                  @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
-                </div> --}}
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
                     <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
@@ -179,7 +160,6 @@
             </div>  
             </div>
           </div>
-          
         </div>
       </div>
     </div>
