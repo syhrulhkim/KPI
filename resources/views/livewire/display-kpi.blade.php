@@ -3,10 +3,21 @@
 
   <style>
   .table-responsive {
-    // Other values...
     overflow-x: hidden;
     overflow-y: hidden;
-    // Other values...
+  }
+
+  td.good{
+    border-bottom: hidden;
+  }
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  th {
+    border-color: black;
+    border-style: solid;
+    border-width: 0;
   }
   .solid {
     border-style: solid;
@@ -46,14 +57,14 @@
         @endif
         <div class="card mb-4">
           <div class="card-header pb-0">
-            <h6>KAD SKOR 2021 - KPI</h6>
+            <h6>KAD SKOR - KPI</h6>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
               <table style="width: 100%" class="a table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fungsi
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fungsi</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">Objektif KPI</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">Metrik / Bukti</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Link Bukti</th>
@@ -77,9 +88,16 @@
                         </td>
                       @else
                       @endif
-                        <td>
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
+                        
                       @if ($key == 0)
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -171,9 +189,15 @@
                         </td>
                       @else
                       @endif
-                        <td class="text-xs font-weight-bold mb-0">
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
                       @if ($key == 0)
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -265,9 +289,15 @@
                         </td>
                       @else
                       @endif
-                        <td class="text-xs font-weight-bold mb-0">
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -359,9 +389,15 @@
                         </td>
                       @else
                       @endif
-                        <td class="text-xs font-weight-bold mb-0">
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
                       @if ($key == 0)
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -380,51 +416,51 @@
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
                             <div>
-                          @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
+                          @if (($kpis->kpimasters->pencapaian) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 90)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 90)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 80)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 80)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 70)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 70)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 60)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 60)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 50)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 50)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 40)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 40)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 30)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 30)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 20)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 20)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) <= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) <= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) == 00)
+                          @elseif(($kpis->kpimasters->pencapaian) == 00)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
@@ -453,9 +489,15 @@
                         </td>
                       @else
                       @endif
-                        <td class="text-xs font-weight-bold mb-0">
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
                       @if ($key == 0)
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -474,51 +516,51 @@
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
                             <div>
-                          @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
+                          @if (($kpis->kpimasters->pencapaian) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 90)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 90)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 80)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 80)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 70)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 70)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 60)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 60)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 50)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 50)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 40)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 40)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 30)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 30)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 20)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 20)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) <= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) <= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) == 00)
+                          @elseif(($kpis->kpimasters->pencapaian) == 00)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
@@ -547,9 +589,15 @@
                         </td>
                       @else
                       @endif
-                        <td rowspan="{{ $trainingcount }}" class="text-xs font-weight-bold mb-0">
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
                       @if ($key == 0)
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -568,51 +616,51 @@
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
                             <div>
-                          @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
+                          @if (($kpis->kpimasters->pencapaian) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 90)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 90)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 80)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 80)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 70)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 70)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 60)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 60)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 50)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 50)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 40)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 40)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 30)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 30)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 20)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 20)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) <= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) <= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) == 00)
+                          @elseif(($kpis->kpimasters->pencapaian) == 00)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
@@ -641,9 +689,15 @@
                         </td>
                       @else
                       @endif
-                        <td class="text-xs font-weight-bold mb-0">
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
                       @if ($key == 0)
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -662,51 +716,51 @@
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
                             <div>
-                          @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
+                          @if (($kpis->kpimasters->pencapaian) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 90)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 90)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 80)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 80)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 70)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 70)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 60)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 60)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 50)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 50)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 40)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 40)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 30)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 30)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 20)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 20)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) <= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) <= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) == 00)
+                          @elseif(($kpis->kpimasters->pencapaian) == 00)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
@@ -735,9 +789,15 @@
                         </td>
                       @else
                       @endif
-                        <td class="text-xs font-weight-bold mb-0">
-                          <pre class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</pre>
+                      @if ($loop->last)
+                        <td class="text-xs font-weight-bold">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                      @else
+                        <td class="text-xs font-weight-bold good">
+                          <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                      @endif
                       @if ($key == 0)
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center">
                           @if ($kpis->kpimasters->link == '')
@@ -756,51 +816,51 @@
                           <div class="d-flex align-items-center justify-content-center">
                             <span class="me-2 text-xs font-weight-bold" value="{{$kpis->kpimasters -> pencapaian }}">{{ $kpis->kpimasters -> pencapaian }}/100</span>
                             <div>
-                          @if ((($kpis->kpimasters->pencapaian)*100) >= 100)
+                          @if (($kpis->kpimasters->pencapaian) >= 100)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 90)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 90)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 80)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 80)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 70)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 70)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 60)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 60)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 50)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 50)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 40)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 40)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 30)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 30)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 20)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 20)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) >= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) >= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) <= 10)
+                          @elseif(($kpis->kpimasters->pencapaian) <= 10)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
                             </div>
-                          @elseif((($kpis->kpimasters->pencapaian)*100) == 00)
+                          @elseif(($kpis->kpimasters->pencapaian) == 00)
                             <div class="progress">
                               <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
                             </div>
@@ -832,7 +892,7 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
-            <h6>KAD SKOR 2021 - Kecekapan Teras</h6>
+            <h6>KAD SKOR - Kecekapan Teras</h6>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
@@ -852,11 +912,7 @@
                   @foreach ($kecekapan as $key => $kecekapans)
                     <tr>
                       <td>
-                        {{-- <div class="d-flex px-3 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="mb-0 text-xs boxes" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans->kecekapan_teras }}</p>
-                          </div>
-                        </div> --}}
+
                         <div class="d-flex px-3 py-1">
                           <div class="d-flex flex-column justify-content-center"> 
                             <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
@@ -866,7 +922,7 @@
 
                       @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
                       <td class="text-xs font-weight-bold mb-0">
-                        <h6 class="text-secondary text-xs font-weight-bold boxes col-6 col-md-6" value="">
+                        <h6 class="text-secondary text-xs font-weight-bold boxes" value="">
                           Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
                           <br>
                           Pemimpin yang bertindak selaras dengan strategi organisasi
@@ -882,7 +938,7 @@
 
                       @if ($kecekapans -> kecekapan_teras == "Keupayaan Inovatif")
                       <td class="text-xs font-weight-bold mb-0">
-                        <h6 class="text-secondary text-xs font-weight-bold boxes col-6 col-md-6" value="">
+                        <h6 class="text-secondary text-xs font-weight-bold boxes" value="">
                           Pekerja yang berupaya memberi idea dan memberi penyelesaian untuk menyelesaikan masalah
                           <br>
                           Amalan kerja yang dikemas kini lebih sesuai dengan jangkaan masa kini
@@ -896,7 +952,7 @@
 
                       @if ($kecekapans -> kecekapan_teras == "Pengurusan Pelanggan")
                       <td class="text-xs font-weight-bold mb-0">
-                        <h6 class="text-secondary text-xs font-weight-bold boxes col-6 col-md-6" value="">
+                        <h6 class="text-secondary text-xs font-weight-bold boxes" value="">
                           Amalan organisasi yang lebih sesuai dengan keperluan pelanggan moden
                           <br>
                           Pekerja yang memahami dan bertindak mengikut kehendak pelanggan tepat pada masanya
@@ -910,7 +966,7 @@
 
                       @if ($kecekapans -> kecekapan_teras == "Pengurusan Pemegang Berkepentingan")
                       <td class="text-xs font-weight-bold mb-0">
-                        <h6 class="text-secondary text-xs font-weight-bold boxes col-6 col-md-6" value="">
+                        <h6 class="text-secondary text-xs font-weight-bold boxes" value="">
                           Pekerja yang lebih empati dengan pihak berkepentingan mereka
                           <br>
                           Pembinaan hubungan positif dengan pihak berkepentingan
@@ -926,7 +982,7 @@
 
                       @if ($kecekapans -> kecekapan_teras == "Ketangkasan Dalam Organisasi")
                       <td class="text-xs font-weight-bold mb-0">
-                        <h6 class="text-secondary text-xs font-weight-bold boxes col-6 col-md-6" value="">
+                        <h6 class="text-secondary text-xs font-weight-bold boxes" value="">
                           Pekerja yang berpengetahuan dan serba boleh
                           <br>
                           Penghargaan dan penerapan budaya bimbingan dalam organisasi
@@ -967,7 +1023,7 @@
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
-          <h6>KAD SKOR 2021 - Nilai Teras</h6>
+          <h6>KAD SKOR - Nilai Teras</h6>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="p-0">
@@ -1107,27 +1163,37 @@
             <ul class="list-group">
               <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                 <div class="d-flex flex-column">
-                  <h6 class="mb-3 text-sm">Jumlah Markah</h6>
-                  <span class="mb-2 text-xs">KPI : 
-                  @foreach ($kpiall as $key => $kpialls)
-                  <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
-                  @endforeach
-                  <span class="mb-2 text-xs">Skor Akhir:
-                  @foreach ($kpiall as $key => $kpialls) 
-                  <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
-                  @endforeach
-                  <span class="mb-2 text-xs">Kecekapan Teras:
-                  @foreach ($kpiall as $key => $kpialls) 
-                  <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
-                  @endforeach
-                  <span class="mb-2 text-xs">Nilai Teras: 
-                  @foreach ($kpiall as $key => $kpialls)  
-                  <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
-                  @endforeach
-                  <span class="text-xs">Grade: 
-                  @foreach ($kpiall as $key => $kpialls)   
-                  <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
-                  @endforeach
+                  @if (!$kpiall->isEmpty())
+                    <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                    <span class="mb-2 text-xs">KPI : 
+                    @foreach ($kpiall as $key => $kpialls)
+                    <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
+                    @endforeach
+                    <span class="mb-2 text-xs">Skor Akhir: 
+                    @foreach ($kpiall as $key => $kpialls) 
+                    <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
+                    @endforeach
+                    <span class="mb-2 text-xs">Kecekapan Teras: 
+                    @foreach ($kpiall as $key => $kpialls) 
+                    <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
+                    @endforeach
+                    <span class="mb-2 text-xs">Nilai Teras: 
+                    @foreach ($kpiall as $key => $kpialls)  
+                    <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
+                    @endforeach
+                    <span class="text-xs">Grade: 
+                    @foreach ($kpiall as $key => $kpialls)   
+                    <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
+                    @endforeach
+                  @else
+                    <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                    <span class="mb-2 text-xs">KPI : <br>
+                    <span class="mb-2 text-xs">Skor Akhir: <br>
+                    <span class="mb-2 text-xs">Kecekapan Teras: <br>
+                    <span class="mb-2 text-xs">Nilai Teras: <br>
+                    <span class="text-xs">Grade: <br>
+                  @endif
+                  
                 </div>
                 <div class="ms-auto text-end">
                   <div class="col-12 text-end ">

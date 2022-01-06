@@ -40,7 +40,7 @@ class ViewProfile extends Component
         $kpialls = KPIAll_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $kpiall = KPIAll_::where('user_id', '=', auth()->user()->id)->get();
         $userdata = User::where('id', '=', auth()->user()->id)->first();
-        // dd($userdata);
+        // dd($kpialls);
         return view('livewire.laravel-examples.view-profile', compact('kpiall','kpialls','userdata'));
     }
 }
