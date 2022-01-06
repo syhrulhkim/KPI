@@ -18,7 +18,7 @@
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -127,7 +127,7 @@
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -238,7 +238,7 @@
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -348,7 +348,7 @@
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -458,7 +458,7 @@
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -571,7 +571,7 @@
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -681,7 +681,7 @@
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>

@@ -7,7 +7,7 @@
           <p><strong>{{$userscount}} employees</strong> in {{$userdepartment}} department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
@@ -18,7 +18,7 @@
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> --}}
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                 </tr>
               </thead>
               <tbody>
