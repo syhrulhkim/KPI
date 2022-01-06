@@ -83,13 +83,24 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('manager/view/kpi/'.$users->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-edit"></i>&nbsp;KPI</a> --}}
                           <a href="{{ url('add-date/'.$users->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
+                        </div>
+                      </div>
+                    </td> --}}
+                    <td class="align-middle">
+                      <div class="col-lg-6 col-5 my-auto text-middle">
+                        <div class="dropdown float-lg-start pe-4">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li> <a href="{{ url('add-date/'.$users->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                          </ul>
                         </div>
                       </div>
                     </td>

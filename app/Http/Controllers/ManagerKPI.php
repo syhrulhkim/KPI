@@ -42,6 +42,15 @@ class ManagerKPI extends Controller
         $ncr = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (NCROFI)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
         $kolaborasi = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kolaborasi')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
 
+        $kadskorcount = $kadskor->count();
+        $kewangancount = $kewangan->count();
+        $pelangganIcount = $pelangganI->count();
+        $pelangganIIcount = $pelangganII->count();
+        $kecemerlangancount = $kecemerlangan->count();
+        $trainingcount = $training->count();
+        $ncrcount = $ncr->count();
+        $kolaborasicount = $kolaborasi->count();
+
         $kpi = KPI_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $kpimaster = KPIMaster_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $user = User::where('id', '=', $id)->get();
@@ -49,9 +58,12 @@ class ManagerKPI extends Controller
         $nilai = Nilai_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $kpiall = KPIAll_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $date = Date_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
+        $weightage_master = KpiAll_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->value('weightage_master');
 
         return view('livewire.manager-kpi', compact('kpi', 'kpimaster', 'user', 'kecekapan' , 'nilai', 'kpiall', 'kadskor', 'kewangan', 
-        'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'id', 'date_id', 'user_id', 'year', 'month', 'date'));
+        'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'id', 'date_id', 'user_id', 'year', 'month', 'date', 
+        'weightage_master', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount',
+        'ncrcount', 'kolaborasicount'));
     }
 
     // public function changeStatus($id_answer)
