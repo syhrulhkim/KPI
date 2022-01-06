@@ -6,7 +6,6 @@
     overflow-x: hidden;
     overflow-y: hidden;
   }
-
   td.good{
     border-bottom: hidden;
   }
@@ -666,6 +665,43 @@
                             </div>
                           @endif
                           </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 70)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 60)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 50)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 40)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 30)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 20)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 10)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) <= 10)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) == 00)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                          </div>
+                        @endif
                         </div>
                         </td>
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
@@ -766,6 +802,19 @@
                             </div>
                           @endif
                           </div>
+                        @elseif(($kpis->kpimasters->pencapaian) >= 10)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) <= 10)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
+                          </div>
+                        @elseif(($kpis->kpimasters->pencapaian) == 00)
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                          </div>
+                        @endif
                         </div>
                         </td>
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
