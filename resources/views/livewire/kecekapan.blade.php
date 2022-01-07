@@ -113,7 +113,6 @@
 </div>  
 </div>
 
-
         @if (Auth::user()->role == "employee")
         <div class="container-fluid py-4">
           <div class="row">
@@ -123,7 +122,7 @@
                   <h6>Performance Information</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
-                  <div class="table-responsive p-0">
+                  <div class="p-0">
                     <table class="table align-items-center mb-0">
                       <thead>
                         <tr>
@@ -275,7 +274,7 @@
                   <h6>Performance Information</h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
-                  <div class="table-responsive p-0">
+                  <div class="p-0">
                     <table class="table align-items-center mb-0">
                       <thead>
                         <tr>
@@ -288,8 +287,6 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
                           <th></th>
-                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
-                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th> --}}
                         </tr>
                       </thead>
                       <tbody>
