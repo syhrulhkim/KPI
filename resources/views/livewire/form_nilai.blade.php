@@ -50,7 +50,7 @@
           
           <div class="row m-auto">
             <div class="table-responsive">
-              <table class="table table-bordered text-center">
+              <table class="text-center" style="width: 100%;">
                 <thead class="thead-dark">
                   <tr>
                     <th rowspan="2">Peratus (%)</th>
@@ -102,7 +102,7 @@
                   </tr>
                 </tbody>
               </table>
-              <div class="col-12 text-end">
+              <div class="col-12 text-end mt-4">
                 <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
               </div>
             </div>
