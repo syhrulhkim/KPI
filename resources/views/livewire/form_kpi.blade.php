@@ -89,7 +89,7 @@
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
                     <label class="font-weight-bold" >Fungsi</label>
-                      <input type="text" class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" id="fungsi" name="fungsi" value="{{ $kpi->fungsi }}" readonly>
+                      <input type="text" class="form-control card card-body border border-radius-lg d-flex align-items-center flex-row" id="fungsi" name="fungsi" value="{{ $kpi->fungsi }}" readonly>
                     </select>
                     @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>

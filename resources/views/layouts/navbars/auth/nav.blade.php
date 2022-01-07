@@ -32,18 +32,6 @@
                     @else
                     @endif
 
-                    @if (Route::currentRouteName() == 'dashboard-manager' || Route::currentRouteName() == 'dashboard')
-                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a>
-                        </li>
-                    @else
-                    @endif
-
-                    @if (Route::currentRouteName() == 'dashboard-manager' || Route::currentRouteName() == 'dashboard')
-                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a>
-                        </li>
-                    @else
-                    @endif
-
                     @if (Route::currentRouteName() == 'user-management')
                         <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">User Management</a>
                         </li>
