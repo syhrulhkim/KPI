@@ -50,7 +50,7 @@
           
           <div class="row m-auto">
             <div class="table-responsive">
-              <table class="table table-bordered text-center">
+              <table class="text-center" style="width: 100%;">
                   <thead class="thead-dark">
                       <tr>
                           <th rowspan="2">(%)</th>

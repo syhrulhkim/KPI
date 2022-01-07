@@ -1,5 +1,7 @@
-
 {{------------------------------------- Start Testing ----------------------------------------}}
+<style>
+  
+</style>  
 
 <div class="container-fluid py-4">
   <div class="row">
@@ -49,8 +51,8 @@
           </div>
           
           <div class="row m-auto">
-            <div class="table-responsive">
-              <table class="table table-bordered text-center">
+            <div class="table-responsive ">
+              <table class="text-center" style="width: 100%;">
                 <thead class="thead-dark">
                   <tr>
                     <th rowspan="2">(%)</th>
