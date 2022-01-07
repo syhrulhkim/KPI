@@ -5,7 +5,7 @@
 
 <div class="container-fluid py-4">
   <div class="row">
-      <form action="{{ url('employee/update/kpimaster/'.$kpimasters->id.'/'.$fungsi.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">   
+    <form action="{{ url('employee/update/kpimaster/'.$kpimasters->id.'/'.$fungsi.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post"> 
       @csrf 
       <div class="col-12">
           @if (session('message'))
@@ -47,7 +47,7 @@
                     <div class="col-md-12 mb-md-0">
                       <p>Objektif KPI</p>  
                       <div class="card card-plain border-radius-lg align-items-center">
-                          <input class="form-control form-control-lg" type="text" name="position" value="{{ $kpimasters->objektif }}">
+                          <input id="objektif" name="objektif" class="form-control" type="text" value="{{ $kpimasters->objektif }}">
                       </div>
                     </div>
                   </div>
@@ -57,8 +57,8 @@
                 </div>
               </div>
             </div>
-      </div>
-      </form>  
+          </div>
+        </form>  
   </div>
 </div>
 

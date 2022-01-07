@@ -8,17 +8,17 @@
           <p><strong>{{$ceoempcount}} employees</strong> in CEO Office department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -43,9 +43,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->unit}}</span>
                   </td>
@@ -80,11 +80,22 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('hr/view/kpi/'.$ceoemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
                           <a href="{{ url('add-date/'.$ceoemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
+                        </div>
+                      </div>
+                    </td> --}}
+                    <td class="align-middle">
+                      <div class="col-lg-6 col-5 my-auto text-middle">
+                        <div class="dropdown float-lg-start pe-4">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li><a href="{{ url('add-date/'.$ceoemps->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                          </ul>
                         </div>
                       </div>
                     </td>
@@ -106,17 +117,17 @@
           <p><strong>{{$hrempcount}} employees</strong> in Human Resource (HR) & Administration department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -141,9 +152,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->unit}}</span>
                   </td>
@@ -178,13 +189,24 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('hr/view/kpi/'.$hremps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
                           <a href="{{ url('add-date/'.$hremps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
+                        </div>
+                      </div>
+                    </td> --}}
+                    <td class="align-middle">
+                      <div class="col-lg-6 col-5 my-auto text-middle">
+                        <div class="dropdown float-lg-start pe-4">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li><a href="{{ url('add-date/'.$hremps->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                          </ul>
                         </div>
                       </div>
                     </td>
@@ -206,17 +228,17 @@
           <p><strong>{{$afempcount}} employees</strong> in Account & Finance (A&F) department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -240,9 +262,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->unit}}</span>
                   </td>
@@ -277,13 +299,24 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('hr/view/kpi/'.$afemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
                           <a href="{{ url('add-date/'.$afemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
+                        </div>
+                      </div>
+                    </td> --}}
+                    <td class="align-middle">
+                      <div class="col-lg-6 col-5 my-auto text-middle">
+                        <div class="dropdown float-lg-start pe-4">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li><a href="{{ url('add-date/'.$afemps->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                          </ul>
                         </div>
                       </div>
                     </td>
@@ -305,17 +338,17 @@
           <p><strong>{{$salesempcount}} employees</strong> in Sales department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -339,9 +372,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->unit}}</span>
                   </td>
@@ -376,13 +409,24 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('hr/view/kpi/'.$salesemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
                           <a href="{{ url('add-date/'.$salesemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
+                        </div>
+                      </div>
+                    </td> --}}
+                    <td class="align-middle">
+                      <div class="col-lg-6 col-5 my-auto text-middle">
+                        <div class="dropdown float-lg-start pe-4">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li><a href="{{ url('add-date/'.$salesemps->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                          </ul>
                         </div>
                       </div>
                     </td>
@@ -404,17 +448,17 @@
           <p><strong>{{$marketingempcount}} employees</strong> in Marketing department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -441,9 +485,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$marketingemps->id}}">{{$marketingemps->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$marketingemps->id}}">{{$marketingemps->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$marketingemps->id}}">{{$marketingemps->unit}}</span>
                   </td>
@@ -478,13 +522,24 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('hr/view/kpi/'.$marketingemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
                           <a href="{{ url('add-date/'.$marketingemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
+                        </div>
+                      </div>
+                    </td> --}}
+                    <td class="align-middle">
+                      <div class="col-lg-6 col-5 my-auto text-middle">
+                        <div class="dropdown float-lg-start pe-4">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li><a href="{{ url('add-date/'.$marketingemps->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                          </ul>
                         </div>
                       </div>
                     </td>
@@ -506,17 +561,17 @@
           <p><strong>{{$operationempcount}} employees</strong> in Operation department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -540,9 +595,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->unit}}</span>
                   </td>
@@ -577,13 +632,24 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('hr/view/kpi/'.$operationemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
                           <a href="{{ url('add-date/'.$operationemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
+                        </div>
+                      </div>
+                    </td> --}}
+                    <td class="align-middle">
+                      <div class="col-lg-6 col-5 my-auto text-middle">
+                        <div class="dropdown float-lg-start pe-4">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li><a href="{{ url('add-date/'.$operationemps->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                          </ul>
                         </div>
                       </div>
                     </td>
@@ -605,17 +671,17 @@
           <p><strong>{{$rndempcount}} employees</strong> in R&D department</p>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
               <tbody>
@@ -639,9 +705,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$rndemps->id}}">{{$rndemps->nostaff}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$rndemps->id}}">{{$rndemps->department}}</span>
-                  </td>
+                  </td> --}}
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$rndemps->id}}">{{$rndemps->unit}}</span>
                   </td>
@@ -676,16 +742,27 @@
                     </td> --}}
                   </div>
                   <div class="d-flex flex-column justify-content-center">
-                    <td>
+                    {{-- <td>
                       <div class="d-flex px-2 py-1">
                         <div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
-                          {{-- <a href="{{ url('hr/view/kpi/'.$rndemps->id) }}" class="btn btn-primary btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a> --}}
                           <a href="{{ url('add-date/'.$rndemps->id) }}" class="btn btn-light btn-sm" style="font-size: 10px" role="button"><i class="fa fa-eye"></i>&nbsp;View</a>
                         </div>
                       </div>
-                    </td>
+                    </td> --}}
+                    <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('add-date/'.$rndemps->id) }}" class="dropdown-item border-radius-md" role="button">View</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
                   </div>
                 </tr>
                 @endforeach

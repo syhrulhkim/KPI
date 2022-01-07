@@ -64,7 +64,7 @@
             @csrf  
             <div class="card-body p-3">
               <div class="row">
-                <div class="col-md-6 mb-md-0 mb-4">
+                {{-- <div class="col-md-6 mb-md-0 mb-4">
                     @csrf
                     <div class="mb-0" class="@error('year') @enderror">
                       <input class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="year" name="year" id="year" class="custom-select" value="{{ $kpi->year }}" tabindex="1">
@@ -82,7 +82,7 @@
                       </select>
                       @error('month') <div class="text-danger">{{ $message }}</div> @enderror
                       </div> 
-                    </div>
+                    </div> --}}
                   </form>  
               </div>
               <div class="row">
