@@ -17,11 +17,12 @@ use App\Http\Livewire\Kecekapan;
 use App\Http\Livewire\KecekapanManager;
 use App\Http\Livewire\Nilai;
 use App\Http\Livewire\NilaiManager;
+use App\Http\Livewire\ManagerKPI;
 use App\Http\Livewire\LaravelExamples\ViewProfile;
 use App\Http\Livewire\LaravelExamples\EditProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\LaravelExamples\UserManagementAdmin;
-use App\Http\Controllers\ManagerKPI;
+// use App\Http\Controllers\ManagerKPI;
 use App\Http\Controllers\HRKPI;
 
 /*
@@ -74,13 +75,26 @@ Route::get('/manager/edit/kecekapan/{id_user}/{id}/{date_id}/{user_id}/{year}/{m
 Route::post('/manager/update/kecekapan/{id_user}/{id}/{date_id}/{user_id}/{year}/{month}', [KecekapanManager::class, 'kecekapan_update']);
 Route::get('/manager/edit/nilai/{id_user}/{id}/{date_id}/{user_id}/{year}/{month}', [NilaiManager::class, 'nilai_edit']);
 Route::post('/manager/update/nilai/{id_user}/{id}/{date_id}/{user_id}/{year}/{month}', [NilaiManager::class, 'nilai_update']);
-Route::get('/manager/changeup/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changeupmanager']);
-Route::get('/manager/changedown/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changedownmanager']);
-Route::get('/manager-hr/view/kpi/{id}/{date_id}/{user_id}/{year}/{month}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
+
+// Route::get('/manager/changeup/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changeupmanager']);
+// Route::get('/manager/changedown/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changedownmanager']);
+// Route::post('/manager/messageup/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'messageupmanager']);
+// Route::get('/manager/messagedown/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'messagedownmanager']);
+Route::get('/manager/changeup/kpi/{date_id}', [ManagerKPI::class, 'changeupmanager']);
+Route::get('/manager/changedown/kpi/{date_id}', [ManagerKPI::class, 'changedownmanager']);
+Route::post('/manager/messageup/kpi/{date_id}', [ManagerKPI::class, 'messageupmanager']);
+
+// Route::get('/manager-hr/view/kpi/{id}/{date_id}/{user_id}/{year}/{month}', [\App\Http\Controllers\ManagerKPI::class, 'index']);
+Route::get('/manager-hr/view/kpi/{id}/{date_id}/{user_id}/{year}/{month}', ManagerKPI::class);
 
 //HR Route
-Route::get('/hr/changeup/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changeuphr']);
-Route::get('/hr/changedown/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changedownhr']);
+// Route::get('/hr/changeup/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changeuphr']);
+// Route::get('/hr/changedown/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'changedownhr']);
+// Route::post('/hr/messageup/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'messageuphr']);
+Route::get('/hr/changeup/kpi/{date_id}', [ManagerKPI::class, 'changeuphr']);
+Route::get('/hr/changedown/kpi/{date_id}', [ManagerKPI::class, 'changedownhr']);
+Route::post('/hr/messageup/kpi/{date_id}', [ManagerKPI::class, 'messageuphr']);
+// Route::get('/hr/messagedown/kpi/{date_id}', [\App\Http\Controllers\ManagerKPI::class, 'messagedownhr']);
 
 
 

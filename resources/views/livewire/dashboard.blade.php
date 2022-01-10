@@ -12,12 +12,12 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-6">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
@@ -49,9 +49,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$ceoemps->id}}">{{$ceoemps->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">
@@ -121,12 +121,12 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-6">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
@@ -158,9 +158,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$hremps->id}}">{{$hremps->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">
@@ -232,12 +232,12 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-6">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
@@ -268,9 +268,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$afemps->id}}">{{$afemps->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">
@@ -342,12 +342,12 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-6">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
@@ -378,9 +378,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$salesemps->id}}">{{$salesemps->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">
@@ -452,12 +452,12 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-6">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
@@ -491,9 +491,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$marketingemps->id}}">{{$marketingemps->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$marketingemps->id}}">{{$marketingemps->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">
@@ -565,12 +565,12 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-6">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
@@ -601,9 +601,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$operationemps->id}}">{{$operationemps->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">
@@ -675,12 +675,12 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-5">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-6">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 col-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-2">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1">Grade</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 col-1"></th>
                 </tr>
               </thead>
@@ -711,9 +711,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$rndemps->id}}">{{$rndemps->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$rndemps->id}}">{{$rndemps->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">

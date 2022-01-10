@@ -47,12 +47,12 @@
           </div>
           <div class="card-body p-3">
             <p class="text-sm">
-              Hi, I’m {{ Auth::user()->name }}, My staff number is {{ Auth::user()->nostaff }} and i'm {{ Auth::user()->unit }} at {{ Auth::user()->department }}.
+              Hi, I’m {{ Auth::user()->name }}, My ID No is {{ Auth::user()->nostaff }} and i'm {{ Auth::user()->unit }} at {{ Auth::user()->department }}.
             </p>
             <hr class="horizontal gray-light my-4">
             <ul class="list-group">
               <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; {{ Auth::user()->name }}</li>
-              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">No Staff:</strong> &nbsp; {{ Auth::user()->nostaff }}</li>
+              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">ID No:</strong> &nbsp; {{ Auth::user()->nostaff }}</li>
               <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Position:</strong> &nbsp; {{ Auth::user()->position }}</li>
               <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Department:</strong> &nbsp; {{ Auth::user()->department }}</li>
               <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Unit:</strong> &nbsp; {{ Auth::user()->unit }}</li>
