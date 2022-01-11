@@ -25,6 +25,7 @@ class KPI_ extends Model
         'user_id',
         'year',
         'month',
+        'bukti_path',
     ];
     // public function buktia() {
     //     return $this->hasOne('App\Models\bukti', 'kpi_id', 'id');

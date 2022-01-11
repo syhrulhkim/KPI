@@ -40,10 +40,11 @@
                 </div>
               </div>
             </div>
-            <form action="{{ url('/employee/save/kpi/'.$year.'/'.$month) }}" method="post">
+            <form action="{{ url('/employee/save/kpi/'.$year.'/'.$month) }}" method="post" enctype="multipart/form-data">
             @csrf  
             <div class="card-body p-3">
               <div class="row">
+                
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
                     <label class="font-weight-bold" >Fungsi</label>
@@ -77,6 +78,26 @@
                       @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                 </div>
+
+                <div class="col-md-4" id="buktiupload">
+                  <div class="form-group">
+                      <label class="control-label" style="font-weight:500">Bukti Upload</label>
+                      <div
+                          x-data="{ isUploading: false, progress: 0 }"
+                          x-on:livewire-upload-start="isUploading = true"
+                          x-on:livewire-upload-finish="isUploading = false"
+                          x-on:livewire-upload-error="isUploading = false"
+                          x-on:livewire-upload-progress="progress = $event.detail.progress">
+                      <div wire:loading wire:target="bukti_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
+                          <input type="file" wire:model="bukti_path" id="bukti_path" name="bukti_path" class="dropify" />
+                          @error('bukti_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
+                          <div x-show="isUploading">
+                              <progress max="100" x-bind:value="progress"></progress>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
               </div>
               <div class="table-responsive">
                 <table class="text-center">
@@ -188,6 +209,7 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fungsi</th> --}}
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -208,6 +230,14 @@
                   </td>
                   <td>
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $kadskors -> bukti }}">{{ $kadskors -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kadskors->bukti_path == '')
+                    {{-- {{ URL::to(''.$kadskors->bukti_path.'') }} --}}
+                    <a href=" {{ URL::to(''.$kadskors->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kadskors->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kadskors -> peratus }}">{{ $kadskors -> peratus }}</span>
@@ -346,6 +376,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -366,6 +397,13 @@
                   </td>
                   <td>
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
@@ -509,6 +547,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -529,6 +568,13 @@
                   </td>
                   <td>
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $pelangganIs -> bukti }}">{{ $pelangganIs -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($pelangganIs->bukti_path == '')
+                    <a href=" {{ URL::to(''.$pelangganIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$pelangganIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $pelangganIs -> peratus }}">{{ $pelangganIs -> peratus }}</span>
@@ -672,6 +718,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -692,6 +739,13 @@
                   </td>
                   <td>
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $pelangganIIs -> bukti }}">{{ $pelangganIIs -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($pelangganIIs->bukti_path == '')
+                    <a href=" {{ URL::to(''.$pelangganIIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$pelangganIIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $pelangganIIs -> peratus }}">{{ $pelangganIIs -> peratus }}</span>
@@ -835,6 +889,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -855,6 +910,13 @@
                   </td>
                   <td>
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $kecemerlangans -> bukti }}">{{ $kecemerlangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kecemerlangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kecemerlangans -> peratus }}">{{ $kecemerlangans -> peratus }}</span>
@@ -997,6 +1059,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -1017,6 +1080,13 @@
                   </td>
                   <td>
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $trainings -> bukti }}">{{$trainings -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($trainings->bukti_path == '')
+                    <a href=" {{ URL::to(''.$trainings->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$trainings->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $trainings -> peratus }}">{{ $trainings -> peratus }}</span>
@@ -1159,6 +1229,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -1179,6 +1250,13 @@
                   </td>
                   <td>
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $ncrs -> bukti }}">{{ $ncrs -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($ncrs->bukti_path == '')
+                    <a href=" {{ URL::to(''.$ncrs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$ncrs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $ncrs -> peratus }}">{{ $ncrs -> peratus }}</span>
@@ -1321,6 +1399,7 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
@@ -1342,6 +1421,13 @@
                   <td>
                     {{-- <pre class="text-sm font-weight-bold mb-0" style="width: 80%;max-width: 400px;overflow: hidden;" value="{{ $kolaborasis -> bukti }}">{{ $kolaborasis -> bukti }}</pre> --}}
                     <pre class="text-sm font-weight-bold mb-0" value="{{ $kolaborasis -> bukti }}">{{ $kolaborasis -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kolaborasis->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kolaborasis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kolaborasis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
                   </td>
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kolaborasis -> peratus }}">{{ $kolaborasis -> peratus }}</span>

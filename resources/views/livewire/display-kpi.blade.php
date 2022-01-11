@@ -77,6 +77,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fungsi</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">Objektif KPI</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">Metrik / Bukti</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Link File</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Link Bukti</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">%</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Ukuran</th>
@@ -102,9 +103,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                         
@@ -113,7 +128,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href="{{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href="{{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $kadskorcount }}" class="align-middle text-center">
@@ -203,9 +218,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                       @if ($key == 0)
@@ -213,7 +242,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $kewangancount }}" class="align-middle text-center">
@@ -303,9 +332,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                       @if ($key == 0)
@@ -313,7 +356,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $pelangganIcount }}" class="align-middle text-center">
@@ -403,9 +446,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                       @if ($key == 0)
@@ -413,7 +470,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $pelangganIIcount }}" class="align-middle text-center">
@@ -503,9 +560,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                       @if ($key == 0)
@@ -513,7 +584,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $kecemerlangancount }}" class="align-middle text-center">
@@ -603,9 +674,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                       @if ($key == 0)
@@ -613,7 +698,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $trainingcount }}" class="align-middle text-center">
@@ -703,9 +788,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                       @if ($key == 0)
@@ -713,7 +812,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $ncrcount }}" class="align-middle text-center">
@@ -803,9 +902,23 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
+                        </td>
                       @else
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
+                        </td>
+                        <td>
+                          @if ($kpis->bukti_path == '')
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          @else
+                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          @endif
                         </td>
                       @endif
                       @if ($key == 0)
@@ -813,7 +926,7 @@
                           @if ($kpis->kpimasters->link == '')
                           -
                           @else
-                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">Link Bukti</a>
+                          <a href=" {{ $kpis->kpimasters->link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                         <td rowspan="{{ $kolaborasicount }}" class="align-middle text-center">
@@ -1280,7 +1393,7 @@
             <ul class="list-group">
               <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                 <div class="d-flex flex-column">
-                  <h6 class="mb-3 text-sm">Message from your HR</h6>
+                  <h6 class="mb-3 text-sm">HR message from {{Auth::user()->name}}</h6>
                       <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>
                 </div>
               </li>
@@ -1300,7 +1413,7 @@
             <ul class="list-group">
               <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                 <div class="d-flex flex-column">
-                  <h6 class="mb-3 text-sm">Message from your Manager</h6>
+                  <h6 class="mb-3 text-sm">Manager message from {{Auth::user()->name}}</h6>
                       <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>
                 </div>
               </li>

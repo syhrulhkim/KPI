@@ -49,10 +49,12 @@ class ManagerKPI extends Component
         if (auth()->user()->role == "manager") {
             Date_::find($this->id_date)->update([
             'message_manager'=> '',
+            'manager_id'=> '',
             ]);
         } else if(auth()->user()->role == "hr"){
             Date_::find($this->id_date)->update([
             'message_hr'=> '',
+            'hr_id'=> '',
             ]);
         }
 
@@ -120,6 +122,7 @@ class ManagerKPI extends Component
     {
         Date_::find($date_id)->update([
         'message_manager'=> $request->message_manager,
+        'manager_id'=> auth()->user()->id,
         ]);
         // dd($request->message_manager);
 
@@ -155,6 +158,7 @@ class ManagerKPI extends Component
     {
         Date_::find($date_id)->update([
         'message_hr'=> $request->message_hr,
+        'hr_id'=> auth()->user()->id,
         ]);
 
         return redirect()->back()->with('message', 'Your message has been submitted!');

@@ -16,6 +16,8 @@ class Date_ extends Model
         'status',
         'message_manager',
         'message_hr',
+        'manager_id',
+        'hr_id',
     ];
     //     public function kpimasters() {
     //     return $this->hasOne('App\Models\KPIMaster_', 'id', 'kpimaster_id');
