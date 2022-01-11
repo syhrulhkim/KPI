@@ -1467,7 +1467,7 @@
 
                           @if (Auth::user()->role == "manager")
                           <div class="d-flex flex-column">
-                            <h6 class="mb-3 text-sm">Write Your Message To This Employee (If any)</h6>
+                            <h6 class="mb-3 text-sm">Write Your Message To This Employee (Optional)</h6>
                               <form action="{{ url('manager/messageup/kpi/'. $date_id) }}" method="post">
                               @csrf
                               @foreach ($date as $dates)
@@ -1495,7 +1495,7 @@
 
                           @if (Auth::user()->role == "hr")
                           <div class="d-flex flex-column">
-                            <h6 class="mb-3 text-sm">Write Your Message To This Employee (If any)</h6>
+                            <h6 class="mb-3 text-sm">Write Your Message To This Employee (Optional)</h6>
                               <form action="{{ url('hr/messageup/kpi/'. $date_id) }}" method="post">
                               @csrf
                               @foreach ($date as $dates)
