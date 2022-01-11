@@ -30,6 +30,7 @@ return array(
     'App\\Http\\Livewire\\LaravelExamples\\UserManagementAdminFormWire' => $baseDir . '/app/Http/Livewire/LaravelExamples/UserManagementAdminFormWire.php',
     'App\\Http\\Livewire\\LaravelExamples\\UserManagementFormWire' => $baseDir . '/app/Http/Livewire/LaravelExamples/UserManagementFormWire.php',
     'App\\Http\\Livewire\\LaravelExamples\\ViewProfile' => $baseDir . '/app/Http/Livewire/LaravelExamples/ViewProfile.php',
+    'App\\Http\\Livewire\\ManagerKPI' => $baseDir . '/app/Http/Livewire/ManagerKPI.php',
     'App\\Http\\Livewire\\Nilai' => $baseDir . '/app/Http/Livewire/Nilai.php',
     'App\\Http\\Livewire\\NilaiManager' => $baseDir . '/app/Http/Livewire/NilaiManager.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

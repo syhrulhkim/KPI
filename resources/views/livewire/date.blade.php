@@ -16,6 +16,7 @@
             <div class="row">
               <div class="col-md-6 mb-md-0 mb-4">
                   @csrf
+                  <label class="font-weight-bold" >Year</label>
                   <div class="mb-0" class="@error('year') @enderror">
                     <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="year" name="year" id="year" class="custom-select" data-placeholder="Choose a Year" tabindex="1">
                       <option selected value="">-- Choose Years --</option>
@@ -33,6 +34,7 @@
                   </div>
 
                   <div class="col-md-6">
+                    <label class="font-weight-bold" >Month</label>
                     <div class="mb-4" class="@error('month') border border-danger rounded-3 @enderror">
                       <td style="word-break: break-all;" class="border-dark">
                         <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
@@ -79,6 +81,7 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 ">Months</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Add</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">View</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="text-align: center">Status</th>
                   <th></th>
                 </tr>
               </thead>
@@ -118,6 +121,35 @@
                         <a href="{{ url('employee/displaykpi/'.$dates->id.'/'.$dates->user_id.'/'.$dates->year.'/'.$dates->month) }}" type="button" class="btn bg-gradient-secondary w-auto me-2">View KPI Master</a>
                     </div>
                   </td>
+                                              <td>
+                              <div class="justify-content-center d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+
+                                  
+                                  @if ($dates->status == "Not Submitted")
+                                  <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-secondary">{{$dates->status}}</span></span>
+                                  @else 
+                                  @endif
+        
+                                  @if ($dates->status == "Submitted")
+                                  <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-info">{{$dates->status}}</span></span>
+                                  @else 
+                                  @endif
+        
+                                  @if ($dates->status == "Signed By Manager")
+                                  <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-dark">{{$dates->status}}</span></span>
+                                  @else 
+                                  @endif
+        
+                                  @if ($dates->status == "Completed")
+                                  <span class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark"></strong>&nbsp;<span class="badge badge-sm bg-gradient-success">{{$dates->status}}</span></span>
+                                  @else 
+                                  @endif
+                               
+        
+                                </div>
+                              </div>
+                            </td>
                   <td class="align-middle">
                     <div class="col-lg-6 col-5 my-auto text-middle">
                       <div class="dropdown float-lg-start pe-4">

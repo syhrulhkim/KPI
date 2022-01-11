@@ -20,8 +20,12 @@ use App\Models\Date_;
 
 class KPI extends Component
 {
+    use WithFileUploads;
     public $id_kpi;
     public $action;
+    public $name;
+    public $model_id;
+    public $bukti_path;
 
     protected $listeners = [
         'delete'
@@ -886,6 +890,16 @@ class KPI extends Component
 
         $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
         // $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->get();
+
+        // dd($request->bukti_path);
+        $this->bukti_path = $request->bukti_path;
+        $filenameWithExt = $this->bukti_path->getClientOriginalName();
+        $extension = $this->bukti_path->getClientOriginalExtension();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+        $this->bukti_path->storeAs('public' . DIRECTORY_SEPARATOR . 'filebukti', $fileNameToStore);
+        $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'filebukti' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
+
         KPI_::insert([
         'user_id'=> Auth::user()->id,
         'created_at'=> Carbon::now(),
@@ -908,6 +922,7 @@ class KPI extends Component
         'pencapaian'=> $request->pencapaian,
         'skor_KPI'=> $request->skor_KPI,
         'skor_sebenar'=> $request->skor_sebenar,
+        'bukti_path'=> $path,
         // 'kpimaster_id' => 3,
         'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
         // dd($request->skor_sebenar),
@@ -957,28 +972,67 @@ class KPI extends Component
             // 'weightage' => ['required', 'numeric'],
         ]);
 
-        $update = KPI_::find($id)->update([
-            'user_id'=> Auth::user()->id,
-            'created_at'=> Carbon::now(),
-            'updated_at'=> Carbon::now(),
-            // 'grade'=> $request->grade,
-            // 'weightage'=> $request->weightage,
-            // 'total_score'=> $request->total_score,
-            'year'=> $request->year,
-            'month'=> $request->month,
-            // 'objektif'=> $request->objektif,
-            'fungsi'=> $request->fungsi,
-            'bukti'=> $request->bukti,
-            // 'link'=> $request->link,
-            'ukuran'=> $request->ukuran,
-            'peratus'=> $request->peratus,
-            'threshold'=> $request->threshold,
-            'base'=> $request->base,
-            'stretch'=> $request->stretch,
-            'pencapaian'=> $request->pencapaian,
-            'skor_KPI'=> $request->skor_KPI,
-            'skor_sebenar'=> $request->skor_sebenar,
-        ]);
+        // dd($request->bukti_path);
+        $this->bukti_path = $request->bukti_path;
+        if ($this->bukti_path != NULL) {
+            $this->bukti_path = $request->bukti_path;
+            $filenameWithExt = $this->bukti_path->getClientOriginalName();
+            $extension = $this->bukti_path->getClientOriginalExtension();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $this->bukti_path->storeAs('public' . DIRECTORY_SEPARATOR . 'filebukti', $fileNameToStore);
+            $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'filebukti' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
+
+            $update = KPI_::find($id)->update([
+                'user_id'=> Auth::user()->id,
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now(),
+                // 'grade'=> $request->grade,
+                // 'weightage'=> $request->weightage,
+                // 'total_score'=> $request->total_score,
+                'year'=> $request->year,
+                'month'=> $request->month,
+                // 'objektif'=> $request->objektif,
+                'fungsi'=> $request->fungsi,
+                'bukti'=> $request->bukti,
+                // 'link'=> $request->link,
+                'ukuran'=> $request->ukuran,
+                'peratus'=> $request->peratus,
+                'threshold'=> $request->threshold,
+                'base'=> $request->base,
+                'stretch'=> $request->stretch,
+                'pencapaian'=> $request->pencapaian,
+                'skor_KPI'=> $request->skor_KPI,
+                'skor_sebenar'=> $request->skor_sebenar,
+                'bukti_path'=> $path,
+            ]);
+        }
+
+        if ($this->bukti_path == NULL) {
+            $update = KPI_::find($id)->update([
+                'user_id'=> Auth::user()->id,
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now(),
+                // 'grade'=> $request->grade,
+                // 'weightage'=> $request->weightage,
+                // 'total_score'=> $request->total_score,
+                'year'=> $request->year,
+                'month'=> $request->month,
+                // 'objektif'=> $request->objektif,
+                'fungsi'=> $request->fungsi,
+                'bukti'=> $request->bukti,
+                // 'link'=> $request->link,
+                'ukuran'=> $request->ukuran,
+                'peratus'=> $request->peratus,
+                'threshold'=> $request->threshold,
+                'base'=> $request->base,
+                'stretch'=> $request->stretch,
+                'pencapaian'=> $request->pencapaian,
+                'skor_KPI'=> $request->skor_KPI,
+                'skor_sebenar'=> $request->skor_sebenar,
+            ]);
+        }
+
 
         return redirect('employee/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'KPI Updated Successfully');
         // return redirect()->route('add-kpi')->with('message', 'KPI Updated Successfully');

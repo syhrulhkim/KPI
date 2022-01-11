@@ -13,10 +13,10 @@
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Position</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Staff Number</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID No</th>
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unit</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th>
+                  {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grade</th> --}}
                   {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th> --}}
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                 </tr>
@@ -49,9 +49,9 @@
                   <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$users->id}}">{{$users->unit}}</span>
                   </td>
-                  <td class="align-middle text-center">
+                  {{-- <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold" value="{{$users->id}}">{{$users->grade}}</span>
-                  </td>
+                  </td> --}}
                   <div class="d-flex flex-column justify-content-center">
                     {{-- <td>
                       <div class="d-flex px-2 py-1">

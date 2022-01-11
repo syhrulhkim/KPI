@@ -104,7 +104,7 @@
                             </div>
                             <div class="mb-3">
                                 <div class="@error('nostaff') border border-danger rounded-3 @enderror">
-                                    <input wire:model="nostaff" type="text" class="form-control" placeholder="No Staff"
+                                    <input wire:model="nostaff" type="text" class="form-control" placeholder="ID No"
                                         aria-label="Nostaff" aria-describedby="email-addon">
                                 </div>
                                 @error('nostaff') <div class="text-danger">{{ $message }}</div> @enderror

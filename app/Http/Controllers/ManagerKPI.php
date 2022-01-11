@@ -9,9 +9,35 @@ use App\Models\KPIMaster_;
 use App\Models\Nilai_;
 use App\Models\User;
 use App\Models\Date_;
+use Illuminate\Http\Request;
 
 class ManagerKPI extends Controller
 {
+    public $id_date;
+    public $year;
+    public $month;
+    public $model_id;
+    public $action;
+
+    protected $listeners = [
+        'delete',
+    ];
+    
+    public function selectItem($model_id, $action)
+    {
+        dd('johnselectItem');
+        $this->id_date = $model_id;
+        $this->action = $action;
+        dd( $this->id_date = $model_id);
+    }
+
+    public function delete()
+    {
+        dd('johndelete');
+        $date = Date_::find($this->id_date);
+        $date->message_manager->delete();
+        return redirect()->back()->with('message', 'Your message to this employee has been deleted!');
+    }
 
     public function index($id, $date_id, $user_id, $year, $month)
     {
@@ -59,11 +85,15 @@ class ManagerKPI extends Controller
         $kpiall = KPIAll_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $date = Date_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $weightage_master = KpiAll_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->value('weightage_master');
+        $kecekapanscount2 = Kecekapan_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->count();
+        $nilaiscount2 = Nilai_::where('user_id', '=', $id)->where('year', '=', $year)->where('month', '=', $month)->count();
+        $kecekapan_master = $kecekapanscount2 * 20;
+        $nilai_master = $nilaiscount2 * 20;
 
         return view('livewire.manager-kpi', compact('kpi', 'kpimaster', 'user', 'kecekapan' , 'nilai', 'kpiall', 'kadskor', 'kewangan', 
         'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'id', 'date_id', 'user_id', 'year', 'month', 'date', 
         'weightage_master', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount',
-        'ncrcount', 'kolaborasicount'));
+        'ncrcount', 'kolaborasicount', 'kecekapan_master', 'nilai_master'));
     }
 
     // public function changeStatus($id_answer)
@@ -110,7 +140,7 @@ class ManagerKPI extends Controller
         // dd('status'),
         ]);
 
-        return redirect()->back()->with('message', 'The kpi has been signed!');
+        return redirect()->back()->with('message', 'The kpi has been signed & appraised!');
     }
 
     public function changedownmanager($date_id)
@@ -118,8 +148,26 @@ class ManagerKPI extends Controller
         Date_::find($date_id)->update([
         'status'=> 'Submitted',
         ]);
-        return redirect()->back()->with('message', 'You have undo the signed kpi!');
+        return redirect()->back()->with('message', 'You have undo the signed & undo the appraised kpi!');
     }
+
+    public function messageupmanager(Request $request, $date_id)
+    {
+        Date_::find($date_id)->update([
+        'message_manager'=> $request->message_manager,
+        ]);
+        // dd($request->message_manager);
+
+        return redirect()->back()->with('message', 'Your message has been submitted!');
+    }
+
+    // public function messagedownmanager($date_id)
+    // {
+    //     Date_::find($date_id)->update([
+    //     'message_manager'=> 'Submitted',
+    //     ]);
+    //     return redirect()->back()->with('message', 'Your message to this employee has been deleted!');
+    // }
 
     public function changeuphr($date_id)
     {
@@ -127,7 +175,7 @@ class ManagerKPI extends Controller
         'status'=> 'Completed',
         ]);
 
-        return redirect()->back()->with('message', 'The kpi has been completed!');
+        return redirect()->back()->with('message', 'The kpi has been signed & completed!');
     }
 
     public function changedownhr($date_id)
@@ -135,8 +183,25 @@ class ManagerKPI extends Controller
         Date_::find($date_id)->update([
         'status'=> 'Signed By Manager',
         ]);
-        return redirect()->back()->with('message', 'You have undo the completed kpi!');
+        return redirect()->back()->with('message', 'You have undo the signed & undo the completed kpi!');
     }
+
+    public function messageuphr(Request $request, $date_id)
+    {
+        Date_::find($date_id)->update([
+        'message_hr'=> $request->message_hr,
+        ]);
+
+        return redirect()->back()->with('message', 'Your message has been submitted!');
+    }
+
+    // public function messagedownhr($date_id)
+    // {
+    //     Date_::find($date_id)->update([
+    //     'message_hr'=> 'Submitted',
+    //     ]);
+    //     return redirect()->back()->with('message', 'Your message to this employee has been deleted!');
+    // }
 
     // public function change($id)
     // {

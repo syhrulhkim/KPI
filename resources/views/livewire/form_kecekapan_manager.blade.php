@@ -41,7 +41,7 @@
              <!-- Pencapaian Content  -->
             <div class="col-md-auto">
                 <div class="card shadow rounded">
-                    <div class="card-header font-weight-bold" style="text-transform:uppercase" >Performance Form</div>
+                    {{-- <div class="card-header font-weight-bold" style="text-transform:uppercase" >Performance Form</div> --}}
                     <div class="col-sm-auto p-3">
                         <div class="card">
                             <div class="m-3">
@@ -85,8 +85,8 @@
                                       </tr>
                                   </table> --}}
                                   <div class="table-responsive">
-                                    <table class="table table-bordered text-center">
-                                        <thead class="thead-dark">
+                                    <table class="text-center" style="width: 100%;">
+                                      <thead class="thead-dark">
                                             <tr>
                                                 <th rowspan="2">(%)</th>
                                                 <th rowspan="2">Ukuran</th>
@@ -160,7 +160,8 @@
                                   {{-- <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                     Save
                                 </button> --}}
-                                <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button>
+                                {{-- <button type="submit" class="btn btn-success btn-sm" style="font-size: 10px"><i class="fas fa-save"></i> Save</button> --}}
+                                <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
                                   {{-- <button type="button" class="btn btn-cancel" ><a href="{{ route('dashboard-manager') }}"><i class="fas fa-window-close"></i> Back</a></button>    --}}
                                   {{-- <button type="button" class="btn btn-cancel" ><a href="{{ url('/manager-hr/view/kpi/'.$user_id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}"><i class="fas fa-window-close"></i> Back</a></button>      --}}
                                   {{-- <button type="button" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150"><a style="color:white" href="{{ url('/manager-hr/view/kpi/'.$user_id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}">

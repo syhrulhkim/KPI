@@ -60,7 +60,7 @@
                 </div>
               </div>
             </div>
-            <form action="{{ url('employee/update/kpi/'.$kpi->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">
+            <form action="{{ url('employee/update/kpi/'.$kpi->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post" enctype="multipart/form-data">
             @csrf  
             <div class="card-body p-3">
               <div class="row">
@@ -101,6 +101,26 @@
                       @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                 </div>
+
+                <div class="col-md-4" id="buktiupload">
+                  <div class="form-group">
+                      <label class="control-label" style="font-weight:500">Bukti Upload</label>
+                      <div
+                          x-data="{ isUploading: false, progress: 0 }"
+                          x-on:livewire-upload-start="isUploading = true"
+                          x-on:livewire-upload-finish="isUploading = false"
+                          x-on:livewire-upload-error="isUploading = false"
+                          x-on:livewire-upload-progress="progress = $event.detail.progress">
+                      <div wire:loading wire:target="bukti_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
+                          <input type="file" wire:model="bukti_path" id="bukti_path" name="bukti_path" class="dropify" />
+                          @error('bukti_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
+                          <div x-show="isUploading">
+                              <progress max="100" x-bind:value="progress"></progress>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
               </div>
               <div class="table-responsive">
                 <table class="text-center">
