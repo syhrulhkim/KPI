@@ -81,7 +81,7 @@
 
                 <div class="col-md-4" id="buktiupload">
                   <div class="form-group">
-                      <label class="control-label" style="font-weight:500">Bukti Upload</label>
+                      <label class="control-label" style="font-weight:500">Bukti Upload (Optional)</label>
                       <div
                           x-data="{ isUploading: false, progress: 0 }"
                           x-on:livewire-upload-start="isUploading = true"
