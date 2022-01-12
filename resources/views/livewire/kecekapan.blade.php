@@ -22,7 +22,6 @@
           <div class="row">
             <div class="col-12 text-end">
               <form action="{{ url('employee/save/kecekapan/'.$year.'/'.$month) }}" method="post">
-              <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
             </div>
           </div>
         </div>
@@ -104,6 +103,9 @@
                   </tr>
                 </tbody>
               </table>
+              <div class="col-12 text-end mt-2">
+                <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
+              </div>
             </div>
           </form>  
         </div>
@@ -112,7 +114,6 @@
   </div>
 </div>  
 </div>
-
 
         @if (Auth::user()->role == "employee")
         <div class="container-fluid py-4">
@@ -288,8 +289,6 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
                           <th></th>
-                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit</th> --}}
-                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th> --}}
                         </tr>
                       </thead>
                       <tbody>

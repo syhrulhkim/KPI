@@ -8,7 +8,6 @@
             <div class="row">
               <div class="col-12 text-end">
                 <form action="{{ route('date_save') }}" method="post">  
-                <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
               </div>
             </div>
           </div>
@@ -35,7 +34,7 @@
 
                   <div class="col-md-6">
                     <label class="font-weight-bold" >Month</label>
-                    <div class="mb-4" class="@error('month') border border-danger rounded-3 @enderror">
+                    <div class="mb-2" class="@error('month') border border-danger rounded-3 @enderror">
                       <td style="word-break: break-all;" class="border-dark">
                         <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
                           <option selected value="">-- Choose Months --</option>
@@ -56,6 +55,9 @@
                     </select>
                     @error('month') <div class="text-danger">{{ $message }}</div> @enderror
                     </div> 
+                    <div class="col-12 text-end">
+                      <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
+                    </div>  
                   </div>
                 </form>  
             </div>
