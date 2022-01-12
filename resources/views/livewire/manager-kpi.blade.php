@@ -1449,7 +1449,7 @@
                                   <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="message_manager" id="message_manager" cols="60" rows="3" placeholder="Type your message here..."></textarea>
                                 @else
                                   <label>This is your message to Employee</label>
-                                  <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>
+                                  <pre class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>
                                 @endif 
 
                             <div class="ms-auto text-end">
@@ -1481,7 +1481,9 @@
                             <div class="form-group mb-2 mt-md-0 mt-4">
                               @if ($dates->message_hr == '')
                               @else
-                              <label>HR message to this employee from {{Auth::user()->name}}</label>
+                              <label>HR message to this employee</label>
+                              {{-- <label>HR message to this employee from {{Auth::user()->name}}</label> --}}
+                              {{-- <label>HR message to this employee from {{$dates->hr_id}}</label> --}}
                               <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>  
                               @endif
                             </div>
@@ -1508,7 +1510,7 @@
                                   <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="message_hr" id="message_hr" cols="60" rows="3" placeholder="Type your message here..."></textarea>
                                 @else
                                   <label>This is your message to Employee</label>
-                                  <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>
+                                  <pre class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>
                                 @endif 
 
                             <div class="ms-auto text-end">
@@ -1540,7 +1542,7 @@
                             <div class="form-group mb-2 mt-md-0 mt-4">
                               @if ($dates->message_manager == '')
                               @else
-                              <label>Manager message to this employee from {{Auth::user()->name}}</label>
+                              <label>Manager message to this employee</label>
                               <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>  
                               @endif
                             </div>

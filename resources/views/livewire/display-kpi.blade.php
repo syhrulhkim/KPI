@@ -1393,7 +1393,7 @@
                 @if ($dates->message_manager == '')
                 @else
                 <label>Manager message to you</label><br>
-                <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>  
+                <pre class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>  
                 @endif
               </div>
             </div>      
@@ -1412,7 +1412,7 @@
                 @if ($dates->message_hr == '')
                 @else
                 <label>HR message to you</label><br>
-                <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>  
+                <pre class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>  
                 @endif
               </div>
             </div>      
