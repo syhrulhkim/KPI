@@ -1302,8 +1302,9 @@
         </div>
       </div>
 
+  <div class="col-12">    
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-6">
         <div class="card">
           <div class="card-body pt-4 p-3">
             <ul class="list-group">
@@ -1382,48 +1383,44 @@
           </div>
         </div>
       </div>
-    </div>
-
-    @if ($dates->message_manager == '')
+      @if ($dates->message_manager == '')
     @else
-    <div class="row">
-      <div class="col-md-7">
-        <div class="card">
-          <div class="card-body pt-4 p-3">
-            <ul class="list-group">
-              <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                <div class="d-flex flex-column">
-                  <h6 class="mb-3 text-sm">HR message from {{Auth::user()->name}}</h6>
-                      <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>
-                </div>
-              </li>
-            </ul>
-          </div>
+    <div class="col-3">
+      <div class="card p-0 shadow-lg">
+        <div class="card card-plain">
+            <div class="card-body pb-2">
+              <div class="form-group mb-2 mt-md-0 mt-4">
+                @if ($dates->message_manager == '')
+                @else
+                <label>Manager message to you</label><br>
+                <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>  
+                @endif
+              </div>
+            </div>      
         </div>
       </div>
-    </div>
+    </div> 
     @endif
 
     @if ($dates->message_hr == '')
     @else
-    <div class="row">
-      <div class="col-md-7">
-        <div class="card">
-          <div class="card-body pt-4 p-3">
-            <ul class="list-group">
-              <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                <div class="d-flex flex-column">
-                  <h6 class="mb-3 text-sm">Manager message from {{Auth::user()->name}}</h6>
-                      <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>
-                </div>
-              </li>
-            </ul>
-          </div>
+    <div class="col-3">
+      <div class="card p-0 shadow-lg">
+        <div class="card card-plain">
+            <div class="card-body pb-2">
+              <div class="form-group mb-2 mt-md-0 mt-4">
+                @if ($dates->message_hr == '')
+                @else
+                <label>HR message to you</label><br>
+                <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>  
+                @endif
+              </div>
+            </div>      
         </div>
       </div>
     </div>
     @endif
-
+    </div>
   </div>  
 </div>
 </body>

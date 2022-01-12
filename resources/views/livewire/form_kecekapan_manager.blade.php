@@ -77,21 +77,10 @@
                       <input type="text"  class="form-control" id="ukuran" name="ukuran" value="Percentage" selected readonly>
                     </td>
 
-                    @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
-                    <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
-                      <input type="text" class="form-control " pattern="[0-4]+" maxlength="1" id="skor_pekerja" name="skor_pekerja" value="{{ $kecekapan->skor_pekerja }}">
-                      @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
-                    </td>
-                    @else
-                    @endif
-
-                    @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
-                    <td style="word-break: break-all;" class="border-dark" class="@error('skor_penyelia') border border-danger rounded-3 @enderror">
+                    <td style="word-break: break-all;" class="border-dark" >
                       <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}" onkeyup="masterClac();" min="0" >
-                      @error('skor_penyelia') <div class="text-danger">{{ $message }}</div> @enderror
                     </td>
-                    @else
-                    @endif
+
 
                     <td class="font-weight-bold border-dark">
                       <input type="text"  class="form-control"  id="skor_sebenar" name="skor_sebenar" value="{{ $kecekapan->skor_sebenar }}" readonly>
@@ -109,7 +98,6 @@
       </div>
     </div>
   </div>
-</div>  
 </div>
 <!-- Calculation JS -->
 <script src="{{asset('assets/js/kecekapan.js')}}"></script>

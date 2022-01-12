@@ -18,7 +18,7 @@
     
         if ( document.getElementById('skor_penyelia').value == "" ) {
           // console.log('john');
-          document.getElementById("skor_penyelia").value = 0;
+          document.getElementById("skor_penyelia").value = "";
           
         } else {
           
