@@ -30,7 +30,7 @@ class NilaiManager extends Component
         ]);
         return redirect()->back()->with('message', 'Skor penyelia has been successfully inserted');
     } 
-       
+    
     public function nilai_edit($id_user, $id, $date_id, $user_id, $year, $month) {
         $nilai = Nilai_::find($id);
         $user = User::find($id_user);

@@ -1,6 +1,20 @@
 <div>
   <style>
 .solid {border-style: solid;}
+input[type=file]::file-selector-button {
+  border: 2px solid #ffffff;
+  padding: .2em .4em;
+  border-radius: .7em;
+  background-color: #252f40;
+  border-color: #252f40;
+  color: white;
+  transition: 1s;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #000000;
+  border: 2px solid #000000;
+}
   </style>  
 <body>
 {{--------------------------------------------------------------------------Start Testing -------------------------------------------------------------------------------}}
@@ -69,6 +83,24 @@
                         </td>
                     </select>
                     @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
+                    <div class="col-md-4 mt-2" id="buktiupload">
+                      <div class="form-group">
+                          <label class="control-label" style="font-weight:500">Bukti Upload (Optional)</label>
+                          <div
+                              x-data="{ isUploading: false, progress: 0 }"
+                              x-on:livewire-upload-start="isUploading = true"
+                              x-on:livewire-upload-finish="isUploading = false"
+                              x-on:livewire-upload-error="isUploading = false"
+                              x-on:livewire-upload-progress="progress = $event.detail.progress">
+                          <div wire:loading wire:target="bukti_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
+                              <input type="file" wire:model="bukti_path" id="bukti_path" name="bukti_path" class="dropify" />
+                              @error('bukti_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
+                              <div x-show="isUploading">
+                                  <progress max="100" x-bind:value="progress"></progress>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -78,26 +110,6 @@
                       @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                 </div>
-
-                <div class="col-md-4" id="buktiupload">
-                  <div class="form-group">
-                      <label class="control-label" style="font-weight:500">Bukti Upload (Optional)</label>
-                      <div
-                          x-data="{ isUploading: false, progress: 0 }"
-                          x-on:livewire-upload-start="isUploading = true"
-                          x-on:livewire-upload-finish="isUploading = false"
-                          x-on:livewire-upload-error="isUploading = false"
-                          x-on:livewire-upload-progress="progress = $event.detail.progress">
-                      <div wire:loading wire:target="bukti_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
-                          <input type="file" wire:model="bukti_path" id="bukti_path" name="bukti_path" class="dropify" />
-                          @error('bukti_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
-                          <div x-show="isUploading">
-                              <progress max="100" x-bind:value="progress"></progress>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-
               </div>
               <div class="table-responsive">
                 <table class="text-center">
@@ -202,7 +214,7 @@
           @endforeach
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
@@ -370,7 +382,7 @@
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
@@ -540,7 +552,7 @@
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             @csrf
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
@@ -711,7 +723,7 @@
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             @csrf
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
@@ -882,7 +894,7 @@
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             @csrf
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
@@ -1052,7 +1064,7 @@
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             @csrf
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
@@ -1222,7 +1234,7 @@
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             @csrf
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
@@ -1392,7 +1404,7 @@
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="table-responsive p-0">
+          <div class="p-0">
             @csrf
             <table class="table align-items-center justify-content-center mb-0">
               <thead>

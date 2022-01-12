@@ -70,7 +70,7 @@
             @endif
           </div>
           <div class="card-body px-0 pt-0 pb-2">
-            <div class="table-responsive p-0">
+            <div class="p-0">
               <table style="width: 100%" class="a table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr>
@@ -103,7 +103,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -114,7 +114,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -218,7 +218,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -229,7 +229,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -332,7 +332,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -343,7 +343,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -446,7 +446,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -457,7 +457,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -560,7 +560,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -571,7 +571,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -674,7 +674,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -685,7 +685,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -788,7 +788,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -799,7 +799,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -902,7 +902,7 @@
                         <td class="text-xs font-weight-bold">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -913,7 +913,7 @@
                         <td class="text-xs font-weight-bold good">
                           <span class="text-secondary text-xs font-weight-bold" value="{{ $kpis -> bukti }}">{{ $kpis -> bukti }}</span>
                         </td>
-                        <td>
+                        <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
                           <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
@@ -1029,7 +1029,7 @@
             <h6>KAD SKOR - Kecekapan Teras <span style="color:red;">(Current total weightage = {{$kecekapan_master}})</span></h6>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
-            <div class="table-responsive p-0">
+            <div class="p-0">
               <table class="table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr>
@@ -1363,219 +1363,198 @@
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="card">
-                    <div class="card-body pt-4 p-3">
-                      <ul class="list-group">
-                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                          <div class="d-flex flex-column">
-                            @if (!$kpiall->isEmpty())
-                              <h6 class="mb-3 text-sm">Jumlah Markah</h6>
-                              <span class="mb-2 text-xs">KPI : 
-                              @foreach ($kpiall as $key => $kpialls)
-                              <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
-                              @endforeach
-                              <span class="mb-2 text-xs">Skor Akhir: 
-                              @foreach ($kpiall as $key => $kpialls) 
-                              <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
-                              @endforeach
-                              <span class="mb-2 text-xs">Kecekapan Teras: 
-                              @foreach ($kpiall as $key => $kpialls) 
-                              <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
-                              @endforeach
-                              <span class="mb-2 text-xs">Nilai Teras: 
-                              @foreach ($kpiall as $key => $kpialls)  
-                              <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
-                              @endforeach
-                              <span class="text-xs">Grade: 
-                              @foreach ($kpiall as $key => $kpialls)   
-                              <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
-                              @endforeach
-                            @else
-                              <h6 class="mb-3 text-sm">Jumlah Markah</h6>
-                              <span class="mb-2 text-xs">KPI : <br>
-                              <span class="mb-2 text-xs">Skor Akhir: <br>
-                              <span class="mb-2 text-xs">Kecekapan Teras: <br>
-                              <span class="mb-2 text-xs">Nilai Teras: <br>
-                              <span class="text-xs">Grade: <br>
-                            @endif
-                            
-                          </div>
-                          <div class="ms-auto text-end">
-                            <div class="col-12 text-end ">
-                              @if (Auth::user()->role == "manager")
-                              @foreach ($date as $dates)
-                                @if ($dates->status == 'Submitted')
-                                  <a class="btn bg-gradient-info mb-0" href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraise</a>
-                                @elseif ($dates->status == 'Signed By Manager')
-                                  <a class="btn bg-gradient-danger mb-0" href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Undo Appraise</a>
-                                @else
-                                @endif
-                              @endforeach
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="card">
+                      <div class="card-body pt-4 p-3">
+                        <ul class="list-group">
+                          <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                            <div class="d-flex flex-column">
+                              @if (!$kpiall->isEmpty())
+                                <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                                <span class="mb-2 text-xs">KPI : 
+                                @foreach ($kpiall as $key => $kpialls)
+                                <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Skor Akhir: 
+                                @foreach ($kpiall as $key => $kpialls) 
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Kecekapan Teras: 
+                                @foreach ($kpiall as $key => $kpialls) 
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_kecekapan }}%</span></span>
+                                @endforeach
+                                <span class="mb-2 text-xs">Nilai Teras: 
+                                @foreach ($kpiall as $key => $kpialls)  
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> total_score_nilai }}%</span></span>
+                                @endforeach
+                                <span class="text-xs">Grade: 
+                                @foreach ($kpiall as $key => $kpialls)   
+                                <span class="text-dark ms-sm-2 font-weight-bold">{{ $kpialls -> grade_all }}</span></span>
+                                @endforeach
                               @else
+                                <h6 class="mb-3 text-sm">Jumlah Markah</h6>
+                                <span class="mb-2 text-xs">KPI : <br>
+                                <span class="mb-2 text-xs">Skor Akhir: <br>
+                                <span class="mb-2 text-xs">Kecekapan Teras: <br>
+                                <span class="mb-2 text-xs">Nilai Teras: <br>
+                                <span class="text-xs">Grade: <br>
                               @endif
-                              @if (Auth::user()->role == "hr")
-                              @foreach ($date as $dates)
-                                @if ($dates->status == 'Signed By Manager')
-                                  <a class="btn bg-gradient-info mb-0" href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Complete</a>
-                                @elseif ($dates->status == 'Completed')
-                                  <a class="btn bg-gradient-danger mb-0" href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Undo Complete</a>
-                                @else
-                                @endif
-                              @endforeach
-                              @else
-                              @endif
+                              
                             </div>
-                            {{-- <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Delete</a>
-                            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a> --}}
-                          </div>
-                        </li>
-                            {{-- <h6 class="mb-2 text-sm">Jumlah Markah</h6>
-                            <span class="text-xs">KPI: 
-                            @foreach ($kpiall as $key => $kpialls)
-                            <span class="text-dark ms-sm-2 font-weight-bold p-2">{{ $kpialls -> total_score_master }}%</span></span>
-                            @endforeach
-                            <span class="text-xs">Skor Akhir: 
-                            @foreach ($kpiall as $key => $kpialls)
-                            <span class="text-dark ms-sm-2 font-weight-bold p-2">{{ round($kpialls -> total_score_all,2) }}%</span></span>
-                            @endforeach
-                            <span class="text-xs">Kecekapan Teras: 
-                            @foreach ($kpiall as $key => $kpialls)  
-                            <span class="text-dark ms-sm-2 font-weight-bold p-2">{{ $kpialls -> total_score_kecekapan }}%</span></span>
-                            @endforeach
-                            <span class="text-xs">Nilai Teras: 
-                            @foreach ($kpiall as $key => $kpialls)  
-                            <span class="text-dark ms-sm-2 font-weight-bold p-2">{{ $kpialls -> total_score_nilai }}%</span></span>
-                            @endforeach
-                            <span class="text-xs">Grade: 
-                            @foreach ($kpiall as $key => $kpialls)  
-                            <span class="text-dark ms-sm-2 font-weight-bold p-2">{{ $kpialls -> grade_all }}</span></span>
-                            @endforeach --}}
-                      </ul>
+                            <div class="ms-auto text-end">
+                              <div class="col-12 text-end ">
+                                @if (Auth::user()->role == "manager")
+                                @foreach ($date as $dates)
+                                  @if ($dates->status == 'Submitted')
+                                    <button class="btn bg-gradient-info mb-0" href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraise</button>
+                                  @elseif ($dates->status == 'Signed By Manager')
+                                    <button class="btn bg-gradient-danger mb-0" href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Undo Appraise</button>
+                                  @else
+                                  @endif
+                                @endforeach
+                                @else
+                                @endif
+                                @if (Auth::user()->role == "hr")
+                                @foreach ($date as $dates)
+                                  @if ($dates->status == 'Signed By Manager')
+                                    <a class="btn bg-gradient-info mb-0" href="{{ url('hr/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Complete</a>
+                                  @elseif ($dates->status == 'Completed')
+                                    <a class="btn bg-gradient-danger mb-0" href="{{ url('hr/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Undo Complete</a>
+                                  @else
+                                  @endif
+                                @endforeach
+                                @else
+                                @endif
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="card">
-                    <div class="card-body pt-4 p-3">
-                      <ul class="list-group">
-                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-
-                          @if (Auth::user()->role == "manager")
-                          <div class="d-flex flex-column">
-                            <h6 class="mb-3 text-sm">Write Your Message To This Employee (Optional)</h6>
+                  @if (Auth::user()->role == "manager")
+                  <div class="col-3">
+                    <div class="card p-0 shadow-lg">
+                      <div class="card card-plain">
+                          <div class="card-body pb-2">
+                            <div class="form-group mb-0 mt-md-0 mt-4">
                               <form action="{{ url('manager/messageup/kpi/'. $date_id) }}" method="post">
-                              @csrf
-                              @foreach ($date as $dates)
-                              @if ($dates->message_manager == '')
-                                <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="message_manager" id="message_manager" cols="60" rows="10" placeholder="Type your message here..."></textarea>
-                              @else
-                                <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>
-                              @endif
-                          </div>
-                          <div class="ms-auto text-end">
-                            <div class="col-12 text-end ">
+                                @csrf
+                                @foreach ($date as $dates)
                                 @if ($dates->message_manager == '')
-                                  {{-- <a class="btn bg-gradient-info mb-0" href="{{ url('manager/messageup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Submit Message</a> --}}
-                                  <button class="btn bg-gradient-dark mb-0" type="submit" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Submit Message</button>
+                                  <label>Write Your Message To This Employee (Optional)</label>
+                                  <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="message_manager" id="message_manager" cols="60" rows="3" placeholder="Type your message here..."></textarea>
                                 @else
-                                <button type="button" wire:click="selectItem({{$dates->id}}, 'delete' )" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$dates->id}}">Delete Submitted Message</button>
-                                  {{-- <a class="btn bg-gradient-danger mb-0" href="{{ url('manager/messagedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Submitted Message</a> --}}
-                                @endif
-                              @endforeach
+                                  <label>This is your message to Employee</label>
+                                  <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>
+                                @endif 
+
+                            <div class="ms-auto text-end">
+                              <div class="col-12 text-center ">
+                                  @if ($dates->message_manager == '')
+                                    <button class="btn bg-gradient-primary mt-2 mb-0" type="submit" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Submit Message</button>
+                                  @else
+                                  <a style="color: red;" wire:click="selectItem({{$dates->id}}, 'delete' )" class="data-delete" data-form="{{$dates->id}}">
+                                    <i class="fa fa-trash text-secondary text-sm" style="color: red;" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"></i>
+                                  </a>
+                                  @endif
+                                @endforeach
+                              </div>
+                            </div>
+                              </form>  
                             </div>
                           </div>
-                              </form>  
-                          @else
-                          @endif
+                      </div>
+                    </div>
+                  </div>
+                  @else
+                  @endif 
 
-                          @if (Auth::user()->role == "hr")
-                          <div class="d-flex flex-column">
-                            <h6 class="mb-3 text-sm">Write Your Message To This Employee (Optional)</h6>
-                              <form action="{{ url('hr/messageup/kpi/'. $date_id) }}" method="post">
-                              @csrf
-                              @foreach ($date as $dates)
+                  @if (Auth::user()->role == "manager")
+                  <div class="col-3">
+                    <div class="card p-0 shadow-lg">
+                      <div class="card card-plain">
+                          <div class="card-body pb-2">
+                            <div class="form-group mb-2 mt-md-0 mt-4">
                               @if ($dates->message_hr == '')
-                                <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="message_hr" id="message_hr" cols="60" rows="10" placeholder="Type your message here..."></textarea>
                               @else
-                                <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>
+                              <label>HR message to this employee from {{Auth::user()->name}}</label>
+                              <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>  
                               @endif
-                          </div>
-                          <div class="ms-auto text-end">
-                            <div class="col-12 text-end ">
+                            </div>
+                          </div>      
+                      </div>
+                    </div>
+                  </div>  
+                  @else
+                  @endif    
+
+                  {{--------------------------------------------------- MANAGER SECTION UPPPPP --------------------------------------------------}}
+
+                  @if (Auth::user()->role == "hr")
+                  <div class="col-3">
+                    <div class="card p-0 shadow-lg">
+                      <div class="card card-plain">
+                          <div class="card-body pb-2">
+                            <div class="form-group mb-0 mt-md-0 mt-4">
+                              <form action="{{ url('hr/messageup/kpi/'. $date_id) }}" method="post">
+                                @csrf
+                                @foreach ($date as $dates)
                                 @if ($dates->message_hr == '')
-                                  {{-- <a class="btn bg-gradient-info mb-0" href="{{ url('hr/messageup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Submit Message</a> --}}
-                                  <button class="btn bg-gradient-dark mb-0" type="submit" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Submit Message</button>
+                                  <label>Write Your Message To This Employee (Optional)</label>
+                                  <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="message_hr" id="message_hr" cols="60" rows="3" placeholder="Type your message here..."></textarea>
                                 @else
-                                  <button type="button" wire:click="selectItem({{$dates->id}}, 'delete' )" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$dates->id}}">Delete Submitted Message</button>
-                                  {{-- <a class="btn bg-gradient-danger mb-0" href="{{ url('hr/messagedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Submitted Message</a> --}}
-                                @endif
-                              @endforeach
+                                  <label>This is your message to Employee</label>
+                                  <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>
+                                @endif 
+
+                            <div class="ms-auto text-end">
+                              <div class="col-12 text-center ">
+                                  @if ($dates->message_hr == '')
+                                    <button class="btn bg-gradient-primary mt-2 mb-0" type="submit" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Submit Message</button>
+                                  @else
+                                  <a style="color: red;" wire:click="selectItem({{$dates->id}}, 'delete' )" class="data-delete" data-form="{{$dates->id}}">
+                                    <i class="fa fa-trash text-secondary text-sm"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"></i>
+                                  </a>
+                                  @endif
+                                @endforeach
+                              </div>
+                            </div>
+                              </form>  
                             </div>
                           </div>
-                              </form>  
-                          @else
-                          @endif
-
-                        </li>
-                      </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                  @else
+                  @endif 
 
-              @if (Auth::user()->role == "hr")
-              @if ($dates->message_manager == '')
-              @else
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="card">
-                    <div class="card-body pt-4 p-3">
-                      <ul class="list-group">
-                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                          <div class="d-flex flex-column">
-                            <h6 class="mb-3 text-sm">Manager message to this employee from {{Auth::user()->name}}</h6>
-                                <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>
-                          </div>
-                        </li>
-                      </ul>
+                  @if (Auth::user()->role == "hr")
+                  <div class="col-3">
+                    <div class="card p-0 shadow-lg">
+                      <div class="card card-plain">
+                          <div class="card-body pb-2">
+                            <div class="form-group mb-2 mt-md-0 mt-4">
+                              @if ($dates->message_manager == '')
+                              @else
+                              <label>Manager message to this employee from {{Auth::user()->name}}</label>
+                              <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>  
+                              @endif
+                            </div>
+                          </div>      
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </div>  
+                  @else
+                  @endif    
+                </div>   
               </div>
-              @endif
-              @else
-              @endif
-          
-              @if (Auth::user()->role == "manager")
-              @if ($dates->message_hr == '')
-              @else
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="card">
-                    <div class="card-body pt-4 p-3">
-                      <ul class="list-group">
-                        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                          <div class="d-flex flex-column">
-                            <h6 class="mb-3 text-sm">HR message to this employee from {{Auth::user()->name}}</h6>
-                                <pre class="text-sm font-weight-bold mb-0" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @endif
-              @else
-              @endif
-
             </div>  
           </div>
+
           @push('scripts')
           <script>
             document.addEventListener('livewire:load', function () {

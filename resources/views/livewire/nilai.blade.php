@@ -19,15 +19,14 @@
           <div class="row">
             <div class="col-12 text-end">
               <form action="{{ url('employee/save/nilai/'.$year.'/'.$month) }}" method="post">
-              <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
             </div>
           </div>
         </div>
         <div class="card-body p-3">
           <div class="row">
-            <div class="col-md-6 mb-md-0 mb-4">
+            <div class="col-md-12 mb-md-0 mb-4">
               @csrf 
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="mb-4" class="@error('nilai_teras') border border-danger rounded-3 @enderror">
                   <td style="word-break: break-all;" class="border-dark">
                     <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="nilai_teras" id="nilai_teras">
@@ -101,6 +100,9 @@
                       </tr>
                   </tbody>
               </table>
+              <div class="col-12 text-end mt-2">
+                <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
+              </div>
             </div>
           </form>  
         </div>
@@ -318,7 +320,6 @@
                             <td>
                               <p class="text-xs font-weight-bold mb-0" value="{{ $userss -> nilai_teras }}">{{ $userss -> nilai_teras }}</p>
                             </td>
-                            
                             @if ($userss -> nilai_teras == "Kepimpinan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">

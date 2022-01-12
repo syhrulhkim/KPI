@@ -22,7 +22,6 @@
           <div class="row">
             <div class="col-12 text-end">
               <form action="{{ url('employee/save/kecekapan/'.$year.'/'.$month) }}" method="post">
-              <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
             </div>
           </div>
         </div>
@@ -104,6 +103,9 @@
                   </tr>
                 </tbody>
               </table>
+              <div class="col-12 text-end mt-2">
+                <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
+              </div>
             </div>
           </form>  
         </div>

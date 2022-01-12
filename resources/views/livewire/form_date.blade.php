@@ -35,12 +35,11 @@
                         <strong>{{ session('fail') }}</strong>
                       </div>	
                       @endif
-                      <div class="card mt-4">
+                      <div class="card">
                         <div class="card-header pb-0 p-3">
                           <div class="row">
                             <div class="col-12 text-end">
                               <form action="{{ url('employee/update/date/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">  
-                              <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Update</button>
                             </div>
                           </div>
                         </div>
@@ -86,6 +85,9 @@
                                   </select>
                                   @error('month') <div class="text-danger">{{ $message }}</div> @enderror
                                   </div> 
+                                </div>
+                                <div class="col-12 text-end">
+                                  <button type="submit" class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Update</button>
                                 </div>
                               </form>  
                           </div>

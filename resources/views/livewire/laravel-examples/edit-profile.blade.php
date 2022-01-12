@@ -2,6 +2,8 @@
 @section('title','Staff | Profile')
 @section('content') --}}
 
+
+
 <body>
 
 <div class="container-fluid py-4">
@@ -20,9 +22,6 @@
                     <div class="row">
                       <div class="col-6 d-flex align-items-center">
                         <h6 class="mb-0">Profile Information</h6>
-                      </div>
-                      <div class="col-6 text-end">
-                        <button class="btn bg-gradient-dark mb-0" type="submit" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
                       </div>
                     </div>
                   </div>
@@ -56,7 +55,7 @@
                         <div class="row">
                           <p>Department</p> 
                           <div class="card card-plain border-radius-lg align-items-center">
-                            <select class="form-control form-control-lg" id="department" name="department">
+                            <select class="form-select form-select-lg" id="department" name="department">
                                 <option selected class="bg-secondary text-white" value="{{ Auth::user()->department }}" >{{ Auth::user()->department }}</option>
                                     
                                 @if (Auth::user()->department != "CEO Office")
@@ -116,6 +115,9 @@
                         </div>  
                       </div>
                     </div>
+                  </div>
+                  <div class="col-12 text-end mb-2 p-3">
+                    <button class="btn bg-gradient-dark mb-0" type="submit" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;Save</button>
                   </div>
                 </div>
               </div>
