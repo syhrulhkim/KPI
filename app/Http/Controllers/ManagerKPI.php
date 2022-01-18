@@ -145,6 +145,7 @@ class ManagerKPI extends Controller
 
     public function changedownmanager($date_id)
     {
+        dd('john');
         Date_::find($date_id)->update([
         'status'=> 'Submitted',
         ]);

@@ -1408,9 +1408,9 @@
                                 @if (Auth::user()->role == "manager")
                                 @foreach ($date as $dates)
                                   @if ($dates->status == 'Submitted')
-                                    <button class="btn bg-gradient-info mb-0" href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraise</button>
+                                    <a class="btn bg-gradient-info mb-0" href="{{ url('manager/changeup/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"role="button"><i class="fa fa-edit"></i>&nbsp;Sign & Appraise</a>
                                   @elseif ($dates->status == 'Signed By Manager')
-                                    <button class="btn bg-gradient-danger mb-0" href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Undo Appraise</button>
+                                    <a class="btn bg-gradient-danger mb-0" href="{{ url('manager/changedown/kpi/'. $date_id) }}" class="btn btn-dark btn-sm"  role="button"><i class="fa fa-edit"></i>&nbsp;Undo Sign & Undo Appraise</a>
                                   @else
                                   @endif
                                 @endforeach
@@ -1484,7 +1484,7 @@
                               <label>HR message to this employee</label>
                               {{-- <label>HR message to this employee from {{Auth::user()->name}}</label> --}}
                               {{-- <label>HR message to this employee from {{$dates->hr_id}}</label> --}}
-                              <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>  
+                              <pre class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>  
                               @endif
                             </div>
                           </div>      
@@ -1543,7 +1543,7 @@
                               @if ($dates->message_manager == '')
                               @else
                               <label>Manager message to this employee</label>
-                              <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>  
+                              <pre class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>  
                               @endif
                             </div>
                           </div>      

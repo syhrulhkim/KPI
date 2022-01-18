@@ -43,7 +43,8 @@ Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-passwo
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 //Employee Route
-Route::post('/employee/save/kpi/{year}/{month}',[KPI::class, 'kpi_save']);
+// Route::post('/employee/save/kpi/{year}/{month}',[KPI::class, 'kpi_save']);
+Route::post('/employee/save/kpi/{date_id}/{user_id}/{year}/{month}',[KPI::class, 'kpi_save']);
 Route::get('/employee/edit/kpimaster1/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_edit1']);
 Route::get('/employee/edit/kpimaster2/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_edit2']);
 Route::get('/employee/edit/kpimaster3/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_edit3']);
@@ -53,8 +54,10 @@ Route::get('/employee/edit/kpimaster6/{id}/{date_id}/{user_id}/{year}/{month}', 
 Route::get('/employee/edit/kpimaster7/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_edit7']);
 Route::get('/employee/edit/kpimaster8/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_edit8']);
 Route::post('/employee/update/kpimaster/{id}/{fungsi}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_master_update']);
-Route::post('/employee/save/kecekapan/{year}/{month}',[Kecekapan::class, 'kecekapan_save']);
-Route::post('/employee/save/nilai/{year}/{month}',[Nilai::class, 'nilai_save']);
+// Route::post('/employee/save/kecekapan/{year}/{month}',[Kecekapan::class, 'kecekapan_save']);
+Route::post('/employee/save/kecekapan/{date_id}/{user_id}/{year}/{month}',[Kecekapan::class, 'kecekapan_save']);
+// Route::post('/employee/save/nilai/{year}/{month}',[Nilai::class, 'nilai_save']);
+Route::post('/employee/save/nilai/{date_id}/{user_id}/{year}/{month}',[Nilai::class, 'nilai_save']);
 Route::get('/employee/edit/kpi/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_edit']);
 Route::post('/employee/update/kpi/{id}/{date_id}/{user_id}/{year}/{month}', [KPI::class, 'kpi_update']);
 Route::get('/employee/edit/kecekapan/{id}/{date_id}/{user_id}/{year}/{month}', [Kecekapan::class, 'kecekapan_edit']);
