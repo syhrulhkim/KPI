@@ -50,7 +50,7 @@
                                 @csrf
                                 <div class="mb-0" class="@error('year') @enderror">
                                   <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="year" name="year" id="year" class="custom-select" data-placeholder="Choose a Year" tabindex="1">
-                                    <option selected value="">{{ $year }}</option>
+                                    <option selected value="{{$year}}">{{ $year }}</option>
                                     <?php
                                       $yearArray = range(2022, 2050);
                                     ?>
@@ -68,7 +68,7 @@
                                   <div class="mb-4" class="@error('month') border border-danger rounded-3 @enderror">
                                     <td style="word-break: break-all;" class="border-dark">
                                       <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
-                                        <option selected value="">{{ $month }}</option>
+                                        <option selected value="{{$month}}">{{ $month }}</option>
                                         <option value="January" >January</option>
                                         <option value="February" >February</option> 
                                         <option value="March" >March</option> 
