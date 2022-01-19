@@ -6,11 +6,13 @@ use Livewire\Component;
 use App\Models\KPIAll_;
 use App\Models\Date_;
 use App\Models\KPI_;
+use App\Models\KPIMaster_;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class Date extends Component
 {
@@ -125,12 +127,58 @@ class Date extends Component
             'month' => ['required'],
         ]);
 
-        $update = Date_::find($date_id)->update([
-            'year'=> $request->year,
-            'month'=> $request->month,
-            'status'=> 'Not Submitted',
-        ]);
-        return redirect('/add-date')->with('message', 'Date Updated Successfully');
+        $count_date = Date_::where('year', '=', $request->year)->where('month', '=', $request->month)->where('user_id', '=', auth()->user()->id)->count();
+
+        if ($count_date == 0)
+        {
+            Date_::find($date_id)->update([
+                'year'=> $request->year,
+                'month'=> $request->month,
+                'status'=> 'Not Submitted',
+            ]);
+    
+            // $kpi = KPI_::where('year', $year)->where('month', $month)->update(['year'=>$request->year] , ['month'=>$request->month]);
+            // $kpimaster = KPIMaster_::where('year', $year)->where('month', $month)->update(['year'=>$request->year] , ['month'=>$request->month]);
+            // $kpiall = KpiAll_::where('year', $year)->where('month', $month)->update(['year'=>$request->year] , ['month'=>$request->month]);
+    
+            DB::table('kpi')->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kpi')->where('month', $month)->update(['month' => $request->month]);
+    
+            DB::table('kpi_master')->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kpi_master')->where('month', $month)->update(['month' => $request->month]);
+    
+            DB::table('kpi_all')->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kpi_all')->where('month', $month)->update(['month' => $request->month]);
+    
+            DB::table('kecekapan')->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kecekapan')->where('month', $month)->update(['month' => $request->month]);
+    
+            DB::table('nilai')->where('year', $year)->update(['year' => $request->year]);
+            DB::table('nilai')->where('month', $month)->update(['month' => $request->month]);
+    
+            // KPI_::find($date_id)->update([
+            //     'year'=> $request->year,
+            //     'month'=> $request->month,
+            //     'status'=> 'Not Submitted',
+            // ]);
+    
+            // KPIMaster_::find($date_id)->update([
+            //     'year'=> $request->year,
+            //     'month'=> $request->month,
+            //     'status'=> 'Not Submitted',
+            // ]);
+    
+            // KpiAll_::find($date_id)->update([
+            //     'year'=> $request->year,
+            //     'month'=> $request->month,
+            //     'status'=> 'Not Submitted',
+            // ]);
+
+            return redirect('/add-date')->with('message', 'Date Updated Successfully');
+        }else
+        {
+            return redirect()->back()->with('fail', 'Date has already exists!');
+        }
     }
 
     public function create_date($user_id)
