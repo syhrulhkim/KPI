@@ -906,41 +906,63 @@ class KPI extends Component
 
         // dd($request->bukti_path);
         $this->bukti_path = $request->bukti_path;
-        $filenameWithExt = $this->bukti_path->getClientOriginalName();
-        $extension = $this->bukti_path->getClientOriginalExtension();
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-        $this->bukti_path->storeAs('public' . DIRECTORY_SEPARATOR . 'filebukti', $fileNameToStore);
-        $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'filebukti' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
+        if ($this->bukti_path != NULL) {
+            // $this->bukti_path = $request->bukti_path;
+            $filenameWithExt = $this->bukti_path->getClientOriginalName();
+            $extension = $this->bukti_path->getClientOriginalExtension();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $this->bukti_path->storeAs('public' . DIRECTORY_SEPARATOR . 'filebukti', $fileNameToStore);
+            $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'filebukti' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
 
-        KPI_::insert([
-        'user_id'=> Auth::user()->id,
-        'created_at'=> Carbon::now(),
-        'updated_at'=> Carbon::now(),
-        // dd(Auth::user()->id),
-        // 'grade'=> $request->grade,
-        // 'weightage'=> $request->weightage,
-        // 'total_score'=> $request->total_score,
-        'year'=> $year,
-        'month'=> $month,
-        'fungsi'=> $request->fungsi,
-        // 'objektif'=> $request->objektif,
-        'bukti'=> $request->bukti,
-        // 'link'=> $request->link,
-        'ukuran'=> $request->ukuran,
-        'peratus'=> $request->peratus,
-        'threshold'=> $request->threshold,
-        'base'=> $request->base,
-        'stretch'=> $request->stretch,
-        'pencapaian'=> $request->pencapaian,
-        'skor_KPI'=> $request->skor_KPI,
-        'skor_sebenar'=> $request->skor_sebenar,
-        'bukti_path'=> $path,
-        // 'kpimaster_id' => 3,
-        'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
-        // dd($request->skor_sebenar),
-        // 'kpimaster_id' => Auth::user()->id,
-        ]);
+            KPI_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            // dd(Auth::user()->id),
+            // 'grade'=> $request->grade,
+            // 'weightage'=> $request->weightage,
+            // 'total_score'=> $request->total_score,
+            'year'=> $year,
+            'month'=> $month,
+            'fungsi'=> $request->fungsi,
+            // 'objektif'=> $request->objektif,
+            'bukti'=> $request->bukti,
+            // 'link'=> $request->link,
+            'ukuran'=> $request->ukuran,
+            'peratus'=> $request->peratus,
+            'threshold'=> $request->threshold,
+            'base'=> $request->base,
+            'stretch'=> $request->stretch,
+            'pencapaian'=> $request->pencapaian,
+            'skor_KPI'=> $request->skor_KPI,
+            'skor_sebenar'=> $request->skor_sebenar,
+            'bukti_path'=> $path,
+            // 'kpimaster_id' => 3,
+            'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
+            // dd($request->skor_sebenar),
+            // 'kpimaster_id' => Auth::user()->id,
+            ]);
+        }else   {
+            KPI_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'year'=> $year,
+            'month'=> $month,
+            'fungsi'=> $request->fungsi,
+            'bukti'=> $request->bukti,
+            'ukuran'=> $request->ukuran,
+            'peratus'=> $request->peratus,
+            'threshold'=> $request->threshold,
+            'base'=> $request->base,
+            'stretch'=> $request->stretch,
+            'pencapaian'=> $request->pencapaian,
+            'skor_KPI'=> $request->skor_KPI,
+            'skor_sebenar'=> $request->skor_sebenar,
+            'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
+            ]);
+        }
         // dd($total_score);
         // Bukti::insert([
         
@@ -992,7 +1014,7 @@ class KPI extends Component
         // dd($request->bukti_path);
         $this->bukti_path = $request->bukti_path;
         if ($this->bukti_path != NULL) {
-            $this->bukti_path = $request->bukti_path;
+            // $this->bukti_path = $request->bukti_path;
             $filenameWithExt = $this->bukti_path->getClientOriginalName();
             $extension = $this->bukti_path->getClientOriginalExtension();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
