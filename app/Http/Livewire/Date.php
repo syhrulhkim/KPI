@@ -141,20 +141,20 @@ class Date extends Component
             // $kpimaster = KPIMaster_::where('year', $year)->where('month', $month)->update(['year'=>$request->year] , ['month'=>$request->month]);
             // $kpiall = KpiAll_::where('year', $year)->where('month', $month)->update(['year'=>$request->year] , ['month'=>$request->month]);
     
-            DB::table('kpi')->where('year', $year)->update(['year' => $request->year]);
-            DB::table('kpi')->where('month', $month)->update(['month' => $request->month]);
+            DB::table('kpi')->where('user_id', $user_id)->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kpi')->where('user_id', $user_id)->where('month', $month)->update(['month' => $request->month]);
     
-            DB::table('kpi_master')->where('year', $year)->update(['year' => $request->year]);
-            DB::table('kpi_master')->where('month', $month)->update(['month' => $request->month]);
+            DB::table('kpi_master')->where('user_id', $user_id)->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kpi_master')->where('user_id', $user_id)->where('month', $month)->update(['month' => $request->month]);
     
-            DB::table('kpi_all')->where('year', $year)->update(['year' => $request->year]);
-            DB::table('kpi_all')->where('month', $month)->update(['month' => $request->month]);
+            DB::table('kpi_all')->where('user_id', $user_id)->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kpi_all')->where('user_id', $user_id)->where('month', $month)->update(['month' => $request->month]);
     
-            DB::table('kecekapan')->where('year', $year)->update(['year' => $request->year]);
-            DB::table('kecekapan')->where('month', $month)->update(['month' => $request->month]);
+            DB::table('kecekapan')->where('user_id', $user_id)->where('year', $year)->update(['year' => $request->year]);
+            DB::table('kecekapan')->where('user_id', $user_id)->where('month', $month)->update(['month' => $request->month]);
     
-            DB::table('nilai')->where('year', $year)->update(['year' => $request->year]);
-            DB::table('nilai')->where('month', $month)->update(['month' => $request->month]);
+            DB::table('nilai')->where('user_id', $user_id)->where('year', $year)->update(['year' => $request->year]);
+            DB::table('nilai')->where('user_id', $user_id)->where('month', $month)->update(['month' => $request->month]);
     
             // KPI_::find($date_id)->update([
             //     'year'=> $request->year,
