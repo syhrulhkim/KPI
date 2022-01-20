@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Nilai4 extends Migration
+class Nilai5 extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class Nilai4 extends Migration
     public function up()
     {
         Schema::table('nilai', function (Blueprint $table) {
-            $table->dropColumn('skor_penyelia');
+            $table->string('skor_penyelia')->nullable();
         });
     }
 
@@ -27,7 +27,7 @@ class Nilai4 extends Migration
     {
         Schema::table('nilai', function (Blueprint $table)
         {
-            $table->string('skor_penyelia')->nullable();
+            $table->dropColumn('skor_penyelia');
         });
     }
 }
