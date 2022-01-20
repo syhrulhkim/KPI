@@ -1327,7 +1327,7 @@ class KPI extends Component
 
         $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
 
-        return view('livewire.kpi', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
+        return view('livewire.KPI', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
         'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 
         'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
         'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id',
