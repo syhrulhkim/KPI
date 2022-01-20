@@ -3,6 +3,16 @@
   <div class="row">
     <div class="col-12">
       <div class="col-md-12">
+        @if (session('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{ session('message') }}</strong>
+        </div>	
+      @endif
+      @if (session('fail'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('fail') }}</strong>
+      </div>	
+      @endif
         <div class="card mt-4">
           <div class="card-header pb-0 p-3">
             <div class="row">

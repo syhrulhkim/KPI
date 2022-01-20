@@ -42,19 +42,27 @@ input[type=file]::file-selector-button:hover {
               </div>
             @else
             @endif
+
+            @if ($status == 'Submitted' || $status == 'Signed By Manager' || $status == 'Completed') 
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Warning ! If you want to add, edit or delete any KPI, status of this KPI will set to default (Not Submitted)</strong>
+            </div>
+            @else
+            @endif
+
           <div class="card mt-4">
             <div class="card-header pb-0 p-3">
               <div class="row">
                 <div class="col-6 d-flex align-items-center">
-                  @if ($weightage_master == 0 || $weightage_master == NULL)
-                  <h6>KAD SKOR - KPI</h6>
+                  @if ($weightage_master == 0 || $weightage_master == NULL) 
+                  <h6>KAD SKOR - KPI <span style="color:red;">(Current total weightage = 0)</span></h6>
                   @else
-                  <h6>KAD SKOR - KPI (Current total weightage = {{$weightage_master}})</h6>
+                  <h6>KAD SKOR - KPI <span style="color:red;">(Current total weightage = {{$weightage_master}})</span></h6>
                   @endif
                 </div>
               </div>
             </div>
-            <form action="{{ url('/employee/save/kpi/'.$year.'/'.$month) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('/employee/save/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post" enctype="multipart/form-data">
             @csrf  
             <div class="card-body p-3">
               <div class="row">
@@ -205,11 +213,10 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_kadskor == 0 || $weightage_kadskor == NULL)
-            <h6>KAD SKOR KORPORAT</h6>
+          <h6>KAD SKOR KORPORAT <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-            <h6>KAD SKOR KORPORAT (Current weightage = {{$weightage_kadskor}})</h6>
+          <h6>KAD SKOR KORPORAT <span style="color:red;">(Current weightage = {{$weightage_kadskor}})</span></h6>
           @endif
-
           @foreach ($kadskor as $key => $kadskors)
           @endforeach
         </div>
@@ -375,9 +382,9 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_kewangan == 0 || $weightage_kewangan == NULL)
-          <h6>KEWANGAN</h6>
+          <h6>KEWANGAN <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>KEWANGAN (Current weightage = {{$weightage_kewangan}})</h6>
+          <h6>KEWANGAN <span style="color:red;">(Current weightage = {{$weightage_kewangan}})</span></h6>
           @endif
 
         </div>
@@ -545,9 +552,9 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_pelangganI == 0 || $weightage_pelangganI == NULL)
-          <h6>PELANGGAN (INTERNAL)</h6>
+          <h6>PELANGGAN (INTERNAL) <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>PELANGGAN (INTERNAL) (Current weightage = {{$weightage_pelangganI}})</h6>
+          <h6>PELANGGAN (INTERNAL) <span style="color:red;">(Current weightage = {{$weightage_pelangganI}})</span></h6>
           @endif
 
         </div>
@@ -716,9 +723,9 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_pelangganII == 0 || $weightage_pelangganII == NULL)
-          <h6>PELANGGAN (INTERNAL)</h6>
+          <h6>PELANGGAN (OUTER) <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>PELANGGAN (INTERNAL) (Current weightage = {{$weightage_pelangganII}})</h6>
+          <h6>PELANGGAN (OUTER) <span style="color:red;">(Current weightage = {{$weightage_pelangganII}})</span></h6>
           @endif
 
         </div>
@@ -887,9 +894,9 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_kecemerlangan == 0 || $weightage_kecemerlangan == NULL)
-          <h6>KECEMERLANGAN OPERASI</h6>
+          <h6>KECEMERLANGAN OPERASI <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>KECEMERLANGAN OPERASI (Current weightage = {{$weightage_kecemerlangan}})</h6>
+          <h6>KECEMERLANGAN OPERASI <span style="color:red;">(Current weightage = {{$weightage_kecemerlangan}})</span></h6>
           @endif
 
         </div>
@@ -1058,9 +1065,9 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_training == 0 || $weightage_training == NULL)
-          <h6>MANUSIA & PROCESS (TRAINING)</h6>
+          <h6>MANUSIA & PROCESS (TRAINING) <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>MANUSIA & PROCESS (TRAINING) (Current weightage = {{$weightage_training}})</h6>
+          <h6>MANUSIA & PROCESS (TRAINING) <span style="color:red;">(Current weightage = {{$weightage_training}})</span></h6>
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
@@ -1228,9 +1235,9 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_ncr == 0 || $weightage_ncr == NULL)
-          <h6>MANUSIA & PROCESS (NCROFI)</h6>
+          <h6>MANUSIA & PROCESS (NCROFI) <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>MANUSIA & PROCESS (NCROFI) (Current weightage = {{$weightage_ncr}})</h6>
+          <h6>MANUSIA & PROCESS (NCROFI) <span style="color:red;">(Current weightage = {{$weightage_ncr}})</span></h6>
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
@@ -1398,9 +1405,9 @@ input[type=file]::file-selector-button:hover {
       <div class="card mt-4">
         <div class="card-header pb-0">
           @if ($weightage_kolaborasi == 0 || $weightage_kolaborasi == NULL)
-          <h6>KOLABORASI</h6>
+          <h6>KOLABORASI <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>KOLABORASI (Current weightage = {{$weightage_kolaborasi}})</h6>
+          <h6>KOLABORASI <span style="color:red;">(Current weightage = {{$weightage_kolaborasi}})</span></h6>
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">

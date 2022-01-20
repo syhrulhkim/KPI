@@ -1,3 +1,4 @@
+{{-- {{dd(Auth::user()->name)}} --}}
 <div>
 @section('content')
   @extends('layouts.app')
@@ -24,7 +25,7 @@
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                       <strong>Warning ! If you want to edit date, status of this KPI will set to default (Not Submitted)</strong>
                     </div>	
-                      @if (session('message'))
+                      {{-- @if (session('message'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                           <strong>{{ session('message') }}</strong>
                         </div>	
@@ -34,7 +35,7 @@
                       <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>{{ session('fail') }}</strong>
                       </div>	
-                      @endif
+                      @endif --}}
                       <div class="card">
                         <div class="card-header pb-0 p-3">
                           <div class="row">
@@ -49,9 +50,9 @@
                                 @csrf
                                 <div class="mb-0" class="@error('year') @enderror">
                                   <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="year" name="year" id="year" class="custom-select" data-placeholder="Choose a Year" tabindex="1">
-                                    <option selected value="">-- Choose Years --</option>
+                                    <option selected value="{{$year}}">{{ $year }}</option>
                                     <?php
-                                      $yearArray = range(2021, 2050);
+                                      $yearArray = range(2022, 2050);
                                     ?>
                                     <?php
                                         foreach ($yearArray as $year) {
@@ -67,7 +68,7 @@
                                   <div class="mb-4" class="@error('month') border border-danger rounded-3 @enderror">
                                     <td style="word-break: break-all;" class="border-dark">
                                       <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" wire:model="month" name="month" id="month" class="form-select custom-select" data-placeholder="Choose a Month" tabindex="1">
-                                        <option selected value="">-- Choose Months --</option>
+                                        <option selected value="{{$month}}">{{ $month }}</option>
                                         <option value="January" >January</option>
                                         <option value="February" >February</option> 
                                         <option value="March" >March</option> 

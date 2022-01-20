@@ -14,11 +14,20 @@
           <strong>{{ session('fail') }}</strong>
         </div>	
       @endif
+
+      @if ($status == 'Submitted' || $status == 'Signed By Manager' || $status == 'Completed') 
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning ! If you want to add, edit or delete any Nilai Teras, status of this KPI will set to default (Not Submitted)</strong>
+      </div>
+      @else
+      @endif
+
       <div class="card mt-">
         <div class="card-header pb-0 p-3">
           <div class="row">
             <div class="col-12 text-end">
-              <form action="{{ url('employee/save/nilai/'.$year.'/'.$month) }}" method="post">
+              {{-- <form action="{{ url('employee/save/nilai/'.$year.'/'.$month) }}" method="post"> --}}
+                <form action="{{ url('employee/save/nilai/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" method="post">
             </div>
           </div>
         </div>

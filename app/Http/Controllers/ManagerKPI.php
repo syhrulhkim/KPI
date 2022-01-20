@@ -25,15 +25,15 @@ class ManagerKPI extends Controller
     
     public function selectItem($model_id, $action)
     {
-        dd('johnselectItem');
+        // dd('johnselectItem');
         $this->id_date = $model_id;
         $this->action = $action;
-        dd( $this->id_date = $model_id);
+        // dd( $this->id_date = $model_id);
     }
 
     public function delete()
     {
-        dd('johndelete');
+        // dd('johndelete');
         $date = Date_::find($this->id_date);
         $date->message_manager->delete();
         return redirect()->back()->with('message', 'Your message to this employee has been deleted!');
@@ -145,6 +145,7 @@ class ManagerKPI extends Controller
 
     public function changedownmanager($date_id)
     {
+        dd('john');
         Date_::find($date_id)->update([
         'status'=> 'Submitted',
         ]);

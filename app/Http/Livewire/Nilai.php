@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\KPI_;
 use App\Models\Nilai_;
 use App\Models\User;
+use App\Models\Date_;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Carbon;
@@ -28,9 +29,16 @@ class Nilai extends Component
 
     public function delete()
     {
+        $date_id = $this->date_id;
+        $user_id = $this->user_id;
+        $year = $this->year;
+        $month = $this->month;
         // dd('john');
         $nilai = Nilai_::find($this->id_nilai);
         $nilai->delete();
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
+        ]);
         return redirect()->back()->with('message', 'Nilai deleted successfully');
     }
 
@@ -55,7 +63,7 @@ class Nilai extends Component
     //     return view('livewire.add-nilai', compact('nilai') );
     // }
 
-    public function nilai_save(Request $request, $year, $month){
+    public function nilai_save(Request $request, $date_id, $user_id, $year, $month){
         //check kat sini 
         $nilais = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $total_percent = 0;
@@ -78,6 +86,10 @@ class Nilai extends Component
             // 'total_score' => ['required', 'numeric'],
             // 'weightage' => ['required', 'numeric'],
             // dd(Auth::user()->id),
+        ]);
+
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
         ]);
 
         $nilaiscount = Nilai_::where('user_id', '=', auth()->user()->id)->where('nilai_teras', '=', $request->nilai_teras)->where('year', '=', $year)->where('month', '=', $month)->count();
@@ -130,6 +142,10 @@ class Nilai extends Component
         //         'skor_penyelia' => ['required'],
         //     ]);
         // }
+
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
+        ]);
 
         $update = Nilai_::find($id)->update([
             'user_id'=> Auth::user()->id,
@@ -186,8 +202,9 @@ class Nilai extends Component
         $user_id = $this->user_id;
         $year = $this->year;
         $month = $this->month;
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('nilai_teras')->get();
-        return view('livewire.nilai', compact('nilai', 'date_id', 'user_id', 'year', 'month'));
+        return view('livewire.nilai', compact('nilai', 'date_id', 'user_id', 'year', 'month', 'status'));
         // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'bukti'));
     }
 }

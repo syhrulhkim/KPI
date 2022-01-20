@@ -52,6 +52,11 @@ class KPI extends Component
         // dd($this->id_kpimaster);
         $kpi->delete();
         // dd($fungsi);
+
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
+        ]);
+
         $count_KPI = KPI_::where('fungsi', '=', $fungsi)->where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->count();
         if ($count_KPI == 0) {
             $kpimaster = KPIMaster_::find($this->id_kpimaster);
@@ -307,6 +312,10 @@ class KPI extends Component
             'updated_at'=> Carbon::now(),
         ]);
 
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
+        ]);
+
         // dd($request->fungsi);
         $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $kpimasters_id = count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0';
@@ -483,7 +492,7 @@ class KPI extends Component
         return redirect('employee/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'KPI Master Updated Successfully');
     }
     
-    public function kpi_save(Request $request, $year, $month){
+    public function kpi_save(Request $request, $date_id, $user_id, $year, $month){
        
         //check kat sini 
         $kadskor = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->where('year', '=', $year)->where('month', '=', $month)->get();
@@ -589,6 +598,10 @@ class KPI extends Component
             // 'total_score' => ['required', 'numeric'],
             // 'weightage' => ['required', 'numeric'],
             
+        ]);
+
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
         ]);
 
         // $total_score1 = KPI_::where('fungsi','Kad Skor Korporat')->where('user_id', '=', Auth::user()->id)->sum('skor_sebenar');
@@ -893,41 +906,63 @@ class KPI extends Component
 
         // dd($request->bukti_path);
         $this->bukti_path = $request->bukti_path;
-        $filenameWithExt = $this->bukti_path->getClientOriginalName();
-        $extension = $this->bukti_path->getClientOriginalExtension();
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-        $this->bukti_path->storeAs('public' . DIRECTORY_SEPARATOR . 'filebukti', $fileNameToStore);
-        $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'filebukti' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
+        if ($this->bukti_path != NULL) {
+            // $this->bukti_path = $request->bukti_path;
+            $filenameWithExt = $this->bukti_path->getClientOriginalName();
+            $extension = $this->bukti_path->getClientOriginalExtension();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $this->bukti_path->storeAs('public' . DIRECTORY_SEPARATOR . 'filebukti', $fileNameToStore);
+            $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'filebukti' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
 
-        KPI_::insert([
-        'user_id'=> Auth::user()->id,
-        'created_at'=> Carbon::now(),
-        'updated_at'=> Carbon::now(),
-        // dd(Auth::user()->id),
-        // 'grade'=> $request->grade,
-        // 'weightage'=> $request->weightage,
-        // 'total_score'=> $request->total_score,
-        'year'=> $year,
-        'month'=> $month,
-        'fungsi'=> $request->fungsi,
-        // 'objektif'=> $request->objektif,
-        'bukti'=> $request->bukti,
-        // 'link'=> $request->link,
-        'ukuran'=> $request->ukuran,
-        'peratus'=> $request->peratus,
-        'threshold'=> $request->threshold,
-        'base'=> $request->base,
-        'stretch'=> $request->stretch,
-        'pencapaian'=> $request->pencapaian,
-        'skor_KPI'=> $request->skor_KPI,
-        'skor_sebenar'=> $request->skor_sebenar,
-        'bukti_path'=> $path,
-        // 'kpimaster_id' => 3,
-        'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
-        // dd($request->skor_sebenar),
-        // 'kpimaster_id' => Auth::user()->id,
-        ]);
+            KPI_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            // dd(Auth::user()->id),
+            // 'grade'=> $request->grade,
+            // 'weightage'=> $request->weightage,
+            // 'total_score'=> $request->total_score,
+            'year'=> $year,
+            'month'=> $month,
+            'fungsi'=> $request->fungsi,
+            // 'objektif'=> $request->objektif,
+            'bukti'=> $request->bukti,
+            // 'link'=> $request->link,
+            'ukuran'=> $request->ukuran,
+            'peratus'=> $request->peratus,
+            'threshold'=> $request->threshold,
+            'base'=> $request->base,
+            'stretch'=> $request->stretch,
+            'pencapaian'=> $request->pencapaian,
+            'skor_KPI'=> $request->skor_KPI,
+            'skor_sebenar'=> $request->skor_sebenar,
+            'bukti_path'=> $path,
+            // 'kpimaster_id' => 3,
+            'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
+            // dd($request->skor_sebenar),
+            // 'kpimaster_id' => Auth::user()->id,
+            ]);
+        }else   {
+            KPI_::insert([
+            'user_id'=> Auth::user()->id,
+            'created_at'=> Carbon::now(),
+            'updated_at'=> Carbon::now(),
+            'year'=> $year,
+            'month'=> $month,
+            'fungsi'=> $request->fungsi,
+            'bukti'=> $request->bukti,
+            'ukuran'=> $request->ukuran,
+            'peratus'=> $request->peratus,
+            'threshold'=> $request->threshold,
+            'base'=> $request->base,
+            'stretch'=> $request->stretch,
+            'pencapaian'=> $request->pencapaian,
+            'skor_KPI'=> $request->skor_KPI,
+            'skor_sebenar'=> $request->skor_sebenar,
+            'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
+            ]);
+        }
         // dd($total_score);
         // Bukti::insert([
         
@@ -972,10 +1007,14 @@ class KPI extends Component
             // 'weightage' => ['required', 'numeric'],
         ]);
 
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
+        ]);
+
         // dd($request->bukti_path);
         $this->bukti_path = $request->bukti_path;
         if ($this->bukti_path != NULL) {
-            $this->bukti_path = $request->bukti_path;
+            // $this->bukti_path = $request->bukti_path;
             $filenameWithExt = $this->bukti_path->getClientOriginalName();
             $extension = $this->bukti_path->getClientOriginalExtension();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
@@ -1277,11 +1316,13 @@ class KPI extends Component
         $weightage_ncr = $ncr->sum('peratus');
         $weightage_kolaborasi = $kolaborasi->sum('peratus');
 
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+
         return view('livewire.kpi', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
         'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 
         'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
         'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id',
         'weightage_kadskor', 'weightage_kewangan', 'weightage_pelangganI', 'weightage_pelangganII', 'weightage_kecemerlangan',
-        'weightage_training', 'weightage_ncr', 'weightage_kolaborasi'));
+        'weightage_training', 'weightage_ncr', 'weightage_kolaborasi', 'status'));
     }
 }

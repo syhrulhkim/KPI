@@ -40,9 +40,17 @@ class Kecekapan extends Component
 
     public function delete()
     {
+        $date_id = $this->date_id;
+        $user_id = $this->user_id;
+        $year = $this->year;
+        $month = $this->month;
         // dd('john');
         $kecekapan = Kecekapan_::find($this->id_kecekapan);
+        // dd($this->id_kecekapan);
         $kecekapan->delete();
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
+        ]);
         return redirect()->back()->with('message', 'Kecekapan deleted successfully');
     }
 
@@ -67,7 +75,7 @@ class Kecekapan extends Component
     //     return view('livewire.add-kecekapan', compact('kecekapan') );
     // }
 
-    public function kecekapan_save(Request $request, $year, $month){
+    public function kecekapan_save(Request $request, $date_id, $user_id, $year, $month){
         //check kat sini 
         $kecekapans = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
         $total_percent = 0;
@@ -92,6 +100,10 @@ class Kecekapan extends Component
             // 'total_score' => ['required', 'numeric'],
             // 'weightage' => ['required', 'numeric'],
             // dd(Auth::user()->id),
+        ]);
+
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
         ]);
 
         // if (KPIAll_::where('user_id', '=', Auth::user()->id)->count() == 1) {
@@ -173,6 +185,10 @@ class Kecekapan extends Component
             ]);
         }
 
+        Date_::find($date_id)->update([
+            'status'=> 'Not Submitted',
+        ]);
+
         // if(Auth::user()->role == 'manager') {
         //     $validatedData = $request->validate([
         //         'kecekapan_teras' => ['required'],
@@ -226,7 +242,8 @@ class Kecekapan extends Component
         $user_id = $this->user_id;
         $year = $this->year;
         $month = $this->month;
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
-        return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month'));
+        return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month', 'status'));
     }
 }

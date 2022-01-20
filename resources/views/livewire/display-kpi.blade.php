@@ -1390,11 +1390,8 @@
         <div class="card card-plain">
             <div class="card-body pb-2">
               <div class="form-group mb-2 mt-md-0 mt-4">
-                @if ($dates->message_manager == '')
-                @else
                 <label>Manager message to you</label><br>
-                <span class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</span>  
-                @endif
+                <pre class="align-center" style="color: red;" value="{{ $dates -> message_manager }}">{{ $dates -> message_manager }}</pre>  
               </div>
             </div>      
         </div>
@@ -1409,11 +1406,8 @@
         <div class="card card-plain">
             <div class="card-body pb-2">
               <div class="form-group mb-2 mt-md-0 mt-4">
-                @if ($dates->message_hr == '')
-                @else
                 <label>HR message to you</label><br>
-                <span class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</span>  
-                @endif
+                <pre class="align-center" style="color: blue;" value="{{ $dates -> message_hr }}">{{ $dates -> message_hr }}</pre>  
               </div>
             </div>      
         </div>
