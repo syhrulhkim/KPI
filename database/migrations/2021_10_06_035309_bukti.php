@@ -18,7 +18,7 @@ class Bukti extends Migration
 
             $table->string('objektif')->nullable();
             $table->string('fungsi')->nullable();
-            $table->string('link')->nullable();
+            // $table->string('link')->nullable();
 
             $table->string('bukti');
             $table->string('grade')->nullable();
