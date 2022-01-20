@@ -115,9 +115,10 @@ class KPI extends Component
     public function kpi_master_edit1($id, $date_id, $user_id, $year, $month) {
         $kadskormastercount = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Kad Skor Korporat';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         if ($kadskormastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -141,9 +142,10 @@ class KPI extends Component
     public function kpi_master_edit2($id, $date_id, $user_id, $year, $month) {
         $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Kewangan';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         if ($kewanganmastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -167,9 +169,10 @@ class KPI extends Component
     public function kpi_master_edit3($id, $date_id, $user_id, $year, $month) {
         $pelangganImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Pelanggan (Internal)';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         if ($pelangganImastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -193,9 +196,10 @@ class KPI extends Component
     public function kpi_master_edit4($id, $date_id, $user_id, $year, $month) {
         $pelangganIImastercount = KPIMaster_::where('fungsi', '=', 'Pelanggan (Outer)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Pelanggan (Outer)';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         if ($pelangganIImastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -219,9 +223,10 @@ class KPI extends Component
     public function kpi_master_edit5($id, $date_id, $user_id, $year, $month) {
         $kecemerlanganmastercount = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Kecemerlangan Operasi';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         if ($kecemerlanganmastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -245,9 +250,10 @@ class KPI extends Component
     public function kpi_master_edit6($id, $date_id, $user_id, $year, $month) {
         $trainingmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (Training)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Manusia & Proses (Training)';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         if ($trainingmastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -271,9 +277,10 @@ class KPI extends Component
     public function kpi_master_edit7($id, $date_id, $user_id, $year, $month) {
         $ncrmastercount = KPIMaster_::where('fungsi', '=', 'Manusia & Proses (NCROFI)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Manusia & Proses (NCROFI)';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         if ($ncrmastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -297,10 +304,11 @@ class KPI extends Component
     public function kpi_master_edit8($id, $date_id, $user_id, $year, $month) {
         $kolaborasimastercount = KPIMaster_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
         $fungsi = 'Kolaborasi';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
         // dd($fungsi);
         if ($kolaborasimastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
-            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month'));
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
     }
 
@@ -986,7 +994,8 @@ class KPI extends Component
        
     public function kpi_edit($id, $date_id, $user_id, $year, $month) {
         $kpi = KPI_::find($id);
-        return view('livewire.form_kpi' , compact('kpi', 'date_id', 'user_id', 'year', 'month'));
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        return view('livewire.form_kpi' , compact('kpi', 'date_id', 'user_id', 'year', 'month', 'status'));
     }
 
     public function kpi_update(Request $request, $id, $date_id, $user_id, $year, $month) {

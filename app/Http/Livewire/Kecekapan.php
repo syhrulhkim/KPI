@@ -163,7 +163,8 @@ class Kecekapan extends Component
 
     public function kecekapan_edit($id, $date_id, $user_id, $year, $month) {
         $kecekapan = Kecekapan_::find($id);
-        return view('livewire.form_kecekapan' , compact('kecekapan', 'date_id', 'user_id', 'year', 'month'));
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        return view('livewire.form_kecekapan' , compact('kecekapan', 'date_id', 'user_id', 'year', 'month', 'status'));
     }
 
     public function kecekapan_update(Request $request, $id, $date_id, $user_id, $year, $month) {

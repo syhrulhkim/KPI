@@ -70,6 +70,13 @@
     <div class="col-lg-12">
       <div class="row">
         <div class="col-md-12 mb-lg-0 mb-4">
+
+          @if ($status == 'Submitted' || $status == 'Signed By Manager' || $status == 'Completed') 
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Warning ! If you want to add, edit or delete any KPI, status of this KPI will set to default (Not Submitted)</strong>
+          </div>
+          @else
+          @endif
           <div class="card mt-4">
             <div class="card-header pb-0 p-3">
               <div class="row">

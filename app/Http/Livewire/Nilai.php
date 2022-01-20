@@ -124,7 +124,8 @@ class Nilai extends Component
     // public function nilai_edit($id, $year, $month) {
     public function nilai_edit($id, $date_id, $user_id, $year, $month) {
         $nilai = Nilai_::find($id);
-        return view('livewire.form_nilai' , compact('nilai', 'date_id', 'user_id', 'year', 'month'));
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        return view('livewire.form_nilai' , compact('nilai', 'date_id', 'user_id', 'year', 'month', 'status'));
     }
 
     // public function nilai_update(Request $request, $id, $year, $month) {
