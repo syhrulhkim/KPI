@@ -9,6 +9,14 @@
 <div class="container-fluid py-4">
   <div class="row">
     <div class="col-12">
+
+      @if ($status == 'Submitted' || $status == 'Signed By Manager' || $status == 'Completed') 
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning ! If you want to add, edit or delete any KPI, status of this KPI will set to default (Not Submitted)</strong>
+      </div>
+      @else
+      @endif
+
       @if (session('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>{{ session('message') }}</strong>
@@ -20,6 +28,7 @@
           <strong>{{ session('fail') }}</strong>
         </div>	
       @endif
+      
       <div class="card ">
         <div class="card-header pb-0 p-3">
           <div class="row">
