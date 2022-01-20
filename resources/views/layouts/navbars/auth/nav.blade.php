@@ -4,8 +4,40 @@
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                    <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
-                    </li>
+                    {{-- {{dd(Route::currentRouteName())}} --}}
+                    @if (Route::currentRouteName() == 'view-profile' || Route::currentRouteName() == 'edit-profile')
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Profile</a>
+                        </li>
+
+                    @else
+                    @endif
+
+                    @if (Route::currentRouteName() == 'display-kpi')
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Master KPI</a>
+                        </li>
+                    @else
+                    @endif
+
+                    @if (Route::currentRouteName() == 'add-date' || Route::currentRouteName() == 'add-kecekapan' || Route::currentRouteName() == 'add-nilai')
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">KPI</a>
+                        </li>
+                    @else
+                    @endif
+
+                    @if (Route::currentRouteName() == 'Kpi' || Route::currentRouteName() == 'Kecekapan' || Route::currentRouteName() == 'Nilai' || Route::currentRouteName() == 'Display-KPI' || Route::currentRouteName() == 'Edit')
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">KPI</a>
+                        </li>
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Add Date</a>
+                        </li>
+                    @else
+                    @endif
+
+                    @if (Route::currentRouteName() == 'user-management')
+                        <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">User Management</a>
+                        </li>
+                    @else
+                    @endif
+
                     <li class="breadcrumb-item text-sm text-dark active text-capitalize" aria-current="page">
                         {{ str_replace('-', ' ', Route::currentRouteName()) }}</li>
                 </ol>
@@ -13,18 +45,18 @@
                     {{ str_replace('-', ' ', Route::currentRouteName()) }}</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
-                <div class="nav-item d-flex align-self-end">
-                    <a href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel" target="_blank"
+                <!-- <div class="nav-item d-flex align-self-end">
+                    <a href="https://momentuminternet.com/" target="_blank"
                         class="btn btn-primary active mb-0 text-white" role="button" aria-pressed="true">
                         Download
                     </a>
-                </div>
-                <div class="ms-md-3 pe-md-3 d-flex align-items-center">
+                </div> -->
+                {{-- <div class="ms-md-3 pe-md-3 d-flex align-items-center">
                     <div class="input-group">
                         <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                         <input type="text" class="form-control" placeholder="Type here...">
                     </div>
-                </div>
+                </div> --}}
                 <ul class="navbar-nav justify-content-end">
                     <li class="nav-item d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
@@ -40,21 +72,21 @@
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item px-3 d-flex align-items-center">
+                    {{-- <li class="nav-item px-3 d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body p-0">
                             <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{-- <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-bell cursor-pointer"></i>
-                        </a>
+                        </a> --}}
                         <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                             <li class="mb-2">
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                            <img src="../assets/img/profileavatar.png" class="avatar avatar-sm  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">

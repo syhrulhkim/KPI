@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
     <div class="container">
-        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{{ route('dashboard') }}">
-            Soft UI Dashboard
+        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{{ route('firstpage') }}">
+            Momentum KPI
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -17,7 +17,7 @@
                 @if (auth()->user())
                     <li class="nav-item">
                         <a class="nav-link text-white d-flex align-items-center me-2 active" aria-current="page"
-                            href="{{ route('dashboard') }}">
+                            href="{{ route('firstpage') }}">
                             <i class="fa fa-chart-pie opacity-6  me-1"></i>
                             Dashboard
                         </a>
@@ -44,8 +44,8 @@
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                    <a href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel"
-                        class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light" target="_blank">Free download</a>
+                    <a href="https://momentuminternet.com/"
+                        class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light" target="_blank">Momentum Internet</a>
                 </li>
             </ul>
         </div>
