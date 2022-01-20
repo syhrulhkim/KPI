@@ -31,11 +31,15 @@ class Kpi extends Migration
             $table->string('grade');
             $table->string('total_score');
             $table->string('weightage');
-            
+
+            $table->text('bukti_path')->nullable();
+
+            $table->string('year')->nullable();
+            $table->string('month')->nullable();
             $table->string('user_id');
             $table->timestamps();
-            $table->string('tahun')->nullable();
-            $table->string('bulan')->nullable();
+            // $table->string('tahun')->nullable();
+            // $table->string('bulan')->nullable();
         });
     }
 
