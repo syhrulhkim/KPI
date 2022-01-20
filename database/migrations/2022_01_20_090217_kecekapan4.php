@@ -15,7 +15,6 @@ class Kecekapan4 extends Migration
     {
         Schema::table('kecekapan', function (Blueprint $table) {
             $table->dropColumn('skor_penyelia');
-            $table->string('skor_penyelia')->nullable();
         });
     }
 
@@ -28,7 +27,6 @@ class Kecekapan4 extends Migration
     {
         Schema::table('kecekapan', function (Blueprint $table)
         {
-            $table->dropColumn('skor_penyelia');
             $table->string('skor_penyelia')->nullable();
         });
     }
