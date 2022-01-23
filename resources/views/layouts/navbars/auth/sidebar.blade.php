@@ -11,6 +11,12 @@
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
+            @if (Auth::user()->role == "hr")
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">==HR Part==</h6>
+            </li>
+            @else
+            @endif
             @if ((Auth::user()->role == "admin") ||  (Auth::user()->role == "hr"))
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">dashboard</h6>
@@ -46,7 +52,21 @@
             @else
             @endif
 
+            
+            @if (Auth::user()->role == "hr")
+            <br>
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">==Manager Part==</h6>
+            </li>
+            @else
+            @endif
             @if (Auth::user()->role == "manager")
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">==Manager Part==</h6>
+            </li>
+            @else
+            @endif
+            @if (Auth::user()->role == "manager" || Auth::user()->role == "hr")
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">dashboard</h6>
             </li>
@@ -230,7 +250,15 @@
             @else
             @endif --}}
 
-            @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
+            @if (Auth::user()->role == "manager" || Auth::user()->role == "hr")
+            <br>
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">==Employee Part==</h6>
+            </li>
+            @else
+            @endif
+
+            @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin") || (Auth::user()->role == "manager") || (Auth::user()->role == "hr") )
             <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">KPI</h6>
             </li>

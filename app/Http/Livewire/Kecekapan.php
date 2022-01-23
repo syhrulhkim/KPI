@@ -238,13 +238,26 @@ class Kecekapan extends Component
 
     public function render()
     {
+        if (Auth::user()->role == "manager" || Auth::user()->role == "hr") {
+            $date_id = $this->date_id;
+            $user_id = $this->user_id;
+            $year = $this->year;
+            $month = $this->month;
+            $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
+            $userdepartment = auth()->user()->department;
+            $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
+            $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+            return view('livewire.kecekapan_manager', compact('kecekapan', 'users', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
         // dd($this->date_id);
-        $date_id = $this->date_id;
-        $user_id = $this->user_id;
-        $year = $this->year;
-        $month = $this->month;
-        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
-        $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
-        return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month', 'status'));
+        if (Auth::user()->role == "employee") {
+            $date_id = $this->date_id;
+            $user_id = $this->user_id;
+            $year = $this->year;
+            $month = $this->month;
+            $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+            $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('kecekapan_teras')->get();
+            return view('livewire.kecekapan', compact('kecekapan', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
     }
 }

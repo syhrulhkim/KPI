@@ -71,7 +71,7 @@
                     @else
                     @endif
 
-                    @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
+                    @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin") || (Auth::user()->role == "hr"))
                     <th rowspan="2">Skor Penyelia</th>
                     @else
                     @endif
@@ -97,7 +97,7 @@
                     @else
                     @endif
 
-                    @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
+                    @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin") || (Auth::user()->role == "hr"))
                     <td style="word-break: break-all;" class="border-dark" class="@error('skor_penyelia') border border-danger rounded-3 @enderror">
                       <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
                       @error('skor_penyelia') <div class="text-danger">{{ $message }}</div> @enderror
@@ -275,7 +275,7 @@
         @else
         @endif 
 
-        @if (Auth::user()->role == "manager")
+        @if (Auth::user()->role == "manager" || (Auth::user()->role == "hr")) 
         <div class="container-fluid py-4">
           <div class="row">
             <div class="col-12">
