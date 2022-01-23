@@ -1204,7 +1204,7 @@ class KPI extends Component
         $weightage_ncr = $ncr->sum('peratus');
         $weightage_kolaborasi = $kolaborasi->sum('peratus');
 
-        return view('livewire.kpi', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
+        return view('livewire.KPI', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
         'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 
         'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
         'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id',
@@ -1281,12 +1281,12 @@ class KPI extends Component
         // dd($kpi);
         // $courses = Course::orderBy('created_at','desc')->get();
 
-        // return view('livewire.kpi', compact('kpi', 'users', 'hrs', 'kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
+        // return view('livewire.KPI', compact('kpi', 'users', 'hrs', 'kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan', 
         // 'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 
         // 'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
         // 'kecemerlanganmaster', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' ,'kadskormastercount', 'kewanganmastercount', 'pelangganImastercount', 
         // 'pelangganIImastercount', 'kecemerlanganmastercount', 'trainingmastercount', 'ncrmastercount', 'kolaborasimastercount', 'weightage_master'));
-        // return view('livewire.kpi');
+        // return view('livewire.KPI');
 
         $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
