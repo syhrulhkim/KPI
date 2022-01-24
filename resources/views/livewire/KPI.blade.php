@@ -264,59 +264,31 @@ input[type=file]::file-selector-button:hover {
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kadskors -> ukuran }}">{{ $kadskors -> ukuran }}</span>
                   </td>
+                  {{-- @if ($kadskors->pencapaian == 0) 
+                    {{ $kadskors->pencapaian == 100; }}
+                    {{dd($kadskors->pencapaian)}}
+                  @endif --}}
+                  {{-- @if ($kadskors->pencapaian == 0)
+                  @php
+                      $kadskors->pencapaian = 1;
+                  @endphp
+                  @endif
+                  @if ($kadskors->stretch == 0) 
+                  @php 
+                      $kadskors->stretch = 1; 
+                  @endphp
+                  @endif --}}
+                  {{-- {{dd($kadskors -> pencapaian)}} --}}
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
-                      <span class="me-2 text-xs font-weight-bold" value="{{ $kadskors -> pencapaian }}">{{ $kadskors -> pencapaian }}/{{ $kadskors -> stretch }}</span>
+                      {{-- <span class="me-2 text-xs font-weight-bold" value="{{ $kadskors -> pencapaian }}">{{ $kadskors -> pencapaian }}/{{ $kadskors -> stretch }}</span> --}}
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kadskors -> pencapaian }}">{{ number_format( (integer)($kadskors->skor_KPI)) }}%</span>
                       <div>
-                        @if ((($kadskors->pencapaian/$kadskors->stretch)*100) >= 100)
                           <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                            {{-- <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div> --}}
+                            {{-- <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ number_format( (integer)((($kadskors->pencapaian/$kadskors->stretch)*100) >= 100 )) }}%;"></div> --}}
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kadskors->skor_KPI }}%;"></div>
                           </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 90)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 80)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 70)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 60)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 50)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 40)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 30)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 20)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) >= 10)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) <= 10)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;"></div>
-                          </div>
-                        @elseif((($kadskors->pencapaian/$kadskors->stretch)*100) == 00)
-                          <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
-                          </div>
-                        @endif
                       </div>
                     </div>
                   </td>
@@ -432,6 +404,16 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  {{-- <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
                       <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ $kewangans -> pencapaian }}/{{ $kewangans -> stretch }}</span>
                       <div>
                         @if ((($kewangans->pencapaian/$kewangans->stretch)*100) >= 100)
@@ -485,7 +467,7 @@ input[type=file]::file-selector-button:hover {
                         @endif
                       </div>
                     </div>
-                  </td>
+                  </td> --}}
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
                   </td>
@@ -603,6 +585,16 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $pelangganIs -> pencapaian }}">{{ number_format( (integer)($pelangganIs->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pelangganIs->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  {{-- <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
                       <span class="me-2 text-xs font-weight-bold" value="{{ $pelangganIs -> pencapaian }}">{{ $pelangganIs -> pencapaian }}/{{ $pelangganIs -> stretch }}</span>
                       <div>
                         @if ((($pelangganIs->pencapaian/$pelangganIs->stretch)*100) >= 100)
@@ -656,7 +648,7 @@ input[type=file]::file-selector-button:hover {
                         @endif
                       </div>
                     </div>
-                  </td>
+                  </td> --}}
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $pelangganIs -> skor_KPI }}">{{ $pelangganIs -> skor_KPI }}</span>
                   </td>
@@ -774,6 +766,16 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $pelangganIIs -> pencapaian }}">{{ number_format( (integer)($pelangganIIs->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $pelangganIIs->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  {{-- <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
                       <span class="me-2 text-xs font-weight-bold" value="{{ $pelangganIIs -> pencapaian }}">{{ $pelangganIIs -> pencapaian }}/{{ $pelangganIIs -> stretch }}</span>
                       <div>
                         @if ((($pelangganIIs->pencapaian/$pelangganIIs->stretch)*100) >= 100)
@@ -827,7 +829,7 @@ input[type=file]::file-selector-button:hover {
                         @endif
                       </div>
                     </div>
-                  </td>
+                  </td> --}}
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $pelangganIIs -> skor_KPI }}">{{ $pelangganIIs -> skor_KPI }}</span>
                   </td>
@@ -945,6 +947,16 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kecemerlangans -> pencapaian }}">{{ number_format( (integer)($kecemerlangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kecemerlangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  {{-- <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
                       <span class="me-2 text-xs font-weight-bold" value="{{ $kecemerlangans -> pencapaian }}">{{ $kecemerlangans -> pencapaian }}/{{ $kecemerlangans -> stretch }}</span>
                       <div>
                         @if ((($kecemerlangans->pencapaian/$kecemerlangans->stretch)*100) >= 100)
@@ -998,7 +1010,7 @@ input[type=file]::file-selector-button:hover {
                         @endif
                       </div>
                     </div>
-                  </td>
+                  </td> --}}
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kecemerlangans -> skor_KPI }}">{{ $kecemerlangans -> skor_KPI }}</span>
                   </td>
@@ -1115,6 +1127,16 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $trainings -> pencapaian }}">{{ number_format( (integer)($trainings->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $trainings->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  {{-- <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
                       <span class="me-2 text-xs font-weight-bold" value="{{ $trainings -> pencapaian }}">{{ $trainings -> pencapaian }}/{{ $trainings -> stretch }}</span>
                       <div>
                         @if ((($trainings->pencapaian/$trainings->stretch)*100) >= 100)
@@ -1168,7 +1190,7 @@ input[type=file]::file-selector-button:hover {
                         @endif
                       </div>
                     </div>
-                  </td>
+                  </td> --}}
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $trainings -> skor_KPI }}">{{ $trainings -> skor_KPI }}</span>
                   </td>
@@ -1285,6 +1307,16 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $ncrs -> pencapaian }}">{{ number_format( (integer)($ncrs->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $ncrs->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  {{-- <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
                       <span class="me-2 text-xs font-weight-bold" value="{{ $ncrs -> pencapaian }}">{{ $ncrs -> pencapaian }}/{{ $ncrs -> stretch }}</span>
                       <div>
                         @if ((($ncrs->pencapaian/$ncrs->stretch)*100) >= 100)
@@ -1338,7 +1370,7 @@ input[type=file]::file-selector-button:hover {
                         @endif
                       </div>
                     </div>
-                  </td>
+                  </td> --}}
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $ncrs -> skor_KPI }}">{{ $ncrs -> skor_KPI }}</span>
                   </td>
@@ -1456,6 +1488,16 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td class="align-middle text-center">
                     <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kolaborasis -> pencapaian }}">{{ number_format( (integer)($kolaborasis->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kolaborasis->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  {{-- <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
                       <span class="me-2 text-xs font-weight-bold" value="{{ $kolaborasis -> pencapaian }}">{{ $kolaborasis -> pencapaian }}/{{ $kolaborasis -> stretch }}</span>
                       <div>
                         @if ((($kolaborasis->pencapaian/$kolaborasis->stretch)*100) >= 100)
@@ -1509,7 +1551,7 @@ input[type=file]::file-selector-button:hover {
                         @endif
                       </div>
                     </div>
-                  </td>
+                  </td> --}}
                   <td>
                     <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kolaborasis -> skor_KPI }}">{{ $kolaborasis -> skor_KPI }}</span>
                   </td>
