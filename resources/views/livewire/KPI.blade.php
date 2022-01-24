@@ -78,7 +78,7 @@ input[type=file]::file-selector-button:hover {
                             <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
                             @endif
                             <option value="Kewangan" >Kewangan</option>
-                            @if (Auth::user()->department == 'Human Resource (HR) & Administration')
+                            @if (Auth::user()->department == 'Human Resource (HR) & Administration' || Auth::user()->department == 'Operation')
                             <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
                             @else
                             @endif
