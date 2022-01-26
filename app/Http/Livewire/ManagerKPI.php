@@ -67,7 +67,7 @@ class ManagerKPI extends Component
     //     $kadskor = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kad Skor Korporat')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
     //     $kewangan = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kewangan')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
     //     $pelangganI = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (Internal)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
-    //     $pelangganII = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (Outer)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+    //     $pelangganII = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Pelanggan (External)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
     //     $kecemerlangan = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Kecemerlangan Operasi')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
     //     $training = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (Training)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
     //     $ncr = KPI_::where('user_id', '=', $id)->where('fungsi', '=', 'Manusia & Proses (NCROFI)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
@@ -181,8 +181,12 @@ class ManagerKPI extends Component
         $kadskor = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kad Skor Korporat')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
         $kewangan = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kewangan')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
         $pelangganI = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Pelanggan (Internal)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
-        $pelangganII = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Pelanggan (Outer)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
-        $kecemerlangan = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kecemerlangan Operasi')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $pelangganII = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Pelanggan (External)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kecemerlangan1 = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kecemerlangan Operasi1')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kecemerlangan2 = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kecemerlangan Operasi2')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kecemerlangan3 = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kecemerlangan Operasi3')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kecemerlangan4 = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kecemerlangan Operasi4')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
+        $kecemerlangan5 = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kecemerlangan Operasi5')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
         $training = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Manusia & Proses (Training)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
         $ncr = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Manusia & Proses (NCROFI)')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
         $kolaborasi = KPI_::where('user_id', '=', $user_id)->where('fungsi', '=', 'Kolaborasi')->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->get();
@@ -191,7 +195,11 @@ class ManagerKPI extends Component
         $kewangancount = $kewangan->count();
         $pelangganIcount = $pelangganI->count();
         $pelangganIIcount = $pelangganII->count();
-        $kecemerlangancount = $kecemerlangan->count();
+        $kecemerlangan1count = $kecemerlangan1->count();
+        $kecemerlangan2count = $kecemerlangan2->count();
+        $kecemerlangan3count = $kecemerlangan3->count();
+        $kecemerlangan4count = $kecemerlangan4->count();
+        $kecemerlangan5count = $kecemerlangan5->count();
         $trainingcount = $training->count();
         $ncrcount = $ncr->count();
         $kolaborasicount = $kolaborasi->count();
@@ -210,8 +218,8 @@ class ManagerKPI extends Component
         $nilai_master = $nilaiscount2 * 20;
 
         return view('livewire.manager-kpi', compact('kpi', 'kpimaster', 'user', 'kecekapan' , 'nilai', 'kpiall', 'kadskor', 'kewangan', 
-        'pelangganI', 'pelangganII', 'kecemerlangan', 'training', 'ncr', 'kolaborasi', 'date_id', 'user_id', 'year', 'month', 'date', 
-        'weightage_master', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangancount', 'trainingcount',
+        'pelangganI', 'pelangganII', 'kecemerlangan1', 'kecemerlangan2', 'kecemerlangan3', 'kecemerlangan4', 'kecemerlangan5', 'training', 'ncr', 'kolaborasi', 'date_id', 'user_id', 'year', 'month', 'date', 
+        'weightage_master', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangan1count', 'kecemerlangan2count', 'kecemerlangan3count', 'kecemerlangan4count', 'kecemerlangan5count', 'trainingcount',
         'ncrcount', 'kolaborasicount', 'kecekapan_master', 'nilai_master'));
 
     }
