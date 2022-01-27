@@ -140,10 +140,100 @@ class KPI extends Component
     // }
 
     public function kpi_master_edit2($id, $date_id, $user_id, $year, $month) {
-        $kewanganmastercount = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
-        $fungsi = 'Kewangan';
+        $kewangan1mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan1';
         $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
-        if ($kewanganmastercount == 1) {
+        if ($kewangan1mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+    
+    public function kpi_master_edit13($id, $date_id, $user_id, $year, $month) {
+        $kewangan2mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan2')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan2';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan2mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit14($id, $date_id, $user_id, $year, $month) {
+        $kewangan3mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan3')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan3';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan3mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit15($id, $date_id, $user_id, $year, $month) {
+        $kewangan4mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan4')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan4';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan4mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit16($id, $date_id, $user_id, $year, $month) {
+        $kewangan5mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan5')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan5';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan5mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit17($id, $date_id, $user_id, $year, $month) {
+        $kewangan6mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan6')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan6';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan6mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit18($id, $date_id, $user_id, $year, $month) {
+        $kewangan7mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan7')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan7';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan7mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit19($id, $date_id, $user_id, $year, $month) {
+        $kewangan8mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan8')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan8';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan8mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit20($id, $date_id, $user_id, $year, $month) {
+        $kewangan9mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan9')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan9';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan9mastercount == 1) {
+            $kpimasters = KPIMaster_::find($id);
+            return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
+        }
+    }
+
+    public function kpi_master_edit21($id, $date_id, $user_id, $year, $month) {
+        $kewangan10mastercount = KPIMaster_::where('fungsi', '=', 'Kewangan10')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->count();
+        $fungsi = 'Kewangan10';
+        $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
+        if ($kewangan10mastercount == 1) {
             $kpimasters = KPIMaster_::find($id);
             return view('livewire.form_kpimaster' , compact('kpimasters', 'fungsi', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
@@ -540,7 +630,17 @@ class KPI extends Component
        
         //check kat sini 
         $kadskor = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kad Skor Korporat')->where('year', '=', $year)->where('month', '=', $month)->get();
-        $kewangan = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan')->where('year', '=', $year)->where('month', '=', $month)->get();
+        // $kewangan = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan1 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan1')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan2 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan2')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan3 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan3')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan4 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan4')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan5 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan5')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan6 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan6')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan7 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan7')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan8 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan8')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan9 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan9')->where('year', '=', $year)->where('month', '=', $month)->get();
+        $kewangan10 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kewangan10')->where('year', '=', $year)->where('month', '=', $month)->get();
         $pelangganI = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Pelanggan (Internal)')->where('year', '=', $year)->where('month', '=', $month)->get();
         $pelangganII = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Pelanggan (External)')->where('year', '=', $year)->where('month', '=', $month)->get();
         $kecemerlangan1 = KPI_::where('user_id', '=', auth()->user()->id)->where('fungsi', '=', 'Kecemerlangan Operasi1')->where('year', '=', $year)->where('month', '=', $month)->get();
@@ -564,12 +664,21 @@ class KPI extends Component
         $total_percent10 = 0;
         $total_percent11 = 0;
         $total_percent12 = 0;
+        $total_percent13 = 0;
+        $total_percent14 = 0;
+        $total_percent15 = 0;
+        $total_percent16 = 0;
+        $total_percent17 = 0;
+        $total_percent18 = 0;
+        $total_percent19 = 0;
+        $total_percent20 = 0;
+        $total_percent21 = 0;
 
         foreach ($kadskor as $key => $kpi1) {
             $total_percent1 = $total_percent1 + $kpi1->peratus;
         }
         // dd($total_percent1);
-        foreach ($kewangan as $key => $kpi2) {
+        foreach ($kewangan1 as $key => $kpi2) {
             $total_percent2 = $total_percent2 + $kpi2->peratus;
         }
         foreach ($pelangganI as $key => $kpi3) {
@@ -602,16 +711,43 @@ class KPI extends Component
         foreach ($kecemerlangan5 as $key => $kpi12) {
             $total_percent12 = $total_percent12 + $kpi12->peratus;
         }
+        foreach ($kewangan2 as $key => $kpi13) {
+            $total_percent13 = $total_percent13 + $kpi13->peratus;
+        }
+        foreach ($kewangan3 as $key => $kpi14) {
+            $total_percent14 = $total_percent14 + $kpi14->peratus;
+        }
+        foreach ($kewangan4 as $key => $kpi15) {
+            $total_percent15 = $total_percent15 + $kpi15->peratus;
+        }
+        foreach ($kewangan5 as $key => $kpi16) {
+            $total_percent16 = $total_percent16 + $kpi16->peratus;
+        }
+        foreach ($kewangan6 as $key => $kpi17) {
+            $total_percent17 = $total_percent17 + $kpi17->peratus;
+        }
+        foreach ($kewangan7 as $key => $kpi18) {
+            $total_percent18 = $total_percent18 + $kpi18->peratus;
+        }
+        foreach ($kewangan8 as $key => $kpi19) {
+            $total_percent19 = $total_percent19 + $kpi19->peratus;
+        }
+        foreach ($kewangan9 as $key => $kpi20) {
+            $total_percent20 = $total_percent20 + $kpi20->peratus;
+        }
+        foreach ($kewangan10 as $key => $kpi21) {
+            $total_percent21 = $total_percent21 + $kpi21->peratus;
+        }
         
         if($request->fungsi == 'Kad Skor Korporat'){
         if (($total_percent1 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kad Skor Korporat which is 100 percent only');
             }
         }
-        if($request->fungsi == 'Kewangan'){
+        if($request->fungsi == 'Kewangan1'){
         if (($total_percent2 + $request->peratus) > 100) {
             return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
-        }
+            }
         }
         if($request->fungsi == 'Pelanggan (Internal)'){
         if (($total_percent3 + $request->peratus) > 100) {
@@ -662,7 +798,52 @@ class KPI extends Component
             if (($total_percent12 + $request->peratus) > 100) {
                 return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kecemerlangan Operasi which is 100 percent only');
             }
-        }        
+        }  
+        if($request->fungsi == 'Kewangan2'){
+        if (($total_percent13 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan3'){
+        if (($total_percent14 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan4'){
+        if (($total_percent15 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan5'){
+        if (($total_percent16 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan6'){
+        if (($total_percent17 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan7'){
+        if (($total_percent18 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan8'){
+        if (($total_percent19 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan9'){
+        if (($total_percent20 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
+        if($request->fungsi == 'Kewangan10'){
+        if (($total_percent21 + $request->peratus) > 100) {
+            return redirect()->back()->with('fail', 'Sorry, you have exceed the maximum of KPI for Kewangan which is 100 percent only');
+            }
+        }
 
         $validatedData = $request->validate([
 
@@ -1244,7 +1425,16 @@ class KPI extends Component
     public function add_kpi($date_id, $user_id, $year, $month) {
 
         $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan1 = KPI_::where('fungsi', '=', 'Kewangan1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan2 = KPI_::where('fungsi', '=', 'Kewangan2')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan3 = KPI_::where('fungsi', '=', 'Kewangan3')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan4 = KPI_::where('fungsi', '=', 'Kewangan4')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan5 = KPI_::where('fungsi', '=', 'Kewangan5')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan6 = KPI_::where('fungsi', '=', 'Kewangan6')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan7 = KPI_::where('fungsi', '=', 'Kewangan7')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan8 = KPI_::where('fungsi', '=', 'Kewangan8')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan9 = KPI_::where('fungsi', '=', 'Kewangan9')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan10 = KPI_::where('fungsi', '=', 'Kewangan10')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $pelangganII = KPI_::where('fungsi', '=', 'Pelanggan (External)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $kecemerlangan1 = KPI_::where('fungsi', '=', 'Kecemerlangan Operasi1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
@@ -1257,7 +1447,16 @@ class KPI extends Component
         $kolaborasi = KPI_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
 
         $kadskorcount = $kadskor->count();
-        $kewangancount = $kewangan->count();
+        $kewangan1count = $kewangan1->count();
+        $kewangan2count = $kewangan2->count();
+        $kewangan3count = $kewangan3->count();
+        $kewangan4count = $kewangan4->count();
+        $kewangan5count = $kewangan5->count();
+        $kewangan6count = $kewangan6->count();
+        $kewangan7count = $kewangan7->count();
+        $kewangan8count = $kewangan8->count();
+        $kewangan9count = $kewangan9->count();
+        $kewangan10count = $kewangan10->count();
         $pelangganIcount = $pelangganI->count();
         $pelangganIIcount = $pelangganII->count();
         $kecemerlangan1count = $kecemerlangan1->count();
@@ -1270,7 +1469,16 @@ class KPI extends Component
         $kolaborasicount = $kolaborasi->count();
 
         $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
-        $kewanganmaster = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan1master = KPIMaster_::where('fungsi', '=', 'Kewangan1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan2master = KPIMaster_::where('fungsi', '=', 'Kewangan2')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan3master = KPIMaster_::where('fungsi', '=', 'Kewangan3')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan4master = KPIMaster_::where('fungsi', '=', 'Kewangan4')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan5master = KPIMaster_::where('fungsi', '=', 'Kewangan5')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan6master = KPIMaster_::where('fungsi', '=', 'Kewangan6')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan7master = KPIMaster_::where('fungsi', '=', 'Kewangan7')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan8master = KPIMaster_::where('fungsi', '=', 'Kewangan8')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan9master = KPIMaster_::where('fungsi', '=', 'Kewangan9')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan10master = KPIMaster_::where('fungsi', '=', 'Kewangan10')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $pelangganImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (External)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $kecemerlangan1master = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
@@ -1284,7 +1492,16 @@ class KPI extends Component
 
         $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('weightage_master');
         $weightage_kadskor = $kadskor->sum('peratus');
-        $weightage_kewangan = $kewangan->sum('peratus');
+        $weightage_kewangan1 = $kewangan1->sum('peratus');
+        $weightage_kewangan2 = $kewangan2->sum('peratus');
+        $weightage_kewangan3 = $kewangan3->sum('peratus');
+        $weightage_kewangan4 = $kewangan4->sum('peratus');
+        $weightage_kewangan5 = $kewangan5->sum('peratus');
+        $weightage_kewangan6 = $kewangan6->sum('peratus');
+        $weightage_kewangan7 = $kewangan7->sum('peratus');
+        $weightage_kewangan8 = $kewangan8->sum('peratus');
+        $weightage_kewangan9 = $kewangan9->sum('peratus');
+        $weightage_kewangan10 = $kewangan10->sum('peratus');
         $weightage_pelangganI = $pelangganI->sum('peratus');
         $weightage_pelangganII = $pelangganII->sum('peratus');
         $weightage_kecemerlangan1 = $kecemerlangan1->sum('peratus');
@@ -1296,11 +1513,11 @@ class KPI extends Component
         $weightage_ncr = $ncr->sum('peratus');
         $weightage_kolaborasi = $kolaborasi->sum('peratus');
 
-        return view('livewire.KPI', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan1', 'kecemerlangan2', 'kecemerlangan3', 'kecemerlangan4', 'kecemerlangan5', 
-        'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangan1count', 'kecemerlangan2count', 'kecemerlangan3count', 'kecemerlangan4count', 'kecemerlangan5count', 
-        'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
+        return view('livewire.KPI', compact('kadskor', 'kewangan1', 'kewangan2', 'kewangan3', 'kewangan4', 'kewangan5', 'kewangan6', 'kewangan7', 'kewangan8', 'kewangan9', 'kewangan10', 'pelangganI', 'pelangganII', 'kecemerlangan1', 'kecemerlangan2', 'kecemerlangan3', 'kecemerlangan4', 'kecemerlangan5', 
+        'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangan1count', 'kewangan2count', 'kewangan3count', 'kewangan4count', 'kewangan5count', 'kewangan6count', 'kewangan7count', 'kewangan8count', 'kewangan9count', 'kewangan10count',  'pelangganIcount', 'pelangganIIcount', 'kecemerlangan1count', 'kecemerlangan2count', 'kecemerlangan3count', 'kecemerlangan4count', 'kecemerlangan5count', 
+        'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewangan1master', 'kewangan2master', 'kewangan3master', 'kewangan4master', 'kewangan5master', 'kewangan6master', 'kewangan7master', 'kewangan8master', 'kewangan9master', 'kewangan10master', 'pelangganImaster', 'pelangganIImaster', 
         'kecemerlangan1master', 'kecemerlangan2master', 'kecemerlangan3master', 'kecemerlangan4master', 'kecemerlangan5master', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id',
-        'weightage_kadskor', 'weightage_kewangan', 'weightage_pelangganI', 'weightage_pelangganII', 'weightage_kecemerlangan1', 'weightage_kecemerlangan2', 'weightage_kecemerlangan3', 'weightage_kecemerlangan4', 'weightage_kecemerlangan5',
+        'weightage_kadskor', 'weightage_kewangan1', 'weightage_kewangan2', 'weightage_kewangan3', 'weightage_kewangan4', 'weightage_kewangan5', 'weightage_kewangan6', 'weightage_kewangan7', 'weightage_kewangan8', 'weightage_kewangan9', 'weightage_kewangan10', 'weightage_pelangganI', 'weightage_pelangganII', 'weightage_kecemerlangan1', 'weightage_kecemerlangan2', 'weightage_kecemerlangan3', 'weightage_kecemerlangan4', 'weightage_kecemerlangan5',
         'weightage_training', 'weightage_ncr', 'weightage_kolaborasi'));
     }
 
@@ -1381,7 +1598,17 @@ class KPI extends Component
         // return view('livewire.KPI');
 
         $kadskor = KPI_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
-        $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        // $kewangan = KPI_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan1 = KPI_::where('fungsi', '=', 'Kewangan1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan2 = KPI_::where('fungsi', '=', 'Kewangan2')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan3 = KPI_::where('fungsi', '=', 'Kewangan3')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan4 = KPI_::where('fungsi', '=', 'Kewangan4')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan5 = KPI_::where('fungsi', '=', 'Kewangan5')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan6 = KPI_::where('fungsi', '=', 'Kewangan6')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan7 = KPI_::where('fungsi', '=', 'Kewangan7')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan8 = KPI_::where('fungsi', '=', 'Kewangan8')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan9 = KPI_::where('fungsi', '=', 'Kewangan9')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
+        $kewangan10 = KPI_::where('fungsi', '=', 'Kewangan10')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $pelangganI = KPI_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $pelangganII = KPI_::where('fungsi', '=', 'Pelanggan (External)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
         $kecemerlangan1 = KPI_::where('fungsi', '=', 'Kecemerlangan Operasi1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
@@ -1394,7 +1621,16 @@ class KPI extends Component
         $kolaborasi = KPI_::where('fungsi', '=', 'Kolaborasi')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('bukti','asc')->orderBy('created_at','asc')->get();
 
         $kadskorcount = $kadskor->count();
-        $kewangancount = $kewangan->count();
+        $kewangan1count = $kewangan1->count();
+        $kewangan2count = $kewangan2->count();
+        $kewangan3count = $kewangan3->count();
+        $kewangan4count = $kewangan4->count();
+        $kewangan5count = $kewangan5->count();
+        $kewangan6count = $kewangan6->count();
+        $kewangan7count = $kewangan7->count();
+        $kewangan8count = $kewangan8->count();
+        $kewangan9count = $kewangan9->count();
+        $kewangan10count = $kewangan10->count();
         $pelangganIcount = $pelangganI->count();
         $pelangganIIcount = $pelangganII->count();
         $kecemerlangan1count = $kecemerlangan1->count();
@@ -1407,7 +1643,17 @@ class KPI extends Component
         $kolaborasicount = $kolaborasi->count();
 
         $kadskormaster = KPIMaster_::where('fungsi', '=', 'Kad Skor Korporat')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
-        $kewanganmaster = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        // $kewanganmaster = KPIMaster_::where('fungsi', '=', 'Kewangan')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan1master = KPIMaster_::where('fungsi', '=', 'Kewangan1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan2master = KPIMaster_::where('fungsi', '=', 'Kewangan2')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan3master = KPIMaster_::where('fungsi', '=', 'Kewangan3')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan4master = KPIMaster_::where('fungsi', '=', 'Kewangan4')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan5master = KPIMaster_::where('fungsi', '=', 'Kewangan5')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan6master = KPIMaster_::where('fungsi', '=', 'Kewangan6')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan7master = KPIMaster_::where('fungsi', '=', 'Kewangan7')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan8master = KPIMaster_::where('fungsi', '=', 'Kewangan8')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan9master = KPIMaster_::where('fungsi', '=', 'Kewangan9')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
+        $kewangan10master = KPIMaster_::where('fungsi', '=', 'Kewangan10')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $pelangganImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (Internal)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $pelangganIImaster = KPIMaster_::where('fungsi', '=', 'Pelanggan (External)')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
         $kecemerlangan1master = KPIMaster_::where('fungsi', '=', 'Kecemerlangan Operasi1')->Where('user_id', '=', auth()->user()->id)->where('year', '=', $year)->where('month', '=', $month)->orderBy('created_at','desc')->get();
@@ -1421,7 +1667,16 @@ class KPI extends Component
 
         $weightage_master = KpiAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('weightage_master');
         $weightage_kadskor = $kadskor->sum('peratus');
-        $weightage_kewangan = $kewangan->sum('peratus');
+        $weightage_kewangan1 = $kewangan1->sum('peratus');
+        $weightage_kewangan2 = $kewangan2->sum('peratus');
+        $weightage_kewangan3 = $kewangan3->sum('peratus');
+        $weightage_kewangan4 = $kewangan4->sum('peratus');
+        $weightage_kewangan5 = $kewangan5->sum('peratus');
+        $weightage_kewangan6 = $kewangan6->sum('peratus');
+        $weightage_kewangan7 = $kewangan7->sum('peratus');
+        $weightage_kewangan8 = $kewangan8->sum('peratus');
+        $weightage_kewangan9 = $kewangan9->sum('peratus');
+        $weightage_kewangan10 = $kewangan10->sum('peratus');
         $weightage_pelangganI = $pelangganI->sum('peratus');
         $weightage_pelangganII = $pelangganII->sum('peratus');
         $weightage_kecemerlangan1 = $kecemerlangan1->sum('peratus');
@@ -1435,11 +1690,11 @@ class KPI extends Component
 
         $status = Date_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->value('status');
 
-        return view('livewire.KPI', compact('kadskor', 'kewangan', 'pelangganI', 'pelangganII', 'kecemerlangan1', 'kecemerlangan2', 'kecemerlangan3', 'kecemerlangan4', 'kecemerlangan5', 
-        'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangancount', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangan1count', 'kecemerlangan2count', 'kecemerlangan3count', 'kecemerlangan4count', 'kecemerlangan5count', 
-        'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewanganmaster', 'pelangganImaster', 'pelangganIImaster', 
+        return view('livewire.KPI', compact('kadskor', 'kewangan1', 'kewangan2', 'kewangan3', 'kewangan4', 'kewangan5', 'kewangan6', 'kewangan7', 'kewangan8', 'kewangan9', 'kewangan10', 'pelangganI', 'pelangganII', 'kecemerlangan1', 'kecemerlangan2', 'kecemerlangan3', 'kecemerlangan4', 'kecemerlangan5', 
+        'training', 'ncr', 'kolaborasi', 'kadskorcount', 'kewangan1count', 'kewangan2count', 'kewangan3count', 'kewangan4count', 'kewangan5count', 'kewangan6count', 'kewangan7count', 'kewangan8count', 'kewangan9count', 'kewangan10count', 'pelangganIcount', 'pelangganIIcount', 'kecemerlangan1count', 'kecemerlangan2count', 'kecemerlangan3count', 'kecemerlangan4count', 'kecemerlangan5count', 
+        'trainingcount', 'ncrcount', 'kolaborasicount', 'kadskormaster', 'kewangan1master', 'kewangan2master', 'kewangan3master', 'kewangan4master', 'kewangan5master', 'kewangan6master', 'kewangan7master', 'kewangan8master', 'kewangan9master', 'kewangan10master', 'pelangganImaster', 'pelangganIImaster', 
         'kecemerlangan1master', 'kecemerlangan2master', 'kecemerlangan3master', 'kecemerlangan4master', 'kecemerlangan5master', 'trainingmaster', 'ncrmaster', 'kolaborasimaster' , 'weightage_master', 'year', 'month', 'date_id', 'user_id',
-        'weightage_kadskor', 'weightage_kewangan', 'weightage_pelangganI', 'weightage_pelangganII', 'weightage_kecemerlangan1', 'weightage_kecemerlangan2', 'weightage_kecemerlangan3', 'weightage_kecemerlangan4', 'weightage_kecemerlangan5',
+        'weightage_kadskor', 'weightage_kewangan1', 'weightage_kewangan2', 'weightage_kewangan3', 'weightage_kewangan4', 'weightage_kewangan5', 'weightage_kewangan6', 'weightage_kewangan7', 'weightage_kewangan8', 'weightage_kewangan9', 'weightage_kewangan10', 'weightage_pelangganI', 'weightage_pelangganII', 'weightage_kecemerlangan1', 'weightage_kecemerlangan2', 'weightage_kecemerlangan3', 'weightage_kecemerlangan4', 'weightage_kecemerlangan5',
         'weightage_training', 'weightage_ncr', 'weightage_kolaborasi', 'status'));
     }
 }

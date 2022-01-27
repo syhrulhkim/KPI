@@ -77,7 +77,11 @@ input[type=file]::file-selector-button:hover {
                             @else
                             <option value="Kad Skor Korporat" >Kad Skor Korporat</option>
                             @endif
-                            <option value="Kewangan" >Kewangan</option>
+                            <option value="Kewangan1" >Kewangan (1)</option>
+                            <option value="Kewangan2" >Kewangan (2)</option>
+                            <option value="Kewangan3" >Kewangan (3)</option>
+                            <option value="Kewangan4" >Kewangan (4)</option>
+                            <option value="Kewangan5" >Kewangan (5)</option>
                             @if (Auth::user()->department == 'Human Resource (HR) & Administration' || Auth::user()->department == 'Operation')
                             <option value="Pelanggan (Internal)" >Pelanggan (Internal)</option>
                             @else
@@ -357,16 +361,16 @@ input[type=file]::file-selector-button:hover {
   </div>
   @endif
 
-  @if ($kewangancount == 0) {{--ADA--}}
+  @if ($kewangan1count == 0)
   @else
   <div class="row">
     <div class="col-12">
       <div class="card mt-4">
         <div class="card-header pb-0">
-          @if ($weightage_kewangan == 0 || $weightage_kewangan == NULL)
-          <h6>KEWANGAN <span style="color:red;">(Current weightage = 0)</span></h6>
+          @if ($weightage_kewangan1 == 0 || $weightage_kewangan1 == NULL)
+          <h6>KEWANGAN (1) <span style="color:red;">(Current weightage = 0)</span></h6>
           @else
-          <h6>KEWANGAN <span style="color:red;">(Current weightage = {{$weightage_kewangan}})</span></h6>
+          <h6>KEWANGAN (1) <span style="color:red;">(Current weightage = {{$weightage_kewangan1}})</span></h6>
           @endif
 
         </div>
@@ -387,7 +391,7 @@ input[type=file]::file-selector-button:hover {
                 </tr>
               </thead>
               <tbody>
-                @foreach ($kewangan as $key => $kewangans)
+                @foreach ($kewangan1 as $key => $kewangans)
                 <tr>
                   <td>    
                     <div class="d-flex px-3">
@@ -508,7 +512,1078 @@ input[type=file]::file-selector-button:hover {
                 @endforeach
               </tbody>
             </table>
-            @foreach ($kewanganmaster as $kewanganmasters)
+            @foreach ($kewangan1master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan2count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan2 == 0 || $weightage_kewangan2 == NULL)
+          <h6>KEWANGAN (2) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (2) <span style="color:red;">(Current weightage = {{$weightage_kewangan2}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan2 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan2master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan3count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan3 == 0 || $weightage_kewangan3 == NULL)
+          <h6>KEWANGAN (3) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (3) <span style="color:red;">(Current weightage = {{$weightage_kewangan3}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan3 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan3master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan4count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan4 == 0 || $weightage_kewangan4 == NULL)
+          <h6>KEWANGAN (4) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (4) <span style="color:red;">(Current weightage = {{$weightage_kewangan4}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan4 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan4master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan5count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan5 == 0 || $weightage_kewangan5 == NULL)
+          <h6>KEWANGAN (5) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (5) <span style="color:red;">(Current weightage = {{$weightage_kewangan5}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan5 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan5master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan6count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan6 == 0 || $weightage_kewangan6 == NULL)
+          <h6>KEWANGAN (6) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (6) <span style="color:red;">(Current weightage = {{$weightage_kewangan6}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan6 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan6master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan7count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan7 == 0 || $weightage_kewangan7 == NULL)
+          <h6>KEWANGAN (7) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (7) <span style="color:red;">(Current weightage = {{$weightage_kewangan7}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan7 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan7master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan8count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan8 == 0 || $weightage_kewangan8 == NULL)
+          <h6>KEWANGAN (8) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (8) <span style="color:red;">(Current weightage = {{$weightage_kewangan8}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan8 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan8master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan9count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan9 == 0 || $weightage_kewangan9 == NULL)
+          <h6>KEWANGAN (9) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (9) <span style="color:red;">(Current weightage = {{$weightage_kewangan9}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan9 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan9master as $kewanganmasters)
+            <div class="card-body pt-4 p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                  <div class="d-flex flex-column">
+                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                      @if ($kewanganmasters->link == '')
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      @else
+                      <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
+                      @endif
+                      </span></span>
+                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                  </div>
+                  <div class="ms-auto text-end">
+                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            @endforeach  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
+
+  @if ($kewangan10count == 0)
+  @else
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+        <div class="card-header pb-0">
+          @if ($weightage_kewangan10 == 0 || $weightage_kewangan10 == NULL)
+          <h6>KEWANGAN (10) <span style="color:red;">(Current weightage = 0)</span></h6>
+          @else
+          <h6>KEWANGAN (10) <span style="color:red;">(Current weightage = {{$weightage_kewangan10}})</span></h6>
+          @endif
+
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center justify-content-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($kewangan10 as $key => $kewangans)
+                <tr>
+                  <td>    
+                    <div class="d-flex px-3">
+                      <div class="my-auto">
+                        <h6 class="mb-0 text-sm" value="{{$key + 1}}">{{$key + 1}}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <pre class="text-sm font-weight-bold mb-0" value="{{ $kewangans -> bukti }}">{{ $kewangans -> bukti }}</pre>
+                  </td>
+                  <td>
+                    @if ($kewangans->bukti_path == '')
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    @else
+                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    @endif
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> peratus }}">{{ $kewangans -> peratus }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> ukuran }}">{{ $kewangans -> ukuran }}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                      <span class="me-2 text-xs font-weight-bold" value="{{ $kewangans -> pencapaian }}">{{ number_format( (integer)($kewangans->skor_KPI)) }}%</span>
+                      <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $kewangans->skor_KPI }}%;"></div>
+                          </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ $kewangans -> skor_KPI }}">{{ $kewangans -> skor_KPI }}</span>
+                  </td>
+                  <td>
+                    <span class="text-center text-sm font-weight-bold mb-0" value="{{ round($kewangans -> skor_sebenar,2) }} ">{{ round($kewangans -> skor_sebenar,2) }} %</span>
+                  </td>
+                  <td class="align-middle">
+                    <div class="col-lg-6 col-5 my-auto text-middle">
+                      <div class="dropdown float-lg-start pe-4">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><a href="{{ url('employee/edit/kpi/'.$kewangans->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="dropdown-item border-radius-md" role="button">Edit</a></li>
+                          <li><button type="button" wire:click="selectItem({{$kewangans->kpimasters->kpiall->id}} , {{$kewangans->kpimasters->id}} , {{$kewangans->id}})" class="dropdown-item border-radius-md data-delete" style="color: red;"  data-form="{{$kewangans->id}}">Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            @foreach ($kewangan10master as $kewanganmasters)
             <div class="card-body pt-4 p-3">
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
