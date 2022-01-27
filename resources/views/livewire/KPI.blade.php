@@ -84,15 +84,15 @@ input[type=file]::file-selector-button:hover {
                             @endif
                             <option value="Pelanggan (External)" >Pelanggan (External)</option>
 
-                            @if (Auth::user()->department == 'Operation')
+                            {{-- @if (Auth::user()->department == 'Operation') --}}
                             <option value="Kecemerlangan Operasi1" >Kecemerlangan Operasi (1)</option> 
                             <option value="Kecemerlangan Operasi2" >Kecemerlangan Operasi (2)</option> 
                             <option value="Kecemerlangan Operasi3" >Kecemerlangan Operasi (3)</option> 
                             <option value="Kecemerlangan Operasi4" >Kecemerlangan Operasi (4)</option> 
                             <option value="Kecemerlangan Operasi5" >Kecemerlangan Operasi (5)</option> 
-                            @else
+                            {{-- @else
                             <option value="Kecemerlangan Operasi1" >Kecemerlangan Operasi</option> 
-                            @endif
+                            @endif --}}
                             
                             <option value="Manusia & Proses (Training)" >Manusia & Proses (Training)</option> 
                             <option value="Manusia & Proses (NCROFI)" >Manusia & Proses (NCROFI)</option> 
