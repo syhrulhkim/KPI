@@ -48,7 +48,54 @@
                       <div class="col-md-6 mb-md-0">
                         <p>Position</p>  
                         <div class="card card-plain border-radius-lg align-items-center">
-                            <input class="form-control form-control-lg" type="text" name="position" value="{{ Auth::user()->position }}">
+                            {{-- <input class="form-control form-control-lg" type="text" name="position" value="{{ Auth::user()->position }}"> --}}
+                          <select class="form-select form-select-lg" id="position" name="position">
+                            <option selected class="bg-secondary text-white" value="{{ Auth::user()->position }}" >{{ Auth::user()->position }}</option>
+                            @if (Auth::user()->position != "CEO (TM2)")
+                            <option value="CEO (TM2)">CEO (TM2)</option>
+                            @endif
+                            @if (Auth::user()->position != "Director (TM1)")
+                            <option value="Director (TM1)">Director (TM1)</option>
+                            @endif
+                            @if (Auth::user()->position != "Senior Leadership Team (UM1)")
+                            <option value="Senior Leadership Team (UM1)">Senior Leadership Team (UM1)</option>
+                            @endif
+                            @if (Auth::user()->position != "Senior Manager (M3)")
+                            <option value="Senior Manager (M3)">Senior Manager (M3)</option>
+                            @endif
+                            @if (Auth::user()->position != "Manager (M2)")
+                            <option value="Manager (M2)">Manager (M2)</option>
+                            @endif
+                            @if (Auth::user()->position != "Assistant Manager (M1)")
+                            <option value="Assistant Manager (M1)">Assistant Manager (M1)</option>
+                            @endif
+                            @if (Auth::user()->position != "Senior Executive (E3)")
+                            <option value="Senior Executive (E3)">Senior Executive (E3)</option>
+                            @endif
+                            @if (Auth::user()->position != "Executive (E2)")
+                            <option value="Executive (E2)">Executive (E2)</option>
+                            @endif
+                            @if (Auth::user()->position != "Junior Executive (E1)")
+                            <option value="Junior Executive (E1)">Junior Executive (E1)</option>
+                            @endif
+                            @if (Auth::user()->position != "Senior Non-Executive (NE2)")
+                            <option value="Senior Non-Executive (NE2)">Senior Non-Executive (NE2)</option>
+                            @endif
+                            @if (Auth::user()->position != "Junior Non-Executive (NE1)")
+                            <option value="Junior Non-Executive (NE1)">Junior Non-Executive (NE1)</option>
+                            @endif
+                            {{-- <option value="CEO (TM2)">CEO (TM2)</option>
+                            <option value="Director (TM1)">Director (TM1)</option>
+                            <option value="Senior Leadership Team (UM1)">Senior Leadership Team (UM1)</option>
+                            <option value="Senior Manager (M3)">Senior Manager (M3)</option>
+                            <option value="Manager (M2)">Manager (M2)</option>
+                            <option value="Assistant Manager (M1)">Assistant Manager (M1)</option>
+                            <option value="Senior Executive (E3)">Senior Executive (E3)</option>
+                            <option value="Executive (E2)">Executive (E2)</option>
+                            <option value="Junior Executive (E1)">Junior Executive (E1)</option>
+                            <option value="Senior Non-Executive (NE2)">Senior Non-Executive (NE2)</option>
+                            <option value="Junior Non-Executive (NE1)">Junior Non-Executive (NE1)</option> --}}
+                          </select>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -87,6 +134,11 @@
                                 <option value="Operation">Operation</option>
                                 @else
                                 @endif
+
+                                @if (Auth::user()->department != "High Network Client (HNC)")
+                                <option value="High Network Client (HNC)">High Network Client (HNC)</option>
+                                @else
+                                @endif
     
                                 @if (Auth::user()->department != "Research & Development (R&D)")
                                 <option value="Research & Development (R&D)">Research & Development (R&D)</option>
@@ -100,12 +152,124 @@
                   </div>
                   <div class="card-body p-3">
                     <div class="row">
-                      <div class="col-md-6 mb-md-0">
+                      {{-- <div class="col-md-6 mb-md-0">
                         <p>Unit Staff</p>  
                         <div class="card card-plain border-radius-lg align-items-center">
                             <input class="form-control form-control-lg" type="text" name="unit" value="{{ Auth::user()->unit }}">
                         </div>
+                      </div> --}}
+
+                      <div class="col-md-6">
+                        <div class="row">
+                          <p>Unit Staff</p> 
+                          <div class="card card-plain border-radius-lg align-items-center">
+                            <select class="form-select form-select-lg" id="unit" name="unit">
+                                <option selected class="bg-secondary text-white" value="{{ Auth::user()->unit }}" >{{ Auth::user()->unit }}</option>
+                      
+                                <option class="text-center" value="">-- Others --</option>
+                                @if (Auth::user()->unit != "Head Department")
+                                <option value="Head Department">Head Department</option>
+                                @endif
+
+                                <option class="text-center" value="">-- CEO Office --</option>
+                                @if (Auth::user()->unit != "Personal Assistant")
+                                <option value="Personal Assistant">Personal Assistant</option>
+                                @endif
+                                @if (Auth::user()->unit != "Document Controller")
+                                <option value="Document Controller">Document Controller</option>
+                                @endif
+                                @if (Auth::user()->unit != "Driver & Logistic")
+                                <option value="Driver & Logistic">Driver & Logistic</option>
+                                @endif
+
+                                <option class="text-center" value="">-- Human Resource (HR) & Administration --</option>
+                                @if (Auth::user()->unit != "Payroll and C&B")
+                                <option value="Payroll and C&B">Payroll and C&B</option>
+                                @endif
+                                @if (Auth::user()->unit != "Training & Development")
+                                <option value="Training & Development">Training & Development</option>
+                                @endif
+                                @if (Auth::user()->unit != "Admin Procurement")
+                                <option value="Admin Procurement">Admin Procurement</option>
+                                @endif
+                                @if (Auth::user()->unit != "Recruitment")
+                                <option value="Recruitment">Recruitment</option>
+                                @endif
+
+                                <option class="text-center" value="">-- Finance & Admin (F&A) --</option>
+                                @if (Auth::user()->unit != "Account Receivable")
+                                <option value="Account Receivable">Account Receivable</option>
+                                @endif
+                                @if (Auth::user()->unit != "Account Payable")
+                                <option value="Account Payable">Account Payable</option>
+                                @endif
+
+                                <option class="text-center" value="">-- Sales --</option>
+                                @if (Auth::user()->unit != "Customer Success Relation")
+                                <option value="Customer Success Relation">Customer Success Relation</option>
+                                @endif
+                                @if (Auth::user()->unit != "Basic Program")
+                                <option value="Basic Program">Basic Program</option>
+                                @endif
+
+                                <option class="text-center" value="">-- Marketing --</option>
+                                @if (Auth::user()->unit != "Creative Director")
+                                <option value="Creative Director">Creative Director</option>
+                                @endif
+                                @if (Auth::user()->unit != "Media Director")
+                                <option value="Media Director">Media Director</option>
+                                @endif
+                                @if (Auth::user()->unit != "Social Media")
+                                <option value="Social Media">Social Media</option>
+                                @endif
+                                @if (Auth::user()->unit != "Digital Marketer")
+                                <option value="Digital Marketer">Digital Marketer</option>
+                                @endif
+
+                                <option class="text-center" value="">-- Operation --</option>
+                                @if (Auth::user()->unit != "Admin")
+                                <option value="Admin">Admin</option>
+                                @endif
+                                @if (Auth::user()->unit != "Event Management")
+                                <option value="Event Management">Event Management</option>
+                                @endif
+                                @if (Auth::user()->unit != "Inventory & Logistic")
+                                <option value="Inventory & Logistic">Inventory & Logistic</option>
+                                @endif
+                                @if (Auth::user()->unit != "Procurement")
+                                <option value="Procurement">Procurement</option>
+                                @endif
+                                @if (Auth::user()->unit != "General Worker")
+                                <option value="General Worker">General Worker</option>
+                                @endif
+
+                                <option class="text-center" value="">-- High Network Client (HNC) --</option>
+                                @if (Auth::user()->unit != "Sales Assistant (Ultimate)")
+                                <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
+                                @endif
+                                @if (Auth::user()->unit != "Ultimate Coach Assistant")
+                                <option value="Ultimate Coach Assistant">Ultimate Coach Assistant</option>
+                                @endif
+                                @if (Auth::user()->unit != "Sales Assistant (Ultimate)")
+                                <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
+                                @endif
+
+                                <option class="text-center" value="">-- Research & Development (R&D) --</option>
+                                @if (Auth::user()->unit != "Web Designer")
+                                <option value="Web Designer">Web Designer</option>
+                                @endif
+                                @if (Auth::user()->unit != "Web Developer")
+                                <option value="Web Developer">Web Developer</option>
+                                @endif
+                                @if (Auth::user()->unit != "Data Analyst")
+                                <option value="Data Analyst">Data Analyst</option>
+                                @endif
+
+                            </select>
+                          </div>
+                        </div>  
                       </div>
+
                       <div class="col-md-6">
                         <div class="row">
                           <p>Email</p> 

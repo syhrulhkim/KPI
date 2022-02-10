@@ -18,6 +18,7 @@ use App\Http\Livewire\KecekapanManager;
 use App\Http\Livewire\Nilai;
 use App\Http\Livewire\NilaiManager;
 use App\Http\Livewire\ManagerKPI;
+use App\Http\Livewire\Memo;
 use App\Http\Livewire\LaravelExamples\ViewProfile;
 use App\Http\Livewire\LaravelExamples\EditProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
@@ -107,6 +108,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/firstpage', Firstpage::class)->name('firstpage');
     Route::post('/employee/profile/update/{id}',[EditProfile::class, 'profile_update']);
     Route::get('/add-date', Date::class)->name('add-date');
+    Route::get('/memo', Memo::class)->name('memo');
     Route::get('/add-date/{user_id}', [Date::class, 'create_date']);
     Route::post('/date/save',[Date::class, 'date_save'])->name('date_save');
     Route::get('/laravel-view-profile', ViewProfile::class)->name('view-profile');
