@@ -47,7 +47,7 @@
           </div>
           <div class="card-body p-3">
             <p class="text-sm">
-              Hi, I’m {{ Auth::user()->name }}, My ID No is {{ Auth::user()->nostaff }} and i'm {{ Auth::user()->unit }} at {{ Auth::user()->department }}.
+              Hi, I’m {{ Auth::user()->name }}, My ID No is {{ Auth::user()->nostaff }} and i'm in {{ Auth::user()->unit }} unit at {{ Auth::user()->department }} department.
             </p>
             <hr class="horizontal gray-light my-4">
             <ul class="list-group">

@@ -115,10 +115,11 @@
                                             <option class="text-center" value="">-- Choose Position --</option>
                                             <option value="CEO (TM2)">CEO (TM2)</option>
                                             <option value="Director (TM1)">Director (TM1)</option>
-                                            <option value="COO (UM4)">COO (UM4)</option>
+                                            {{-- <option value="COO (UM4)">COO (UM4)</option>
                                             <option value="Senior General Manager (UM3)">Senior General Manager (UM3)</option>
                                             <option value="General Manager (UM2)">General Manager (UM2)</option>
-                                            <option value="Deputy General Manager (UM1)">Deputy General Manager (UM1)</option>
+                                            <option value="Deputy General Manager (UM1)">Deputy General Manager (UM1)</option> --}}
+                                            <option value="Senior Leadership Team (UM1)">Senior Leadership Team (UM1)</option>
                                             <option value="Senior Manager (M3)">Senior Manager (M3)</option>
                                             <option value="Manager (M2)">Manager (M2)</option>
                                             <option value="Assistant Manager (M1)">Assistant Manager (M1)</option>
@@ -141,6 +142,7 @@
                                             <option value="Sales">Sales</option>
                                             <option value="Marketing">Marketing</option>
                                             <option value="Operation">Operation</option>
+                                            <option value="High Network Client (HNC)">High Network Client (HNC)</option>
                                             <option value="Research & Development (R&D)">Research & Development (R&D)</option>
                                         </select>
                                 </div>
@@ -151,6 +153,9 @@
                                 <div class="@error('unit') border border-danger rounded-3 @enderror">
                                     <select wire:model="unit" name="unit" id="unit" class="form-control custom-select" data-placeholder="Choose Unit" tabindex="1">
                                         
+                                        {{-- Head Department --}}
+                                        <option class="text-center" value="">-- Others --</option>
+                                        <option value="Head Department">Head Department</option>
                                         {{-- CEO Office --}}
                                         <option class="text-center" value="">-- CEO Office --</option>
                                         <option value="Personal Assistant">Personal Assistant</option>
@@ -168,7 +173,7 @@
                                         <option value="Account Payable">Account Payable</option>
                                         {{-- Sales --}}
                                         <option class="text-center" value="">-- Sales --</option>
-                                        <option value="High Net Worth Client">High Net Worth Client</option>
+                                        {{-- <option value="High Net Worth Client">High Net Worth Client</option> --}}
                                         <option value="Customer Success Relation">Customer Success Relation</option>
                                         <option value="Basic Program">Basic Program</option>
                                         {{-- Marketing --}}
@@ -184,6 +189,11 @@
                                         <option value="Inventory & Logistic">Inventory & Logistic</option>
                                         <option value="Procurement">Procurement</option>
                                         <option value="General Worker">General Worker</option>
+                                        {{-- HNC --}}
+                                        <option class="text-center" value="">-- High Network Client (HNC) --</option>
+                                        <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
+                                        <option value="Ultimate Coach Assistant">Ultimate Coach Assistant</option>
+                                        <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
                                         {{-- R&D --}}
                                         <option class="text-center" value="">-- Research & Development (R&D) --</option>
                                         <option value="Web Designer">Web Designer</option>
