@@ -212,7 +212,7 @@ app
 │   │   │   └── SignUp.php
 │   │   ├── Billing.php
 │   │   ├── Dashboard.php
-│   │   ├── LaravelExamples
+│   │   ├── UserManagement
 │   │   │   ├── UserManagement.php
 │   │   │   └── UserProfile.php
 │   │   ├── Profile.php

@@ -7,31 +7,31 @@ use App\Models\User;
 
 class Login extends Component
 {
-    public $email = '';
+    public $ic = '';
     public $password = '';
     public $remember_me = false;
 
     protected $rules = [
-        'email' => 'required|email:rfc,dns',
+        'ic' => 'required|min:12',
         'password' => 'required',
     ];
 
     public function mount() {
         if(auth()->user()){
-            redirect('/dashboard');
+            redirect('/firstpage');
         }
-        $this->fill(['email' => 'admin@softui.com', 'password' => 'secret']);
+        $this->fill(['ic' => '', 'password' => '']);
     }
 
     public function login() {
         $credentials = $this->validate();
-        if(auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
-            $user = User::where(["email" => $this->email])->first();
+        if(auth()->attempt(['ic' => $this->ic, 'password' => $this->password], $this->remember_me)) {
+            $user = User::where(["ic" => $this->ic])->first();
             auth()->login($user, $this->remember_me);
-            return redirect()->intended('/firstpage');        
+            return redirect()->intended('/firstpage'); 
         }
         else{
-            return $this->addError('email', trans('auth.failed')); 
+            return $this->addError('ic', trans('auth.failed'));
         }
     }
 

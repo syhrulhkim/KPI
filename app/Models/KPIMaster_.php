@@ -9,7 +9,6 @@ class KPIMaster_ extends Model
 {
     use HasFactory;
     protected $table = 'kpi_master';
-    // public $incrementing = false;
     protected $fillable = [
         'fungsi',
         'percent_master',

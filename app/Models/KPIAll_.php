@@ -9,7 +9,6 @@ class KPIAll_ extends Model
 {
     use HasFactory;
     protected $table = 'kpi_all';
-    // public $incrementing = false;
     protected $fillable = [
         'grade_master',
         'weightage_master',

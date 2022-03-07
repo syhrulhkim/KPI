@@ -4243,7 +4243,8 @@ fieldset:disabled .btn {
 
 .dropdown-item {
   display: block;
-  width: 100%;
+  max-width: 500px;
+  width: 150px;
   padding: 0.3rem 1rem;
   clear: both;
   font-weight: 400;

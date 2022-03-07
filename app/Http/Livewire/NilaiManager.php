@@ -15,10 +15,6 @@ use Illuminate\Support\Carbon;
 
 class NilaiManager extends Component
 {
-    // public function kecekapan() {
-    //     $kecekapan = Kecekapan_::latest()->get();
-    //     return view('livewire.create-kecekapan', compact('kecekapan') );
-    // }
 
     public function nilai_save(Request $request){
         $validatedData = $request->validate([
@@ -28,13 +24,15 @@ class NilaiManager extends Component
         'skor_penyelia'=> $request->skor_penyelia,
         'skor_sebenar' => $request->skor_sebenar,
         ]);
+        
         return redirect()->back()->with('message', 'Skor penyelia has been successfully inserted');
     } 
     
     public function nilai_edit($id_user, $id, $date_id, $user_id, $year, $month) {
         $nilai = Nilai_::find($id);
         $user = User::find($id_user);
-        return view('livewire.form_nilai_manager' , compact('nilai', 'user', 'date_id', 'user_id', 'year', 'month'));
+        
+        return view('livewire.nilai-manager.edit' , compact('nilai', 'user', 'date_id', 'user_id', 'year', 'month'));
     }
 
     public function nilai_update(Request $request,$id_user, $id, $date_id, $user_id, $year, $month) {
@@ -45,7 +43,6 @@ class NilaiManager extends Component
             'skor_penyelia'=> $request->skor_penyelia,
             'skor_sebenar' => $request->skor_sebenar,
         ]);
-        // dd($id_user);
         if (KPIAll_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->count() == 1) {
             $kpiall = KPIAll_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->get();
             $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
@@ -91,9 +88,7 @@ class NilaiManager extends Component
                 'user_id'=> $id_user,
             ]);
         }
-        // return redirect()->route('kecekapan-manager')->with('message', 'Skor penyelia Updated Successfully');
-        // return redirect()->back()->with('message', 'Skor penyelia Updated Successfully');
-        // return redirect()->route('create-nilai')->with('message', 'Skor penyelia Updated Successfully');
+
         return redirect('manager-hr/view/kpi/'.$id_user.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'Skor penyelia Updated Successfully');
     }
 
@@ -102,6 +97,7 @@ class NilaiManager extends Component
         $nilai = Nilai_::where('user_id', '=', auth()->user()->id)->orderBy('nilai_teras')->get();
         $userdepartment = auth()->user()->department;
         $users = Nilai::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
-        return view('livewire.nilai', compact('nilai', 'users'));
+
+        return view('livewire.nilai.all', compact('nilai', 'users'));
     }
 }

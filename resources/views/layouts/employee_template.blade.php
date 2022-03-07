@@ -25,35 +25,8 @@
         <div class="sidebar-header ">
             <h4>KPI Management</h4>
         </div>
-        <ul class="list-unstyled components">
-            {{-- <h5 class="m-3">Menu </h5>
-            <li>
-                <a href="{{ route('employee_profile')}}"><span class="fa fa-address-card mr-3"></span>Profile</a> 
-            </li>
-            <li>
-                <a href="{{ route('employee_utama')}}"><span class="fa fa-home mr-3"></span>Utama</a>
-            </li>
-            <li>
-                <a href="{{ route('employee_master')}}"><span class="fa fa-briefcase mr-3"></span>Master</a>
-            </li>
-            <li>
-                <a href="{{ route('employee_penilaian')}}"><span class="fa fa-id-badge mr-3"></span>Penilaian</a>
-            </li> --}}                       
+        <ul class="list-unstyled components">                   
         </ul>
-        
-        {{-- <ul class="list-unstyled">
-            <li>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                    <span class="fas fa-sign-out-alt mr-3"></span>Log Keluar
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                     @csrf
-                 </form>
-                
-            </li>
-        </ul> --}}
     </nav>
     
     <!-- Page Content  -->
@@ -68,25 +41,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" ></script> --}}
     <script src="{{asset('js/main.js')}}"></script>
-        
-    {{-- <script>
-        if(Session::has('message'))
-        var type ="{{ Session::get('alert-type','info') }}"
-        switch(type){
-            case 'info':
-                toastr.info( " {{ Session::get('message') }} ");
-            break;
-            case 'success':
-                toastr.success( " {{ Session::get('message') }} ");
-            break;
-            case 'warning':
-                toastr.warning( " {{ Session::get('message') }} ");
-            break;
-            case 'error':
-                toastr.error( " {{ Session::get('message') }} ");
-            break;
-        }
-    </script> --}}
        
 </body>
 </html>

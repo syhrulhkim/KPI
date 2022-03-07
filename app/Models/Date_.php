@@ -19,7 +19,4 @@ class Date_ extends Model
         'manager_id',
         'hr_id',
     ];
-    //     public function kpimasters() {
-    //     return $this->hasOne('App\Models\KPIMaster_', 'id', 'kpimaster_id');
-    // }
 }
