@@ -17,6 +17,7 @@ class Memo extends Migration
             $table->id();
             $table->string('title');
             $table->string('memo_path');
+            $table->string('description');
             $table->string('user_id');
             $table->timestamps();
         });

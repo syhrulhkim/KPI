@@ -3,6 +3,7 @@
 namespace App\View\Components\Layouts;
 
 use Illuminate\View\Component;
+use App\Models\User;
 
 class App extends Component
 {
@@ -23,6 +24,8 @@ class App extends Component
      */
     public function render()
     {
-        return view('layouts.app');
+        $user = User::find(auth()->user()->id);
+        dd($user);
+        return view('layouts.app')->with(compact('user'));
     }
 }
