@@ -80,21 +80,21 @@
                             <div class="card card-blog card-plain">
                                 <div class="position-relative">
                                     <a class="d-block shadow-xl border-radius-xl" style="background-color:#808080">
-                                        <img src="../assets/img/rashid.png" alt="img-blur-shadow"
+                                        <img src="../assets/img/redza.png" alt="img-blur-shadow"
                                         class="img-fluid shadow border-radius-xl" style="background-color:#808080">
                                     </a>
                                 </div>
                                 <div class="card-body px-1 pb-0">
                                     <a href="javascript:;">
-                                        <h5>
-                                            Chief Marketing Officer (CMO)                                            
+                                        <h5> 
+                                            Chief Operating Officer (COO)                                         
                                         </h5>
                                     </a>
                                     <p class="mb-4 text-sm">
-                                        Mohammad Rashid Bin Mahmad
+                                        Muhammad Nazhif Redza Muhammad Nazri 
                                         <br>
-                                        rashid@momentuminternet.com
-                                        60177641246
+                                        redza@momentuminternet.com  
+                                        60182139984 
                                     </p>
                                 </div>
                             </div>
@@ -103,21 +103,21 @@
                             <div class="card card-blog card-plain">
                                 <div class="position-relative">
                                     <a class="d-block shadow-xl border-radius-xl" style="background-color:#808080">
-                                        <img src="../assets/img/redza.png" alt="img-blur-shadow"
+                                        <img src="../assets/img/rashid.png" alt="img-blur-shadow"
                                         class="img-fluid shadow border-radius-xl" style="background-color:#808080">
                                     </a>
                                 </div>
                                 <div class="card-body px-1 pb-0">
                                     <a href="javascript:;">
                                         <h5>
-                                            Chief Operating Officer (COO)
+                                            Chief Marketing Officer (CMO)      
                                         </h5>
                                     </a>
-                                    <p class="mb-4 text-sm">
-                                        Muhammad Nazhif Redza Muhammad Nazri  
+                                    <p class="mb-4 text-sm"> 
+                                        Mohammad Rashid Bin Mahmad
                                         <br>  
-                                        redza@momentuminternet.com  
-                                        60182139984                                  
+                                        rashid@momentuminternet.com
+                                        60177641246                                 
                                     </p>
                                 </div>
                             </div>
