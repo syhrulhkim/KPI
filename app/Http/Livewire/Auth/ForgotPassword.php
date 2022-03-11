@@ -12,7 +12,7 @@ class ForgotPassword extends Component
 {
     use Notifiable;
 
-    public $email = '';
+    public $ic = '';
 
     public $showSuccesNotification = false; 
     public $showFailureNotification = false;
@@ -20,7 +20,7 @@ class ForgotPassword extends Component
     public $showDemoNotification = false;
 
     protected $rules = [
-        'email' => 'required|email',
+        'ic' => 'required|min:12',
     ];  
 
     public function mount() {
@@ -30,7 +30,7 @@ class ForgotPassword extends Component
     }
 
     public function routeNotificationForMail() {
-        return $this->email;
+        return $this->ic;
     }
 
     public function recoverPassword() { 
@@ -38,7 +38,7 @@ class ForgotPassword extends Component
             $this->showDemoNotification = true;
         } else {
             $this->validate();
-            $user = User::where('email', $this->email)->first();
+            $user = User::where('ic', $this->ic)->first();
             if($user){
                 $this->notify(new ResetPassword($user->id));
                 $this->showSuccesNotification = true;

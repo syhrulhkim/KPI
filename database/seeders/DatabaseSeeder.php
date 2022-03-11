@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@softui.com',
+            'ic' => '970726016893',
             'password' => Hash::make('secret')
         ]);
     }

@@ -42,6 +42,28 @@ class Firstpage extends Component
         return redirect()->back()->with('message', 'Your message has been submitted!');
     }
 
+    public function index()
+    {
+        $url = "http://www.lionpubpattaya.com/index.php/tv-guide";
+        $html = file_get_html ( $url );
+        
+        $games = [];
+        $i = 0;
+        foreach ( $html->find ( 'h2' ) as $element ) {
+            $games[$i]['gameTitle'] = trim( str_replace("\r\n","", $element->plaintext ) );  
+            $games[$i]['gameList'] = explode("\r\n", $element->next_sibling()->plaintext);
+            $i++;           
+            flush();
+        }
+        
+        unset($games[15]);
+        unset($games[16]);
+        
+        $games = array_filter($games);
+        
+        return $games;
+    }
+
     public function render()
     {
         $announcement = Announcement_::all();
