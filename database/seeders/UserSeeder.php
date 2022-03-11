@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'name' => 'Saiful',
             'email' => 'saiful77@moderator.com',
+            'ic' => '990726016893',
             'nostaff' => 'A0001',
             'position' => 'Executive (E2)',
             'department' => 'Human Resource (HR) & Administration',
