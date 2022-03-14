@@ -110,7 +110,7 @@
               </div>
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Skor Akhir</p>
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Score Akhir</p>
                   @foreach ($kpialls as $key => $kpiall)  
                   <h5 class="font-weight-bolder mb-4">
                     {{ round($kpiall -> total_score_all,2) }}%

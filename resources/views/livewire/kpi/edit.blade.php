@@ -90,14 +90,14 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
-                    <label class="font-weight-bold" >Fungsi</label>
+                    <label class="font-weight-bold" >Function</label>
                       <input type="text" class="form-control card card-body border border-radius-lg d-flex align-items-center flex-row" id="fungsi" name="fungsi" value="{{ $kpi->fungsi }}" readonly>
                     </select>
                     @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                   <div class="col-md-4" id="buktiupload">
                     <div class="form-group">
-                        <label class="control-label" style="font-weight:500">Bukti Upload (Optional)</label>
+                        <label class="control-label" style="font-weight:500">Upload Evidence (Optional)</label>
                         <div
                             x-data="{ isUploading: false, progress: 0 }"
                             x-on:livewire-upload-start="isUploading = true"
@@ -117,7 +117,7 @@
                 
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
-                    <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
+                    <label class="font-weight-bold" >Evidence</label>
                       <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="bukti" id="bukti" cols="60" rows="10">{{ $kpi->bukti }}</textarea>
                       @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
@@ -129,11 +129,11 @@
                   <thead class="thead-dark">
                     <tr>
                       <th rowspan="2">(%)</th>
-                      <th rowspan="2">Ukuran</th>
+                      <th rowspan="2">Measurement</th>
                       <th colspan="3">KPI Targets</th>
-                      <th rowspan="2">Pencapaian</th>
-                      <th rowspan="2">Skor KPI</th>
-                      <th rowspan="2">Skor Sebenar</th>
+                      <th rowspan="2">Achievement</th>
+                      <th rowspan="2">KPI Score</th>
+                      <th rowspan="2">Actual Score</th>
                     </tr>
                     <tr class="table table-bordered">
                       <th scope="col" >Threshold</th>

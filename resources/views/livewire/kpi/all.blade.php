@@ -54,9 +54,9 @@ input[type=file]::file-selector-button:hover {
               <div class="row">
                 <div class="col-6 d-flex align-items-center">
                   @if ($weightage_master == 0 || $weightage_master == NULL) 
-                  <h6>KAD SKOR - KPI <span style="color:red;">(Current total weightage = 0)</span></h6>
+                  <h6>SCORE CARD - KPI <span style="color:red;">(Current total weightage = 0)</span></h6>
                   @else
-                  <h6>KAD SKOR - KPI <span style="color:red;">(Current total weightage = {{$weightage_master}})</span></h6>
+                  <h6>SCORE CARD - KPI <span style="color:red;">(Current total weightage = {{$weightage_master}})</span></h6>
                   @endif
                 </div>
               </div>
@@ -68,7 +68,7 @@ input[type=file]::file-selector-button:hover {
                 
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('fungsi') border border-danger rounded-3 @enderror">
-                    <label class="font-weight-bold" >Fungsi</label>
+                    <label class="font-weight-bold" >Function</label>
                         <td style="word-break: break-all;" class="border-dark">
                           <select class="form-select card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" id="fungsi" name="fungsi">
                             <option selected value="">-- Please Choose --</option>
@@ -100,7 +100,7 @@ input[type=file]::file-selector-button:hover {
                     @error('fungsi') <div class="text-danger">{{ $message }}</div> @enderror
                     <div class="col-md-4 mt-2" id="buktiupload">
                       <div class="form-group">
-                          <label class="control-label" style="font-weight:500">Bukti Upload (Optional)</label>
+                          <label class="control-label" style="font-weight:500">Upload Evidence (Optional)</label>
                           <div
                               x-data="{ isUploading: false, progress: 0 }"
                               x-on:livewire-upload-start="isUploading = true"
@@ -120,8 +120,8 @@ input[type=file]::file-selector-button:hover {
                 </div>
                 <div class="col-md-6">
                   <div class="mb-4" class="@error('bukti') border border-danger rounded-3 @enderror">
-                    <label class="font-weight-bold" >Tajuk Metrik/Bukti</label>
-                      <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="bukti" id="bukti" cols="60" rows="10" placeholder="Type your bukti here..."></textarea>
+                    <label class="font-weight-bold" >Evidence</label>
+                      <textarea class="form-control card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" name="bukti" id="bukti" cols="60" rows="10" placeholder="Enter your evidence description here..."></textarea>
                       @error('bukti') <div class="text-danger">{{ $message }}</div> @enderror
                   </div>
                 </div>
@@ -131,11 +131,11 @@ input[type=file]::file-selector-button:hover {
                   <thead class="thead-dark">
                     <tr>
                       <th rowspan="2">(%)</th>
-                      <th rowspan="2">Ukuran</th>
+                      <th rowspan="2">Measurement</th>
                       <th colspan="3">KPI Targets</th>
-                      <th rowspan="2">Pencapaian</th>
-                      <th rowspan="2">Skor KPI</th>
-                      <th rowspan="2">Skor Sebenar</th>
+                      <th rowspan="2">Achievement</th>
+                      <th rowspan="2">KPI Score</th>
+                      <th rowspan="2">Actual Score</th>
                     </tr>
                     <tr class="table table-bordered">
                       <th scope="col" >Threshold</th>
@@ -228,18 +228,18 @@ input[type=file]::file-selector-button:hover {
           @endforeach
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -309,15 +309,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kadskormasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kadskormasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kadskormasters->link == '')
                       <a href=" {{ $kadskormasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kadskormasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kadskormasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kadskormasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kadskormasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster1/'.$kadskormasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -348,18 +348,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -429,15 +429,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -468,18 +468,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -549,15 +549,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -588,18 +588,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -669,15 +669,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -708,18 +708,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -789,15 +789,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -828,18 +828,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -909,15 +909,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -948,18 +948,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1029,15 +1029,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1068,18 +1068,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1149,15 +1149,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1188,18 +1188,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1269,15 +1269,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1308,18 +1308,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1389,15 +1389,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1428,18 +1428,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1509,15 +1509,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kewanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kewanganmasters->link == '')
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kewanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kewanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1548,19 +1548,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1630,15 +1629,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $pelangganImasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $pelangganImasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($pelangganImasters->link == '')
                       <a href=" {{ $pelangganImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $pelangganImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $pelangganImasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $pelangganImasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $pelangganImasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster3/'.$pelangganImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1669,19 +1668,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1751,15 +1749,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $pelangganIImasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $pelangganIImasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($pelangganIImasters->link == '')
                       <a href=" {{ $pelangganIImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $pelangganIImasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $pelangganIImasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $pelangganIImasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $pelangganIImasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster4/'.$pelangganIImasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1790,19 +1788,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1872,15 +1869,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kecemerlanganmasters->link == '')
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kecemerlanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -1911,19 +1908,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -1993,15 +1989,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kecemerlanganmasters->link == '')
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kecemerlanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -2032,19 +2028,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -2114,15 +2109,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kecemerlanganmasters->link == '')
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kecemerlanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -2153,19 +2148,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -2235,15 +2229,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kecemerlanganmasters->link == '')
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kecemerlanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -2274,19 +2268,18 @@ input[type=file]::file-selector-button:hover {
 
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -2356,15 +2349,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kecemerlanganmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kecemerlanganmasters->link == '')
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kecemerlanganmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kecemerlanganmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -2394,19 +2387,18 @@ input[type=file]::file-selector-button:hover {
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -2476,15 +2468,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $trainingmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $trainingmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($trainingmasters->link == '')
                       <a href=" {{ $trainingmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $trainingmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $trainingmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $trainingmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $trainingmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster6/'.$trainingmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -2514,19 +2506,18 @@ input[type=file]::file-selector-button:hover {
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -2596,15 +2587,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $ncrmasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $ncrmasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($ncrmasters->link == '')
                       <a href=" {{ $ncrmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $ncrmasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $ncrmasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $ncrmasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $ncrmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster7/'.$ncrmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
@@ -2634,19 +2625,18 @@ input[type=file]::file-selector-button:hover {
           @endif
         </div>
         <div class="card-body px-0 pt-0 pb-2">
-          <div class="p-0">
-            @csrf
+          <div class="p-0 table-responsive">
             <table class="table align-items-center justify-content-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Metrik / Bukti</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">File Bukti</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Evidence File</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">%</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ukuran</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">KPI Target</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor KPI</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Skor Sebenar</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">KPI Score</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Actual Score</th>
                   <th></th>
                 </tr>
               </thead>
@@ -2716,15 +2706,15 @@ input[type=file]::file-selector-button:hover {
               <ul class="list-group">
                 <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                   <div class="d-flex flex-column">
-                    <span class="mb-2 text-xs">Percentage KPI Master :<span class="text-dark font-weight-bold ms-sm-1">{{ $kolaborasimasters -> percent_master }}</span></span>
-                    <span class="mb-2 text-xs">Link Bukti :<span class="text-dark ms-sm-1 font-weight-bold">
+                    <span class="mb-2 text-xs">KPI Master Percentage :<span class="text-dark font-weight-bold ms-sm-1">{{ $kolaborasimasters -> percent_master }}</span></span>
+                    <span class="mb-2 text-xs">Evidence Link :<span class="text-dark ms-sm-1 font-weight-bold">
                       @if ($kolaborasimasters->link == '')
                       <a href=" {{ $kolaborasimasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
                       <a href=" {{ $kolaborasimasters -> link }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">{{ $kolaborasimasters -> link }}</a>
                       @endif
                       </span></span>
-                    <span class="text-xs">Objektif KPI :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kolaborasimasters -> objektif }}</span></span>
+                    <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kolaborasimasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a href="{{ url('employee/edit/kpimaster8/'.$kolaborasimasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
