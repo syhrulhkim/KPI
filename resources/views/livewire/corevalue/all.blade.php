@@ -4,7 +4,7 @@
         <div class="col-12 col-xl-6">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0" style="font-size:40px;">LEADERSHIP</h6>
+                    <h6 class="mb-0" style="font-size:40px;">LEADERSHIP<img src="assets/img/leadership.png" height="200px" width="180px" alt="..."></h6>
                 </div>
                 <div class="card-body p-3">
                     <ul class="list-group">
@@ -24,7 +24,7 @@
                             </div>
                         </li>
                     </ul>
-                    <ul class="list-group">
+                <ul class="list-group">
                         <li class="list-group-item border-0 px-0">
                             <div class="form-check form-switch ps-0">
                                 <span class="fa fa-star checked"></span> We Inspire Others For A Better Tomorrow
@@ -37,7 +37,7 @@
         <div class="col-12 col-xl-6">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0" style="font-size:40px;">GROWTH</h6>
+                    <h6 class="mb-0" style="font-size:40px;">GROWTH<img src="assets/img/growth.png" height="200px" width="180px" alt="..."></h6>
                 </div>
                 <div class="card-body p-3">
                     <ul class="list-group">
@@ -74,7 +74,7 @@
         <div class="col-12 col-xl-6">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0" style="font-size:40px;">RESULT ORIENTED</h6>
+                    <h6 class="mb-0" style="font-size:40px;">RESULT ORIENTED<img src="assets/img/result-oriented.png" height="200px" width="180px" alt="..."></h6>
                 </div>
                 <div class="card-body p-3">
                     <ul class="list-group">
@@ -107,7 +107,7 @@
         <div class="col-12 col-xl-6">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0" style="font-size:40px;">CONTRIBUTION</h6>
+                    <h6 class="mb-0" style="font-size:40px;">CONTRIBUTION<img src="assets/img/contribution.png" height="200px" width="180px" alt="..."></h6>
                 </div>
                 <div class="card-body p-3">
                     <ul class="list-group">
@@ -144,7 +144,7 @@
         <div class="col-12 col-xl-6">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0" style="font-size:40px;">SPIRITUAL</h6>
+                    <h6 class="mb-0" style="font-size:40px;">SPIRITUAL<img src="assets/img/spiritual.png" height="200px" width="180px" alt="..."></h6>
                 </div>
                 <div class="card-body p-3">
                     <ul class="list-group">
@@ -177,7 +177,7 @@
         <div class="col-12 col-xl-6">
             <div class="card h-100">
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0" style="font-size:40px;">FAMILY</h6>
+                    <h6 class="mb-0" style="font-size:40px;">FAMILY<img src="assets/img/family.png" height="200px" width="180px" alt="..."></h6>
                 </div>
                 <div class="card-body p-3">
                     <ul class="list-group">
