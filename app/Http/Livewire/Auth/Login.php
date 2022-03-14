@@ -18,7 +18,7 @@ class Login extends Component
 
     public function mount() {
         if(auth()->user()){
-            redirect('/firstpage');
+            redirect('/homepage');
         }
         $this->fill(['ic' => '', 'password' => '']);
     }
@@ -28,7 +28,7 @@ class Login extends Component
         if(auth()->attempt(['ic' => $this->ic, 'password' => $this->password], $this->remember_me)) {
             $user = User::where(["ic" => $this->ic])->first();
             auth()->login($user, $this->remember_me);
-            return redirect()->intended('/firstpage'); 
+            return redirect()->intended('/homepage'); 
         }
         else{
             return $this->addError('ic', trans('auth.failed'));

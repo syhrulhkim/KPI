@@ -32,7 +32,7 @@ class SignUp extends Component
 
     public function mount() {
         if(auth()->user()){
-            redirect('/firstpage');
+            redirect('/homepage');
         }
     }
 
@@ -52,7 +52,7 @@ class SignUp extends Component
 
         auth()->login($user);
 
-        return redirect('/firstpage');
+        return redirect('/homepage');
     }
 
     public function render()

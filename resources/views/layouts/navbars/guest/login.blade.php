@@ -18,7 +18,7 @@
                 @if (auth()->user())
                     <li class="nav-item">
                         <a class="nav-link text-dark d-flex align-items-center me-2 active" aria-current="page"
-                            href="{{ route('firstpage') }}">
+                            href="{{ route('homepage') }}">
                             <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                             Dashboard
                         </a>

@@ -9,7 +9,7 @@ use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\DashboardHR;
 use App\Http\Livewire\DashboardManager;
-use App\Http\Livewire\Firstpage;
+use App\Http\Livewire\Homepage;
 use App\Http\Livewire\KPI;
 use App\Http\Livewire\Date;
 use App\Http\Livewire\Displaykpi;
@@ -124,14 +124,14 @@ Route::post('/pro/create/complaint', [Complaint::class, 'create']);
 Route::get('/pro/edit/complaint/{id}', [Complaint::class, 'edit']);
 Route::post('/pro/update/complaint/{id}', [Complaint::class, 'update']);
 
-//ANNOUNCEMENT FOR FIRSTPAGE PAGE
-Route::post('/hr/announcementuphr/{id_announcement}', [Firstpage::class, 'announcementuphr']);
+//ANNOUNCEMENT FOR HOME PAGE
+Route::post('/hr/announcementuphr/{id_announcement}', [Homepage::class, 'announcementuphr']);
 
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard-hr', DashboardHR::class)->name('dashboard-hr');
     Route::get('/dashboard-manager', DashboardManager::class)->name('dashboard-manager');
-    Route::get('/firstpage', Firstpage::class)->name('firstpage');
+    Route::get('/homepage', Homepage::class)->name('homepage');
     Route::post('/employee/profile/update/{id}',[EditProfile::class, 'profile_update']);
     Route::get('/add-date', Date::class)->name('add-date');
     Route::get('/memo', Memo::class)->name('memo');
