@@ -50,17 +50,17 @@
                 <thead class="thead-dark">
                   <tr>
                     <th rowspan="2">(%)</th>
-                    <th rowspan="2">Ukuran</th>
+                    <th rowspan="2">Measurement</th>
                     @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
-                    <th rowspan="2">Skor Pekerja</th>
+                    <th rowspan="2">Employee Score</th>
                     @else
                     @endif
 
                     @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
-                    <th rowspan="2">Skor Penyelia</th>
+                    <th rowspan="2">Score Penyelia</th>
                     @else
                     @endif
-                    <th rowspan="2">Skor Sebenar</th>
+                    <th rowspan="2">Actual Score</th>
                   </tr>
                 </thead>
                 <tbody>

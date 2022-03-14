@@ -61,9 +61,9 @@
         <div class="card mb-4">
           <div class="card-header pb-0">
             @if ($weightage_master == NULL) 
-            <h6>KAD SKOR - KPI <span style="color:red;">(Current total weightage = 0)</span></h6>
+            <h6>SCORE CARD - KPI <span style="color:red;">(Current total weightage = 0)</span></h6>
             @else
-            <h6>KAD SKOR - KPI <span style="color:red;">(Current total weightage = {{$weightage_master}})</span></h6>
+            <h6>SCORE CARD - KPI <span style="color:red;">(Current total weightage = {{$weightage_master}})</span></h6>
             @endif
           </div>
           <div class="card-body px-0 pt-0 pb-2">
@@ -72,15 +72,15 @@
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fungsi</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">Objektif KPI</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">Metrik / Bukti</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">KPI Objective</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 px-2">Evidence</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Link File</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Link Bukti</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Evidence Link</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">%</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Ukuran</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Measurement</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-5">KPI Target</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Skor KPI</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Skor Sebenar</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">KPI Score</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center ps-2 px-2">Actual Score</th>
                   </tr>
                 </thead>
 {{--------------------------------------------------- KADSKOR FUNGSI --------------------------------------------------}}
@@ -1560,7 +1560,7 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
-            <h6>KAD SKOR - Kecekapan Teras <span style="color:red;">(Current total weightage = {{$kecekapan_master}})</span></h6>
+            <h6>SCORE CARD - Kecekapan Teras <span style="color:red;">(Current total weightage = {{$kecekapan_master}})</span></h6>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="p-0">
@@ -1570,10 +1570,10 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kecekapan Teras</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor<br>Pekerja</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor<br>Penyelia</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor<br>Sebenar</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Pekerja</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Penyelia</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Sebenar</th>
                           @if (Auth::user()->role == "manager")
                           <th></th>
                           @else 
@@ -1722,7 +1722,7 @@
             <div class="col-12">
               <div class="card mb-4">
                 <div class="card-header pb-0">
-                  <h6>KAD SKOR - Nilai Teras <span style="color:red;">(Current total weightage = {{$nilai_master}})</span></h6>
+                  <h6>SCORE CARD - Nilai Teras <span style="color:red;">(Current total weightage = {{$nilai_master}})</span></h6>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="p-0">
@@ -1732,10 +1732,10 @@
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nilai Teras</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                           @if (Auth::user()->role == "manager")
                           <th></th>
                           @else 
@@ -1890,7 +1890,7 @@
                                 @foreach ($kpiall as $key => $kpialls)
                                 <span class="text-dark font-weight-bold ms-sm-2">{{ $kpialls -> total_score_master }}%</span></span>
                                 @endforeach
-                                <span class="mb-2 text-xs">Skor Akhir: 
+                                <span class="mb-2 text-xs">Score Akhir: 
                                 @foreach ($kpiall as $key => $kpialls) 
                                 <span class="text-dark ms-sm-2 font-weight-bold">{{ round($kpialls -> total_score_all,2) }}%</span></span>
                                 @endforeach
@@ -1909,7 +1909,7 @@
                               @else
                                 <h6 class="mb-3 text-sm">Jumlah Markah</h6>
                                 <span class="mb-2 text-xs">KPI : <br>
-                                <span class="mb-2 text-xs">Skor Akhir: <br>
+                                <span class="mb-2 text-xs">Score Akhir: <br>
                                 <span class="mb-2 text-xs">Kecekapan Teras: <br>
                                 <span class="mb-2 text-xs">Nilai Teras: <br>
                                 <span class="text-xs">Grade: <br>

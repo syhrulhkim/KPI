@@ -64,9 +64,9 @@
                     <thead class="thead-dark">
                       <tr>
                         <th rowspan="2">(%)</th>
-                        <th rowspan="2">Ukuran</th>
-                        <th rowspan="2">Skor Pekerja</th>
-                        <th rowspan="2">Skor Sebenar</th>
+                        <th rowspan="2">Measurement</th>
+                        <th rowspan="2">Employee Score</th>
+                        <th rowspan="2">Actual Score</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -119,10 +119,10 @@
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ukuran</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Pekerja</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Penyelia</th>
-                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Skor Sebenar</th>
+                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
+                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
+                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                              <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                               <th></th>
                             </tr>
                           </thead>
