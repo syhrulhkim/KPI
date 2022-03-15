@@ -1568,12 +1568,12 @@
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kecekapan Teras</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Pekerja</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Penyelia</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Sebenar</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee<br>Score</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager<br>Score</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual<br>Score</th>
                           @if (Auth::user()->role == "manager")
                           <th></th>
                           @else 
@@ -1730,11 +1730,11 @@
                       <thead>
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nilai Teras</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager Score</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                           @if (Auth::user()->role == "manager")
                           <th></th>
