@@ -1,6 +1,173 @@
 {{--------------------------------------------------- NILAI (EMPLOYEE) --------------------------------------------------}}
 <div class="container-fluid py-4">
   <div class="row">
+
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card ">
+            <div class="card-header pb-0">
+              <h6>List Nilai Teras (For Reference Only)</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @php($i = 1)
+    
+                      <tr>
+                        <td>    
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="">1</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="Kepimpinan">Kepimpinan</p>
+                        </td>
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="">
+                            1. Kami adalah pemimpin yang bertanggungjawab.
+                            <br>
+                            2. Kami memberikan contoh yang baik.
+                            <br>
+                            3. Kami melaksanakan setiap apa yang diperkatakan.
+                            <br>
+                            4. Kami menjadi inspirasi untuk berubah lebih baik.</span>
+                        </td>
+                      </tr>
+    
+                      <tr>
+                        <td>    
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="">2</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="Perkembangan">Perkembangan</p>
+                        </td>
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="">
+                            1. Kami ambil peduli dengan peningkatan hidup sendiri.
+                            <br>
+                            2. Kami sentiasa menambah dan meningkatkan ilmu pengetahuan.
+                            <br>
+                            3. Kami memupuk sikap ingin sentiasa berjaya.
+                            <br>
+                            4. Kami sentiasa memperbaiki dan memajukan diri di setiap saat.</span>
+                        </td>
+                      </tr>
+    
+                    <tr>
+                      <td> 
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="mb-0 text-sm" value="">3</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0" value="Keputusan">Keputusan</p>
+                      </td>
+                      <td class="text-xs font-weight-bold mb-0">
+                        <span class="text-secondary text-xs font-weight-bold" value="">
+                          1. Kami membantu menggilap potensi orang lain.
+                          <br>
+                          2. Kami memastikan pelanggan mencapai keputusan cemerlang.
+                          <br>
+                          3. Kami komited dengan hasil usaha yang dilakukan.
+                          <br>
+                          4. Kami berusaha untuk memberikan yang terbaik.</span>
+                      </td>
+                      </tr>
+    
+                      <tr>
+                        <td> 
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="">4</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="Sumbangan">Sumbangan</p>
+                        </td>
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="">
+                            1. Kami menghulurkan bantuan dengan sepenuh semangat dan jiwa kami.
+                            <br>
+                            2. Kami membantu mengatasi kelemahan dan membina kekuatan pelanggan.
+                            <br>
+                            3. Kami komited untuk memberi manfaat dan menyebarkan kebaikan.
+                            <br>
+                            4. Kami bertanggungjawab dengan orang sekeliling dan persekitaran.</span>
+                        </td>
+                      </tr>
+    
+                      <tr>
+                        <td> 
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="">5</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="Rohani">Rohani</p>
+                        </td>
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="">
+                            1. Kami adalah hamba Allah.
+                            <br>
+                            2. Kami membantu orang untuk mendapat kehidupan yang lebih baik.
+                            <br>
+                            3. Kami bangkit berjaya dengan memajukan orang lain.
+                            <br>
+                            4. Kami sentiasa beriman dan percaya dengan Qada’ dan Qadar.</span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td> 
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <p class="mb-0 text-sm" value="">6</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0" value="Keluarga">Keluarga</p>
+                        </td>
+                        <td class="text-xs font-weight-bold mb-0">
+                          <span class="text-secondary text-xs font-weight-bold" value="">
+                            1. Kami sangat menyayangi keluarga kami.
+                            <br>
+                            2. Kami berusaha untuk berikan yang terbaik kepada keluarga kami.
+                            <br>
+                            3. Kami tidak akan mengabaikan keluarga kami.
+                            <br>
+                            4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
+                        </td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="col-12">
       @if (session('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -67,7 +234,7 @@
                           @endif
 
                           @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
-                          <th rowspan="2">Score Penyelia</th>
+                          <th rowspan="2">Manager Score</th>
                           @else
                           @endif
 
@@ -121,9 +288,6 @@
           <div class="row">
             <div class="col-12">
               <div class="card mb-4">
-                <div class="card-header pb-0">
-                  <h6>Performance Information</h6>
-                </div>
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="p-0">
                     <table class="table align-items-center mb-0">
@@ -131,11 +295,11 @@
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nilai Teras</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th> --}}
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager Score</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                           <th></th>
                         </tr>
@@ -155,7 +319,7 @@
                               <p class="text-xs font-weight-bold mb-0" value="{{ $nilais -> nilai_teras }}">{{ $nilais -> nilai_teras }}</p>
                             </td>
 
-                            @if ($nilais -> nilai_teras == "Kepimpinan")
+                            {{-- @if ($nilais -> nilai_teras == "Kepimpinan")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">
                                 1. Kami adalah pemimpin yang bertanggungjawab.
@@ -237,7 +401,7 @@
                                 4. Kami percaya kebahagiaan keluarga adalah kebahagiaan kami.</span>
                             </td>
                             @else
-                            @endif
+                            @endif --}}
 
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ '20%' }}">{{ '20%' }}</span>
@@ -297,11 +461,11 @@
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nilai Teras</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager Score</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                           <th></th>
                         </tr>
@@ -447,7 +611,6 @@
         @endif 
   </div>
 </div>  
-</div>
 
   @push('scripts')
     

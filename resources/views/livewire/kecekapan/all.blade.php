@@ -6,6 +6,150 @@
 
 <div class="container-fluid py-4">
   <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header pb-0">
+          <h6>List Kecekapan Teras (For Reference Only)</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                @php($i = 1)
+
+                  <tr>
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="mb-0 text-sm" value="">1</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="Kepimpinan Organisasi">Kepimpinan Organisasi</p>
+                    </td>
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
+                        <br>
+                        Pemimpin yang bertindak selaras dengan strategi organisasi
+                        <br>
+                        Pengurus yang dapat mengembangkan dan memperkasakan pekerja bawahannya
+                        <br>
+                        Budaya organisasi yang mencerminkan nilainya
+                        <br>
+                        Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>    
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="mb-0 text-sm" value="">2</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="Keupayaan Inovatif">Keupayaan Inovatif</p>
+                    </td>
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berupaya memberi idea dan memberi penyelesaian untuk menyelesaikan masalah
+                        <br>
+                        Amalan kerja yang dikemas kini lebih sesuai dengan jangkaan masa kini
+                        <br>
+                        Penerimaan untuk organisasi, dan semua bahagiannya, perlu berubah dan terus meningkat
+                        <br>
+                        Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                    </td>
+                  </tr>
+
+                <tr>
+                  <td> 
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <p class="mb-0 text-sm" value="">3</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0" value="Pengurusan Pelanggan">Pengurusan Pelanggan</p>
+                  </td>
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="">Amalan organisasi yang lebih sesuai dengan keperluan pelanggan moden
+                        <br>
+                        Pekerja yang memahami dan bertindak mengikut kehendak pelanggan tepat pada masanya
+                        <br>
+                        Penciptaan produk dan perkhidmatan masa depan yang lebih mencerminkan keperluan pelanggan
+                        <br>
+                        Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td> 
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="mb-0 text-sm" value="">4</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="Pengurusan Pemegang Berkepentingan">Pengurusan Pemegang Berkepentingan</p>
+                    </td>
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang lebih empati dengan pihak berkepentingan mereka
+                        <br>
+                        Pembinaan hubungan positif dengan pihak berkepentingan
+                        <br>
+                        Pembentukan perkongsian strategik yang membantu mencapai objektif organisasi
+                        <br>
+                        Pengurus yang mendorong pekerja bawahan mereka membina rangkaian profesional mereka sendiri
+                        <br>
+                        Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td> 
+                      <div class="d-flex px-2 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <p class="mb-0 text-sm" value="">5</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" value="Ketangkasan Dalam Organisasi">Ketangkasan Dalam Organisasi</p>
+                    </td>
+                    <td class="text-xs font-weight-bold mb-0">
+                      <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang berpengetahuan dan serba boleh
+                        <br>
+                        Penghargaan dan penerapan budaya bimbingan dalam organisasi
+                        <br>
+                        Amalan organisasi yang boleh menyesuaikan diri dengan masalah di pasaran
+                        <br>
+                        Organisasi yang menekankan dan mendorong pembelajaran dan perkembangan berterusan
+                        <br>
+                        Pemimpin yang bertindak selaras dengan strategi organisasi</span>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid py-4">
+  <div class="row">
     <div class="col-12">
       @if (session('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -71,7 +215,7 @@
                     @endif
 
                     @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin") || (Auth::user()->role == "hr"))
-                    <th rowspan="2">Score Penyelia</th>
+                    <th rowspan="2">Manager Score</th>
                     @else
                     @endif
                     <th rowspan="2">Actual Score</th>
@@ -127,9 +271,6 @@
           <div class="row">
             <div class="col-md-12">
               <div class="card ">
-                <div class="card-header pb-0">
-                  <h6>Performance Information</h6>
-                </div>
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="p-0">
                     <table class="table align-items-center mb-0">
@@ -137,11 +278,11 @@
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th> --}}
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager Score</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                           <th></th>
                         </tr>
@@ -161,7 +302,7 @@
                               <p class="text-xs font-weight-bold mb-0" value="{{ $kecekapans -> kecekapan_teras }}">{{ $kecekapans -> kecekapan_teras }}</p>
                             </td>
 
-                            @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
+                            {{-- @if ($kecekapans -> kecekapan_teras == "Kepimpinan Organisasi")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
                                 <br>
@@ -230,7 +371,7 @@
                                 Pemimpin yang bertindak selaras dengan strategi organisasi</span>
                             </td>
                             @else
-                            @endif
+                            @endif --}}
 
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ '20%' }}">{{ '20%' }}</span>
@@ -288,11 +429,11 @@
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager Score</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                           <th></th>
                         </tr>
@@ -425,7 +566,8 @@
         @endif 
       </div>
   </div>
-</div>
+</div> 
+
   @push('scripts')
     
   {{-- START SECTION - SCRIPT FOR DELETE BUTTON  --}}

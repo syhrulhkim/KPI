@@ -1550,12 +1550,12 @@
                 <thead>
                   <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kecekapan Teras</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Pekerja</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Penyelia</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score<br>Sebenar</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee<br>Score</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager<br>Score</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual<br>Score</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1693,11 +1693,11 @@
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nilai Teras</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jangkaan Hasil</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Score Penyelia</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manager Score</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actual Score</th>
                 </tr>
               </thead>
@@ -1910,6 +1910,31 @@
   </div>  
 </div>
 </body>
+<br>
+<div class="col-12">    
+  <div class="row">
+<div class="col-6">
+  <div class="card">
+    <div class="card-body pt-4 p-3">
+      <ul class="list-group">
+        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+          <div class="d-flex flex-column">
+              <h6 class="mb-3 text-sm">Grade (Reference Only)</h6>
+              <span class="mb-2 text-xs">Platinum : <span class="text-dark font-weight-bold ms-sm-2">100%-80%</span></span>
+              <span class="mb-2 text-xs">High Gold: <span class="text-dark font-weight-bold ms-sm-2">75%-79.9%</span></span>
+              <span class="mb-2 text-xs">Mid Gold: <span class="text-dark font-weight-bold ms-sm-2">70%-74.9%</span></span>
+              <span class="mb-2 text-xs">Low Gold: <span class="text-dark font-weight-bold ms-sm-2">65%-69.9%</span></span>
+              <span class="mb-2 text-xs">High Silver: <span class="text-dark font-weight-bold ms-sm-2">60%-64.9%</span></span>
+              <span class="mb-2 text-xs">Low Silver: <span class="text-dark font-weight-bold ms-sm-2">50%-59.9%</span></span>
+              <span class="text-xs">Bronze: <span class="text-dark font-weight-bold ms-sm-2">0%-49.9%</span></span> 
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</div>
   
   <!-- Master Pencapaian JS -->
   <script src="{{asset('assets/js/master.js')}}"></script>

@@ -66,7 +66,7 @@
                     @endif
 
                     @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin"))
-                    <th rowspan="2">Score Penyelia</th>
+                    <th rowspan="2">Manager Score</th>
                     @else
                     @endif
                     <th rowspan="2">Actual Score</th>
