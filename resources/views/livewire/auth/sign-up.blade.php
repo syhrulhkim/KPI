@@ -131,7 +131,11 @@
                                         <option class="text-center" value="">-- High Network Client (HNC) --</option>
                                         <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
                                         <option value="Ultimate Coach Assistant">Ultimate Coach Assistant</option>
-                                        <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
+                                        <option value="Platinum Executive">Platinum Executive</option>
+                                        <option value="Sales Assistant (Platinum)">Sales Assistant (Platinum)</option>
+                                        <option value="Graphic Designer">Graphic Designer</option>
+                                        <option value="Content Writer">Content Writer</option>
+                                        <option value="Social Media Executive">Social Media Executive</option>
                                         {{-- R&D --}}
                                         <option class="text-center" value="">-- Research & Development (R&D) --</option>
                                         <option value="Web Designer">Web Designer</option>

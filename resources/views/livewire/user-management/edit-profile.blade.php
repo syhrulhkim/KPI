@@ -225,8 +225,20 @@
                                 @if (Auth::user()->unit != "Ultimate Coach Assistant")
                                 <option value="Ultimate Coach Assistant">Ultimate Coach Assistant</option>
                                 @endif
-                                @if (Auth::user()->unit != "Sales Assistant (Ultimate)")
-                                <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
+                                @if (Auth::user()->unit != "Platinum Executive")
+                                <option value="Platinum Executive">Platinum Executive</option>
+                                @endif
+                                @if (Auth::user()->unit != "Sales Assistant (Platinum)")
+                                <option value="Sales Assistant (Platinum)">Sales Assistant (Platinum)</option>
+                                @endif
+                                @if (Auth::user()->unit != "Graphic Designer")
+                                <option value="Graphic Designer">Graphic Designer</option>
+                                @endif
+                                @if (Auth::user()->unit != "Content Writer")
+                                <option value="Content Writer">Content Writer</option>
+                                @endif
+                                @if (Auth::user()->unit != "Social Media Executive")
+                                <option value="Social Media Executive">Social Media Executive</option>
                                 @endif
 
                                 <option class="text-center" value="">-- Research & Development (R&D) --</option>
