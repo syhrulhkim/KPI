@@ -97,8 +97,8 @@
                                 @else
                                 @endif
     
-                                @if (Auth::user()->department != "Finance & Admin (F&A)")
-                                <option value="Finance & Admin (F&A)">Finance & Admin (F&A)</option>
+                                @if (Auth::user()->department != "Account & Finance (A&F)")
+                                <option value="Account & Finance (A&F)">Account & Finance (A&F)</option>
                                 @else
                                 @endif
     
@@ -174,7 +174,7 @@
                                 <option value="Recruitment">Recruitment</option>
                                 @endif
 
-                                <option class="text-center" value="">-- Finance & Admin (F&A) --</option>
+                                <option class="text-center" value="">-- Account & Finance (A&F) --</option>
                                 @if (Auth::user()->unit != "Account Receivable")
                                 <option value="Account Receivable">Account Receivable</option>
                                 @endif

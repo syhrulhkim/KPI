@@ -108,7 +108,7 @@
                                         <option value="Admin Procurement">Admin Procurement</option>
                                         <option value="Recruitment">Recruitment</option>
                                         {{-- A&F --}}
-                                        <option class="text-center" value="">-- Finance & Admin (F&A) --</option>
+                                        <option class="text-center" value="">-- Account & Finance (A&F) --</option>
                                         <option value="Account Receivable">Account Receivable</option>
                                         <option value="Account Payable">Account Payable</option>
                                         {{-- Sales --}}

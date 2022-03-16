@@ -52,7 +52,7 @@
                                             <select class="form-select form-select-lg" id="department" name="department">
                                                 <option value="CEO Office">CEO Office</option>
                                                 <option value="Human Resource (HR) & Administration">Human Resource (HR) & Administration</option>
-                                                <option value="Finance & Admin (F&A)">Finance & Admin (F&A)</option>
+                                                <option value="Account & Finance (A&F)">Account & Finance (A&F)</option>
                                                 <option value="Sales">Sales</option>
                                                 <option value="Marketing">Marketing</option>
                                                 <option value="Operation">Operation</option>
@@ -85,7 +85,7 @@
                                         <br>
                                           <input type="checkbox" id="departmentview" name="departmentview[]" value="CEO Office"><label for="departmentview">CEO Office</label><br>
                                           <input type="checkbox" id="departmentview" name="departmentview[]" value="Human Resource (HR) & Administration"><label for="departmentview">Human Resource (HR) & Administration</label><br>
-                                          <input type="checkbox" id="departmentview" name="departmentview[]" value="Finance & Admin (F&A)"><label for="departmentview">Finance & Admin (F&A)</label><br>
+                                          <input type="checkbox" id="departmentview" name="departmentview[]" value="Account & Finance (A&F)"><label for="departmentview">Account & Finance (A&F)</label><br>
                                           <input type="checkbox" id="departmentview" name="departmentview[]" value="Sales"><label for="departmentview">Sales</label><br>
                                           <input type="checkbox" id="departmentview" name="departmentview[]" value="Marketing"><label for="departmentview">Marketing</label><br>
                                           <input type="checkbox" id="departmentview" name="departmentview[]" value="Operation"><label for="departmentview">Operation</label><br>
@@ -219,7 +219,7 @@
                               </td>
                               <td class="text-xs font-weight-bold mb-0">{{date('j F Y', strtotime($sops->updated_at))}} </td>
                               <td class="align-middle text-center">
-                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px">View</a>
                               </td>
                               @if (auth()->user()->role == 'admin'|| auth()->user()->role == 'dc')
                               <td class="align-middle">
@@ -270,7 +270,7 @@
                               </td>
                               <td class="text-xs font-weight-bold mb-0">{{date('j F Y', strtotime($sops->updated_at))}} </td>
                               <td class="align-middle text-center">
-                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px">View</a>
                               </td>
                               @if (auth()->user()->role == 'admin'|| auth()->user()->role == 'dc')
                               <td class="align-middle">
@@ -321,7 +321,7 @@
                               </td>
                               <td class="text-xs font-weight-bold mb-0">{{date('j F Y', strtotime($sops->updated_at))}} </td>
                               <td class="align-middle text-center">
-                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px">View</a>
                               </td>
                               @if (auth()->user()->role == 'admin'|| auth()->user()->role == 'dc')
                               <td class="align-middle">
@@ -372,7 +372,7 @@
                               </td>
                               <td>{{date('j F Y', strtotime($sops->updated_at))}} </td>
                               <td class="align-middle text-center">
-                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                                <a href=" {{ $sops->sop_path }}" style="color:blue;text-decoration:underline;font-size:13.5px">View</a>
                               </td>
                               @if (auth()->user()->role == 'admin'|| auth()->user()->role == 'dc')
                               <td class="align-middle">
@@ -426,7 +426,7 @@
             })
           </script>
           @endpush
-    
+          <script src="{{asset('assets/js/privacy.js')}}"></script>
         </body>
     </div>
     </div>
