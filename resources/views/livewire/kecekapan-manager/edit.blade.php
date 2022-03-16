@@ -74,7 +74,7 @@
                     </td>
 
                     <td style="word-break: break-all;" class="border-dark" >
-                      <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}" onkeyup="masterClac();" min="0" >
+                      <input type="text" pattern="[1-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" value="{{ $kecekapan->skor_penyelia }}" onkeyup="masterClac();" min="0" >
                     </td>
 
 

@@ -145,6 +145,9 @@
                                 @if (Auth::user()->unit != "Head Department")
                                 <option value="Head Department">Head Department</option>
                                 @endif
+                                @if (Auth::user()->unit != "Senior Leadership Team")
+                                <option value="Senior Leadership Team">Senior Leadership Team</option>
+                                @endif
 
                                 <option class="text-center" value="">-- CEO Office --</option>
                                 @if (Auth::user()->unit != "Personal Assistant")
@@ -180,11 +183,11 @@
                                 @endif
 
                                 <option class="text-center" value="">-- Sales --</option>
-                                @if (Auth::user()->unit != "Customer Success Relation")
-                                <option value="Customer Success Relation">Customer Success Relation</option>
+                                @if (Auth::user()->unit != "Customer Support & Closing")
+                                <option value="Customer Support & Closing">Customer Support & Closing</option>
                                 @endif
-                                @if (Auth::user()->unit != "Basic Program")
-                                <option value="Basic Program">Basic Program</option>
+                                @if (Auth::user()->unit != "Program")
+                                <option value="Program">Program</option>
                                 @endif
 
                                 <option class="text-center" value="">-- Marketing --</option>
@@ -202,43 +205,28 @@
                                 @endif
 
                                 <option class="text-center" value="">-- Operation --</option>
-                                @if (Auth::user()->unit != "Admin")
-                                <option value="Admin">Admin</option>
+                                @if (Auth::user()->unit != "Admin & Procurement")
+                                <option value="Admin & Procurement">Admin & Procurement</option>
                                 @endif
-                                @if (Auth::user()->unit != "Event Management")
-                                <option value="Event Management">Event Management</option>
+                                @if (Auth::user()->unit != "Backstage")
+                                <option value="Backstage">Backstage</option>
                                 @endif
                                 @if (Auth::user()->unit != "Inventory & Logistic")
                                 <option value="Inventory & Logistic">Inventory & Logistic</option>
-                                @endif
-                                @if (Auth::user()->unit != "Procurement")
-                                <option value="Procurement">Procurement</option>
                                 @endif
                                 @if (Auth::user()->unit != "General Worker")
                                 <option value="General Worker">General Worker</option>
                                 @endif
 
                                 <option class="text-center" value="">-- High Network Client (HNC) --</option>
-                                @if (Auth::user()->unit != "Sales Assistant (Ultimate)")
-                                <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
+                                @if (Auth::user()->unit != "Platinum")
+                                <option value="Platinum">Platinum</option>
                                 @endif
-                                @if (Auth::user()->unit != "Ultimate Coach Assistant")
-                                <option value="Ultimate Coach Assistant">Ultimate Coach Assistant</option>
+                                @if (Auth::user()->unit != "Ultimate")
+                                <option value="Ultimate">Ultimate</option>
                                 @endif
-                                @if (Auth::user()->unit != "Platinum Executive")
-                                <option value="Platinum Executive">Platinum Executive</option>
-                                @endif
-                                @if (Auth::user()->unit != "Sales Assistant (Platinum)")
-                                <option value="Sales Assistant (Platinum)">Sales Assistant (Platinum)</option>
-                                @endif
-                                @if (Auth::user()->unit != "Graphic Designer")
-                                <option value="Graphic Designer">Graphic Designer</option>
-                                @endif
-                                @if (Auth::user()->unit != "Content Writer")
-                                <option value="Content Writer">Content Writer</option>
-                                @endif
-                                @if (Auth::user()->unit != "Social Media Executive")
-                                <option value="Social Media Executive">Social Media Executive</option>
+                                @if (Auth::user()->unit != "Graphic")
+                                <option value="Graphic">Graphic</option>
                                 @endif
 
                                 <option class="text-center" value="">-- Research & Development (R&D) --</option>
@@ -248,8 +236,8 @@
                                 @if (Auth::user()->unit != "Web Developer")
                                 <option value="Web Developer">Web Developer</option>
                                 @endif
-                                @if (Auth::user()->unit != "Data Analyst")
-                                <option value="Data Analyst">Data Analyst</option>
+                                @if (Auth::user()->unit != "Data Analytic")
+                                <option value="Data Analytic">Data Analytic</option>
                                 @endif
 
                             </select>

@@ -19,10 +19,10 @@
                                     @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div> --}}
                                 <div class="mb-3">
-                                    <label for="ic">{{ __('Identity Card') }}</label>
+                                    <label for="ic">{{ __('IC Number') }}</label>
                                     <div class="@error('ic')border border-danger rounded-3 @enderror">
                                         <input wire:model="ic" id="ic" type="ic" class="form-control"
-                                            placeholder="Identity Card" aria-label="Ic" aria-describedby="ic-addon">
+                                            placeholder="IC Number" aria-label="Ic" aria-describedby="ic-addon">
                                     </div>
                                     @error('ic') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div>

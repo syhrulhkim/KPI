@@ -37,7 +37,7 @@
                             <div class="mb-3">
                                 <div class="@error('ic')border border-danger rounded-3 @enderror">
                                     <input wire:model="ic" id="ic" type="ic" class="form-control"
-                                        placeholder="Identity Card" aria-label="Ic" aria-describedby="ic-addon">
+                                        placeholder="IC Number" aria-label="Ic" aria-describedby="ic-addon">
                                 </div>
                                 @error('ic') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
@@ -95,6 +95,7 @@
                                         {{-- Head Department --}}
                                         <option class="text-center" value="">-- Others --</option>
                                         <option value="Head Department">Head Department</option>
+                                        <option value="Senior Leadership Team">Senior Leadership Team</option>
                                         {{-- CEO Office --}}
                                         <option class="text-center" value="">-- CEO Office --</option>
                                         <option value="Personal Assistant">Personal Assistant</option>
@@ -112,35 +113,31 @@
                                         <option value="Account Payable">Account Payable</option>
                                         {{-- Sales --}}
                                         <option class="text-center" value="">-- Sales --</option>
-                                        <option value="Customer Success Relation">Customer Success Relation</option>
-                                        <option value="Basic Program">Basic Program</option>
+                                        <option value="Customer Support & Closing">Customer Support & Closing</option>
+                                        <option value="Program">Program</option>
                                         {{-- Marketing --}}
                                         <option class="text-center" value="">-- Marketing --</option>
-                                        <option value="Creative Director">Creative Director</option>
-                                        <option value="Media Director">Media Director</option>
+                                        <option value="Creative & Branding">Creative & Branding</option>
+                                        <option value="Content">Content</option>
+                                        <option value="Media">Media</option>
                                         <option value="Social Media">Social Media</option>
                                         <option value="Digital Marketer">Digital Marketer</option>
                                         {{-- Operation --}}
                                         <option class="text-center" value="">-- Operation --</option>
-                                        <option value="Admin">Admin</option>
-                                        <option value="Event Management">Event Management</option>
+                                        <option value="Admin & Procurement">Admin & Procurement</option>
+                                        <option value="Backstage">Backstage</option>
                                         <option value="Inventory & Logistic">Inventory & Logistic</option>
-                                        <option value="Procurement">Procurement</option>
                                         <option value="General Worker">General Worker</option>
                                         {{-- HNC --}}
                                         <option class="text-center" value="">-- High Network Client (HNC) --</option>
-                                        <option value="Sales Assistant (Ultimate)">Sales Assistant (Ultimate)</option>
-                                        <option value="Ultimate Coach Assistant">Ultimate Coach Assistant</option>
-                                        <option value="Platinum Executive">Platinum Executive</option>
-                                        <option value="Sales Assistant (Platinum)">Sales Assistant (Platinum)</option>
-                                        <option value="Graphic Designer">Graphic Designer</option>
-                                        <option value="Content Writer">Content Writer</option>
-                                        <option value="Social Media Executive">Social Media Executive</option>
+                                        <option value="Platinum">Platinum</option>
+                                        <option value="Ultimate">Ultimate</option>
+                                        <option value="Graphic">Graphic</option>
                                         {{-- R&D --}}
                                         <option class="text-center" value="">-- Research & Development (R&D) --</option>
                                         <option value="Web Designer">Web Designer</option>
                                         <option value="Web Developer">Web Developer</option>
-                                        <option value="Data Analyst">Data Analyst</option>
+                                        <option value="Data Analytic">Data Analytic</option>
                                         <option class="text-center" value="">-- Choose Unit --</option>
                                         
                                     </select>
