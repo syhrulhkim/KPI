@@ -210,12 +210,12 @@
                     <th rowspan="2">(%)</th>
                     <th rowspan="2">Measurement</th>
                     @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
-                    <th rowspan="2">Employee Score</th>
+                    <th rowspan="2">Employee Score (Enter score from 1 to 4 only)</th>
                     @else
                     @endif
 
                     @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin") || (Auth::user()->role == "hr"))
-                    <th rowspan="2">Manager Score</th>
+                    <th rowspan="2">Manager Score (Enter score from 1 to 4 only)</th>
                     @else
                     @endif
                     <th rowspan="2">Actual Score</th>
@@ -233,7 +233,7 @@
 
                     @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
                     <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
-                      <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                      <input type="text" pattern="[1-4]+" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                       @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                     </td>
                     @else
@@ -241,7 +241,7 @@
 
                     @if ((Auth::user()->role == "manager") || (Auth::user()->role == "admin") || (Auth::user()->role == "hr"))
                     <td style="word-break: break-all;" class="border-dark" class="@error('skor_penyelia') border border-danger rounded-3 @enderror">
-                      <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
+                      <input type="text" pattern="[1-4]+" maxlength="1"  class="form-control" id="skor_penyelia" name="skor_penyelia" onkeyup="masterClac();" min="0" >
                       @error('skor_penyelia') <div class="text-danger">{{ $message }}</div> @enderror
                     </td>
                     @else
@@ -419,9 +419,9 @@
           <div class="row">
             <div class="col-12">
               <div class="card ">
-                <div class="card-header pb-0">
+                {{-- <div class="card-header pb-0">
                   <h6>Performance Information</h6>
-                </div>
+                </div> --}}
                 <div class="card-body px-0 pt-0 pb-2">
                   <div class="p-0">
                     <table class="table align-items-center mb-0">
@@ -429,7 +429,7 @@
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecekapan Teras</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th>
+                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Expected Result</th> --}}
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">%</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Measurement</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee Score</th>
@@ -453,7 +453,7 @@
                               <p class="text-xs font-weight-bold mb-0" value="{{ $userss -> kecekapan_teras }}">{{ $userss -> kecekapan_teras }}</p>
                             </td>
 
-                            @if ($userss -> kecekapan_teras == "Kepimpinan Organisasi")
+                            {{-- @if ($userss -> kecekapan_teras == "Kepimpinan Organisasi")
                             <td class="text-xs font-weight-bold mb-0">
                               <span class="text-secondary text-xs font-weight-bold" value="">Pekerja yang sedar dan menyesuaikan diri dengan strategi organisasi
                                 <br>
@@ -522,7 +522,7 @@
                                 Pemimpin yang bertindak selaras dengan strategi organisasi</span>
                             </td>
                             @else
-                            @endif
+                            @endif --}}
 
                             <td class="align-middle text-center">
                               <span class="text-secondary text-xs font-weight-bold" value="{{ '20%' }}">{{ '20%' }}</span>

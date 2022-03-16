@@ -80,7 +80,7 @@
                         </td>
     
                         <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
-                          <input type="text" pattern="[0-4]+" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
+                          <input type="text" pattern="[1-4]+" maxlength="1"  class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                           @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror
                         </td>
 

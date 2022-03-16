@@ -19,15 +19,15 @@
                                 </div>
                             @endif
                             
-                            <h4 class="mb-0">{{ __('Forgot your password? Enter your identity card here') }}</h4>
+                            <h4 class="mb-0">{{ __('Forgot your password? Enter your IC number here') }}</h4>
                         </div>
                         <div class="card-body">
                             <form wire:submit.prevent="recoverPassword" action="#" method="POST" role="form text-left">
                                 <div>
-                                    <label for="ic">{{ __('Identity Card') }}</label>
+                                    <label for="ic">{{ __('IC Number') }}</label>
                                     <div class="@error('ic')border border-danger rounded-3 @enderror">
                                         <input wire:model="ic" id="ic" type="ic" class="form-control"
-                                            placeholder="Identity Card" aria-label="Identity Card" aria-describedby="ic-addon">
+                                            placeholder="IC Number" aria-label="IC Number" aria-describedby="ic-addon">
                                     </div>
                                     @error('ic') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div>

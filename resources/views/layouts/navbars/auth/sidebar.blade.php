@@ -214,7 +214,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Create KPI</span>
+                    <span class="nav-link-text ms-1">KPI</span>
                 </a>
             </li>
             @else
