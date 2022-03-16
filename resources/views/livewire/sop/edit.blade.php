@@ -54,7 +54,7 @@
                                                   <option selected class="bg-secondary text-white" value="{{ $sops->department }}" >{{ $sops->department }}</option>
                                                   <option value="CEO Office">CEO Office</option>
                                                   <option value="Human Resource (HR) & Administration">Human Resource (HR) & Administration</option>
-                                                  <option value="Finance & Admin (F&A)">Finance & Admin (F&A)</option>
+                                                  <option value="Account & Finance (A&F)">Account & Finance (A&F)</option>
                                                   <option value="Sales">Sales</option>
                                                   <option value="Marketing">Marketing</option>
                                                   <option value="Operation">Operation</option>
@@ -89,7 +89,7 @@
                                           @php $departmentviews = json_decode($sops->departmentview); @endphp
                                             <input type="checkbox" id="departmentview" name="departmentview[]" value="CEO Office" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'CEO Office') checked @endif @endforeach><label for="departmentview">CEO Office</label><br>
                                             <input type="checkbox" id="departmentview" name="departmentview[]" value="Human Resource (HR) & Administration" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'Human Resource (HR) & Administration') checked @endif @endforeach><label for="departmentview">Human Resource (HR) & Administration</label><br>
-                                            <input type="checkbox" id="departmentview" name="departmentview[]" value="Finance & Admin (F&A)" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'Finance & Admin (F&A)') checked @endif @endforeach><label for="departmentview">Finance & Admin (F&A)</label><br>
+                                            <input type="checkbox" id="departmentview" name="departmentview[]" value="Account & Finance (A&F)" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'Account & Finance (A&F)') checked @endif @endforeach><label for="departmentview">Account & Finance (A&F)</label><br>
                                             <input type="checkbox" id="departmentview" name="departmentview[]" value="Sales" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'Sales') checked @endif @endforeach><label for="departmentview">Sales</label><br>
                                             <input type="checkbox" id="departmentview" name="departmentview[]" value="Marketing" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'Marketing') checked @endif @endforeach><label for="departmentview">Marketing</label><br>
                                             <input type="checkbox" id="departmentview" name="departmentview[]" value="Operation" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'Operation') checked @endif @endforeach><label for="departmentview">Operation</label><br>
