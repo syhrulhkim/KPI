@@ -58,6 +58,7 @@ class SOP extends Component
             'part'=> $request->part,
             'description'=> $request->description,
             'sop_path' => $path,
+            'link' => $request->link,
             ]);
 
         return redirect()->back()->with('message', 'Sop has been successfully inserted');
@@ -97,6 +98,7 @@ class SOP extends Component
             'part'=> $request->part,
             'description'=> $request->description,
             'sop_path' => $path,
+            'link' => $request->link,
             ]);
         } else {
             SOP_::find($id)->update([
@@ -108,6 +110,7 @@ class SOP extends Component
                 'departmentview'=> $input['departmentview'],
                 'part'=> $request->part,
                 'description'=> $request->description,
+                'link' => $request->link,
                 ]);
         }
 

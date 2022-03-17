@@ -266,7 +266,7 @@
 </div>  
 </div>
 
-        @if (Auth::user()->role == "employee")
+    @if (Auth::user()->role == "employee" || Auth::user()->role == "dc" || Auth::user()->role == "pro")
         <div class="container-fluid py-4">
           <div class="row">
             <div class="col-md-12">
