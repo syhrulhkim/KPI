@@ -40,6 +40,7 @@ class SOP extends Component
 
         $input['departmentview'] = json_encode($request->all()['departmentview']);
 
+        if ($request->sop_path != NULL) {
         $this->sop_path = $request->sop_path;
         $filenameWithExt = $this->sop_path->getClientOriginalName();
         $extension = $this->sop_path->getClientOriginalExtension();
@@ -61,6 +62,19 @@ class SOP extends Component
             'link' => $request->link,
             ]);
 
+        } else {
+            SOP_::insert([
+                'user_id'=> auth()->user()->id,
+                'created_at'=> Carbon::now(),
+                'updated_at'=> Carbon::now(),
+                'title'=> $request->title,
+                'department'=> $request->department,
+                'departmentview'=> $input['departmentview'],
+                'part'=> $request->part,
+                'description'=> $request->description,
+                'link' => $request->link,
+                ]);
+        }
         return redirect()->back()->with('message', 'Sop has been successfully inserted');
     }
 
