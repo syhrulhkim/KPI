@@ -100,7 +100,7 @@
                                         <div class="row">
                                           <label class="font-weight-bold">Link SOP (Optional)</label>
                                           <div class="card card-plain border-radius-lg align-items-center">
-                                            <input type="text" class="form-control" id="link" name="link" value="" >
+                                            <input type="text" class="form-control" id="link" name="link" >
                                             @error('link') <div class="text-danger">{{ $message }}</div> @enderror                        
                                           </div>
                                         </div>  
@@ -114,7 +114,7 @@
                                             x-on:livewire-upload-error="isUploading = false"
                                             x-on:livewire-upload-progress="progress = $event.detail.progress">
                                         <div wire:loading wire:target="sop_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
-                                            <input type="file" wire:model="sop_path" id="sop_path" name="sop_path" class="dropify" required />
+                                            <input type="file" wire:model="sop_path" id="sop_path" name="sop_path" class="dropify" />
                                             @error('sop_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
                                             <div x-show="isUploading">
                                                 <progress max="100" x-bind:value="progress"></progress>
