@@ -132,7 +132,7 @@ class Nilai extends Component
             return view('livewire.nilai-manager.all', compact('nilai', 'users', 'date_id', 'user_id', 'year', 'month', 'status'));
         }
 
-        if (Auth::user()->role == "employee") {
+        else {
             $date_id = $this->date_id;
             $user_id = $this->user_id;
             $year = $this->year;

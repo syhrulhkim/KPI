@@ -97,24 +97,37 @@
                                             <input type="checkbox" id="departmentview" name="departmentview[]" value="Research & Development (R&D)" @foreach ($departmentviews as $departmentviewss) @if($departmentviewss == 'Research & Development (R&D)') checked @endif @endforeach><label for="departmentview">Research & Development (R&D)</label><br>
                                         </div>
                                       </div>
-                                    <div class="col-md-4 mt-2" id="sopupload">
-                                        <div class="form-group">
-                                            <label class="font-weight-bold">SOP Upload</label>
-                                            <div
-                                                x-data="{ isUploading: false, progress: 0 }"
-                                                x-on:livewire-upload-start="isUploading = true"
-                                                x-on:livewire-upload-finish="isUploading = false"
-                                                x-on:livewire-upload-error="isUploading = false"
-                                                x-on:livewire-upload-progress="progress = $event.detail.progress">
-                                            <div wire:loading wire:target="sop_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
-                                                <input type="file" wire:model="sop_path" id="sop_path" name="sop_path" class="dropify" value="{{ $sops->sop_path }}"/>
-                                                @error('sop_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
-                                                <div x-show="isUploading">
-                                                    <progress max="100" x-bind:value="progress"></progress>
-                                                </div>
+
+                                    <div class="card-body p-3">
+                                      <div class="row">
+                                        <div class="col-md-6 mb-md-0">
+                                          <div class="row">
+                                            <label class="font-weight-bold">Link SOP (Optional)</label>
+                                            <div class="card card-plain border-radius-lg align-items-center">
+                                              <input type="text" class="form-control" id="link" name="link" value="{{ $sops->link }}" >
+                                              @error('link') <div class="text-danger">{{ $message }}</div> @enderror                        
                                             </div>
+                                          </div>  
                                         </div>
+                                        <div class="col-md-6 mb-md-0">
+                                          <label class="font-weight-bold">Upload SOP (Optional)</label>
+                                          <div
+                                              x-data="{ isUploading: false, progress: 0 }"
+                                              x-on:livewire-upload-start="isUploading = true"
+                                              x-on:livewire-upload-finish="isUploading = false"
+                                              x-on:livewire-upload-error="isUploading = false"
+                                              x-on:livewire-upload-progress="progress = $event.detail.progress">
+                                          <div wire:loading wire:target="sop_path"><i class="mdi mdi-loading mdi-spin mdi-24px"></i></div>
+                                              <input type="file" wire:model="sop_path" id="sop_path" name="sop_path" class="dropify" value="{{ $sops->sop_path }}"/>
+                                              @error('sop_path') <span class="error" style="color:red"><b>{{ $message }}</b></span> @enderror
+                                              <div x-show="isUploading">
+                                                  <progress max="100" x-bind:value="progress"></progress>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
+
                                     <div class="mt-2" style="text-align: right">
                                         <div class="col-12 text-end">
                                           <button class="btn bg-gradient-dark mb-0" type="submit" href="javascript:;"><i class="fas fa-plus"></i>&nbsp;&nbsp;SAVE</button>
