@@ -112,12 +112,8 @@ class SOP extends Component
             'departmentview'=> $input['departmentview'],
             'part'=> $request->part,
             'description'=> $request->description,
-<<<<<<< Updated upstream
-            'sop_path' => $path,
             'link' => $request->link,
-=======
             'sop_path' => ''.URL::to('').$path.'',
->>>>>>> Stashed changes
             ]);
         } else {
             SOP_::find($id)->update([
