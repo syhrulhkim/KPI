@@ -103,9 +103,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -114,9 +114,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif
@@ -173,9 +173,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -184,9 +184,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif
@@ -242,9 +242,9 @@
                       </td>
                       <td class="text-xs font-weight-bold">
                         @if ($kpis->bukti_path == '')
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                         @else
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                         @endif
                       </td>
                     @else
@@ -253,9 +253,9 @@
                       </td>
                       <td class="text-xs font-weight-bold good">
                         @if ($kpis->bukti_path == '')
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                         @else
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                         @endif
                       </td>
                     @endif
@@ -311,9 +311,9 @@
                     </td>
                     <td class="text-xs font-weight-bold">
                       @if ($kpis->bukti_path == '')
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                       @endif
                     </td>
                   @else
@@ -322,9 +322,9 @@
                     </td>
                     <td class="text-xs font-weight-bold good">
                       @if ($kpis->bukti_path == '')
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                       @endif
                     </td>
                   @endif
@@ -380,9 +380,9 @@
                   </td>
                   <td class="text-xs font-weight-bold">
                     @if ($kpis->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                 @else
@@ -391,9 +391,9 @@
                   </td>
                   <td class="text-xs font-weight-bold good">
                     @if ($kpis->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                 @endif
@@ -449,9 +449,9 @@
                 </td>
                 <td class="text-xs font-weight-bold">
                   @if ($kpis->bukti_path == '')
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                   @else
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                   @endif
                 </td>
               @else
@@ -460,9 +460,9 @@
                 </td>
                 <td class="text-xs font-weight-bold good">
                   @if ($kpis->bukti_path == '')
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                   @else
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                   @endif
                 </td>
               @endif
@@ -518,9 +518,9 @@
               </td>
               <td class="text-xs font-weight-bold">
                 @if ($kpis->bukti_path == '')
-                <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                 @else
-                <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                 @endif
               </td>
             @else
@@ -529,9 +529,9 @@
               </td>
               <td class="text-xs font-weight-bold good">
                 @if ($kpis->bukti_path == '')
-                <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                 @else
-                <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                 @endif
               </td>
             @endif
@@ -587,9 +587,9 @@
             </td>
             <td class="text-xs font-weight-bold">
               @if ($kpis->bukti_path == '')
-              <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+              <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
               @else
-              <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+              <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
               @endif
             </td>
           @else
@@ -598,9 +598,9 @@
             </td>
             <td class="text-xs font-weight-bold good">
               @if ($kpis->bukti_path == '')
-              <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+              <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
               @else
-              <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+              <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
               @endif
             </td>
           @endif
@@ -656,9 +656,9 @@
           </td>
           <td class="text-xs font-weight-bold">
             @if ($kpis->bukti_path == '')
-            <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+            <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
             @else
-            <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+            <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
             @endif
           </td>
         @else
@@ -667,9 +667,9 @@
           </td>
           <td class="text-xs font-weight-bold good">
             @if ($kpis->bukti_path == '')
-            <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+            <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
             @else
-            <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+            <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
             @endif
           </td>
         @endif
@@ -725,9 +725,9 @@
         </td>
         <td class="text-xs font-weight-bold">
           @if ($kpis->bukti_path == '')
-          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
           @else
-          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
           @endif
         </td>
       @else
@@ -736,9 +736,9 @@
         </td>
         <td class="text-xs font-weight-bold good">
           @if ($kpis->bukti_path == '')
-          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
           @else
-          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
           @endif
         </td>
       @endif
@@ -794,9 +794,9 @@
       </td>
       <td class="text-xs font-weight-bold">
         @if ($kpis->bukti_path == '')
-        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
         @else
-        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
         @endif
       </td>
     @else
@@ -805,9 +805,9 @@
       </td>
       <td class="text-xs font-weight-bold good">
         @if ($kpis->bukti_path == '')
-        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
         @else
-        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
         @endif
       </td>
     @endif
@@ -863,9 +863,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -874,9 +874,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif
@@ -932,9 +932,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -943,9 +943,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif
@@ -1001,9 +1001,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -1012,9 +1012,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif
@@ -1070,9 +1070,9 @@
                       </td>
                       <td class="text-xs font-weight-bold">
                         @if ($kpis->bukti_path == '')
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                         @else
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                         @endif
                       </td>
                     @else
@@ -1081,9 +1081,9 @@
                       </td>
                       <td class="text-xs font-weight-bold good">
                         @if ($kpis->bukti_path == '')
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                         @else
-                        <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                        <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                         @endif
                       </td>
                     @endif
@@ -1139,9 +1139,9 @@
                     </td>
                     <td class="text-xs font-weight-bold">
                       @if ($kpis->bukti_path == '')
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                       @endif
                     </td>
                   @else
@@ -1150,9 +1150,9 @@
                     </td>
                     <td class="text-xs font-weight-bold good">
                       @if ($kpis->bukti_path == '')
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                       @else
-                      <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                      <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                       @endif
                     </td>
                   @endif
@@ -1208,9 +1208,9 @@
                   </td>
                   <td class="text-xs font-weight-bold">
                     @if ($kpis->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                 @else
@@ -1219,9 +1219,9 @@
                   </td>
                   <td class="text-xs font-weight-bold good">
                     @if ($kpis->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                 @endif
@@ -1277,9 +1277,9 @@
                 </td>
                 <td class="text-xs font-weight-bold">
                   @if ($kpis->bukti_path == '')
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                   @else
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                   @endif
                 </td>
               @else
@@ -1288,9 +1288,9 @@
                 </td>
                 <td class="text-xs font-weight-bold good">
                   @if ($kpis->bukti_path == '')
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                   @else
-                  <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                  <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                   @endif
                 </td>
               @endif
@@ -1346,9 +1346,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -1357,9 +1357,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif
@@ -1415,9 +1415,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -1426,9 +1426,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif
@@ -1484,9 +1484,9 @@
                         </td>
                         <td class="text-xs font-weight-bold">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @else
@@ -1495,9 +1495,9 @@
                         </td>
                         <td class="text-xs font-weight-bold good">
                           @if ($kpis->bukti_path == '')
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                           @else
-                          <a href=" {{ URL::to(''.$kpis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                          <a href=" {{  $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                           @endif
                         </td>
                       @endif

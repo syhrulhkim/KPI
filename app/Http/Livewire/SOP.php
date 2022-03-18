@@ -8,6 +8,7 @@ use App\Models\Department;
 use Illuminate\Support\Carbon;
 use Livewire\WithFileUploads;
 use Illuminate\Http\Request;
+use URL;
 
 class SOP extends Component
 {
@@ -58,8 +59,8 @@ class SOP extends Component
             'departmentview'=> $input['departmentview'],
             'part'=> $request->part,
             'description'=> $request->description,
-            'sop_path' => $path,
             'link' => $request->link,
+            'sop_path' => ''.URL::to('').$path.'',
             ]);
 
         } else {
@@ -111,8 +112,12 @@ class SOP extends Component
             'departmentview'=> $input['departmentview'],
             'part'=> $request->part,
             'description'=> $request->description,
+<<<<<<< Updated upstream
             'sop_path' => $path,
             'link' => $request->link,
+=======
+            'sop_path' => ''.URL::to('').$path.'',
+>>>>>>> Stashed changes
             ]);
         } else {
             SOP_::find($id)->update([

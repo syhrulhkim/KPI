@@ -16,8 +16,9 @@ class MemoNotification extends Notification
      *
      * @return void
      */
-    public function __construct($title)
+    public function __construct($memoId, $title)
     {
+        $this->memoId = $memoId;
         $this->title = $title;
     }
 

@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Carbon;
 use App\Models\Date_;
+use URL;
 
 class KPI extends Component
 {
@@ -66,10 +67,14 @@ class KPI extends Component
 
     public function mount($date_id, $user_id, $year, $month)
     { 
-        $this->date_id = $date_id;
-        $this->user_id = $user_id;
-        $this->year = $year;
-        $this->month = $month;
+        if(auth()->user()) {
+            $this->date_id = $date_id;
+            $this->user_id = $user_id;
+            $this->year = $year;
+            $this->month = $month;
+        } else {
+            return redirect()->to('/');
+        }
     }
 
     public function kpi_master_edit1($id, $date_id, $user_id, $year, $month) {
@@ -883,7 +888,8 @@ class KPI extends Component
             'pencapaian'=> $request->pencapaian,
             'skor_KPI'=> $request->skor_KPI,
             'skor_sebenar'=> $request->skor_sebenar,
-            'bukti_path'=> $path,
+            // 'bukti_path'=> $path,
+            'bukti_path'=> ''.URL::to('').$path.'',
             'kpimaster_id' => count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0',
             ]);
         }else   {
@@ -959,7 +965,7 @@ class KPI extends Component
                 'pencapaian'=> $request->pencapaian,
                 'skor_KPI'=> $request->skor_KPI,
                 'skor_sebenar'=> $request->skor_sebenar,
-                'bukti_path'=> $path,
+                'bukti_path'=> ''.URL::to('').$path.'',
             ]);
         }
 

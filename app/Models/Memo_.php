@@ -14,6 +14,7 @@ class Memo_ extends Model
         'title',
         'memo_path',
         'user_id',
+        'description'
     ];
 
     public function user(){
