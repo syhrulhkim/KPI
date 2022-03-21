@@ -20,7 +20,7 @@ class ForgotPassword extends Component
     public $showDemoNotification = false;
 
     protected $rules = [
-        'ic' => 'required|min:12',
+        'ic' => 'required|min:12|unique:users',
     ];  
 
     public function mount() {

@@ -228,7 +228,7 @@
                       <tr>
                           <th rowspan="2">(%)</th>
                           <th rowspan="2">Measurement</th>
-                          @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
+                          @if ((Auth::user()->role == "employee") || (Auth::user()->role == "pro") || (Auth::user()->role == "dc") || (Auth::user()->role == "admin"))
                           <th rowspan="2">Employee Score</th>
                           @else
                           @endif
@@ -251,7 +251,7 @@
                           <input type="text"  class="form-control" id="ukuran" name="ukuran" value="Percentage" selected readonly>
                         </td>
 
-                        @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
+                        @if ((Auth::user()->role == "employee") || (Auth::user()->role == "pro") || (Auth::user()->role == "dc") || (Auth::user()->role == "admin"))
                         <td style="word-break: break-all;" class="border-dark" class="@error('skor_pekerja') border border-danger rounded-3 @enderror">
                           <input type="text" pattern="[1-4]+" maxlength="1" class="form-control" id="skor_pekerja" name="skor_pekerja" onkeyup="masterClac();" min="0" >
                           @error('skor_pekerja') <div class="text-danger">{{ $message }}</div> @enderror

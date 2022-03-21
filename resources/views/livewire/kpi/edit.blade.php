@@ -156,7 +156,7 @@
                           <option value="Ratio" >Ratio</option>
                           <option value="Rating" >Rating</option>
                           <option value="Percentage (%)" >Percentage(%)</option>  
-                          <option value="Date (dd/mm/yyyy)"  >Date (dd/mm/yyyy)</option>
+                          <option value="Date (number of days)"  >Date (number of days)</option>
                           <option value="Hours" >Hours</option> 
                           <option value="RM (billion)" >RM (billion)</option>
                           <option value="RM (million)" >RM (million)</option> 
