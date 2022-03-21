@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('layouts.navbars.auth.nav', function ($view) {
-            $view->with('user', User::find(auth()->user()->id));
+            $view->with('user', User::find(auth()->user()->id) );
         });
     }
 }

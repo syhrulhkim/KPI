@@ -24,7 +24,7 @@ class ResetPassword extends Component
     public $urlID = '';
 
     protected $rules = [
-        'ic' => 'required|ic',
+        'ic' => 'required|ic|unique:users',
         'password' => 'required|min:6|same:passwordConfirmation'
     ];  
 

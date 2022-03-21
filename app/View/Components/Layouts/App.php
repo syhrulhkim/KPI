@@ -24,8 +24,9 @@ class App extends Component
      */
     public function render()
     {
-        $user = User::find(auth()->user()->id);
-        dd($user);
+        $user = User::find(auth()->user()->id)->orderBy('created_at','desc')->take(3)->get();
+        // $memo = Memo_::orderBy('created_at','desc')->take(3)->get();
+        // dd($user);
         return view('layouts.app')->with(compact('user'));
     }
 }

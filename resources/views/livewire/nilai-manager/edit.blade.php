@@ -51,7 +51,7 @@
                   <tr>
                     <th rowspan="2">Peratus (%)</th>
                     <th rowspan="2">Measurement</th>
-                    @if ((Auth::user()->role == "employee") || (Auth::user()->role == "admin"))
+                    @if ((Auth::user()->role == "employee") || (Auth::user()->role == "pro") || (Auth::user()->role == "dc") || (Auth::user()->role == "admin"))
                     <th rowspan="2">Employee Score</th>
                     @else
                     @endif

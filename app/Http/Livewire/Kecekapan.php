@@ -51,10 +51,14 @@ class Kecekapan extends Component
 
     public function mount($date_id, $user_id, $year, $month)
     { 
-        $this->date_id = $date_id;
-        $this->user_id = $user_id;
-        $this->year = $year;
-        $this->month = $month;
+        if(auth()->user()) {
+            $this->date_id = $date_id;
+            $this->user_id = $user_id;
+            $this->year = $year;
+            $this->month = $month;
+        } else {
+            return redirect()->to('/');
+        }
     }
 
     public function kecekapan_save(Request $request, $date_id, $user_id, $year, $month){

@@ -83,7 +83,7 @@ class KecekapanManager extends Component
         return redirect('manager-hr/view/kpi/'.$id_user.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'Skor penyelia Updated Successfully');
     }
 
-        public function render()
+    public function render()
     {
         $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('kecekapan_teras')->get();
         $userdepartment = auth()->user()->department;

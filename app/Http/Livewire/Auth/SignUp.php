@@ -22,7 +22,7 @@ class SignUp extends Component
     protected $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email:rfc,dns|unique:users',
-        'ic' => 'required|min:12',
+        'ic' => 'required|min:12|unique:users',
         'password' => 'required|min:6',
         'nostaff' => 'required|min:3',
         'position' => 'required|min:3',
