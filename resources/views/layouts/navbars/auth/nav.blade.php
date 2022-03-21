@@ -47,18 +47,28 @@
                 <ul class="navbar-nav justify-content-end">
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Notification <span class="caret"></span>
+                        <i class="fa fa-bell"></i><b>{{ $user->notifications->count() }}</b> Notification<span class="caret"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown" width="100px" height="100px">
-                            @forelse ($user->notifications as $notification)
-                                @if (strlen($notification) > 14)
-                                    <a href="http://kpi.test/memo">New Memo {{ substr($notification->data['title'], 0,14) . '..' }}</a>
-                                @else
-                                    <a href="http://kpi.test/memo">{{ $notification->data['title'] }} = {{ $notification }}</a>
-                                @endif
-                            @empty
+                        <div  class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown" width="100px" height="100px">
+                            @if ($user->notifications->count() > 0)
+                                @foreach ($user->unreadNotifications as $notification)
+                                    @if (strlen($notification) > 14)
+                                        <a href="/memo" style="background-color: lightgray">New Memo {{ substr($notification->data['title'], 0,14) . '..' }}</a><br>
+                                    @else
+                                        <a href="/memo">{{ $notification->data['title'] }} = {{ $notification }}</a><br>
+                                    @endif
+                                @endforeach
+
+                                @foreach ($user->readNotifications as $notification)
+                                    @if (strlen($notification) > 14)
+                                        <a href="/memo">{{ substr($notification->data['title'], 0,14) . '..' }}</a><br>
+                                    @else
+                                        <a href="/memo">{{ $notification->data['title'] }} = {{ $notification }}</a><br>
+                                    @endif
+                                @endforeach
+                            @else
                                 <a class="dropdown-item">No Memo found</a>
-                            @endforelse
+                            @endif
                         </div>
                     </li>
                     <li class="nav-item d-flex align-items-center">

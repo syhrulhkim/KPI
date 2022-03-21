@@ -258,9 +258,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kadskors->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kadskors->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kadskors->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kadskors->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kadskors->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -378,9 +378,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -498,9 +498,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -618,9 +618,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -738,9 +738,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -858,9 +858,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -978,9 +978,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1098,9 +1098,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1218,9 +1218,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1338,9 +1338,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1458,9 +1458,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kewangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kewangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kewangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1578,9 +1578,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($pelangganIs->bukti_path == '')
-                    <a href=" {{ URL::to(''.$pelangganIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $pelangganIs->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$pelangganIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $pelangganIs->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1698,9 +1698,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($pelangganIIs->bukti_path == '')
-                    <a href=" {{ URL::to(''.$pelangganIIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $pelangganIIs->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$pelangganIIs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $pelangganIIs->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1818,9 +1818,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kecemerlangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -1938,9 +1938,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kecemerlangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -2058,9 +2058,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kecemerlangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -2178,9 +2178,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kecemerlangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -2298,9 +2298,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kecemerlangans->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kecemerlangans->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kecemerlangans->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -2417,9 +2417,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($trainings->bukti_path == '')
-                    <a href=" {{ URL::to(''.$trainings->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $trainings->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$trainings->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $trainings->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -2536,9 +2536,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($ncrs->bukti_path == '')
-                    <a href=" {{ URL::to(''.$ncrs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $ncrs->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$ncrs->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $ncrs->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>
@@ -2655,9 +2655,9 @@ input[type=file]::file-selector-button:hover {
                   </td>
                   <td>
                     @if ($kolaborasis->bukti_path == '')
-                    <a href=" {{ URL::to(''.$kolaborasis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
+                    <a href=" {{  $kolaborasis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
                     @else
-                    <a href=" {{ URL::to(''.$kolaborasis->bukti_path.'') }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+                    <a href=" {{  $kolaborasis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
                     @endif
                   </td>
                   <td>

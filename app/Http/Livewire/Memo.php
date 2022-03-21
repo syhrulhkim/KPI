@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Carbon;
 use App\Notifications\MemoNotification;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Notifications\DatabaseNotification;
+use Notification;
+use URL;
 
 class Memo extends Component
 {
@@ -43,16 +45,17 @@ class Memo extends Component
         $this->memo_path->storeAs('public' . DIRECTORY_SEPARATOR . 'filememo', $fileNameToStore);
         $path = '' . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'filememo' . DIRECTORY_SEPARATOR . '' . $fileNameToStore;
 
-        Memo_::insert([
+        $newMemo = Memo_::create([
             'user_id'=> auth()->user()->id,
             'created_at'=> Carbon::now(),
             'updated_at'=> Carbon::now(),
             'title'=> $request->title,
             'description'=> $request->description,
-            'memo_path' => $path,
+            'memo_path' => ''.URL::to('').$path.'',
             ]);
+        
         $user = User::all();
-        Notification::send($user, new MemoNotification($request->title));
+        Notification::send($user, new MemoNotification($newMemo->id,$request->title));
 
         return redirect()->back()->with('message', 'Memo has been successfully inserted');
     }
@@ -81,8 +84,16 @@ class Memo extends Component
             'updated_at'=> Carbon::now(),
             'title'=> $request->title,
             'description'=> $request->description,
-            'memo_path' => $path,
+            'memo_path' => ''.URL::to('').$path.'',
             ]);
+
+            $updateNoti = DatabaseNotification::where('data->memoId', $id)->get();
+            for($i=0; $i<count($updateNoti); $i++)
+            {
+                $update = DatabaseNotification::where('data->memoId', $id);
+                $update->update(['data->title' => $request->title]);
+            }
+
         } else {
             Memo_::find($id)->update([
                 'user_id'=> auth()->user()->id,
@@ -91,11 +102,25 @@ class Memo extends Component
                 'title'=> $request->title,
                 'description'=> $request->description,
                 ]);
+            
+            $updateNoti = DatabaseNotification::where('data->memoId', $id)->get();
+            for($i=0; $i<count($updateNoti); $i++)
+            {
+                $update = DatabaseNotification::where('data->memoId', $id);
+                $update->update(['data->title' => $request->title]);
+            }
         }
 
         return redirect('/memo')->with('message', 'Memo Updated Successfully');
     }
 
+    //add
+    public function readNotification() {
+        $user = Auth::user();
+        $user->unreadNotifications()->update(['read_at' => now()]);
+
+        return redirect()->back();
+    }
 
     public function render()
     {

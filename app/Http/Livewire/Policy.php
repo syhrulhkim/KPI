@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Policy_;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
+use URL;
 
 class Policy extends Component
 {
@@ -46,7 +47,7 @@ class Policy extends Component
             'updated_at'=> Carbon::now(),
             'title'=> $request->title,
             'description'=> $request->description,
-            'policy_path' => $path,
+            'policy_path' => ''.URL::to('').$path.'',
             ]);
 
         return redirect()->back()->with('message', 'Policy has been successfully inserted');
@@ -76,7 +77,7 @@ class Policy extends Component
             'updated_at'=> Carbon::now(),
             'title'=> $request->title,
             'description'=> $request->description,
-            'policy_path' => $path,
+            'policy_path' => ''.URL::to('').$path.'',
             ]);
         } else {
             Policy_::find($id)->update([
