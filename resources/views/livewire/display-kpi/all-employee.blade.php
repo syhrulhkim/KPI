@@ -799,7 +799,7 @@
           @if ($kpis->bukti_path == '')
           <a href=" {{ $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank"></a>
           @else
-          <a href=" {{ kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
+          <a href=" {{ $kpis->bukti_path }}" style="color:blue;text-decoration:underline;font-size:13.5px"; target="_blank">View</a>
           @endif
         </td>
       @endif
