@@ -989,6 +989,202 @@ class KPI extends Component
             ]);
         }
 
+        if (KPIAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->count() == 1) {
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
+            $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
+            $total_score_master = KPIMaster_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
+            $grade = '';
+            if ($total_score_master >= 80 ) {
+                $grade = 'PLATINUM';
+            }
+            elseif ($total_score_master >= 75 && $total_score_master <= 79.99) {
+                $grade = 'HIGH GOLD';
+            }
+            elseif ($total_score_master >= 70 && $total_score_master <= 74.99) {
+                $grade = 'MID GOLD';
+            }
+            elseif ($total_score_master >= 65 && $total_score_master <= 69.99) {
+                $grade = 'LOW GOLD';
+            }
+            elseif ($total_score_master >= 60 && $total_score_master <= 64.99) {
+                $grade = 'HIGH SILVER';
+            }
+            elseif ($total_score_master >= 50 && $total_score_master <= 59.99) {
+                $grade = 'LOW SILVER';
+            }
+            elseif ($total_score_master >= 1 && $total_score_master <= 49.99) {
+                $grade = 'BRONZE';
+            }
+            else {
+                $grade = 'NO GRED';
+            }
+            $weightage = KPIMaster_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('percent_master');
+            $total_score_kecekapan = Kecekapan_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
+            $total_score_nilai = Nilai_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
+            $total_score_all = ($total_score_kecekapan*0.1) + (($total_score_nilai/1.2)*0.1) + ($total_score_master*0.8);
+            $grade_all = '';
+            if ($total_score_all >= 80 ) {
+                $grade_all = 'PLATINUM';
+            }
+            elseif ($total_score_all >= 75 && $total_score_all <= 79.99) {
+                $grade_all = 'HIGH GOLD';
+            }
+            elseif ($total_score_all >= 70 && $total_score_all <= 74.99) {
+                $grade_all = 'MID GOLD';
+            }
+            elseif ($total_score_all >= 65 && $total_score_all <= 69.99) {
+                $grade_all = 'LOW GOLD';
+            }
+            elseif ($total_score_all >= 60 && $total_score_all <= 64.99) {
+                $grade_all = 'HIGH SILVER';
+            }
+            elseif ($total_score_all >= 50 && $total_score_all <= 59.99) {
+                $grade_all = 'LOW SILVER';
+            }
+            elseif ($total_score_all >= 1 && $total_score_all <= 49.99) {
+                $grade_all = 'BRONZE';
+            }
+            else {
+                $grade_all = 'NO GRED';
+            }
+            KPIAll_::find($kpiall_id)->update([
+                'total_score_master'=>  $total_score_master,
+                'grade_master'=>  $grade,
+                'weightage_master'=>  $weightage,
+                'total_score_all'=>  $total_score_all,
+                'grade_all'=>  $grade_all,
+                'updated_at'=> Carbon::now(),
+            ]);
+        }
+        else {
+            KPIAll_::insert([              
+                'user_id'=> Auth::user()->id,
+                'created_at'=> Carbon::now(),
+                'year'=>  $year,
+                'month'=>  $month,
+            ]);
+        }
+
+        if (KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->count() == 1) {
+            $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
+            $kpimasters_id = count($kpimasters) > 0 ? $kpimasters->sortByDesc('created_at')->first()->id : '0';
+            $total_score = KPI_::where('fungsi', $request->fungsi)->where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
+            $percent_master = DB::table('kpi_master')->where('id', '=', $kpimasters_id)->where('year', '=', $year)->where('month', '=', $month)->value('percent_master');
+            $skor_kpi = 0;
+            $skor_sebenar = 0;
+ 
+            if ($total_score < 30 ) {
+                $skor_kpi = 0;
+                $skor_sebenar = 0;
+            }
+            elseif ($total_score >= 30 && $total_score < 65) {
+                $value1 = $total_score - 30;
+                $value2 = 65 - 30;
+                $skor_kpi = ((($value1/$value2)*35)+30);
+                $skor_sebenar = (($percent_master/100)*$skor_kpi);
+            }
+            elseif ($total_score >= 65 && $total_score < 100) {
+                $value1 = $total_score - 65;
+                $value2 = 100 - 65;
+                $skor_kpi = ((($value1/$value2)*35)+65);
+                $skor_sebenar = (($percent_master/100)*$skor_kpi);
+            }
+            elseif ($total_score >= 100) {
+                $skor_kpi = 100;
+                $skor_sebenar = (($percent_master/100)*$skor_kpi);
+            }
+
+            KPIMaster_::find($kpimasters_id)->update([
+                'pencapaian'=>  $total_score,
+                'skor_KPI'=>  $skor_kpi,
+                'skor_sebenar'=>  $skor_sebenar,
+                'kpiall_id'=>  count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0',
+                'updated_at'=> Carbon::now(),
+            ]);
+        }
+        else {
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
+            $kpimaster = KPIMaster_::insert([
+                'created_at'=> Carbon::now(),
+                'fungsi'=> $request->fungsi,
+                'user_id'=> Auth::user()->id,
+                'pencapaian'=> $request->skor_sebenar,
+                'kpiall_id'=>  count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0',
+                'year'=>  $year,
+                'month'=>  $month,
+            ]);
+        }
+        if (KPIAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->count() == 1) {
+            $kpiall = KPIAll_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
+            $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
+            $total_score_master = KPIMaster_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
+            $grade = '';
+            if ($total_score_master >= 80 ) {
+                $grade = 'PLATINUM';
+            }
+            elseif ($total_score_master >= 75 && $total_score_master <= 79.99) {
+                $grade = 'HIGH GOLD';
+            }
+            elseif ($total_score_master >= 70 && $total_score_master <= 74.99) {
+                $grade = 'MID GOLD';
+            }
+            elseif ($total_score_master >= 65 && $total_score_master <= 69.99) {
+                $grade = 'LOW GOLD';
+            }
+            elseif ($total_score_master >= 60 && $total_score_master <= 64.99) {
+                $grade = 'HIGH SILVER';
+            }
+            elseif ($total_score_master >= 50 && $total_score_master <= 59.99) {
+                $grade = 'LOW SILVER';
+            }
+            elseif ($total_score_master >= 1 && $total_score_master <= 49.99) {
+                $grade = 'BRONZE';
+            }
+            else {
+                $grade = 'NO GRED';
+            }
+            $weightage = KPIMaster_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('percent_master');
+            $total_score_kecekapan = Kecekapan_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
+            $total_score_nilai = Nilai_::where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->sum('skor_sebenar');
+            $total_score_all = ($total_score_kecekapan*0.1) + (($total_score_nilai/1.2)*0.1) + ($total_score_master*0.8);
+            $grade_all = '';
+            if ($total_score_all >= 80 ) {
+                $grade_all = 'PLATINUM';
+            }
+            elseif ($total_score_all >= 75 && $total_score_all <= 79.99) {
+                $grade_all = 'HIGH GOLD';
+            }
+            elseif ($total_score_all >= 70 && $total_score_all <= 74.99) {
+                $grade_all = 'MID GOLD';
+            }
+            elseif ($total_score_all >= 65 && $total_score_all <= 69.99) {
+                $grade_all = 'LOW GOLD';
+            }
+            elseif ($total_score_all >= 60 && $total_score_all <= 64.99) {
+                $grade_all = 'HIGH SILVER';
+            }
+            elseif ($total_score_all >= 50 && $total_score_all <= 59.99) {
+                $grade_all = 'LOW SILVER';
+            }
+            elseif ($total_score_all >= 1 && $total_score_all <= 49.99) {
+                $grade_all = 'BRONZE';
+            }
+            else {
+                $grade_all = 'NO GRED';
+            }
+            KPIAll_::find($kpiall_id)->update([
+                'total_score_master'=>  $total_score_master,
+                'grade_master'=>  $grade,
+                'weightage_master'=>  $weightage,
+                'total_score_all'=>  $total_score_all,
+                'grade_all'=>  $grade_all,
+                'updated_at'=> Carbon::now(),
+            ]);
+        }
+
+        $kpimasters = KPIMaster_::where('fungsi', '=', $request->fungsi)->where('user_id', '=', Auth::user()->id)->where('year', '=', $year)->where('month', '=', $month)->get();
+
         return redirect('employee/kpi/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'KPI Updated Successfully');
     }
     

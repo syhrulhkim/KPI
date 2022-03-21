@@ -560,7 +560,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster13/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -680,7 +680,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster14/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -800,7 +800,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster15/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -920,7 +920,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster16/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -1040,7 +1040,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster17/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -1160,7 +1160,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster18/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -1280,7 +1280,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster19/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -1400,7 +1400,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster20/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -1520,7 +1520,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kewanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster2/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster21/'.$kewanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -2000,7 +2000,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster9/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -2120,7 +2120,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster10/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -2240,7 +2240,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster11/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
@@ -2360,7 +2360,7 @@ input[type=file]::file-selector-button:hover {
                     <span class="text-xs">KPI Objective :<span class="text-dark ms-sm-1 font-weight-bold">{{ $kecemerlanganmasters -> objektif }}</span></span>
                   </div>
                   <div class="ms-auto text-end">
-                    <a href="{{ url('employee/edit/kpimaster5/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+                    <a href="{{ url('employee/edit/kpimaster12/'.$kecemerlanganmasters->id.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month) }}" class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                   </div>
                 </li>
               </ul>
