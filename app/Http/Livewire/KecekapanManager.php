@@ -15,25 +15,11 @@ use Illuminate\Support\Carbon;
 
 class KecekapanManager extends Component
 {
-    // public function kecekapan() {
-    //     $kecekapan = Kecekapan_::latest()->get();
-    //     return view('livewire.create-kecekapan', compact('kecekapan') );
-    // }
-    // public function kecekapan_save(Request $request){
-    //     $validatedData = $request->validate([
-    //         'skor_penyelia' => ['required'],
-    //     ]);
-    //     Kecekapan_::insert([
-    //     'skor_penyelia'=> $request->skor_penyelia,
-    //     'skor_sebenar' => $request->skor_sebenar,
-    //     ]);
-    //     return redirect()->back()->with('message', 'Skor penyelia berjaya ditambah!');
-    // } 
-       
     public function kecekapan_edit($id_user, $id, $date_id, $user_id, $year, $month) {
         $kecekapan = Kecekapan_::find($id);
         $user = User::find($id_user);
-        return view('livewire.form_kecekapan_manager' , compact('kecekapan', 'user', 'date_id', 'user_id', 'year', 'month'));
+
+        return view('livewire.kecekapan-manager.edit' , compact('kecekapan', 'user', 'date_id', 'user_id', 'year', 'month'));
     }
     
     public function kecekapan_update(Request $request,$id_user, $id, $date_id, $user_id, $year, $month) {
@@ -46,7 +32,6 @@ class KecekapanManager extends Component
             'skor_sebenar' => $request->skor_sebenar,
         ]);
 
-        // dd($id_user);
         if (KPIAll_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->count() == 1) {
             $kpiall = KPIAll_::where('user_id', '=', $id_user)->where('year', '=', $year)->where('month', '=', $month)->get();
             $kpiall_id = count($kpiall) > 0 ? $kpiall->sortByDesc('created_at')->first()->id : '0';
@@ -82,7 +67,6 @@ class KecekapanManager extends Component
                 $grade_all = 'NO GRED';
             }
             
-            // dd($kpiall_id);
             KPIAll_::find($kpiall_id)->update([
                 'total_score_all'=>  $total_score_all,
                 'grade_all'=>  $grade_all,
@@ -95,16 +79,16 @@ class KecekapanManager extends Component
                 'user_id'=> $id_user,
             ]);
         }
-        // return redirect()->route('kecekapan-manager')->with('message', 'Skor penyelia Updated Successfully');
-        // return redirect()->back()->with('message', 'Skor penyelia Updated Successfully');
+
         return redirect('manager-hr/view/kpi/'.$id_user.'/'.$date_id.'/'.$user_id.'/'.$year.'/'.$month)->with('message', 'Skor penyelia Updated Successfully');
     }
 
-        public function render()
+    public function render()
     {
         $kecekapan = Kecekapan_::where('user_id', '=', auth()->user()->id)->orderBy('kecekapan_teras')->get();
         $userdepartment = auth()->user()->department;
         $users = User::where([['department', '=', $userdepartment] , ['role', '=', 'employee']])->orderBy('created_at','desc')->get();
-        return view('livewire.kecekapan', compact('kecekapan', 'users'));
+        
+        return view('livewire.kecekapan.all', compact('kecekapan', 'users'));
     }
 }

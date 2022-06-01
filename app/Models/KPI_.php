@@ -9,7 +9,6 @@ class KPI_ extends Model
 {
     use HasFactory;
     protected $table = 'kpi';
-    // public $incrementing = false;
     protected $fillable = [
         'fungsi',
         'bukti',
@@ -27,9 +26,6 @@ class KPI_ extends Model
         'month',
         'bukti_path',
     ];
-    // public function buktia() {
-    //     return $this->hasOne('App\Models\bukti', 'kpi_id', 'id');
-    // }
 
     public function kpimasters() {
         return $this->hasOne('App\Models\KPIMaster_', 'id', 'kpimaster_id');

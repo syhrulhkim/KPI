@@ -1,11 +1,10 @@
-
 <x-layouts.base>
     {{-- If the user is authenticated --}}
     @auth()
         {{-- If the user is authenticated on the static sign up or the sign up page --}}
         @if (auth()->user()->role == 'admin')
             @include('layouts.navbars.auth.sidebar')
-            {{-- @include('livewire.form_kpi') --}}
+            {{-- @include('livewire.kpi.edit') --}}
             @include('layouts.navbars.auth.nav')
             @include('components.plugins.fixed-plugin')
             @if (isset($slot))
@@ -21,7 +20,6 @@
             </main>
         @else
             @include('layouts.navbars.auth.sidebar')
-            {{-- @include('livewire.form_kpi') --}}
             @include('layouts.navbars.auth.nav')
             @include('components.plugins.fixed-plugin')
             @if (isset($slot))
@@ -76,10 +74,7 @@
     <!--Custom JavaScript -->
     <script src="{{ url('assets/plugins/custom.min.js') }}"></script>
     <!-- Sweet alert -->
-    {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert2.min.js')}}"></script> --}}
-    {{-- <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script> --}}
     <script src="{{asset('assets/plugins/sweetalert/sweetalert2.min.js')}}"></script>
-    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     
     <!-- Magnific popup JavaScript -->
     <script src="{{url('assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js')}}"></script>

@@ -18,13 +18,14 @@ class UserSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Saiful',
-            'email' => 'saiful@admin.com',
-            'nostaff' => 'A999',
-            'position' => 'Manager',
-            'department' => 'COD',
-            'unit' => 'Alpha',
-            'grade' => 'A99',
-            'role' => 'admin',
+            'email' => 'saiful77@moderator.com',
+            'ic' => '990726016893',
+            'nostaff' => 'A0001',
+            'position' => 'Executive (E2)',
+            'department' => 'Human Resource (HR) & Administration',
+            'unit' => 'Training & Development',
+            'grade' => 'E2',
+            'role' => 'moderator',
             'password' => Hash::make('12345678')
         ]);
     }

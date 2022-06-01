@@ -12,7 +12,7 @@ use Livewire\Component;
 
 class ResetPassword extends Component
 {
-    public $email = '';
+    public $ic = '';
     public $password = '';
     public $passwordConfirmation = '';
 
@@ -24,7 +24,7 @@ class ResetPassword extends Component
     public $urlID = '';
 
     protected $rules = [
-        'email' => 'required|email',
+        'ic' => 'required|ic|unique:users',
         'password' => 'required|min:6|same:passwordConfirmation'
     ];  
 
@@ -35,7 +35,7 @@ class ResetPassword extends Component
 
     public function resetPassword() {
         $this->validate();
-        $existingUser = User::where('email', $this->email)->first();
+        $existingUser = User::where('ic', $this->ic)->first();
         if($existingUser && $existingUser->id == $this->urlID) { 
             $existingUser->update([
                 'password' => Hash::make($this->password) 

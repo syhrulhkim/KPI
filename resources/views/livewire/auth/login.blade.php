@@ -6,20 +6,25 @@
                     <div class="card card-plain mt-8">
                         <div class="card-header pb-0 text-left bg-transparent">
                             <h3 class="font-weight-bolder text-info text-gradient">{{ __('Welcome back') }}</h3>
-                            {{-- <p class="mb-0">{{ __('Create a new acount')}}<br></p> --}}
                             <p class="mb-0">{{__('Login with your credentials:') }}</p>
-                            {{-- <p class="mb-0">{{ __('Email ') }}<b>{{ __('admin@softui.com') }}</b></p>
-                            <p class="mb-0">{{ __('Password ') }}<b>{{ __('secret') }}</b></p> --}}
                         </div>
                         <div class="card-body">
                             <form wire:submit.prevent="login" action="#" method="POST" role="form text-left">
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label for="email">{{ __('Email') }}</label>
                                     <div class="@error('email')border border-danger rounded-3 @enderror">
                                         <input wire:model="email" id="email" type="email" class="form-control"
                                             placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                     </div>
                                     @error('email') <div class="text-danger">{{ $message }}</div> @enderror
+                                </div> --}}
+                                <div class="mb-3">
+                                    <label for="ic">{{ __('IC Number') }}</label>
+                                    <div class="@error('ic')border border-danger rounded-3 @enderror">
+                                        <input wire:model="ic" id="ic" type="ic" class="form-control"
+                                            placeholder="IC Number" aria-label="Ic" aria-describedby="ic-addon">
+                                    </div>
+                                    @error('ic') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="password">{{ __('Password') }}</label>
@@ -42,9 +47,9 @@
                             </form>
                         </div>
                         <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                            <small class="text-muted">{{ __('Forgot you password? Reset you password') }} <a
+                            {{-- <small class="text-muted">{{ __('Forgot you password? Reset you password') }} <a
                                     href="{{ route('forgot-password') }}"
-                                    class="text-info text-gradient font-weight-bold">{{ __('here') }}</a></small>
+                                    class="text-info text-gradient font-weight-bold">{{ __('here') }}</a></small> --}}
                             <p class="mb-4 text-sm mx-auto">
                                 {{ __(' Don\'t have an account?') }}
                                 <a href="{{ route('sign-up') }}"

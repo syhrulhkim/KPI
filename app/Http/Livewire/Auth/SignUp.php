@@ -10,11 +10,11 @@ class SignUp extends Component
 {
     public $name = '';
     public $email = '';
+    public $ic = '';
     public $nostaff = '';
     public $position = '';
     public $department = '';
     public $unit = '';
-    // public $grade = '';
     public $hr = '';
     public $role = '';
     public $password = '';
@@ -22,6 +22,7 @@ class SignUp extends Component
     protected $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email:rfc,dns|unique:users',
+        'ic' => 'required|min:12|unique:users',
         'password' => 'required|min:6',
         'nostaff' => 'required|min:3',
         'position' => 'required|min:3',
@@ -31,7 +32,7 @@ class SignUp extends Component
 
     public function mount() {
         if(auth()->user()){
-            redirect('/firstpage');
+            redirect('/homepage');
         }
     }
 
@@ -40,20 +41,18 @@ class SignUp extends Component
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
+            'ic' => $this->ic,
             'nostaff' => $this->nostaff,
             'position' => $this->position,
             'department' => $this->department,
             'unit' => $this->unit,
-            // 'hr' => $this->hr,
-            // 'grade' => $this->grade,
             'role' => 'employee',
-            // 'status' => 'Not Submitted',
             'password' => Hash::make($this->password)
         ]);
 
         auth()->login($user);
 
-        return redirect('/firstpage');
+        return redirect('/homepage');
     }
 
     public function render()
